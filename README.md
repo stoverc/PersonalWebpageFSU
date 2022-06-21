@@ -8,3 +8,4 @@ Nothing has been done with this site in quite some time, so having it as a GitHu
 ## Changelog
 ### 21 Jun 2022
 1. Initial commit. 
+2. Later, removed the .nb files to de-clutter the repo. Yes, I have backups.
