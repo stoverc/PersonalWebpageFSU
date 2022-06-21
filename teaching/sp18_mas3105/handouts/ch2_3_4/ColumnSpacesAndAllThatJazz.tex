@@ -1,0 +1,565 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\input{../HandoutHeader.tex}
+
+\newcommand{\matA}{\pmat{1 & 2 & 3 & 4 & 5 & 6 \\ 0 & -1 & 1 & -3 & 4 & -5 \\ 1 & 0 & 0 & 1 & -2 & -4 \\ 0 & 0 & 1 & 1 & 2 & -7}}
+\newcommand{\matAred}{\pmat{1 & 0 & 0 & 0 & -\dfrac{11}{8} & \dfrac{3}{8} \\[4.5mm] 0 & 1 & 0 & 0 & \dfrac{1}{2} & \dfrac{31}{2} \\[4.5mm] 0 & 0 & 1 & 0 & \dfrac{21}{8} & -\dfrac{21}{8} \\[4.5mm] 0 & 0 & 0 & 1 & -\dfrac{5}{8} & -\dfrac{35}{8}}}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\begin{document}
+\begin{center}
+\Large{\textbf{Column Spaces, Nullity, and all that Jazz}}
+\end{center}
+Recall that we recently defined the very important notions of \textit{subspace}, \textit{basis (of a subspace)}, and \textit{dimension (of a subspace)}. Those definitions are given here for your convenience:
+
+\vspace{3mm}
+
+\begin{adjustwidth}{6mm}{6mm}
+	\noindent\textbf{Definition 1:} A \textit{subspace} of $\Reals^n$ is a set $H$ of vectors in $\Reals^n$ which satisfies the following three properties: \begin{enumerate*}[label=(\roman*)]\item $\vect{0}\in H$; \item if $\vect{u}$ and $\vect{v}$ are in $H$, then $\vect{u}+\vect{v}\in H$; and \item if $\vect{u}\in H$, then $c\vect{u}\in H$ for all scalars $c\in\Reals$.\end{enumerate*}
+	
+	\vspace{3mm}
+	
+	\noindent\textbf{Definition 2:} A \textit{basis} of a subspace $H$ of $\Reals^n$ is a collection of vectors $\{\vect{v}_1,\ldots,\vect{v}_p\}$ from $\Reals^n$ which are linearly independent and which satisfy $\vsspan\{\vect{v}_1,\ldots,\vect{v}_p\}=H$.
+	
+	\vspace{3mm}
+	
+	\noindent\textbf{Definition 3:} The \textit{dimension} of a subspace $H$ of $\Reals^n$ is the number of vectors in any basis of $H$.
+\end{adjustwidth}
+
+\vspace{3mm}
+
+From there, we jumped in to talking about various types of subspaces in $\Reals^m$ and/or $\Reals^n$ that we can associate to an $m\times n$ matrix $\sansA$. The purpose of this handout is to give you a bit more practice with those.
+
+\subsection*{\hspace{-6.5mm}Column Space}
+\noindent\ul{What is it?} 
+
+The column space of $\sansA$ (denoted $\col(\sansA)$) is the span of the columns of $\sansA$:
+\begin{equation}
+	\label{colSpaceEq}
+	\col(\sansA)=\vsspan\{\text{the columns of $\sansA$}\}.
+\end{equation}
+
+\vspace{1.5mm}
+
+\noindent\ul{Is it a subspace? What's it a subspace of?} 
+
+Yes! The column space of an $m\times n$ matrix is a subspace of $\Reals^m$. 
+
+\vspace{6mm}
+
+\noindent\ul{What is its basis and how do you find it?}
+
+One basis for $\col(\sansA)$ consists of all the linearly independent columns of $\sansA$. To find such a basis, you 
+\begin{itemize}
+	\item consider the columns of $\RREF(\sansA)$ and observe any \textit{linear dependencies} among them;
+	
+	\item note the following:
+	
+	\factbox{Any dependencies which hold for the columns of $\RREF(\sansA)$ \textit{also} hold for the columns of $\sansA$}
+	
+	\item use the above fact + the relationships among columns of $\RREF(\sansA)$ to determine dependencies among the columns of $\sansA$; and
+	
+	\item use these dependences to eliminate dependent vectors from the expression in \eqref{colSpaceEq}.
+\end{itemize}
+
+\vspace{3mm}
+
+\warnbox{The column space of $\sansA$ \ul{is not the same} as the column space of $\RREF(\sansA)$, \textit{even though} the linear dependencies satisfied by columns of $\RREF(\sansA)$ are \textit{also} satisfied by the columns of $\sansA$!!
+
+Oftentimes, $\col(\RREF(\sansA))$ won't even \textit{contain} the columns of $\sansA$!}
+
+\vspace{6mm}
+
+\noindent\ul{What is its dimension?}
+
+The dimension of $\col(\sansA)$---aka the \textbf{rank} of $\sansA$, denoted either $\rank(\sansA)$ or $\dim(\col(\sansA))$---is equal to the number of linearly independent vectors in expression \eqref{colSpaceEq}. This is also equal to the number of vectors in any other basis of $\col(\sansA)$:
+\[
+\begin{array}{rcl}
+\rank(\sansA) & \overset{\text{def}}{=} & \dim(\col(\sansA)) \\[1.5mm]
+	& = & \text{number of vectors in any basis for $\col(\sansA)$}.
+\end{array}
+\]
+%===================================================================================
+\exbox{
+	Answer the following questions about the $4\times 6$ matrix
+	\[
+		\sansA=\matA.\vspace{3mm}
+	\]
+	Note that the RREF of $\sansA$ is
+	\[
+		\RREF(\sansA)=\matAred.\vspace{4.5mm}
+	\]
+	
+	\begin{enumerate}[label=(\alph*),itemsep=6mm,listparindent=6mm,leftmargin=6mm]
+		\item \textbf{What is the column space of $\sansA$?}
+		
+		\ans Without doing any work, $\col(\sansA)$ is equal to the span of the columns of $\sansA$:
+		\begin{equation}
+			\label{ex1span1}
+			\col(\sansA)=\vsspan\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4,\vect{a}_5,\vect{a}_6\},
+		\end{equation}
+		where $\vect{a}_1,\dots,\vect{a}_6$ denote the columns of $\sansA$. In general, we may or may not be able to reduce this further (see below). \qed
+		
+		\item \textbf{Is $\col(\sansA)$ a subspace? Of what?}
+		
+		\ans Because $\sansA$ is $4\times 6$, $\col(A)$ is a subspace of $\Reals^4$ (because the vectors $\vect{a}_1,\dots,\vect{a}_6$ each have \textit{four} components). \qed
+		
+		\item \textbf{What is a basis for $\col(\sansA)$?}
+		
+		\ans In words, one basis for $\col(\sansA)$ is given by all the linearly independent vectors in the set $\{\vect{a}_1,\dots,\vect{a}_6\}$.
+		
+		To answer this question more completely, we refer to $\RREF(\sansA)$. Let $\vect{b}_1,\dots,\vect{b}_6$ denote the columns of $\RREF(\sansA)$, noting in particular that
+		\[
+			\vect{b}_5=-\frac{11}{8}\vect{b}_1+\frac{1}{2}\vect{b}_2+\frac{21}{8}\vect{b}_3-\frac{5}{8}\vect{b}_4
+		\]
+		and
+		\[
+			\vect{b}_6=\frac{3}{8}\vect{b}_1+\frac{31}{2}\vect{b}_2-\frac{21}{8}\vect{b}_3-\frac{35}{8}\vect{b}_4.
+		\]
+		By \textbf{\green{Fact \theFactBox}}, these same linear dependencies are satisfied by the columns $\vect{a}_1,\dots,\vect{a}_6$ of $\sansA$:
+		\[
+			\vect{a}_5=-\frac{11}{8}\vect{a}_1+\frac{1}{2}\vect{a}_2+\frac{21}{8}\vect{a}_3-\frac{5}{8}\vect{a}_4 \hspace{9mm}\text{and}\hspace{9mm}\vect{a}_6=\frac{3}{8}\vect{a}_1+\frac{31}{2}\vect{a}_2-\frac{21}{8}\vect{a}_3-\frac{35}{8}\vect{a}_4.
+		\]
+		Using this with expression \eqref{ex1span1} shows that
+		\[
+			\col(\sansA)=\vsspan\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4,\vect{a}_5,\vect{a}_6\}=\vsspan\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4\},
+		\]
+		and thus that $\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4\}$ is a linearly independent set which spans $\col(\sansA)$. Hence,
+		\[
+			\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4\}
+		\]
+		is a basis for $\col(\sansA)$. \qed
+		
+		\item \textbf{What is $\rank(\sansA)$, aka $\dim(\col(\sansA))$?}
+		
+		\ans $\rank(\sansA)$ is the number of vectors in any basis of $\sansA$. Using the result from part (c), we have that 
+		\[
+			\rank(\sansA)=\dim(\col(A))=4.
+		\]
+		
+		\vspace{-9mm}
+		\qed
+		
+		\item Is $\vect{y}=\pmat{1 & 2 & 3 & 4}^\sansT$ in $\col(\sansA)$?
+		
+		\ans This question is included as a way to relate stuff we did before to stuff we're doing now, just so you realize they're not as disconnected as they may at first seem.
+		
+		Recall that $\vect{y}$ is in $\col(\sansA)=\vsspan\{\vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4\}$ if and only if there exist constants $c_1,\ldots,c_4$ such that
+		\[
+			\vect{y}=c_1\vect{a}_1+c_2\vect{a}_2+c_3\vect{a}_3+c_4\vect{a}_4.
+		\]
+		This is true if and only if the system corresponding to the augmented matrix \[
+			\pmatgrid{c|c|c|c|c}{\vect{a}_1 & \vect{a}_2 & \vect{a}_3 & \vect{a}_4 & \vect{y}}
+		\]
+		is consistent.
+		
+		Consistency can be observed in two ways:
+		\begin{enumerate}[leftmargin=16mm,label=(\roman*)]
+			\item Because $\pmatgrid{c|c|c|c}{\vect{a}_1 & \vect{a}_2 & \vect{a}_3 & \vect{a}_4}$ is a $4\times 4$ square matrix whose $\RREF$ equals $I_4$ (as evidenced by $\RREF(\sansA)$), the \ul{invertible matrix theorem} guarantees consistency of this system for \textit{all} $\vect{y}\in\Reals^4$.
+			
+			\item More concretely,
+			\[
+				\pmatgrid{c|c|c|c|c}{\vect{a}_1 & \vect{a}_2 & \vect{a}_3 & \vect{a}_4 & \vect{y}} = \pmatgrid{cccc|c}{1 & 2 & 3 & 4 & 1\\ 0 & -1 & 1 & -3 & 2\\ 1 & 0 & 0 & 1 & 3\\ 0 & 0 & 1 & 1 & 4}\overset{\RREF}{\arrow{7.5mm}}\left(
+				\begin{array}{cccc|c}
+					 1 & 0 & 0 & 0 & \frac{3}{4} \\
+					 0 & 1 & 0 & 0 & -7 \\
+					 0 & 0 & 1 & 0 & \frac{7}{4} \\
+					 0 & 0 & 0 & 1 & \frac{9}{4} \\
+				\end{array}
+				\right),
+			\]
+			and so $\vect{y}=\dfrac{3}{4}\vect{a}_1-7\vect{a}_2+\dfrac{7}{4}\vect{a}_3+\dfrac{9}{4}\vect{a}_4$.
+		\end{enumerate}
+		
+		Thus, $\vect{y}=\pmat{1 & 2 & 3 & 4}^\sansT\in\col(\sansA)$.
+	\end{enumerate}
+}
+
+\subsection*{\hspace{-6.5mm}Row Space}
+\noindent\ul{What is it?}
+
+The row space of $\sansA$ (denoted $\row(\sansA)$) is the span of the rows of $\sansA$: 
+\begin{equation}
+	\label{rowSpaceEq}\vspace{6mm}
+	\row(\sansA)=\vsspan\{\text{the rows of $\sansA$}\}.
+\end{equation}
+
+\vspace{-6mm}
+
+\noindent\ul{Is it a subspace? What's it a subspace of?}
+
+Yes! The row space of an $m\times n$ matrix is a subspace of $\Reals^n$. 
+
+\vspace{6mm}
+
+\noindent\ul{What is its basis and how do you find it?}
+
+One basis for $\row(\sansA)$ consists of all the linearly independent rows of $\sansA$. Finding such a basis is even easier here than it was for $\col(\sansA)$; in particular, you 
+
+\begin{itemize}
+	\item consider the rows of $\RREF(\sansA)$; 
+	
+	\item note the following:
+	
+	\factbox{The row space of $\sansA$ is \textit{exactly the same} as the row space of $\RREF(\sansA)$!
+	
+	\warnbox{As noted in the above warning, this property of $\row(\sansA)$ is \ul{fundamentally different} than that of $\col(\sansA)$! In particular,
+	\[
+		\row(\sansA)=\row(\RREF(\sansA))\hspace{6mm}\text{but}\hspace{6mm}\col(\sansA)\neq\col(\RREF(\sansA))!!
+	\]}}
+	
+	\item find $\row(\RREF(\sansA))$ (which should be easy, since dependencies among $\RREF$ vectors is typically straightforward); and
+	
+	\item use the above fact to conclude that $\row(\RREF(\sansA))=\row(\sansA)$.
+\end{itemize}
+
+\vspace{6mm}
+
+\noindent\ul{What is its dimension?}
+
+The dimension of $\row(\sansA)$ is equal to the number of linearly independent vectors in expression \eqref{rowSpaceEq}. This is also equal to the number of vectors in any other basis of $\row(\sansA)$:
+\[
+\begin{array}{rcl}
+\rank(\sansA) & = & \text{number of vectors in any basis for $\row(\sansA)$}.
+\end{array}
+\]
+
+\factbox{This isn't a typo! 
+
+As noted above, $\rank(\sansA)$ is \ul{also} equal to $\dim(\col(\sansA))$. Indeed, we have,
+\[
+	\rank(\sansA)=\dim(\col(\sansA))=\dim(\row(\sansA)),
+\]
+even though $\col(\sansA)$ and $\row(\sansA)$ are typically unequal (and are oftentimes not even subspaces of the same ``host space''!).}
+
+\vspace{6mm}
+
+\exbox{Answer the following questions about the $4\times 6$ matrix 
+\[
+	\sansA=\matA\vspace{3mm}
+\] 
+from Example 1 above.
+	\begin{enumerate}[label=(\alph*),itemsep=6mm,listparindent=6mm,leftmargin=6mm]
+		\item \textbf{What is the row space of $\sansA$?}
+				
+		\ans Without doing any work, $\row(\sansA)$ is equal to the span of the rows of $\sansA$:
+		\begin{equation}
+			\label{ex2span1}
+			\row(\sansA)=\vsspan\{\vect{r}_1,\vect{r}_2,\vect{r}_3,\vect{r}_4\},
+		\end{equation}
+		where $\vect{r}_1,\dots,\vect{r}_4$ denote the rows of $\sansA$. In general, we may or may not be able to reduce this further (see below). \qed
+		
+		\item \textbf{Is $\row(\sansA)$ a subspace? Of what?}
+		
+		\ans Because $\sansA$ is $4\times 6$, $\row(A)$ is a subspace of $\Reals^6$ (because the vectors $\vect{r}_1,\dots,\vect{r}_4$ each have \textit{six} components). \qed
+		
+		\item \textbf{What is a basis for $\row(\sansA)$?}
+		
+		\ans One way to tackle this problem is to identify linear dependencies among the rows $\vect{r}_1,\dots,\vect{r}_4$ of $\sansA$. This isn't particularly easy.
+		
+		Using \textbf{\green{Fact 2}} above, however, we know that $\row(\sansA)=\row(\RREF(\sansA))$, where
+		\[
+			\RREF(\sansA)=\matAred.
+		\]
+		Therefore,
+		\[
+			\row(\sansA)=\row(\RREF(\sansA)) \Longleftrightarrow \vsspan\{\vect{r}_1,\vect{r}_2,\vect{r}_3,\vect{r}_4\}=\vsspan\{\vect{s}_1,\vect{s}_2,\vect{s}_3,\vect{s}_4\}
+		\]
+		where $\vect{s}_1,\dots,\vect{s}_4$ denote the rows of $\RREF(\sansA)$, and visually, it's easy to tell that the rows of $\RREF(\sansA)$ are linearly independent. Hence,
+		\[
+			\{\vect{s}_1,\vect{s}_2,\vect{s}_3,\vect{s}_4\}
+		\]
+		is a basis for $\row(\sansA)$.\qed
+		
+		\item \textbf{Is $\dim(\row(\sansA))$ equal to $\dim(\col(\sansA))$? How do you know?}
+		
+		\ans From example 2(c) above, $\dim(\row(\sansA))=4$ (because there are \textit{four} vectors in the basis for $\row(\sansA)$). By example 1(d) above, $\dim(\col(\sansA))=4$ as well, so these two quantities \textit{do} match!
+		
+		Alternatively, we could have used \textbf{\green{Fact 3}} above to conclude the same result: $\rank(\sansA)=4=\dim(\row(\sansA))=\dim(\col(\sansA))$. The purpose of this exercise is for you to confirm that for this particular example.\qed
+		
+		\item \textbf{Is $\row(\sansA)$ equal to $\col(\sansA)$? Why or why not?}
+		
+		\ans The answer here is \textit{no}!
+		
+		The easiest way to see this is: By examples 1(b~\&~d) above, $\col(\sansA)$ is a \textit{four-dimensional subspace \ul{of $\Reals^4$}}; by contrast, from examples 2(b~\&~d), $\row(\sansA)$ is a \textit{four-dimensional subspace \ul{of $\Reals^6$}}. 
+		
+		As a result, none of the vectors in $\row(\sansA)$ can live in $\col(\sansA)$ (and vice versa); therefore, the two spaces can't be the same. \qed
+	\end{enumerate}
+}
+
+\subsection*{\hspace{-6.5mm}Null Space}
+\noindent\ul{What is it?}
+
+The null space of $\sansA$ (denoted $\nul(\sansA)$) is the span of the solutions of the equation $\sansA\vect{x}=\vect{0}$: 
+\begin{equation}
+	\label{nullSpaceEq}\vspace{6mm}
+	\nul(\sansA)=\vsspan\{\text{the solutions of $\sansA\vect{x}=\vect{0}$}\}.
+\end{equation}
+
+\vspace{-6mm}
+
+\noindent\ul{Is it a subspace? What's it a subspace of?}
+
+Yes! The row space of an $m\times n$ matrix is a subspace of $\Reals^n$. 
+
+To remember this, note that---in order for $\sansA\vect{x}$ to be defined for an $m\times n$ matrix $\sansA$---the vector $\vect{x}$ must be $n\times 1$. Each such vector must then have $n$ components, and thus $\nul(\sansA)$ must be a subspace of $\Reals^n$.
+
+\vspace{6mm}
+
+\noindent\ul{What is its basis and how do you find it?}
+
+One basis for $\nul(\sansA)$ consists of all the linearly independent solutions of the homogeneous equation $\sansA\vect{x}=\vect{0}$. To find such a basis, you 
+
+\begin{itemize}
+	\item solve $\sansA\vect{x}=\vect{0}$, noting that
+	
+	\factbox{The RREF of the augmented matrix $\pmatgrid{c|c}{\sansA & \vect{0}}$ is the augmented matrix 
+	\[
+		\pmatgrid{c|c}{\RREF(\sansA) & \vect{0}}.
+	\]}
+	
+	\item rewrite the above solution in parametric vector form in terms of any free variables; and
+	
+	\item write $\nul(\sansA)$ as the span of the above-derived vectors.
+\end{itemize}
+
+\vspace{6mm}
+
+\noindent\ul{What is its dimension?}
+
+The dimension of $\nul(\sansA)$---aka the \textbf{nullity} of $\sansA$, denoted either $\nullity(\sansA)$ or $\dim(\nul(\sansA))$---is equal to the number of linearly independent vectors in expression \eqref{nullSpaceEq}. This is also equal to the number of vectors in any other basis of $\nul(\sansA)$:
+\[
+	\begin{array}{rcl}
+	\nullity(\sansA) & = & \text{number of vectors in any basis for $\nul(\sansA)$}.
+	\end{array}
+\]
+This is related to $\rank(\sansA)$ via the following result:
+
+\vspace{3mm}
+
+\greentheorembox{Rank-Nullity Theorem}{For an $m\times n$ matrix $\sansA$,
+\[
+	\underbrace{\dim(\col(\sansA))}_{\rank}+\underbrace{\dim(\nul(\sansA))}_{\nullity}=n.
+\]}
+
+\vspace{3mm}
+
+\exbox{Answer the following questions about the $4\times 6$ matrix 
+\[
+	\sansA=\matA\vspace{3mm}
+\] 
+from Examples 1 \& 2 above.
+	\begin{enumerate}[label=(\alph*),itemsep=6mm,listparindent=6mm,leftmargin=6mm]
+		\item \textbf{What is the null space of $\sansA$?}
+				
+		\ans Without doing any work, $\nul(\sansA)$ is equal to the span of solutions of the equation $\sansA\vect{x}=\vect{0}$.
+		
+		To solve $\sansA\vect{x}=0$, we consider the augmented matrix $\pmatgrid{c|c}{\sansA & \vect{0}}$ and use \textbf{\green{Fact 4}} above:
+		\[
+			\RREF\left(\pmatgrid{c|c}{\sansA & \vect{0}}\right)=\pmatgrid{c|c}{\RREF(\sansA) & \vect{0}},
+		\]
+		where
+		\[
+			\RREF(\sansA)=\matAred.\vspace{3mm}
+		\]
+		Hence, solutions to $\sansA\vect{x}=\vect{0}$ can be read from the augmented matrix
+		\[
+			\pmatgrid{c|c}{\RREF(\sansA) & \vect{0}} = \pmatgrid{cccccc|c}{1 & 0 & 0 & 0 & -\dfrac{11}{8} & \dfrac{3}{8} & 0 \\[4.5mm] 0 & 1 & 0 & 0 & \dfrac{1}{2} & \dfrac{31}{2} & 0 \\[4.5mm] 0 & 0 & 1 & 0 & \dfrac{21}{8} & -\dfrac{21}{8} & 0 \\[4.5mm] 0 & 0 & 0 & 1 & -\dfrac{5}{8} & -\dfrac{35}{8} & 0}\vspace{3mm}
+		\]
+		to be of the form 
+		\[
+			\begin{array}{ccc}
+				x_1 & = & \dfrac{11}{8}x_5-\dfrac{3}{8}x_6 \\[6mm]
+				x_2 & = & -\dfrac{1}{2}x_5-\dfrac{31}{2}x_6 \\[6mm]
+				x_3 & = & -\dfrac{21}{8}x_5 + \dfrac{21}{8}x_6 \\[6mm]
+				x_4 & = & \dfrac{5}{8}x_5 + \dfrac{35}{8}x_6.
+			\end{array},
+		\]
+		i.e. $\vect{x}$ is a solution to $\sansA\vect{x}=\vect{0}$ if and only if 
+		\[
+			\vect{x}=\pmat{x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6} = x_5\underbrace{\pmat{\frac{11}{8} \\[3mm] -\frac{1}{2} \\[3mm] -\frac{21}{8} \\[3mm] \frac{5}{8} \\[3mm] 1 \\[3mm] 0}}_{\vect{v}_1} + x_6\underbrace{\pmat{-\frac{3}{8} \\[3mm] -\frac{31}{2} \\[3mm] \frac{21}{8} \\[3mm] \frac{35}{8} \\[3mm] 0 \\[3mm] 1}}_{\vect{v}_2}.
+		\]
+		
+		The null space of $\sansA$ is the span of all such vectors:
+		\[
+			\nul(\sansA)=\vsspan\{\vect{v}_1,\vect{v_2}\}.
+		\]
+		
+		\vspace{-9mm}\qed
+		
+		\item \textbf{Is $\nul(\sansA)$ a subspace? Of what?}
+		
+		\ans Because $\sansA$ is $4\times 6$, $\nul(A)$ is a subspace of $\Reals^6$ (because the vector $\vect{x}$ must be $6\times 1$ for $\sansA\vect{x}$ to be defined). \qed
+		
+		\item \textbf{What is a basis for $\nul(\sansA)$?}
+		
+		\ans By part (a), $\{\vect{v}_1,\vect{v}_2\}$ spans $\nul(\sansA)$; also, by observation, the set $\{\vect{v}_1,\vect{v}_2\}$ is linearly independent. Hence, $\{\vect{v}_1,\vect{v}_2\}$ is a basis for $\nul(\sansA)$. \qed
+		
+		\item \textbf{What is the nullity of $\sansA$? Does this match the value predicted by the \green{rank-nullity theorem}? Why or why not?}
+		
+		\ans By definition, $\nullity(\sansA)=\dim(\nul(\sansA))$. Hence, by part (c), $\nullity(\sansA)=2$.
+		
+		Because $\sansA$ is $4\times 6$, the \textbf{\green{rank-nullity theorem}} says that $\rank(\sansA)+\nullity(\sansA)=6$, and by examples 1 and 2, $\rank(\sansA)=4$. Thus, the theorem predicts $\nullity(\sansA)=6-4=2$, which agrees with the result obtained herein. \qed
+	\end{enumerate}
+}
+
+\subsection*{\hspace{-6.5mm}How do Transposes fit in?}
+Recall that the \textbf{transpose} of an $m\times n$ matrix $\sansA$ is the $n\times m$ matrix $\sansA^\sansT$ whose first, second, etc. row equals the first, second, etc. column of $\sansA$.
+
+Intuitively, one may imagine that swapping the rows and columns of $\sansA$ would have an effect on its column space, row space, and (possibly) null space. The question then remains: How do transposes fit in?
+
+Fortunately, most of what you \textit{think} happens \ul{actually} happens!
+
+\vspace{3mm}
+
+\factbox{Because $\sansA^\sansT$ is obtained by swapping rows and columns of $\sansA$, the column space of $\sansA$ becomes the row space of $\sansA^\sansT$ while the row space of $\sansA$ becomes the column space of $\sansA^\sansT$:
+	\begin{equation}
+	\label{transEq1}
+	\col(\sansA)=\row(\sansA^\sansT)
+	\end{equation}
+and
+	\begin{equation}
+	\label{transEq2}
+	\row(\sansA)=\col(\sansA^\sansT).
+	\end{equation}
+}
+
+\vspace{3mm}
+
+By \eqref{transEq1}, it follows that $\dim(\col(\sansA))=\dim(\row(\sansA^\sansT))$, i.e. that 
+\begin{equation}
+	\label{transEq3}
+	\rank(\sansA)=\dim(\row(\sansA^\sansT));
+\end{equation}
+similarly from \eqref{transEq2}, $\dim(\row(\sansA))=\dim(\col(\sansA^\sansT))$ implies that 
+\begin{equation}
+	\label{transEq4}
+	\rank(\sansA)=\dim(\col(\sansA^\sansT)).
+\end{equation}
+Of course, the righthand side of \eqref{transEq4} is equal to $\rank(\sansA^\sansT)$ by definition, and so:
+
+\vspace{3mm}
+
+\factbox{\vspace{-6mm}
+\[
+	\dim(\row(\sansA))=\dim(\col(\sansA))\overset{\text{def}}{=}\rank(\sansA)=\rank(\sansA^\sansT)\overset{\text{def}}{=}\dim(\col(\sansA^\sansT))=\dim(\row(\sansA^\sansT))
+\]
+}
+
+\vspace{3mm}
+
+Finally, \textbf{\green{Fact 6}} along with two applications of the \textbf{\green{rank-nullity theorem}} implies the following about $\nullity(\sansA^\sansT)$:
+
+\vspace{3mm}
+
+\factbox{If $\sansA$ is an $m\times n$ matrix with transpose equal to $\sansA^\sansT$, then
+\[
+	\nullity(\sansA)-\nullity(\sansA^\sansT)=n-m.
+\]
+}
+
+\vspace{6mm}
+
+\exbox{Let $\sansA$ be as in Examples 1, 2, and 3. Answer the following questions about $\sansA^\sansT$.
+	\begin{enumerate}[label=(\alph*),itemsep=2mm,listparindent=6mm,leftmargin=12mm]
+		\item \textbf{What is the column space of $\sansA^\sansT$?}
+		\item \textbf{Is the column space of $\sansA^\sansT$ a subspace? Of what?}
+		\item \textbf{Find a basis for the column space of $\sansA^\sansT$.}
+		\item \textbf{What is the dimension of the column space of $\sansA^\sansT$? How do you know?}
+		\item \textbf{Is $\vect{y}=\pmat{1 & 2 & 3 & 4 & 5 & 6}^\sansT$ in the column space of $\sansA^\sansT$? How do you know?}
+		\item \textbf{What is the row space of $\sansA^\sansT$?}
+		\item \textbf{Is the row space of $\sansA^\sansT$ a subspace? Of what?}
+		\item \textbf{Find a basis for the row space of $\sansA^\sansT$.}
+		\item \textbf{Is $\dim(\row(\sansA^\sansT))$ equal to $\dim(\col(\sansA^\sansT))$? How do you know?}
+		\item \textbf{What is the null space of $\sansA^\sansT$?}
+		\item \textbf{Is the null space of $\sansA^\sansT$ a subspace? Of what?}
+		\item \textbf{Find a basis for the null space of $\sansA^\sansT$.}
+		\item \textbf{What is the nullity of $\sansA^\sansT$? Does this match the value predicted by the \green{rank-nullity theorem}? Why or why not?}
+	\end{enumerate}
+}
+
+\subsection*{\hspace{-6.5mm}In the Language of Linear Transformations}
+Recall that a \textit{linear transformation} $\rmTT:\Reals^n\to\Reals^m$ is a transformation which satisfies 
+\[
+	\rmTT(c\vect{u}+d\vect{v})=c\rmTT(\vect{u})+d\rmTT(\vect{v})
+\]
+for all vectors $\vect{u},\vect{v}\in\Reals^n$ and all scalars $c,d\in\Reals$. Here, $\Reals^n$ is called the \textit{domain} of $\rmTT$ and $\Reals^m$ is called the \textit{codomain} of $\rmTT$ (denoted $\dom(\rmTT)$ and $\codom(\rmTT)$, respectively).
+
+First, let us introduce two definitions regarding linear transformations $\rmTT$---one of which you know, and one of which is new.
+
+\vspace{3mm}
+
+\begin{adjustwidth}{6mm}{6mm}
+	\noindent\textbf{Definition 4:} The \textit{range} of $\rmTT:\Reals^n\to\Reals^m$ (denoted $\range(\rmTT)$) is the collection of all vectors in $\Reals^m$ which are the image under $\rmTT$ of some vector in $\Reals^n$:
+	\[
+		\range(\rmTT)=\{\vect{y}\in\Reals^m:\vect{y}=\rmTT(\vect{x})\text{ for some }\vect{x}\in\Reals^n\}.
+	\]
+	
+	\vspace{3mm}
+	
+	\noindent\textbf{Definition 5:} The \textit{kernel} of $\rmTT:\Reals^n\to\Reals^m$ (denoted $\ker(\rmTT)$) is the collection of all vectors in $\Reals^n$ which map to $\vect{0}$ under $\rmTT$:
+	\[
+		\ker(\rmTT)=\{\vect{x}\in\Reals^n:\rmTT(\vect{x})=\vect{0}\}.
+	\]
+\end{adjustwidth}
+
+\vspace{3mm}
+
+The purpose of these definitions---and of this subsection---is to rephrase column spaces, row spaces, etc. in the language of linear transformations. 
+
+In order to do this, we recall that to any linear transformation $\rmTT:\Reals^n\to\Reals^m$ as above, there exists an $m\times n$ matrix $\sansA$ (\textit{the canonical matrix} of $\rmTT$) for which $\rmTT(\vect{x})=\sansA\vect{x}$. By rephrasing definitions 4 and 5, we have that:
+\begin{itemize}
+	\item A vector $\vect{v}\in\Reals^m$ is in $\range(\rmTT)$ if and only if $\sansA\vect{x}=\vect{v}$ for some vector $\vect{v}\in\Reals^n$. This holds if and only if $\vect{v}$ can be written as a linear combination of the columns of $\sansA$.
+	\item A vector $\vect{x}\in\Reals^n$ is in $\ker(\rmTT)$ if and only if $\sansA\vect{x}=\vect{0}$.
+\end{itemize}
+In particular, we have the following relationships:
+
+\vspace{3mm}
+
+\factbox{Let $\rmTT:\Reals^n\to\Reals^m$ be a linear transformation and let $\sansA$ be the $m\times n$ canonical matrix of $\rmTT$. Then $\range(\rmTT)$ is a subspace of $\Reals^m$, $\ker(\rmTT)$ is a subspace of $\Reals^n$, and they satisfy the following identities:
+	\[
+		\range(\rmTT)=\col(\sansA)
+	\]
+	and
+	\[
+		\ker(\rmTT)=\nul(\sansA).
+	\]
+}
+
+\vspace{3mm}
+
+\noindent \textbf{\green{Fact 8}} allows us to rewrite the \textbf{\green{rank-nullity theorem}} in the following way:
+
+\greentheorembox{Rank-Nullity Theorem Redux}{For a linear transformation $\rmTT:\Reals^n\to\Reals^m$,
+	\[
+		\dim(\range(\rmTT))+\dim(\ker(\rmTT))=\underbrace{n}_{\dim(\dom(\rmTT))}.
+	\]
+}
+
+\vspace{3mm}
+
+Heuristically, you can imagine that $\range(\rmTT)$ represents the vectors which ``survive'' $\rmTT$ and that $\ker(\rmTT)$ represents the vectors which ``are killed by'' $\rmTT$. With this in mind, the \textbf{\green{rank-nullity theorem redux}} says that every vector in $\dom(\rmTT)=\Reals^n$ either ``survives'' $\rmTT$ or ``is killed by it.''
+
+\vspace{6mm}
+
+\exbox{Answer the following questions about the linear transformation $\rmTT:\Reals^3\to\Reals^6$ defined as follows:
+	\[
+		\rmTT:\pmat{x_1 \\ x_2 \\ x_3}\MapsTo\pmat{x_1 \\ x_1-x_2 \\ x_2 \\ x_2-x_3 \\ x_3 \\ x_3-x_1}.\vspace{3mm}
+	\]
+	
+	\begin{enumerate}[label=(\alph*),itemsep=2mm,listparindent=6mm,leftmargin=12mm]
+		\item What is $\dom(\rmTT)$ and $\codom(\rmTT)$?
+		\item Find the canonical matrix $\sansA$ corresponding to $\rmTT$.
+		\item Find $\range(\rmTT)$. 
+		\item Is $\range(\rmTT)$ a subspace? Of what? If so, find a basis for it and state its dimension.
+		\item Find $\ker(\rmTT)$.
+		\item Is $\ker(\rmTT)$ a subspace? Of what? If so, find a basis for it and state its dimension.
+		\item Repeat parts (a)--(f) for the linear transformation $\rmSS:\Reals^6\to\Reals^3$ given by $\rmSS(\vect{x})=\sansA^\sansT\vect{x}$.
+		\item Does the row space of $\sansA$ (or of $\sansA^\sansT$) play a role in any of parts (a)--(g)? If so, where? Is this expected?
+		\item Does the \textbf{\green{rank-nullity theorem}} (or its \textbf{\green{redux}}) play a role in any of parts (a)--(g)? Could it be used to answer any of the above questions? If so, which ones; if not, why?
+	\end{enumerate}
+}
+\end{document}

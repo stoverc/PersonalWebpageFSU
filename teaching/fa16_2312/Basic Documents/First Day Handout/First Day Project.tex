@@ -1,0 +1,125 @@
+\documentclass[12 pt]{article}
+\usepackage{scrextend,fullpage,enumitem}
+%              ^ for addmargin    ^ for ...[resume]
+\usepackage{stoversymb}
+\everymath{\displaystyle}
+
+\newenvironment{tfenum}{
+	\begin{enumerate}[label={(\alph*)}]
+		\setlength{\itemsep}{6pt}
+		\setlength{\parskip}{10pt}
+		\setlength{\parsep}{0pt}}
+	{\end{enumerate}}
+
+% Text things
+\newcommand{\ti}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\tu}[1]{\underline{#1}}
+\newcommand{\ttt}[1]{\texttt{#1}}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\vspace{1mm}
+\begin{center}
+\large{\textbf{MAC 2312 -- Calculus II \\ First Day Project}}
+\end{center}
+%\begin{addmargin}[3em]{3em}\textbf{Directions:} Answer the questions below (front and back). Show any and all work, and be neat with your presentation. If you have difficulty with any of the problems, try to resolve the issue among your group.\end{addmargin}
+%\vspace{7.5mm}
+\hspace{-0.5in}\textbf{General Questions}
+\begin{enumerate}[leftmargin=-0.25in, rightmargin=-0.25in]
+\item Write the full names of every person in your group. Be sure you can pronounce them all if asked.\vspace{0.125in}
+
+\item \begin{enumerate}
+\item If you had to guess, how old is your instructor?\vspace{0.125in}
+\item Fill in the blank:\begin{addmargin}[2mm]{0mm}\textit{If my instructor wasn't a mathematician, he'd be \line(1,0){150}.}\end{addmargin}\vspace{0.125in}
+\item Your instructor likes each of the following bands/artists:\begin{center}Gucci Mane, Mumford and Sons, Lana del Rey, Metallica, Elton John.\end{center} Rank the based on how popular \ti{you think} they are to your instructor. \begin{addmargin}[1em]{4in}\begin{flushright}\textbf{Most Popular:}\\Second:\\ Third:\\ Fourth:\\\textbf{Least Popular:}\end{flushright}\vspace{0.0625in}\end{addmargin}
+\end{enumerate}
+
+\item You are at an unmarked intersection: In one direction is The City of Lies and in the other is The City of Truth. A citizen from one of those cities (you don't know which) is at the intersection. Given that citizens of The City of Lies always lie and that citizens of the City of Truth always tell the truth, which \textbf{one} question could you ask the person to find the way to the City of Lies?\vspace{0.25in}
+
+\item \begin{enumerate}
+	\item List (at least) one cool thing you did this summer.\vspace{0.125in}
+	\item List (at least) one cool thing you \ti{learned} this summer that you didn't know before.\vspace{0.25in}
+\end{enumerate}
+
+\item True or false: Numbers never lie. Justify your answer.\vspace{0.125in}
+
+\item What's your favorite number? Favorite math concept? Favorite science concept?\vspace{0.125in}
+
+\item What do you want to be \ti{when you grow up}?
+\end{enumerate}
+
+\newpage
+
+\hspace{-0.75in}\textbf{Math Questions}
+\begin{enumerate}[resume, leftmargin=-0.25in, rightmargin=-0.25in]
+\item In your own words, define each of the following math terms:
+\begin{enumerate}
+\item Function.\vspace{0.25in}
+\item Polynomial.\vspace{0.25in}
+\item Derivative (of a function).\vspace{0.25in}
+\item Antiderivative (of a function).\vspace{0.25in}
+\item Integral (of a function).\vspace{0.25in}
+\end{enumerate}
+
+\item$e^\pi$ is larger than $\pi^e$. Prove it. \ti{Hint: Consider the first derivative of $f(x)=\frac{\ln(x)}{x}$}.\vspace{0.5in}
+
+%\item Let $f(x)=x^2+3x+1$, $g(x)=x+1$, and $k(x)=3x-x^2+6\sqrt{x}$.
+%\begin{enumerate}
+%\item $k(2t+7)=$\vspace{3mm}
+%\item $k(-1)=$\vspace{3mm}
+%\item For $h$ in $\mathbb{R}$, $\dfrac{g(x+h)-g(x)}{h}=$\vspace{6mm}
+%\item Find all values $x$ such that $f(g(x))=g(f(x))$.\vspace{16mm}
+%\end{enumerate}
+
+\item Let $f$ be the quadratic $f(x)=ax^2+bx+c$ where $a,b,c\in\mathbb{R}$, $a<0$.
+\begin{enumerate}
+\item Compute $y_0=f\left(\dfrac{-b}{2a}\right)$. Simplify fully.\vspace{0.375in}
+\item What is the value of $y_0$ when $b^2-4ac=0$? Interpret this result geometrically.\vspace{0.5in}
+\item Use part (a) to determine the sign of $y_0$ when $b^2-4ac<0$ and interpret the result geometrically.
+\end{enumerate}\vspace{0.5in}
+
+\item\begin{enumerate}
+	\item What is the smallest nonnegative integer?\vspace{1.5mm}
+	\item What is the smallest positive integer?\vspace{1.5mm}
+	\item What is the smallest positive real number?\vspace{1.5mm}
+	\item What is the largest positive real number?
+\end{enumerate}
+
+\newpage
+
+\item Indicate whether each of the following statements is \ti{true} or \ti{false}, assuming that all derivatives/integrals exist and are defined over the indicated domains.
+\begin{tfenum}
+	\item Antiderivatives are unique.\hfill\line(1,0){185}
+	\item $\int_a^b f(x)\,dx=\int_a^b f(y)\,dy$.\hfill\line(1,0){185}
+	\item If $F$ is an antiderivative for $f$, then $\int_a^b f(x)\,dx=F(b)-F(a)$.\vspace{-2mm}
+	\begin{flushright}\line(1,0){185}\end{flushright}
+	\item The tangent line to the graph of a function $f$ at a point $x_0$ always intersects the graph exactly once.\vspace{-6mm} 
+	\begin{flushright}\line(1,0){185}\end{flushright}
+	\item $\int f(x)\,dx=\int f(y)\,dy$.\hfill\line(1,0){185}
+	\item If $F(x)=\int_a^x f(t)\,dt$ is any antiderivative of $f$, then $G(x)=F(x)+C$ is another antiderivative of $f$ for any real number $C$.
+	\begin{flushright}\line(1,0){185}\end{flushright}
+		\item $\frac{d}{dy}\int f(y)\,dy=f(y)$.\hfill\line(1,0){185}
+	\item $\lim_{x\to 0}\frac{\sin{x}}{x}=1$\hfill\line(1,0){185}
+	\item If $f$ is an odd function and $F$ is an antiderivative for $f$, then $F$ is an odd function.	\begin{flushright}\line(1,0){185}\end{flushright}
+	
+	\item If $f$ is an odd function, then its derivative $f'$ is an odd function.	\begin{flushright}\line(1,0){185}\end{flushright}
+	\item $\frac{d}{dx}\left(x^x\right)=x^x+x^x\ln(x)$.\hfill\line(1,0){185}
+	\item For a function $g$ which is increasing on $[a,b]$, the approximation of $\int_a^b g(x)\,dx$ given by a \ti{right} Riemann sum is an \ti{underestimate} of the actual value.\vspace{-3mm} \begin{flushright}\line(1,0){185}\end{flushright}
+	\item Every differentiable function is continuous.\hfill\line(1,0){185}
+	\item The second derivative test says that if $f'(x_0-\Delta x)>0$ and $f'(x_0+\Delta x)<0$, then $x_0$ is a maximum for $f$.\vspace{-6mm} \begin{flushright}\line(1,0){185}\end{flushright}
+	\item $\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$.\hfill\line(1,0){185}
+	\item If a function $h$ changes concavity at a point $x$, then $h''(x)=0$.\vspace{-3mm} \begin{flushright}\line(1,0){185}\end{flushright}
+	\item If a function $h$ satisfies $h''(x)=0$ for some $x$, then $h$ changes concavity at $x$.\vspace{-3mm} \begin{flushright}\line(1,0){185}\end{flushright}
+	\item The tangent line to the graph of a function $f$ at a point $x_0$ always intersects the graph at least once.\vspace{-6mm}
+	\begin{flushright}\line(1,0){185}\end{flushright}
+	\item $\int \ln(x)\,dx=x\ln(x) + C$.\hfill\line(1,0){185}
+	\item If $p(x)$ is a polynomial of degree $n$, then $p$ can have at most $n$ relative extrema.\vspace{-3mm}	\begin{flushright}\line(1,0){185}\end{flushright}
+	\item If $p(x)$ is a polynomial of degree $n$, then $p$ can have at most $n$ \ti{absolute} extrema on any closed interval $[a,b]$.\vspace{-8mm}	\begin{flushright}\line(1,0){185}\end{flushright}\vspace{-3mm}
+	\item $\frac{d}{dx}\pi^x=x\pi^{x-1}$.\hfill\line(1,0){185}\vspace{-3mm}
+	\item $\frac{d}{dx}x^e=ex^{e-1}$.\hfill\line(1,0){185}\vspace{-3mm}
+	\item $\frac{d}{dx}e^x=e^x$.\hfill\line(1,0){185}\vspace{-3mm}
+	\item $\frac{d}{dx}e^\pi=\pi e^{\pi-1}$.\hfill\line(1,0){185}
+\end{tfenum}
+\end{enumerate}
+\end{document}

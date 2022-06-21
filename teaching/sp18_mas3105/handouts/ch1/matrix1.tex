@@ -1,0 +1,77 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage[margin=0.75in, top=0.875in, bottom=0.875in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+\everymath{\displaystyle}
+
+%\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*., itemsep=0.5in}
+\setlist[enumerate,2]{label={(\alph*)}, itemsep=0.8in}
+\setlist[enumerate,3]{label={\roman*.}}
+\setlist[itemize,1]{label=$\circ$, itemsep=0.25in}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\vspace{3mm}\textbf{Hint}: #1}
+\newcommand{\note}[1]{\textbf{Note}: #1}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\axes}[1]{\begin{center}\includegraphics[scale=#1]{3DAxes}\end{center}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\ijk}[2]{#1\vect{#2}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{MAS 3105 --- Matrices I}}
+\end{center}
+\textbf{Directions:} Split into groups and (attempt to) answer each of the following questions with your group members. \ul{Don't worry about questions you are unable to answer!}
+
+\vspace{0.25in}
+
+\noindent In what follows, let
+\[\sansA=\pmat{1 & 2 \\ 2 & 1}\quad\quad\sansB=\pmat{1 & -1 & 3\\0 & 1 & 1\\-2 & 1 & 4}\quad\quad\sansC=\pmat{1 & 1 & 0 \\ -1 & -3 & 3}\quad\quad\sansD=\pmat{2 & 4 \\ -1 & 1\\0 & 0}\quad\quad\sansI=\pmat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}\]
+and let
+\[\vect{u}=\pmat{1\\1\\1}\quad\quad\vect{v}=\pmat{2\\1}\quad\quad\vect{w}=\pmat{1\\-2\\-2}.\]
+
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	\item Determine whether each of the following operations is possible. If it \textit{is} possible, do it; if not, state why it's impossible.
+	\begin{enumerate}
+		\item $\sansA + \sansB$
+		\item $\sansB + \sansI$
+		\item $\sansA\sansB$\quad\quad\hint{This is the matrix product of $\sansA$ and $\sansB$.}
+		\item $\sansC\sansD$
+		\item $\sansD\sansC$
+		\newpage
+		\item $\sansB\sansI$
+		\item $\sansA\vect{u}$
+		\item $2\vect{v}$
+		\item $\sansB\left(\vect{u}+\vect{w}\right)$
+		\item $\sansB\vect{u}+\sansB\vect{w}$
+		\item $\vect{u}\vect{w}$
+		\item $\vect{u}\cdot\vect{w}$\quad\quad\hint{This is the dot product of $\vect{u}$ and $\vect{w}$.}
+		\item $\det\sansB$\quad\quad\hint{This is the determinant of $\sansB$.}
+		\item $\sansC^T$\quad\quad\hint{This is the transpose of $\sansC$.}
+	\end{enumerate}
+
+	\item \begin{enumerate}[itemsep=4.5in]
+		\item Put the matrix $\sansB$ in row echelon form.
+
+		\item Put the matrix $\sansB$ in \textit{reduced row echelon form}.
+		\item Using the above, find the inverse of the matrix $\sansB$ if it exists. \hint{Using part (m) from the first problem, you should be able to tell whether it exists or not \textit{without} doing any work.}
+		\item Using part (c), solve the vector equation $\sansB\vect{x}=\vect{u}+\vect{w}$ for $\vect{x}$. \hint{$\sansB$, $\vect{u}$, and $\vect{w}$ are all known/given above.}
+	\end{enumerate}
+\end{enumerate}
+\end{document}

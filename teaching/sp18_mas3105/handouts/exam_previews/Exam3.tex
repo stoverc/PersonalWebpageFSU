@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\input{PreviewHeader.tex}
+
+\newcounter{Exx}
+\newcommand{\exbox}[1]{\stepcounter{Exx}\vspace{3mm}\begin{tcolorbox}[breakable,arc=2pt,boxrule=1pt,right=6mm,top=3mm,bottom=6mm]\noindent\textit{\large\bfseries Example \theExx:\\[3mm]}~#1\end{tcolorbox}}
+\begin{document}
+	\section*{\centering Exam 3 Preview}
+	
+	\noindent Here's a bit of logistical info about the exam.
+	\begin{itemize}[topsep=0.125in,itemsep=0.625mm]
+		\item There will be 5--7 questions overall, and some will have multiple parts.
+		\item The exam will cover the following textbook \ul{topics}: 
+		\begin{itemize}[topsep=0mm]	
+			\item The Inverse Matrix Theorem (\S 2.2, \S 2.9, \S 4.6)
+			\item Subspaces (\S 2.8, \S 4.1), Bases (\S 2.8, \S 4.3), and Dimension (\S 2.9, \S 4.5)
+			\item Column Space (\S 2.8, \S 4.2), Row Space (\S 4.6), Null Space (\S 2.8, \S 4.2)
+			\item Rank (\S 2.9, \S 4.6), Nullity (\S 4.6)
+			\item Kernel + range of a linear transform (\S 4.2)
+			\item Coordinate systems (\S 4.4), change of coordinates (\S 4.7)
+			\item \ul{(Other) Important Theorems:} Rank-Nullity Theorem (\S 4.6), The Spanning Set Theorem (\S 4.3)
+		\end{itemize}
+		\item You should expect the following question formats:
+		\begin{itemize}[topsep=0mm]
+			\item computation questions (e.g. using matrices to solve systems from start to finish)
+			\item multiple-choice questions
+			\item True/False questions (which may or may not require justification).
+		\end{itemize}
+		The True/False questions will mostly look like those from the textbook (which I include here for those of you without the textbook).
+		\item For some of the above topics, your review questions will be from other sources:
+		\begin{itemize}[topsep=0mm]
+			\item HW3 (\#2--\#5)
+			\item Examples 1--5 on the \textit{Column Spaces, Nullity, and all that Jazz} handout
+			\item Examples 1--3 on the \textit{Invertible Matrix Theorem II} handout
+			\item The (!!!) problems on the \ul{Lecture Notes \& Exercises} tab of the webpage
+		\end{itemize}
+	\end{itemize}
+	
+	\vspace{0.225in}
+	\begin{center}
+		\line(1,0){300}
+	\end{center}
+	\vspace{0.5in}
+	
+	\newpage
+	
+	\noindent Now, here are some sample questions for the \ul{remaining} topics that you should be able to answer before the exam.
+	
+	\begin{enumerate}[topsep=0.125in, itemsep=0.625in]
+		\item Let $\calB=\left\{\vect{b}_1=\pmat{2 \\ 4}, \vect{b}_2=\pmat{4 \\ 2}\right\}$ and $\calC=\left\{\vect{c}_1=\pmat{-11 \\ 2}, \vect{c}_2=\pmat{0 \\ -6}\right\}$ be bases for $\Reals^2$.
+		\begin{enumerate}[itemsep=0.25in,topsep=4.5mm]
+			\item Find the coordinate change matrices $\sansA_\calB$ and $\sansA_\calC$.
+			\item Let $\vect{x}=\pmat{2 \\ 0}$. Compute $\left[\vect{x}\right]_\calB$ and $\left[\vect{x}\right]_\calC$.
+			\item Find $\vect{y}$ if $\left[\vect{y}\right]_\calB=\pmat{3 \\ 3}$.
+			\item Find $\vect{z}$ if $\left[\vect{z}\right]_\calC=\pmat{1 \\ 1}$.
+			\item Find the coordinate-change matrix $\sansA_{\calB\to\calC}$.
+			\item Prove that $\sansA_{\calB\to\calC}=\sansA^{-1}_\calC \sansA_\calB$.
+			\item Find the coordinate-change matrix $\sansA_{\calC\to\calB}$.
+		\end{enumerate}
+		
+		\item Let $\calB$ and $\calC$ be as above and let $\calD=\{\vect{d}_1,\vect{d}_2\}$, where $\vect{d}_1=\vect{b}_1-\vect{c}_2$ and $\vect{d}_2=\vect{b}_2-\vect{c}_1$.
+		\begin{enumerate}[itemsep=0.25in,topsep=4.5mm]
+			\item Is $\calD$ a basis for $\Reals^2$? \justify
+			\item Draw a diagram which relates $(\Reals^2, \std)$, $(\Reals^2, \calB)$, $(\Reals^2, \calC)$, and $(\Reals^2, \calD)$, where $(\Reals^n,\calX)$ denotes $\Reals^n$ with the coordinate system $\calX$ and where $\std$ denotes the ``standard basis'' $\left\{\pmat{1 & 0}^\sansT, \pmat{0 & 1}^\sansT\right\}$ of $\Reals^2$ 
+			\item Does the diagram you drew in part (b) commute? Why or why not?
+			
+			\begin{flushright}\hintbf{This isn't ``free;'' you have to check stuff here!}\end{flushright}
+		\end{enumerate}
+		
+		\newpage
+		
+		\item Practice True/False questions by doing Example 1 from the \textit{Invertible Matrix Theorem II} handout; here it is for your convenience!
+		\exbox{Mark each of the following questions ``true'' or ``false.'' Throughout, let $\vect{v}_1,\ldots,\vect{v}_p$ be vectors in a nonzero subspace $H$ of $\Reals^n$ and let $S=\{\vect{v}_1,\ldots,\vect{v}_p\}$. \justify
+		\begin{enumerate}[label=(\alph*)]
+			\item The set of all linear combinations of $\vect{v}_1,\ldots,\vect{v}_p$ is a subspace of $\Reals^n$.
+			\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ spans $H$, then $S$ spans $H$.
+			\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ is linearly independent, then so is $S$.
+			\item If $S$ is linearly independent, then $S$ is a basis for $H$.
+			\item If $\vsspan\{S\}=H$, then some subset of $S$ is a basis for $H$.
+			\item If $\dim H=p$ and $\vsspan\{S\}=H$, then $S$ cannot be linearly dependent.
+			\item A plane in $\Reals^3$ is a two-dimensional subspace.
+			\item Row operations on a matrix $\sansA$ can change the linear dependence relations among the rows of $\sansA$.
+			\item Row operations on a matrix can change the null space.
+			\item The rank of a matrix equals the number of nonzero rows.
+			\item If an $m\times n$ matrix $\sansA$ is row equivalent to an echelon matrix $\sansU$ and if $\sansU$ has $k$ nonzero rows, then the dimension of the solution space of $\sansA\vect{x}=\vect{0}$ is $m-k$.
+			\item If $\sansB$ is obtained from $\sansA$ by elementary row operations, then $\rank(\sansB)=\rank(\sansA)$.
+			\item The nonzero rows of a matrix $\sansA$ form a basis for $\row(\sansA)$.
+			\item If matrices $\sansA$ and $\sansB$ have the same $\RREF$, then $\row(\sansA)=\row(\sansB)$.
+			\item If $H$ is a subspace of $\Reals^3$, then there is a $3\times 3$ matrix $\sansA$ such that $H=\col(\sansA)$.
+			\item If $\sansA$ is $m\times n$ and $\rank(\sansA)=m$, then the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is one-to-one.
+			\item If $\sansA$ is $m\times n$ and the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is onto, then $\rank(\sansA)=m$.
+		\end{enumerate}
+		}
+		
+		\newpage
+		
+		\item Mark each of the following questions ``true'' or ``false.'' Throughout, let $V$ be a vector space and utilize the notation from question 2 above.
+		\begin{enumerate}[label=(\alph*),itemsep=11mm,parsep=3mm]
+			\item A change-of-coordinates matrix is always invertible.
+			
+			\item If $\calB=\{\vect{b}_1,\ldots,\vect{b}_n\}$ and $\calC=\{\vect{c}_1,\ldots,\vect{c}_n\}$ are two bases for a vector space $V$, then the $j$th column of the change-of-coordinates matrix $\sansA_{\calB\to\calC}$ is the coordinate vector $\left[\vect{c}_j\right]_\calB$.
+			
+			\item If $\vect{x}\in V$ and $\calB$ is a basis of $V$ with $n$ vectors, then the $\calB$-coordinate vector of $\vect{x}$ (aka $\left[\vect{x}\right]_\calB$) is in $(\Reals^n,\std)$.
+			
+			\item The coordinate change matrix $\sansA_\calB$ satisfies $\left[\vect{x}\right]_\calB=\sansA_\calB\vect{x}$ for $\vect{x}\in V$.
+			
+			\item If $\calB=\std$ is the standard basis for $\Reals^n$, then the $\calB$-coordinate vector of $\vect{x}\in\Reals^n$ is $\vect{x}$ itself.
+			
+			\item In some situations, a plane in $\Reals^3$ can be ``isomorphic'' to $\Reals^2$.
+			
+			\hintbf{Two vector spaces $V$ and $W$ are \textit{isomorphic} if there is a one-to-one linear transformation $\rmTT:V\to W$.}
+			
+			\item The columns of the matrix $\sansA_{\calB\to\calC}$ are $\calB$-coordinate vectors of the vectors in $\calC$.
+			
+			\item If $V=\Reals^n$ and $\calC=\std$, then $\sansA_{\calB\to\calC}=\sansA_\calB$.
+			
+			\item The columns of the matrix $\sansA_{\calB\to\calC}$ are linearly independent.
+			
+			\item If $V=\Reals^2$, $\calB=\{\vect{b}_1,\vect{b}_2\}$, and $\calC=\{\vect{c}_1,\vect{c}_2\}$, then row reduction of the augmented matrix $\pmatgrid{cc|cc}{\vect{b}_1 & \vect{b}_2 & \vect{c}_1 & \vect{c}_2}$ to $\pmatgrid{c | c}{I_2 & \sansP}$ produces a matrix $\sansP$ which satisfies $\left[\vect{x}\right]_\calB=\sansP\left[\vect{x}\right]_\calC$ for all $\vect{x}\in V$.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

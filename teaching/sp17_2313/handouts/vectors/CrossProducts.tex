@@ -1,0 +1,204 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\LARGE{Cross Products}\vspace{-0.5in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.625in, rightmargin=0.5in, label=(\alph*),itemsep=2.25mm,topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+	
+\begin{document}
+	\maketitle
+	
+	\noindent Throughout, $\vect{a}=\comps{a}$ and $\vect{b}=\comps{b}$ denote arbitrary vectors in $\Reals^3$ while $\vect{i}=\compslong{1}{0}{0}$, $\vect{j}=\compslong{0}{1}{0}$, and $\vect{k}=\compslong{0}{0}{1}$ denote the unit basis vectors of $\Reals^3$. $\vect{0}=\compslong{0}{0}{0}$ is the zero vector in $\Reals^3$.
+	
+	Recall that the \textit{idea} of defining the vector cross product is to (a) define multiplication among vectors in a way that yields a vector, and (b) to obtain a vector $\vec{c}=\comps{c}$ which is \textit{orthogonal} to both $\vect{a}$ and $\vect{b}$ (i.e. for which $\vect{a}\cdot\vect{c}=0$ and $\vect{b}\cdot\vect{c}=0$). As it happens, the vector cross product accomplishes these\footnote{As mentioned in class, the vector cross product is, in some ways, not \textit{unique}. In particular, if $\vect{a}\cdot\vect{c}=0$, then $\vect{a}\cdot(k\vect{c})=0$ for all nonzero scalars $k$, i.e. any scalar multiple of the cross product can accomplish essentially these same tasks. We're not concerned with this caveat.} and a whole lot more; we'll discuss some of that here.
+
+	\sectitle{Basics}
+	\noindent First, the definition.\vspace{6mm}
+	
+	\noindent\textbf{Definition:} The \textit{cross product} of the vectors $\vect{a}$ and $\vect{b}$ is the vector $\vect{a}\times\vect{b}$ defined as
+	\begin{equation}
+		\label{eq:cross}
+		\vect{a}\times\vect{b}=\compslong{a_2b_3-a_3b_2}{a_3b_1-a_1b_3}{a_1b_2-a_2b_1}.
+	\end{equation}\vspace{3mm}
+	
+	Although I didn't show this in class, it's easy to show that $\vect{a}\times\vect{b}$ is orthogonal to $\vect{a}$ and $\vect{b}$. To see that for $\vect{a}$, consider the dot product:
+	\begin{align}
+		\vect{a}\cdot\left(\vect{a}\times\vect{b}\right) 
+		&= \comps{a}\cdot \compslong{a_2b_3-a_3b_2}{a_3b_1-a_1b_3}{a_1b_2-a_2b_1}\nonumber \\[1.5mm]
+		&\label{eq:dot1} = a_1(a_2b_3-a_3b_2) + a_2(a_3b_1-a_1b_3) + a_3(a_1b_2-a_2b_1)\\[1.5mm]
+		& = \underbrace{a_1a_2b_3}_{(*)}\underbrace{\,-\,a_1a_3b_2}_{(**)}\underbrace{\,+\,a_2a_3b_1}_{(***)} \underbrace{\,-\,a_1a_2b_3}_{(*)}\underbrace{\,+\,a_1a_3b_2}_{(**)}\underbrace{\,-\,a_2a_3b_1}_{(***)}\nonumber\\[3mm]
+		&\label{eq:dot2} = 0.
+	\end{align}
+	
+	In the above, the (*), (**), and (***) terms are labeled to show repetition, \eqref{eq:dot1} is obtained using the definition of dot product and \eqref{eq:dot2} holds because the groupings (*), (**), and (***) each duplicate with opposite signs.\vspace{3mm}
+	
+	\noindent\textbf{Exercise 1:} Use the method above to show that $\vect{b}\cdot\left(\vect{a}\times\vect{b}\right)=0$.\vspace{3mm}
+	
+	\noindent \ul{Note:} Because $\vect{a}\times\vect{b}\perp\vect{a}$ \textit{and} $\vect{a}\times\vect{b}\perp\vect{b}$, it follows that $\vect{a}\times\vect{b}$ is \textit{also} perpendicular to the entire \textit{plane} that contains $\vect{a}$ and $\vect{b}$! This is useful to know for problems like Example 3 (in Stewart, section 12.4).\vspace{3mm}
+	
+	Because the formula in \eqref{eq:cross} is ugly and hard to memorize, there ``standard'' computational way to find the cross product is to use the \textit{determinant} of a specially-defined three-dimensional matrix. I'm going to write that here but I'm \textit{not} going to go over how to find determinants in general: I did this in class (I'll post the lecture notes online soon!) \textit{and} it's in your textbook.\vspace{6mm}
+	
+	\noindent\textbf{Proposition 1:} The cross product $\vect{a}\times\vect{b}$ of $\vect{a}=\comps{a}$ and $\vect{b}=\comps{b}$ is equal to the following determinant:
+	$$\vect{a}\times\vect{b}=\det\left(\begin{array}{ccc}\vect{i} & \vect{j} & \vect{k}\\ a_1 & a_2 & a_3\\b_1 & b_2 & b_3\end{array}\right).$$\vspace{6mm}
+	
+	In class, I showed a couple ``applications'' / properties of the cross product. Here they are again for your convenience\vspace{6mm}
+	
+	\noindent\textbf{Proposition 2:} If $\theta$ is the angle between $\vect{a}$ and $\vect{b}$, then 
+	$$|\vect{a}\times\vect{b}|=|\vect{a}|\,|\vect{b}|\,\sin\theta.$$
+	\noindent In particular, if $\vect{a}$ is \textit{parallel} to $\vect{b}$ (i.e. if $\theta=0$ or $\theta=\pi$), then $\vect{a}\times\vect{b}=\vect{0}$.\vspace{6mm}
+	
+	In my version of Stewart, this is called Theorem 9, and I didn't prove this to you in class because the proof is somewhat unenlightening. Even so, the proof is shown in section 12.4 of Stewart (on page 834 in my version) if you want to see it.
+	
+	The rest of this handout is going to consist of properties I didn't show in class and applications/geometrical meanings of cross products on which I didn't have time to lecture. 
+	
+	\sectitle{Properties of Cross Products}
+	\noindent As it turns out, we've been using cross products all along without realizing it!
+	
+	\subsectitle{Cross products of $\vect{i}$, $\vect{j}$, and $\vect{k}$}%
+	{Intuitively, we expect that the cross product $\vect{i}\times\vect{j}$ to point in the direction of the $z$-axis since $\vect{i}$ points in the direction of the $x$-axis and $\vect{j}$ points in the direction of the $y$-axis; moreover, by Proposition 2, we also probably expect the magnitude of $\vect{i}\times\vect{j}$ to be 1.}
+	
+	Of course, we know a unit vector (we actually know \textit{two}...) which has the same direction of the $z$-axis---namely, the vector $\vect{k}$---and using the matrix formulation of cross product, we can confirm that $\vect{i}\times\vect{j}=\vect{k}$:
+	\begin{align*}
+		\vect{i}\times\vect{j}=
+		& \det\left(\begin{array}{ccc}\vect{i} & \vect{j} & \vect{k}\\ 1 & 0 & 0\\0 & 1 & 0\end{array}\right)\\
+		& = \det\left(\begin{array}{cc} 0 & 0\\ 1 & 0\end{array}\right)\vect{i}-\det\left(\begin{array}{cc} 1 & 0\\ 0 & 0\end{array}\right)\vect{j}+\det\left(\begin{array}{cc} 1 & 0\\ 0 & 1\end{array}\right)\vect{k}\\
+		& = 0\vect{i}-0\vect{j}+1\vect{k}\\
+		& = \vect{k}.
+	\end{align*}
+	Now, as stated in the footnote above, $-\vect{k}$ is \textit{also} orthogonal to $\vect{i}$ and $\vect{j}$ and, as it turns out, $-\vect{k}=\vect{j}\times\vect{i}$:
+	\begin{align*}
+		\vect{j}\times\vect{i}=
+		& \det\left(\begin{array}{ccc}\vect{i} & \vect{j} & \vect{k}\\ 0 & 1 & 0 \\1 & 0 & 0\end{array}\right)\\
+		& = \det\left(\begin{array}{cc} 1 & 0\\ 0 & 0\end{array}\right)\vect{i}-\det\left(\begin{array}{cc} 0 & 0\\ 1 & 0\end{array}\right)\vect{j}+\det\left(\begin{array}{cc} 0 & 1\\ 1 & 0\end{array}\right)\vect{k}\\
+		& = 0\vect{i}-0\vect{j}-1\vect{k}\\
+		& = -\vect{k}.
+	\end{align*}
+	What does this mean? It means that $\vect{a}\times\vect{b}\neq\vect{b}\times\vect{a}$ in general! We'll talk about this soon.
+	
+	For convenience, here's how cross products behave with respect to $\vect{i}$, $\vect{j}$, and $\vect{k}$. Does this match your intuition?\vspace{-3mm}
+	\begin{center}
+		$\vect{i}\times\vect{j}=\vect{k}\quad\quad\quad\vect{j}\times\vect{i}=-\vect{k}$
+		\\[3mm]
+		$\vect{j}\times\vect{k}=\vect{i}\quad\quad\quad\vect{k}\times\vect{j}=-\vect{i}$
+		\\[3mm]
+		$\vect{k}\times\vect{i}=\vect{j}\quad\quad\quad\vect{i}\times\vect{k}=-\vect{j}$
+	\end{center}
+	
+	\noindent\textbf{Exercise 2:} Verify the identities in the second and third rows above.\vspace{3mm}
+	
+	Now, we shift our focus to general properties of cross products.
+	
+	\subsectitle{General properties of cross products}%
+	{From here on, we let $\vect{c}=\comps{c}$ (in addition to the previously-mentioned $\vect{a}$ and $\vect{b}$) denote an arbitrary vector in $\Reals^3$ and let $k$ denote a nonzero (real) scalar.}
+	
+	\begin{enumerate}
+		\item $\vect{a}\times\vect{a}=\vect{0}$ for all $\vect{a}$\footnote{I mentioned this one in class yesterday.}
+		\item $\vect{a}\times\vect{b}=-\vect{b}\times\vect{a}$
+		\item $(k\vect{a})\times\vect{b}=k(\vect{a}\times\vect{b})=\vect{a}\times(k\vect{b})$
+		\item $\vect{a}\times\left(\vect{b}+\vect{c}\right)=\vect{a}\times\vect{b}+\vect{a}\times\vect{c}$
+		\item $\left(\vect{a}+\vect{b}\right)\times\vect{c}=\vect{a}\times\vect{c}+\vect{b}\times\vect{c}$
+		\item $\vect{a}\cdot\left(\vect{b}\times\vect{c}\right)=\left(\vect{a}\times\vect{b}\right)\cdot\vect{c}$
+		\item $\vect{a}\times\left(\vect{b}\times\vect{c}\right)=\left(\vect{a}\cdot\vect{c}\right)\vect{b}-\left(\vect{a}\cdot\vect{b}\right)\vect{c}$
+	\end{enumerate}\vspace{3mm}
+
+	\noindent\textbf{Exercise 3:} Prove (g) from above.\vspace{3mm}
+	
+	\noindent\textbf{Exercise 4:} Prove all the others too.\newpage
+	
+	\sectitle{Cross Products, Geometrically}
+	From Proposition 2, we know that the magnitude $|\vect{a}\times\vect{b}|$ of the cross product of $\vect{a}$ and $\vect{b}$ is equal to the magnitude of $\vect{a}$ times quantity $|\vect{b}|\,\sin\theta$, where $\theta$ is the angle between $\vect{a}$ and $\vect{b}$. 
+	
+	Assuming that $\vect{a}$ and $\vect{b}$ are vectors with the same \textit{initial} point, then $|\vect{b}|\,\sin\theta$ also has an important \textit{geometrical} interpretation: It's the length of the perpendicular segment from the terminal point of $\vect{b}$ to $\vect{a}$!\footnote{If you're skeptical, you can prove this: Call the length of that segment $x$ and use the fact that $\sin\theta=\frac{x}{|\vect{b}|}$}\vspace{-3mm}
+	\pic{0.375}{bisector}
+	
+	Now, we can take that picture and build the parallelogram determined by $\vect{a}$ and $\vect{b}$:
+	
+	\pic{0.375}{parallelogram}
+	
+	And finally, using facts from basic geometry, we can compute the \textit{area} of the parallelogram in terms of the cross product $\vect{a}\times\vect{b}$:
+	\begin{align*}
+		A(\text{parallelogram}) 
+		& = (\text{base of the parallelogram})\cdot(\text{height of the parallelogram})\\
+		& = |\vect{a}|\cdot\left(|\vect{b}|\,\sin\theta\right)\\
+		& = |\vect{a}|\,|\vect{b}|\,\sin\theta\\
+		& = |\vect{a}\times\vect{b}|!
+	\end{align*}
+	
+	\noindent Therefore:
+	\resultbox{The length of $\vect{a}\times\vect{b}$ is equal to the area of the parallelogram determined by $\vect{a}$ and $\vect{b}$.}
+	
+	\noindent Similarly, we can build a triangle from the vectors $\vect{a}$ and $\vect{b}$:
+	
+	\pic{0.375}{triangle}
+	
+	\noindent And, because the area of the resulting triangle is \textit{half} the area of the parallelogram above\footnote{This is a fact from basic geometry: $A(\text{parallelogram})=bh$ while $A(\text{triangle})=\frac{1}{2}bh$.}, we have that:
+	\resultbox{The length of $\vect{a}\times\vect{b}$ is equal to \textit{two times} the area of the triangle determined by $\vect{a}$ and $\vect{b}$.}
+	
+	\noindent\textbf{Exercise 5:} Find the area of the parallelogram determined by $\compslong{-1}{4}{-1}$ and $\compslong{3}{3}{2}$.\vspace{3mm}
+	
+	\noindent\textbf{Exercise 6:} Find the area of the parallelogram with vertices $K(1,2,3)$, $L(1,3,6)$, $M(0,-1,4)$, and $N(-5,-2,1)$.\vspace{3mm}
+	
+	\noindent\textbf{Exercise 7:} Find the area of the triangle with vertices $P(0,0,0)$, $Q(-1,-1,1)$, and $R(1,2,-3)$.
+	
+	\sectitle{Triple Products}
+	The products $\vect{a}\cdot(\vect{b}\times\vect{c})$ and $\vect{a}\times(\vect{b}\times\vect{c})$ in properties (f) and (g) above are important: They have useful applications, and so we give them special names.\vspace{3mm}
+	
+	\noindent\textbf{Definition:} The scalar $\vect{a}\cdot(\vect{b}\times\vect{c})$ is called the \textit{scalar triple product} of $\vect{a}$, $\vect{b}$, and $\vect{c}$ and has the following formula:
+	$$
+	\label{eq:scalartriple}
+	\vect{a}\cdot(\vect{b}\times\vect{c})=\det\left(\begin{array}{ccc}a_1 & a_2 & a_3\\b_1 & b_2 & b_3\\c_1 & c_2 & c_3\end{array}\right).
+	$$\vspace{3mm}
+	
+	As it happens, the scalar triple product yields a number whose absolute value is equal to the \textit{volume} (volume because three vectors instead of two) of the \textit{parallelepiped}\footnote{Parallelepipeds are the 3D analogues of parallelograms.} determined by $\vect{a}$, $\vect{b}$, and $\vect{c}$:
+	
+	\pic{0.875}{parallelepiped}
+	
+	\resultbox{$|\vect{a}\cdot(\vect{b}\times\vect{c})|$ is equal to the volume of the parallelepiped determined by $\vect{a}$, $\vect{b}$, and $\vect{c}$.}
+	
+	\noindent\textbf{Definition:} The vector $\vect{a}\times(\vect{b}\times\vect{c})$ is called the \textit{vector triple product} of $\vect{a}$, $\vect{b}$, and $\vect{c}$. In component form, $\vect{a}\times(\vect{b}\times\vect{c})=\comps{v}$ where
+	$$v_1=a_2 b_1 c_2-a_2 b_2 c_1+a_3 b_1 c_3-a_3 b_3 c_1,$$
+	$$v_2=-a_1 b_1 c_2+a_1 b_2 c_1+a_3 b_2 c_3-a_3 b_3 c_2,$$
+	and 
+	$$v_3=-a_1 b_1 c_3+a_1 b_3 c_1-a_2 b_2 c_3+a_2 b_3 c_2.$$\vspace{3mm}
+	
+	\noindent\textbf{Exercise 8:} Find the volume of the parallelepiped determined by $\vect{a}=\compslong{1}{3}{2}$, $\vect{b}=\compslong{2}{-1}{1}$, and $\vect{c}=\compslong{-3}{1}{4}$.\vspace{3mm}
+	
+	\noindent\textbf{Exercise 9:} Do problems 50 and 51 in Stewart, section 12.4.
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,enumitem,fullpage,soul,stoversymb}
+\everymath{\displaystyle}
+\allowdisplaybreaks
+%\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage[margin=0.5in, top=1in, bottom=1in]{geometry}
+\usepackage{tikz,tkz-euclide}
+\usetkzobj{all}
+
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{ex}{Example}
+
+%\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*., topsep=3mm, leftmargin=0.5in}
+\setlist[itemize,1]{label=$\circ$, leftmargin=0.1875in, topsep=0mm}
+\setlist[enumerate,2]{leftmargin=0.5in,itemsep=3mm}
+
+\newcommand{\mainhead}[1]{\noindent\begin{center}\Large{#1}\end{center}}
+\newcommand{\head}[2]{\noindent\textbf{#1}\\\indent{#2}\vspace{4mm}}
+%\newcommand{\sol}{\noindent\textsc{Solution: }}
+%\newcommand{\note}[1]{\hfill{\fbox{\text{{\footnotesize{#1}}}}}}
+\newcommand{\sol}[1]{\begin{proof}[Solution:]#1\end{proof}}
+\newcommand{\opp}{\text{opposite}}
+\newcommand{\adj}{\text{adjacent}}
+\newcommand{\hyp}{\text{hypotenuse}}
+\newcommand{\eqbox}[1]{\begin{tcolorbox}
+	[colback=white,colframe=gray,boxrule=0.5pt,arc=0pt,top=3mm,bottom=3mm]#1\end{tcolorbox}\vspace{3mm}}
+
+\begin{document}
+	\mainhead{Sample Questions for Approximate Integration}	
+	\head{}{There are a number of good, test-worthy questions that can be asked regarding approximate integration. Here's a sample.}
+	\begin{ex}
+		Let $f(x)=e^{-x^2}$. Given that $|f''(x)|\leq 2$ and that $|f^{(4)}(x)|\leq 12$ on $[-3,3]$, answer the following questions regarding numerical approximations to $\textstyle\int_{-3}^3 f(x)\,dx$:
+		\begin{enumerate}
+			\item Bound the values $|E_T|$, $|E_M|$, and $|E_S|$ for $n=8$.
+			\item Find the number of subintervals needed for the trapezoidal rule to be accurate within $10^{-6}$.
+%			\item Find the smallest absolute value that the fourth derivative $f^{(4)}$ of a function $f$ can have on the interval $[-7,2]$ to ensure that Simpson's Rule $S_6$ yields an error of 0.01.
+		\end{enumerate}
+	\end{ex}
+	\sol{\ 
+		\begin{enumerate}
+			\item Here, we use the formulas $$|E_T|\leq\frac{K_1(b-a)^3}{12n^2},$$ $$|E_M|\leq\frac{K_1(b-a)^3}{24n^2},$$ and $$|E_S|\leq\frac{K_2(b-a)^5}{180n^4}$$ with $a=-3$, $b=3$, $n=8$, $K_1=2$, and $K_2=12$: For example,
+			$$|E_T|\leq\frac{K_1(b-a)^3}{12n^2}=\frac{2(6)^3}{12(8)^2}=\frac{9}{16}=0.5625.$$
+			Similarly, $|E_M|\leq9/32=0.28125$ and $|E_S|\leq81/640=0.1265625$.
+			\item Here, we use the formula 
+			$$|E_T|\leq\frac{K_1(b-a)^3}{12n^2}$$
+			a little bit differently: In particular, we know we want the error to be \textbf{less than or equal to} $10^{-6}$, and we know from the question that we need to solve for $n$. To do that, we set up
+			$$\frac{K_1(b-a)^3}{12n^2}\leq 10^{-6}$$
+			and solve for $n$ (given that with $a=-3$, $b=3$, $K_1=2$, and $K_2=12$ still hold):
+			$$\frac{2(6)^3}{12n^2}\leq 10^{-6}\implies 2(6)^3\leq 10^{-6}(12n^2)\implies \frac{2(6)^3}{12\cdot10^{-6}}\leq n^2.$$
+			Because the square root is a monotone function (\textit{don't worry about this fact}) means we can take the square root of both sides without changing the inequality:
+			$$\sqrt{\frac{2(6)^3}{12\cdot10^{-6}}}\leq n.$$
+			Thus, for any $n$ larger than
+			$$\sqrt{\frac{2(6)^3}{12\cdot10^{-6}}}=6000,$$
+			$|E_T|\leq10^{-6}$ will be satisfied.
+			
+%			\item Now, 
+%			$$|E_S|\leq\frac{K_2(b-a)^5}{180n^4},$$
+%			and we know that $a=-7$, $b=2$, $n=6$, and $|E_S|=0.01$. Moreover, recall that $K_2$ is such that $|f^{(4)}(x)|\leq K_2$. Thus, we want to find $K_2$ where
+%			$$0.01\leq\frac{K_2(9)^5}{180(6)^4}.$$
+%			Simplifying yields that 
+%			$$K_2\geq\frac{0.01\cdot180(6)^4}{9^5}=0.395062,$$
+%			and so for $|E_S|=0.01$ to be true for $n=6$, it must hold  that the fourth derivative of $f$ can be no larger (in absolute value) than $0.395062$ on $[-7,2]$.
+%			
+%			Said differently, any function $f$ satisfying $|f^{(4)}(x)|\leq0.395062$ on $[-7,2]$ will have an $S_6$-error 
+		\end{enumerate}}
+		
+		\head{True or False}{While this section is largely computational, our classroom discussion hinted at the fact that there are also tons of good true/false questions!}
+		\begin{ex}
+			Here are some facts to know which make really good true/false questions!
+		\end{ex}
+		\sol{\
+			\begin{enumerate}
+				\item For $f$ strictly increasing, $L_n$ is an underestimate and $R_n$ is an overestimate for the area under the curve.
+				\item For $f$ strictly decreasing, $L_n$ is an overestimate and $R_n$ is an underestimate for the area under the curve.
+				\item In general, $L_n<M_n<R_n$ is false.
+				\item $M_n\neq (L_n+R_n)/2$.
+				\item $T_n=(L_n+R_n)/2$ for all n.
+				\item $S_{2n}=2/3 M_n + 1/3 T_n$ for all $n$.
+			\end{enumerate}}
+\end{document}

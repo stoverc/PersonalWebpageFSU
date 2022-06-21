@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+\usepackage{enumitem,fullpage,stoversymb}
+\everymath{\displaystyle}
+\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+
+\begin{document}
+	\noindent\begin{center}\Large{Integrals \& Integration Techniques You Should Know}\end{center}
+	\vspace{0.25in}
+	\textbf{General Facts About Integrals}
+	\begin{enumerate}
+		\item If $g(x)=\frac{d}{dx}f(x)$, then $\int g(x)\,dx=f(x)+C$.
+		\item If $a$ and $b$ are constants, then $\int \left(af(x)+bg(x)\right)\,dx=a\int f(x)\,dx+b\int g(x)\,dx$.
+	\end{enumerate}
+
+	\vspace{0.25in}
+	
+	\noindent\textbf{Basic Integrals}
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item $\int x^n\,dx= \frac{1}{n+1}x^{n+1} + C$ if $n\neq -1$
+		\item $\int \frac{1}{x}\,dx = \ln|x|+C$
+	\end{enumerate}
+	\end{multicols}
+
+	\vspace{0.25in}
+	
+	\noindent\textbf{Trig and Invese Trig Integrals}
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\setcounter{enumi}{4}
+		\item $\int \sin(x)\,dx=-\cos(x)+C$
+		\item $\int \cos(x)\,dx=\sin(x)+C$
+		\item $\int \sec^2(x)\,dx=\tan(x)+C$
+		\item $\int \csc^2(x)\,dx=-\cot(x)+C$
+		\item $\int \sec(x)\tan(x)\,dx=\sec(x)+C$
+		\item $\int \csc(x)\cot(x)\,dx=-\csc(x)+C$
+		\item $\int \frac{1}{x^2+1}\,dx=\tan^{-1}(x)+C$
+		\item $\int \frac{1}{\sqrt{1-x^2}}\,dx=\sin^{-1}(x)+C$
+	\end{enumerate}
+	\end{multicols}
+
+	\vspace{0.25in}
+	
+	\noindent\textbf{Exponentials}
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\setcounter{enumi}{12}
+		\item $\int a^x\,dx=\frac{1}{\ln(x)}a^x+C$
+		\item $\int e^x\,dx=e^x+C$
+	\end{enumerate}
+	\end{multicols}
+	
+	\vspace{0.25in}
+	
+	\begin{tcolorbox}[colback=white,colframe=black,boxrule=0.5pt]
+	\noindent\textbf{$u$-Substitution}\\
+	%\begin{enumerate}
+		%\setcounter{enumi}{14}
+		%\item 
+		If $u=g(x)$, then $du=g'(x)\,dx$. Hence:
+		$$\int f(g(x))g'(x)\,dx=\int f(u)\,du.$$
+	%\end{enumerate}
+	\end{tcolorbox}
+	\vspace{-15mm}
+	$$\begin{tikzpicture}
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,2);
+	
+	\draw [-latex, red, thick, shorten >= 1.00cm] (A) -- (B);
+	\end{tikzpicture}$$
+	\vspace{-10mm}
+	$$\hspace{2.625in}\text{this is equivalent to the chain rule!!}$$
+\end{document}

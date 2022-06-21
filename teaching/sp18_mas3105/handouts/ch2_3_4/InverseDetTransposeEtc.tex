@@ -1,0 +1,148 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\input{../HandoutHeader.tex}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{Properties of Transposes, Determinants, and Inverses}}
+\end{center}
+%\textbf{Directions:} Split into groups and (attempt to) answer each of the following questions with your group members. \ul{Don't worry about questions you are unable to answer!}
+
+So far, we've learned how to take transposes, determinants, and inverses of (some) matrices; in this handout, we state some of the properties of these operations and provide some illustrative examples.
+
+\subsection*{Transposes}
+Recall that the \ul{transpose} of an $m\times n$ matrix $\sansA$ is the $n\times m$ matrix $\sansA^\sansT$ whose first row is the first column of $\sansA$, whose second row is the second column of $\sansA$, etc.
+
+\exit{1} The transpose of $\pmat{1 & 2 & 3 \\ 4 & 5 & 6}$ is $\pmat{1 & 4 \\ 2 & 5 \\ 3 & 6}$.
+
+\vspace{4.5mm}
+
+\exit{2} The transpose of $\pmat{1 & 4 \\ 2 & 5 \\ 3 & 6}$ is $\pmat{1 & 2 & 3 \\ 4 & 5 & 6}$.
+
+\vspace{4.5mm}
+
+The above examples show one of the important properties of transposes (see T1 below) which is shown here with some others:
+
+\vspace{4.5mm}
+
+\noindent\fbox{\parbox{\linewidth}{
+\begin{enumerate}[itemsep=0.25in,label=T\arabic*.,leftmargin=0.5in]
+	\item $\left(\sansA^\sansT\right)^\sansT=\sansA$
+	\item $\left(\sansA+\sansB\right)^\sansT=\sansA^\sansT+\sansB^\sansT$	
+	\item $\left(\sansA\sansB\right)^\sansT=\sansB^\sansT\sansA^\sansT$ \hspace{3mm}\note{Notice the order swap on $\RHS$!}
+\end{enumerate}
+}}
+
+\vspace{4.5mm}
+
+\exit{3} If $\sansA=\pmat{1 & 2 \\ 3 & 4}$ and $\sansB=\pmat{5 & 6 \\ 7 & 8}$, then
+\[
+\LHS=\left(\sansA+\sansB\right)^\sansT=\left(\pmat{1 & 2 \\ 3 & 4}+\pmat{5 & 6 \\ 7 & 8}\right)^\sansT=\pmat{6 & 8 \\ 10 & 12}^\sansT=\pmat{6 & 10 \\ 8 & 12}
+\]
+while
+\[
+\RHS=\sansA^\sansT+\sansB^\sansT=\pmat{1 & 2 \\ 3 & 4}^\sansT+\pmat{5 & 6 \\ 7 & 8}^\sansT=\pmat{1 & 3 \\ 2 & 4}+\pmat{5 & 7 \\ 6 & 8}=\pmat{6 & 10 \\ 8 & 12},
+\]
+
+\noindent so $\LHS=\RHS$. \qed
+
+\newpage
+
+\exit{4} If $\sansA$ and $\sansB$ are as in Example 3, then $\LHS=\RHS=\pmat{19 & 43 \\ 22 & 50}$. \qed
+
+\subsection*{Determinants}
+
+Recall that $\det(\sansA)$ is a real number which is defined if and only if $\sansA$ is a square matrix and that---to compute $\det(\sansA)$---it suffices to do ``cofactor expansion'' along any row or column of $\sansA$. See the lecture notes if you need a refresher on how to do this!
+
+There are two main properties of determinants that you should know.
+
+\vspace{4.5mm}
+
+\noindent\fbox{\parbox{\linewidth}{
+\begin{enumerate}[itemsep=0.25in,label=D\arabic*.,leftmargin=0.5in]
+	\item $\det(\sansA^\sansT)=\det(\sansA)$
+	\item $\det(\sansA\sansB)=\det(\sansA)\det(\sansB)$
+\end{enumerate}
+}}
+
+\vspace{4.5mm}
+
+\exit{5} If $\sansA$ is as in Example 3, then 
+\[
+\LHS=\det\pmat{1 & 2 \\ 3 & 4}^\sansT=\det\pmat{1 & 3 \\ 2 & 4}=4-6=-2
+\]
+while
+\[
+\RHS=\det\pmat{1 & 2 \\ 3 & 4}=4-6=-2,
+\]
+
+\noindent so $\LHS=\RHS$. \qed
+
+\vspace{9mm}
+
+\exit{6} If $\sansA=\pmat{1 & 2 \\ 3 & 4}$ and $\sansB=\pmat{5 & 6 \\ 7 & 8}$ as in Example 3, then $\sansA\sansB=\pmat{19 & 22 \\ 43 & 50}$ and so
+\[
+\LHS=\det(\sansA\sansB)=\det\pmat{19 & 22 \\ 43 & 50}=19(50)=43(22)=4
+\]
+while
+\[
+\RHS=\det(\sansA)\det(\sansB)=\det\pmat{1 & 2 \\ 3 & 4}\cdot\det\pmat{5 & 6 \\ 7 & 8}=-2\cdot-2=4.
+\]
+
+\noindent Thus, $\LHS=\RHS$. \qed
+
+\newpage
+
+\subsection*{Inverses}
+
+With determinants in tow, we're able to define and talk about matrix inverses!
+
+Recall that the \ul{inverse} of an $n\times n$ matrix $\sansA$ is an $n\times n$ matrix $\sansA^{-1}$ for which $\sansA\sansA^{-1}=\sansI_n=\sansA^{-1}\sansA$ where $\sansI_n$ is the $n\times n$ identity matrix. 
+
+As we learned in class, $\sansA$ has an inverse if and only if $\det(\sansA)\neq 0$ and---when it exists---you can find $\sansA^{-1}$ by forming the augmented matrix $\pmatgrid{c|c}{\sansA & \sansI_n}$ and putting the ``$\sansA$ part'' into RREF. The result is guaranteed to be the augmented matrix 
+\[
+	\pmatgrid{c|c}{\sansI_n & \sansA^{-1}}.
+\]
+
+In a future handout, we'll learn a whole lot more about matrix inverses; until then, here are some properties you should know!
+
+\vspace{4.5mm}
+
+\noindent\fbox{\parbox{\linewidth}{
+\begin{enumerate}[itemsep=0.25in,label=I\arabic*.,leftmargin=0.5in]
+	\item $(\sansA^{-1})^{-1}=\sansA$
+	\item $\left(\sansA\sansB\right)^{-1}=\sansB^{-1}\sansA^{-1}$.\hspace{3mm}\note{Notice the order swap on $\RHS$!}
+	\item $\left(\sansA^\sansT\right)^{-1}=\left(\sansA^{-1}\right)^\sansT$.
+\end{enumerate}
+}}
+
+\vspace{4.5mm}
+
+\exit{7} If $\sansA$ is as in Example 3, then $\sansA^{-1}=\pmat{-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}}$ and the inverse of $\sansA^{-1}$ is precisely $\sansA$. \textbf{You should verify this!} \qed
+
+\vspace{9mm}
+
+\exit{8} If $\sansA=\pmat{1 & 2 \\ 3 & 4}$ and $\sansB=\pmat{5 & 6 \\ 7 & 8}$ as above, then $\sansA\sansB=\pmat{19 & 22 \\ 43 & 50}$,  \mbox{$\sansA^{-1}=\pmat{-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}}$}, and $\sansB^{-1}=\pmat{-4 & 3 \\ \frac{7}{2} & -\frac{5}{2}}$. Thus,
+\[
+\LHS=(\sansA\sansB)^{-1}=\det\pmat{19 & 22 \\ 43 & 50}^{-1}=\pmat{\frac{25}{2} & -\frac{11}{2} \\ -\frac{43}{4} & \frac{19}{4}}
+\]
+\noindent while
+\[
+\RHS=\sansB^{-1}\sansA^{-1}=\pmat{-4 & 3 \\ \frac{7}{2} & -\frac{5}{2}}\pmat{-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}}=\pmat{\frac{25}{2} & -\frac{11}{2} \\ -\frac{43}{4} & \frac{19}{4}},
+\]
+
+\noindent and so $\LHS=\RHS$. \textbf{You should verify this, too!}\qed
+
+\vspace{9mm}
+
+\exit{9} If $\sansA$ is as in Example 3, then $\sansA^\sansT=\pmat{1 & 3 \\ 2 & 4}$ has inverse $\LHS=\pmat{-2 & \frac{3}{2} \\ 1 & -\frac{1}{2}}$. On the other hand, $\sansA^{-1}=\pmat{-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}}$ (see Example 7) and so 
+\[
+\RHS=\left(\sansA^{-1}\right)^\sansT=\pmat{-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}}^\sansT=\pmat{-2 & \frac{3}{2} \\ 1 & -\frac{1}{2}}.
+\]
+\noindent Thus, $\LHS=\RHS$. \textbf{Verify everything!}\qed
+\end{document}

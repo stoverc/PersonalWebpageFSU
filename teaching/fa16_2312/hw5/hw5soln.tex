@@ -1,0 +1,220 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage{fullpage,amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+\everymath{\displaystyle}
+
+\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label={(\alph*)}}
+\setlist[enumerate,3]{label={\roman*.}}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\hspace{0.5in}\textbf{Hint}: #1}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+	\Large{\textbf{MAC 2312 --- Homework 5}}\\[6mm]
+	\red{\Huge ------SOLUTIONS------}\\[-3mm]
+\end{center}
+
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	%========Slack==============
+	\item \red{Nothin' to see here, folks....}
+	%=========Sequences=========
+	\item \red{(a) $\leftrightarrow$ (iii); (b) $\leftrightarrow$ (i); (c) $\leftrightarrow$ (iv); (d) $\leftrightarrow$ (ii)}
+	
+	\item \red{$\left\{1,2,4,\sqrt{21},\sqrt{41},\sqrt{78},\sqrt{140},\sqrt{259}\right\}$}
+%	
+%	\item Write the first eight terms of the following sequence:
+%		$$b_1 = 1,\quad\quad b_2 = 2,\quad\quad b_3 = 4,\quad\quad b_n=\sqrt{b_{n-1}^2+b_{n-2}^2+b_{n-3}^2}\quad\text{for }n\geq 4.$$
+		
+	\item %Determine the limit of each of the following sequences or state that the sequence diverges.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{Converges to 12} %$a_n=12$
+			\item \red{Diverges to $-\infty$} %$\left\{\ln\left(\frac{12n+2}{-9+4n^2}\right)\right\}_{n=1}^\infty$
+			\item \red{Converges to 1} %$b_n=10^{-1/n}$
+			\item \red{Diverges to $-\infty$} %$\left\{\ln{(\sin{n})}-\ln{n}\right\}$
+			\item \red{Converges to $\tan^{-1}(1)=\frac{\pi}{4}$} %$s_n=\tan^{-1}\left(e^{e^{-n}}\right)$
+			\item \red{Converges to $\arccos(1/2)=\pi/3$} %$\left\{\arccos\left(\frac{n^3}{2n^3+1}\right)\right\}$
+			\item \red{Converges to 1} %$k_n=\frac{n}{n+n^{1/n}}$
+			\item \red{Converges to 0} %$\left\{\frac{(-1)^nn^3+2^{-n}}{3n^3+4^{-n}}\right\}$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Note the inductive formulation $a_1=\sqrt{2}$ and $a_{n+1}=\sqrt{2a_n}$, $n\geq 1$.
+	\begin{enumerate}
+		\item \red{Assume $a_n<2$. Then $a_{n+1}\deff\sqrt{2 a_n}<\sqrt{2\cdot 2}$, by assumption. Hence, $a_{n+1}<\sqrt{4}=2$.}
+		\item \red{Assume again that $a_n<2$. Then $a_{n+1}\deff\sqrt{2 a_n}>\sqrt{a_n\cdot a_n}$, (again) by assumption. Thus, $a_{n+1}>\sqrt{a_n^2}=|a_n|=a_n$, since the terms of $\{a_n\}$ are clearly non-negative.}
+		\item \red{By (a), the sequence is bounded; by (b), the sequence is monotone. \textbf{All bounded, monotone sequences have a limit!}}
+		\item \red{Suppose $a_n\to L$. Then $a_{n+1}\to L$ as well, and hence $L=\sqrt{2 L}$. Solving for $L$: $L=\sqrt{2 L}$ implies $L^2=2L$ implies $L^2-2L=0$ implies $L(L-2)=0$. Hence, either $L=0$ or $L=2$, and because the sequence is \ul{increasing} from $a_1=\sqrt{2}$, $L\neq 0$. Thus, $a_n\to 2$.}
+		\item \red{You do this! The recursive definition is $a_1=\sqrt{3}$  and $a_{n+1}=\sqrt{3a_n}$, $n\geq 1$.}
+		\item \red{You do this! The recursive definition is $a_1=\sqrt{2}$  and $a_{n+1}=\sqrt{2+a_n}$, $n\geq 1$.}
+	\end{enumerate}
+	
+	\item Let $a_n=\frac{n}{n+1}$. Find a number $M$ such that:
+	\begin{enumerate}
+		\item $|a_n-1|\leq0.001$ for $n\geq M$.\\[3mm]
+		\red{
+			\textbf{Solution:} Set up the absolute value inequality $-0.001\leq a_n-1\leq 0.001$ and note that $a_n=\frac{n}{n+1}$. Plugging in for $a_n$ in the absolute value inequality yields
+			$$-0.001\leq\frac{n}{n+1}-1\leq 0.001,$$
+			and solving with respect to the $\geq$ inequality (since we want $n\geq M$ for some $M$) yields
+			$$-0.001\leq\frac{n}{n+1}-1 \implies 0.999\leq\frac{n}{n+1}\implies 0.999(n+1)\leq n.$$
+			Solving for $n$ yields $n\geq999$, so $M=999$ will do the trick.
+		}
+		\item $|a_n-1|\leq 10^{-5}$ for $n\geq M$.
+		\\[3mm]
+		\red{
+			\textbf{Solution:} You do this! The answer is $n\geq 99,999$.
+		}
+	\end{enumerate}
+	%=========Series============
+	\item %For each of the following series, (a) find a formula for the general term $a_n$ (\textbf{not the partial sum!}) and (b) write in summation notation.
+	\begin{enumerate}
+		\item \red{$a_n=\left(\frac{5}{2}\right)^{n-1}\longleftrightarrow$ series = $\infsum{n}{1}{\left(\frac{5}{2}\right)^{n-1}}$.}
+		\item \red{$a_n=\frac{1+\frac{1+(-1)^{n+1}}{2}}{n^2+1}\longleftrightarrow$ series = $\infsum{n}{1}{\frac{1+\frac{1+(-1)^{n+1}}{2}}{n^2+1}}$}
+	\end{enumerate}
+	\vspace{0.25in}
+	\item %Calculate the partial sums $s_2$, $s_4$, and $s_6$ for each of the following.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{$s_2=-\frac{1}{2}$; $s_4=-\frac{7}{12}$; $s_6=-\frac{37}{60}$} %$\sum_{k=1}^\infty (-1)^k k^{-1}$
+			\item \red{$s_2=\frac{3}{2}$; $s_4=\frac{41}{24}$; $s_6=\frac{1237}{720}$} %$\sum_{j=1}^\infty \frac{1}{j!}$
+			\item \red{$s_2=-\frac{14}{3}$; $s_4=-\frac{44}{5}$; $s_6=-\frac{90}{7}$} %$\sum_{n=1}^\infty\left(\frac{1}{n+1}-\frac{1}{n+2}\right)$
+			\item \red{$s_2=\frac{42}{121}$; $s_4=\frac{5460}{14641}$; $s_6=\frac{664062}{1771561}$} %$\sum_{r=1}^\infty\left(\frac{3}{11}\right)^{-r}$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{0.25in}
+	\item %Write each of the following repeating decimals as rational numbers in lowest form.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{$\frac{1}{9}$}
+			\item \red{$\frac{13}{99}$} %$0.131313\ldots$
+			\item \red{$\frac{217}{999}$} %$0.217217217\ldots$
+			\item \red{$\frac{1234}{9999}$}% $0.1234123412341234\ldots$
+		\end{enumerate}
+	\end{multicols}
+	\newpage
+	\item %Use partial fraction decomposition to find each of the following sums.
+	%\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{Series notation: $\infsum{k}{3}{\frac{1}{k(k-1)}}$;\\[3mm]
+				partial fraction: $\frac{1}{k(k-1)}=\frac{1}{k-1}-\frac{1}{k}$;\\[3mm]
+				partial sum: $s_n=\frac{1}{2}-\frac{1}{n}$ for $n\geq 3$;\\[4.5mm]
+				total sum: $\lim_{n\to\infty}s_n=1/2$.} 
+			\item \red{Series notation: $\infsum{k}{1}{\frac{1}{(2k-1)(2k+1)}}$;\\[3mm]
+				partial fraction: $\frac{1}{(2k-1)(2k+1)}=\frac{1/2}{2k-1}-\frac{1/2}{2k+1}$; \\[3mm]
+				partial sum: $s_n= \frac{1}{2}-\frac{1}{2(2n+1)}$\\[4.5mm]
+				total sum: $\lim_{n\to\infty}s_n=1/2$.}
+				%\frac{1}{1\cdot 3}+\frac{1}{3\cdot 5}+\frac{1}{5\cdot 7}+\cdots$.
+			\item \red{Series notation: $\infsum{k}{1}{\frac{1}{k(k+1)(k+2)}}$;\\[3mm]
+				partial fraction: $\frac{1}{k(k+1)(k+2)}=\frac{1/2}{k}-\frac{1}{k+1}+\frac{1/2}{k+2}$; \\[3mm]
+				partial sum: $s_n= \frac{n^2+3n}{4(n^2+3n+2)}$\\[4.5mm]
+				total sum: $\lim_{n\to\infty}s_n=1/4$.}
+			\item \red{Series notation: $\infsum{k}{1}{\frac{1}{k^2+3k+2}}=\infsum{k}{1}{\frac{1}{(k+2)(k+1)}}$;\\[3mm]
+				partial fraction: $\frac{1}{(k+2)(k+1)}=\frac{1}{k+1}-\frac{1}{k+2}$; \\[3mm]
+				partial sum: $s_n=\frac{1}{2}-\frac{1}{n+2}$\\[4.5mm]
+				total sum: $\lim_{n\to\infty}s_n=1/2$.}
+		\end{enumerate}
+	%\end{multicols}
+
+	\item Determine the sum of each of the following series or state that the series does not \st{exist} \textbf{converge}.
+	%\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{Does not converge: $a_n\to 1$ as $n\to \infty$} %$\sum_{n=1}^\infty \frac{n}{\sqrt{n^2+1}}$
+			\item \red{Does not converge: $a_n\to \pm\infty$ as $n\to \infty$} %$\sum_{n=1}^\infty (-1)^n n^2$
+			\item \red{Does not converge: $a_n\to \pm1$ as $n\to \infty$} %$\cos{1}+\cos{1/2}+\cos{1/3}+\cos{1/4}+\cdots$
+			\item \red{Geometric series: $a=(4/5)^3$, $r=4/5$:\\[3mm]  
+				Converges to $\frac{(4/5)^3}{1-4/5}=\frac{64}{25}$.} %$\frac{4^3}{5^3}+\frac{4^4}{5^4}+\frac{4^5}{5^5}+\cdots$
+			\item \red{Does not converge: $a_n\not\to0$ as $n\to \infty$}%$\frac{2}{3}+\frac{3^2}{2^2}+\frac{2^3}{3^3}+\frac{3^4}{2^4}+\frac{2^5}{3^5}+\cdots$
+			%\columnbreak
+			\item \red{Geometric series: $a=e^3$, $r=e^{-2}$:\\[3mm]  
+				Converges to $\frac{e^3}{1-e^{-2}}=\frac{64}{25}$.}
+				%$\sum_{n=0}^\infty e^{3-2n}$
+			\item \red{Converges to $-\frac{839}{1344}$;\\[3mm]  
+				 this is definitely \textbf{not} an exam-level question, but if you want to see it worked out, don't hesitate to ask!}
+				%$\sum_{n=3}^\infty \frac{3(-2)^2-5^n}{8^n}$
+			\item \red{Geometric series: $a=25/9$, $r=3/5$:\\[3mm]
+				Converges to $\frac{25/9}{1-(3/5)}=\frac{125}{18}$}
+				%$\frac{25}{9}+\frac{5}{3}+1+\frac{3}{5}+\frac{9}{25}+\frac{27}{125}+\cdots$
+			\item \red{Geometric series: $a=7/8$, $r=-7/8$:\\[3mm]
+				Converges to $\frac{7/8}{1-(-7/8)}=\frac{7}{15}$}
+				%$\frac{7}{8}-\frac{49}{64}+\frac{343}{512}-\frac{2401}{4096}+\cdots$
+			\item \red{Does not converge: $p$-test with $p=1/2$.} %$\sum_{j=1}^\infty \frac{1}{\sqrt{j}}$
+		\end{enumerate}
+	%\end{multicols}
+	
+	\newpage
+	
+	\item %A \textbf{subsequence} of a sequence $\{a_n\}$ is a sequence $\{b_n\}$ such that, for all $n$, $b_n=a_k$ for some increasing collection of $k$'s (i.e., if $b_1=a_{12}$, then $b_2=a_k$ for some $k\geq 12$). Throughout, let $$a_n=\frac{(-1)^nn!}{2^n}.$$
+	\begin{enumerate}
+		\item Write the first three terms of the sequence $a_n$.\\
+			\red{\textbf{Solution:} $a_1=-1/2$; $a_2=2/4$; $a_3=-6/8$.}\vspace{-4.5mm}
+		\item Write the first three terms of the subsequence $b_n$ where, for each $n$, $b_n=a_{2n}$.\\
+			\red{\textbf{Solution:} $b_1=a_2=2/4$; $b_2=a_4=24/16$; $b_3=a_6=720/64$.}\vspace{-4.5mm}
+		\item Write the first three terms of the subsequence $c_n$ where, for each $n$, $c_n=(a_n+a_{n+1})/b_n$.\\
+			\red{\textbf{Solution:} $c_1=(a_1+a_2)/b_1=0$; $c_2=(a_2+a_3)/b_2=-1/6$; $c_3=(a_3+a_4)/b_3=1/15$}
+	\end{enumerate}
+
+	\item %Write an example of a sequence which satisfies each of the following conditions or state that no such sequence exists. If both cases, justify your claim using results from class and/or ``formal'' proofs.
+	\begin{enumerate}
+		\item Is increasing; is bounded below; is not bounded above.\\
+			\red{\textbf{Solution:} $a_n=n^2$}\vspace{-4.5mm}
+		\item Is increasing; is bounded above; is not bounded below; converges.\\
+			\red{\textbf{Solution:} No such sequence exists: All convergent sequences are bounded (this is hard).}\vspace{-4.5mm}
+		%\item Is increasing; is bounded below; is not bounded above.\\
+		%	\red{\textbf{Solution:} $a_n=e^{n}$}\vspace{-4.5mm}
+		\item Is decreasing; is bounded neither above nor below; converges.\\
+			\red{\textbf{Solution:} No such sequence exists: All convergent sequences are bounded (this is hard).}\vspace{-4.5mm}
+		\item Is neither increasing nor decreasing; is bounded; converges to 4.\\
+			\red{\textbf{Solution:} $\textstyle a_n=4+\frac{(-1)^n}{n}$}\vspace{-4.5mm}
+		\item Is neither increasing nor decreasing; is not bounded; converges.\\
+			\red{\textbf{Solution:} No such sequence exists: All convergent sequences are bounded (this is hard).}\vspace{-4.5mm}
+		\item Is monotone; is bounded; converges to 6 \textbf{and} -12 simultaneously.\\
+			\red{\textbf{Solution:} No such sequence exists: The limit of a convergent sequence is unique.}\vspace{-4.5mm}
+		\item Does not converge but has a subsequence which \textit{does} converge.\\
+			\red{\textbf{Solution:} $a_n=(-1)^n=\{-1,1,-1,1,-1,1,\ldots\}$. The subsequences $a_{2n-1}=\{-1,-1,-1,\ldots\}$ and $a_{2n}=\{1,1,1,\ldots\}$ both converge.}\vspace{-4.5mm}
+		\item Converges, but has a subsequence which \textit{does not} converge.\\
+			\red{\textbf{Solution:} No such sequence exists: Every subsequence of a convergent sequence converges.}\vspace{-4.5mm}
+		\item Converges, and has a subsequence which converges to a \textit{different} limit.\\
+			\red{\textbf{Solution:} No such sequence exists: Every subsequence of a convergent sequence converges to the same limit as the larger sequence.}\vspace{-4.5mm}
+		\item Has two \textit{different} subsequences which converge to -7 and to 7, respectively.\\
+			\red{\textbf{Solution:} $a_n=(-7)^n=\{-7,7,-7,7,\ldots\}$.}\vspace{-4.5mm}
+		\item Has nine \textit{different} subsequences which converge to $1, 2, 3,\ldots, 9$ respectively.\\
+			\red{\textbf{Solution:} $a_n=\{1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,\ldots\}$. For $k=1,2,3,\ldots,9$, the subsequence $a_{kn}=\{k,k,k,\ldots\}$ converges to $k$.}\vspace{-4.5mm}
+		\newpage
+		\item Diverges; has a subsequence which is increasing; has a different subsequence which diverges.\\
+		\red{\textbf{Solution:} $a_n=(-1)^n n$. The subsequence $a_{2n}=2n$ is increasing and the subsequence $a_{2n-1}=-(2n-1)$ is a different sequence which diverges.}\vspace{-4.5mm}
+	\end{enumerate}
+
+	\item %Write an example of two sequences $\{a_n\}$ and $\{b_n\}$ which satisfy each of the following conditions or state that no such sequence exists. If both cases, justify your claim using results from class and/or ``formal'' proofs.
+	\begin{enumerate}
+		\item Both $a_n$ and $b_n$ converge but $\{a_n+b_n\}$ fails to converge.\\
+			\red{\textbf{Solution:} No such sequences exists: The sum of convergent sequences converges.}\vspace{-4.5mm}
+		\item Neither $a_n$ nor $b_n$ converge but $a_n-b_n$ converges.\\
+			\red{\textbf{Solution:} $a_n=n, b_n=n-1\implies a_n-b_n=n-(n-1)=1$ converges to 1.}\vspace{-4.5mm}
+		\item $a_n$ converges, $b_n$ diverges, and $a_n/b_n$ converges.\\
+			\red{\textbf{Solution:} $a_n=1, b_n=n\implies a_n/b_n=1/n$ converges to 0.}\vspace{-4.5mm}
+		\item $a_n\to L$, $b_n\to L$, and $a_n/b_n\to L$.\\
+			\red{\textbf{Solution:} $a_n=1, b_n=1-1/n\to 1\implies a_n/b_n=1/(1-1/n)$ also converges to 1.}\vspace{-4.5mm}
+		\item $a_n$ diverges, $b_n\to\sqrt{2}$, and $a_nb_n\to 19$.\\
+			\red{\textbf{Solution:} No such sequences exist.}\vspace{-4.5mm}
+		\item $\sum_{n=1}^\infty a_n$ diverges and $\sum_{n=1}^\infty b_n$ diverges but $\sum_{n=1}^\infty (a_n+b_n)$ converges.\\[3mm]
+			\red{\textbf{Solution:} $a_n=-n$, $b_n=n$.}\vspace{-4.5mm}
+		\item $\sum_{n=1}^\infty a_n$ converges and $\sum_{n=1}^\infty b_n$ converges but $\sum_{n=1}^\infty \frac{a_n}{b_n}$ diverges.\\[3mm]
+			\red{\textbf{Solution:} $a_n=1/n^3$, $b_n=1/n^2$. $\textstyle\sum a_n$ and $\textstyle \sum b_n$ both converge as $p$-series. However, 
+			$$\frac{a_n}{b_n}=\frac{1/n^3}{1/n^2}=\frac{1}{n}$$ 
+			and $\textstyle\sum 1/n$ diverges.}\vspace{-4.5mm}
+	\end{enumerate}
+\end{enumerate}
+\end{document}

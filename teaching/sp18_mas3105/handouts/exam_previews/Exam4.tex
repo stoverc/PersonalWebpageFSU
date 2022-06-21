@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\input{PreviewHeader.tex}
+\usepackage{lmodern,url}
+\usepackage[T1]{fontenc}
+
+\newcounter{Exx}
+\newcommand{\exbox}[1]{\stepcounter{Exx}\vspace{3mm}\begin{tcolorbox}[breakable,arc=2pt,boxrule=1pt,right=6mm,top=3mm,bottom=6mm]\noindent\textit{\large\bfseries Example \theExx:\\[3mm]}~#1\end{tcolorbox}}
+\begin{document}
+	\section*{\centering Final Exam Preview}
+	
+	\noindent Here's a bit of logistical info about the final.
+	\begin{itemize}[topsep=0.125in,itemsep=0.625mm]
+		\item There will be 8--10 questions overall, and some will have multiple parts.
+		\item The exam will cover the following: 
+		\begin{itemize}[topsep=0mm,listparindent=6mm]	
+			\item Exam 3 material
+			
+			\red{Remember: You needed the invertible matrix theorem on Exam 3 too!}
+			\item HW4 material (but \ul{not} problem 6)
+			\item Dot/inner products, norm, distance (between vectors), angles (between vectors)
+			\item Orthogonality / orthogonal complements 
+			
+			(definitions; $\left(\row(\sansA)\right)^\perp=\nul(\sansA)$;  $\left(\col(\sansA)\right)^\perp=\nul(\sansA^\sansT)$; etc.)
+			\item Symmetric matrices 
+			
+			(definition; they have orthogonal eigenspaces; they have real eigenvalues; etc.)
+		\end{itemize}
+		\item The exam will be 35\%--50\% ``old stuff'' (Exam 3) and 50\%--65\% ``new stuff'' (stuff after Exam 3)
+		\item You should expect the following question formats:
+		\begin{itemize}[topsep=0mm]
+			\item computation questions (e.g. using matrices to solve systems from start to finish)
+			\item multiple-choice questions
+			\item True/False questions (which may or may not require justification).
+		\end{itemize}
+		The True/False questions will mostly look like those from Exam 3 and/or the textbook. Sample questions are included herein. % \red{ (which I include here for those of you without the textbook).}
+		\item For some of the above topics, your review questions will be from other sources:
+		\begin{itemize}[topsep=0mm,listparindent=6mm]
+			\item Exam 3
+			
+			\red{Make sure you use questions 1--2, 3(vi) as a lesson to \ul{read the questions carefully}!}
+			\item HW4
+			
+			\red{You should all read \ul{and understand} the solution for question 2!!! I
+			ve seen lots of wrong answers handed in for that one! }
+		
+			\item Textbook problems 
+			
+			\red{I'll update the website accordingly!}
+		\end{itemize}
+	\end{itemize}
+	
+	\vspace{0.225in}
+	\begin{center}
+		\line(1,0){300}
+	\end{center}
+	\vspace{0.5in}
+	
+	\newpage
+	
+	\noindent Now, here are some sample questions for the \ul{remaining} topics that you should be able to answer before the exam.
+	
+	\begin{enumerate}[topsep=0.125in, itemsep=0.5in]
+		\item Which of the following scenarios are possible? \ul{There may be more than one!}
+		\begin{multicols}{2}
+			\begin{enumerate}[itemsep=0.375in,leftmargin=0.5in,rightmargin=0.25in,label=(\roman*).]
+				\item $\sansA$ is $14\times14$; and\par $(\lambda^2+1)^7$ is a factor of $\det(\sansA-\lambda\,\sansI)$.							%True
+				\item $W$ is a subspace of $\Reals^{12}$; and\par $\dim(W)=7$; and\par $\dim(W^\perp)=7$											%False
+				\item $\sansA$ is $2\times 2$; and\par $\sansA$ has real entries; and\par $\sansA$ has eigenvalues $2i$, $-2i$, and $4$.			%False
+				\item $\sansA$ is $3\times 5$; and\par $\nullity(\sansA^\sansT)=3$; and\par $\nullity(\sansA)=2$									%False
+				\item $W$ is a subspace of $\Reals^{12}$; and\par $\dim(W)=7$; and\par $\dim(W^\perp)=7$											%False
+				\item $\sansA$ is $5\times 5$; and\par $\rank(\sansA)=\Reals^3$; and\par $\nul(\sansA)$ is 2-dimensional							%False
+				\item $\sansA$ is $2\times 2$; and\par $\sansA$ has real entries; and\par $\sansA$ has eigenvalues $2i$ and $4$.					%False
+				\item All of the above
+				\item None of the above
+			\end{enumerate}
+		\end{multicols}
+		
+		\item Let $\vect{x}=\langle 1,2,3,4,5,6\rangle$ and $\vect{y}=\langle 4,-3,2,-1,-6,5\rangle$, and let $W=\vsspan\{\vect{x},\vect{y}\}$.
+		\begin{enumerate}[itemsep=0.25in]
+			\item Find $\vect{x}\cdot\vect{y}$.
+			
+			\item Find $\|\vect{x}\|$ and $\|\vect{y}\|$.
+			
+			\item Find the distance $\dist(\vect{x},\vect{y})$ between $\vect{x}$ and $\vect{y}$.
+			
+			\item Find the angle \raisebox{-0.5mm}{\large{$\measuredangle$}}$\hspace{-0.375mm}\left(\vect{x},\vect{y}\right)$ between $\vect{x}$ and $\vect{y}$.
+			
+			\item What is $\dim(W)$?
+			
+			\item What is the dimension of the orthogonal complement of $W$? How do you know?
+			
+			\item Let $\vect{u}=\langle u_1,u_2,u_3,u_4,u_5,u_6\rangle$ and $\vect{v}=\langle v_1,v_2,v_3,v_4,v_5,v_6\rangle$. Write down the system of equations that must be satisfied by the components of $\vect{u}$ and $\vect{v}$ for both $\vect{u}\in W^\perp$ \ul{and} $\vect{v}\in W^\perp$ to hold. \textbf{DO NOT SOLVE!}
+		\end{enumerate}
+		
+		\item 
+		\begin{enumerate}[listparindent=6mm,topsep=0.125in, itemsep=0.25in]
+			\item Give an example of a non-diagonal $5\times 5$ matrix $\sansA$ with real entries which is symmetric. \ul{Justify your claim}.
+			\item How many of the eigenvalues to your matrix $\sansA$ are real? Check your answer with \url{Wolfram|Alpha} (\url{W|A}).
+			
+			\vspace{-4mm}
+			\hintbf{Matrices in \url{W|A} are lists of rows: For example, $\pmat{1&2\\3&4}$ is $\{\{1,2\},\{3,4\}\}$ in \url{W|A}.}
+			
+			\item Compute the angles between the eigenspaces for your matrix $\sansA$.
+			
+			\hintbf{If you forget ``the trick,'' you can always try \textit{this} thing....
+			
+			\vspace{1.5mm}
+			
+			\hspace{6mm}\url{https://en.wikipedia.org/wiki/Angles_between_flats#Angles_between_subspaces}}
+		\end{enumerate}
+		
+		\item Indicate whether each of the following questions is True or False by writing the words ``True'' or ``False''. \textbf{\ul{No} justification is required!}
+		\begin{enumerate}[topsep=0.125in, itemsep=0.25in] %, label=(\roman*)]
+			\item If $H_1$ and $H_2$ are two subspaces of a vector space $V$, then the collection of all vectors in \ul{both} $H_1$ and $H_2$ is a subspace of $V$.
+			
+			\item If a square matrix is \textit{diagonal}, then it is symmetric. \hintbf{Recall that $\sansA$ is \textit{diagonal} if every entry \ul{not} on its main diagonal equals zero.}
+			
+			\item If $E_1$ and $E_2$ are two eigenspaces for a square matrix $\sansA$ with real entries, then $E_1\perp E_2$.
+			\item The null space of a $3\times 6$ matrix may be 0-dimensional.
+			
+			\item The rank of a $3\times 6$ matrix may be $\Reals^3$.
+			
+			\item The null space of a $3\times 6$ matrix may be 4-dimensional.
+			
+			\item The column space of a $3\times 6$ matrix may be 0-dimensional.
+			
+			\item For every matrix $\sansA$, the linearly independent rows of the matrix $\RREF(\sansA)$ are a basis for $\row(\sansA)$.
+			
+			\item For every real number $r\in\Reals$, there exists a vector $\vect{v}$ such that $\langle1,2,3,4\rangle\cdot\vect{v}=r$.
+			
+			\item The row space of a $6\times 7$ matrix is a subspace of $\Reals^7$.
+			
+			\item The column space of a $6\times 7$ matrix is a subspace of $\Reals^7$.
+			
+			\item The null space of a $6\times 7$ matrix is a subspace of $\Reals^7$.
+						
+			\item If $\calB$ and $\calC$ are two bases for a vector space $V$, then the map sending $\calB$-coordinates to $\calC$-coordinates is a linear transformation $V\to V$.
+			
+			\item If $\calB$ and $\calC$ are two bases for a vector space $V$, then $\det\left(\sansA_{\calB\to\calC}\right)$ may equal 0.
+			
+			\item If $\calB$ and $\calC$ are two bases for a vector space $V$, then the map sending $\calB$-coordinates to $\calC$-coordinates is injective.
+			
+			\item If $\vect{v}$ is orthogonal to every vector in a basis for a vector space $W$, then $\vect{v}\perp W$.
+			
+			\item If $\vect{v}\perp W$, then $\vect{v}$ is orthogonal to every vector in a basis for a vector space $W$.
+			
+			\item If $\lambda_1\neq\lambda_2$ are two distinct eigenvalues of a square matrix $\sansA$, there is at least one vector which is in both the eigenspace for $\lambda_1$ \ul{and} in the eigenspace for $\lambda_2$.
+			
+			\item There exists a matrix $\sansA$ with real coefficients such that $\sansA=\sansA^\sansT$ \ul{and} whose characteristic polynomial has a factor which is an irreducible quadratic.
+			
+			\item The range of a linear transformation is a subspace of its codomain.
+			
+			\item The matrix $\sansA$ is invertible if and only if the kernel of the transformation $\rmTT(\vect{x})=\sansA\vect{x}$ is a 0-dimensional subspace of $\dom(\rmTT)$.
+			
+			\item If $H$ is a subspace of $\Reals^4$, then there is a $4\times 4$ matrix $\sansA$ such that $H=\col(\sansA)$.
+			
+			\item If $\sansA$ is $m\times n$ and $\dim(\row(\sansA))=m$, then the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is one-to-one.
+			
+			\item If $\sansA$ is $m\times n$ and the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is onto, then $\rank(\sansA)=m$.
+			
+			\item There exist two vectors $\vect{u}$ and $\vect{v}$ such that $\vect{u}\cdot\vect{v}=0$ \ul{and} \raisebox{-0.5mm}{\large{$\measuredangle$}}$\hspace{-0.375mm}\left(\vect{u},\vect{v}\right)<\pi/2$ (radians).
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

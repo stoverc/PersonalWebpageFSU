@@ -1,0 +1,184 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage[margin=0.75in, top=0.875in, bottom=0.875in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+%\everymath{\displaystyle}
+
+% fancy quotes
+\definecolor{quotemark}{gray}{0.7}
+\makeatletter
+\def\fquote{%
+	\@ifnextchar[{\fquote@i}{\fquote@i[]}%]
+}%-
+\def\fquote@i[#1]{%
+	\def\tempa{#1}%
+	\@ifnextchar[{\fquote@ii}{\fquote@ii[]}%]
+}%
+\def\fquote@ii[#1]{%
+	\def\tempb{#1}%
+	\@ifnextchar[{\fquote@iii}{\fquote@iii[]}%]
+}%
+\def\fquote@iii[#1]{%
+	\def\tempc{#1}%
+	\vspace{1mm}%
+	\noindent%
+	\begin{list}{}{%
+			\setlength{\leftmargin}{0.5\textwidth}%
+			\setlength{\rightmargin}{3mm}%
+		}%
+		\item[]%
+		\begin{picture}(0,0)%
+		\put(-15,-5){\makebox(0,0){\scalebox{5}{\textcolor{quotemark}{``}}\hspace{6mm}}}%
+		\end{picture}%
+		\begingroup\itshape}%
+	%%%%******************************************************
+	\def\endfquote{%
+		\endgroup\par%
+		\makebox[0pt][l]{%
+			\hspace{0.5\textwidth}%
+			\begin{picture}(0,0)(0,0)%
+			\put(15,15){\makebox(0,0){%
+					\scalebox{5}{\color{quotemark}''}}}%
+			\end{picture}}%
+		\ifx\tempa\empty%
+		\else%
+		\ifx\tempb\empty %
+		\hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa
+		\else%
+		\ifx\tempc\empty%
+		\hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ {\sc{\tempb}}%
+		\else%
+		\hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ {\sc{\tempb}},\ \tempc%
+		\fi\fi\fi\par%
+		\vspace{0.5em}%
+	\end{list}%
+}%
+\makeatother
+%%%%******************************************************
+
+\newenvironment{mypmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{pmatrix}}{\end{pmatrix}}
+\newenvironment{mybmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{bmatrix}}{\end{bmatrix}}
+
+%\setenumerate{itemsep=0.25in}
+%\setlist[enumerate,1]{label=\arabic*., itemsep=0.5in}
+%\setlist[enumerate,2]{label={(\alph*)}, itemsep=0.8in}
+%\setlist[enumerate,2]{leftmargin=0.5in}
+\setlist[enumerate,1]{itemsep=3mm}
+\setlist[enumerate,3]{label={\roman*.}}
+\setlist[itemize,1]{label=$\circ$, itemsep=0.25in}
+
+\newcommand{\fright}[1]{\vspace{-4mm}\begin{flushright}\parbox{4in}{#1}\end{flushright}\vspace{-6mm}}
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\vspace{3mm}\textbf{Hint}: #1}
+\newcommand{\note}[1]{\ul{Note}: #1}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\ijk}[2]{#1\vect{#2}}
+\newcommand{\pmat}[1]{\begin{mypmatrix}{1.25}#1\end{mypmatrix}}
+\newcommand{\bmat}[1]{\begin{mybmatrix}{1.25}#1\end{mybmatrix}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newcommand{\pmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{pmatrix}[#1] #2\end{pmatrix}}
+\newcommand{\bmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{bmatrix}[#1] #2\end{bmatrix}}
+
+\setlength\parskip{0.75mm}	
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{Check Your Understanding:\\Linear Combinations, Spans, and Solving Linear Systems}}
+\end{center}
+
+\begin{fquote}[\small{William Shakespeare}][][]
+	\small{What's in a name? that which we call a rose\\
+		By any other word would smell as sweet...}
+\end{fquote}
+
+As you've probably noticed by now, linear algebra uses a lot of \textit{words}---words and terminology and definitions and notation---and in lots of cases, you can phrase a single concept in lots of different ways.
+
+Such is the case with linear combinations.
+
+Here are a bunch of ways to say the same (very important!!) thing.
+\begin{center}
+	\hspace{6mm}\line(1,0){200}
+\end{center}
+
+\begin{center}
+\setlength\parskip{3.75mm}	
+\framebox{``$\vect{b}$ can be written as a linear combination of the vectors $\vect{a}_1,\ldots,\vect{a}_n$.''}
+
+means the same as
+
+\framebox{``There exist real numbers $x_1,\ldots,x_n$ such that $\vect{b}=x_1\vect{a}_1+\cdots+x_n\vect{a}_n$.''}
+
+means the same as
+
+\framebox{``$\vect{b}$ is an element of $\vsspan\{\vect{a}_1,\ldots,\vect{a}_n\}$.''}
+
+means the same as
+
+\framebox{``The linear system with augmented matrix $\pmatgrid{c|c|c|c}{\vect{a}_1 & \cdots & \vect{a}_n & \vect{b}}$ has some solution.''}
+
+means the same as
+
+\framebox{``The matrix equation $\sansA\vect{x}=\vect{b}$ has some solution, where $\vect{x}=\pmat{x_1 \\ \vdots \\ x_n}$ for some real numbers $x_1,\ldots,x_n$.''}
+\end{center}
+
+\vspace{-1.5mm}
+\begin{center}
+	\hspace{6mm}\line(1,0){200}
+\end{center}
+
+\noindent Don't be surprised if we revisit this list later to make more additions!
+
+\newpage
+
+\noindent\textbf{Sample problems.}\vspace{3mm}
+
+\noindent Throughout, let $\vect{v}=\pmat{1 \\ 2 \\ 3 \\ 4}$, $\vect{u}_1=\pmat{-1 \\ 1 \\ 2 \\ 3}$, $\vect{u}_2=\pmat{0 \\ 2 \\ -2 \\ 1}$, $\vect{u}_3=\pmat{2 \\ 1 \\ 3 \\ 4}$, $\vect{u}_4=\pmat{1 \\ 1 \\ 1 \\ 1}$, and $\vect{u}_5=\pmat{2 \\ 2 \\ 2 \\ 2}$.
+\begin{enumerate}
+	\item Can $\vect{v}$ be written as a linear combination of the vectors $\vect{u}_1$, $\vect{u}_2$, $\vect{u}_3$, $\vect{u}_4$, $\vect{u}_5$?
+	\item Find real numbers $x_1$, $x_2$, $x_3$, $x_4$, $x_5$ so that $\vect{v}=x_1\vect{u}_1+x_2\vect{u}_2+x_3\vect{u}_3+x_4\vect{u}_4+x_5\vect{u}_5$ or state that no such numbers exist.
+	\item True or False: $\vect{v}$ is an element of $\vsspan\{\vect{u}_1,\vect{u}_2,\vect{u}_3,\vect{u}_4,\vect{u}_5\}$. How do you know?
+	\item For the following linear system, determine whether it is (a) consistent with a unique solution, (b) consistent with non-unique solutions, or (c) inconsistent:
+	\[
+		\begin{array}{ccccccccccc}
+			-x_1 &  &  & + & 2x_3 & + & x_4 & + & 2x_5 & = & 1 \\
+			x_1 & + & 2x_2 & + & x_3 & + & x_4 & + & 2x_5 & = & 2 \\
+			2x_1 & - & 2x_2 & + & 3x_3 & + & x_4 & + & 2x_5 & = & 3 \\
+			3x_1 & + & x_2 & + & 4x_3 & + & x_4 & + & 2x_5 & = & 4
+		\end{array}
+	\]
+	If it is consistent, write its solution(s).
+	\item Let $\sansA$ be the $4\times 5$ matrix whose columns are the vectors $\vect{u}_1$, $\vect{u}_2$, $\vect{u}_3$, $\vect{u}_4$, and $\vect{u}_5$. Find a vector $\vect{x}$ such that $\sansA\vect{x}=\vect{v}$.
+\end{enumerate}
+
+
+%\setlength{\columnsep}{1.875in}
+%\begin{multicols}{3}
+%\begin{enumerate}[itemsep=1in,label=,leftmargin=-0.125in, rightmargin=-0.125in]
+%	\item $\sansA=\pmat{0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 0 & 0 & 0 & 1}$
+%	\item $\sansA'=\pmatgrid{c|c|c|c}{0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 0 & 0 & 0 & 1}$
+%	\item $\sansA=\begin{mypmatrix}{1.25}0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 0 & 0 & 0 & 1\end{mypmatrix}$
+%\end{enumerate}
+%\end{multicols}
+\end{document}

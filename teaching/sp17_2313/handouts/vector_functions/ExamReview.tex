@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Huge{Exam Review}\vspace{-0.5in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.25in, rightmargin=0.25in,itemsep=7.5mm, topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in, itemsep=4.5mm}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\subsecnoindent}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+\newcommand{\LH}{L'H\^{o}pital}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+
+\usepackage{caption}
+\captionsetup{labelfont=bf, labelformat=simple, justification=centering, labelsep=newline, width=6.5in, textfont={small}}%, textfont={it, footnotesize}}
+\captionsetup[figure]{aboveskip=8pt, belowskip=10pt}
+
+\begin{document}
+	\maketitle
+	
+	\begin{enumerate}
+		\item Let $\vect{u}=\compslong{3}{-2}{2}$ and $\vect{v}=\vect{i}-\vect{j}-3\vect{k}$. Compute each of the following or state that it does not exist; if it does not exist, clearly explain why.
+		\begin{enumerate}
+			\item $|\vect{u}+2\vect{v}|$
+			\item $|\vect{u}-\vect{v}|\times\vect{u}$
+			\item $\proj_{\vect{u}}{\vect{v}}$
+			\item $\vect{v}\times\vect{u}$
+			\item $|\vect{u}\times\vect{v}|$
+			\item $(\vect{u}\cdot\vect{v})\cdot(\vect{i}+\vect{j})$
+			\item The angle between $\vect{v}$ and $\vect{u}-\proj_{\vect{v}}{\vect{u}}$.
+		\end{enumerate}
+	
+		\item Let $\vect{r}(t)=\langle\cos{t},\sin(\sin(\pi/2-t)),t^2\rangle$. Find the equation of the tangent line to $\vect{r}$ at $t=0$.
+	
+		\item \begin{enumerate}
+			\item Find the equation of the plane containing the points $P(1,3,5)$, $Q(-1,-1,7)$, and $R(0,-2,1)$.
+			\item Find a vector function that represents the curve of intersection of the cylinder $x^2+y^2=4$ with the plane from part (a).
+		\end{enumerate}
+	
+		\item Let $\vect{r}(t)=\compslong{e^t\cos{t}}{e^t}{e^t\sin{t}}$. Find each of the following. \textbf{Simplify fully!}
+		\begin{enumerate}
+			\item The domain of $\vect{r}$
+			\item The velocity, acceleration, and speed of a particle with position vector $\vect{r}(t)$
+			\item The unit tangent vector $\vect{T}(t)$ of $\vect{r}$
+			\item The unit normal vector $\vect{N}(t)$ of $\vect{r}$
+			\item The binormal vector $\vect{B}(t)$ of $\vect{r}$. What is $|\vect{B}(t)|$?
+			\item The curvature $\kappa(t)$ of $\vect{r}$
+			\item The tangential component of the acceleration $\vect{a}(t)$
+			\item The normal component of $\vect{a}(t)$
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

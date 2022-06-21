@@ -1,0 +1,134 @@
+digraph Tvs {
+   node [shape=box] 
+   "Me" [style=filled, fillcolor=yellow]
+
+   "F. Leibniz" -> "Thomasius" -> "Mencke" -> "Wichmannhausen" -> "Hausen" -> "K&auml;stner" -> "Mayer" -> "Dirksen" -> "Jacobi" -> "Hesse" -> "Carl Gottfried Neumann" -> "William Edward Story" -> "Solomon Lefschetz" -> "Norman Steenrod" -> "Edwin Spanier" -> "Morris Hirsch" -> "Bill Thurston" -> "Sergio Fenley" -> "Me"
+
+   ## "F. Leibniz" -> "G. Leibniz"
+
+   "A. Klein" -> "Strauch" -> "Walther Jr." -> "Pasch" -> "Planer" -> "Hausen"
+
+   "Kunad" -> "Strauch"
+
+   "St&ouml;ffler" -> "Melanchthon" -> "Caselius" -> "Calixt" -> "Quenstedt" -> "Walther Jr."
+
+   "Al-Bukhari" -> "Chioniadis" -> "Bryennios" -> "Metochites" -> "Palamas" -> "Kabasilas" -> "Kydones" -> "Gemistos" -> "Bessarion" -> "Argyropoulos" -> "Reuchlin" -> "Melanchthon"
+
+   "Judeus" -> "Gemistos"
+
+   "Loans" -> "Reuchlin"
+
+   "Clampius" -> "C. Martini" -> "Calixt"
+
+   "Standonck" -> "Latomus" -> "Cl&eacute;nard" -> "Sturmius" -> "Ramus" -> "Zwinger" -> "Craig" -> "Liddel" -> "C. Martini"
+
+   "Reuchlin" -> "van Campen" -> "Cl&eacute;nard"
+
+   "Adrianus" -> "van Campen"
+
+   "Perez" -> "Aleandro" -> "Rescius" -> "von Andernach" -> "Sturmius"
+
+   "Argyropolous" -> "Ficino" -> "Poliziano" -> "Fortiguerra" -> "Aleandro"
+
+   "Landino" -> "Poliziano"
+
+   "Tagault" -> "Sylvius" -> "von Andernach"
+
+   "Dubois" -> "Sylvius"
+
+   "Hermonymus" -> "Bud&eacute;" -> "Toussain" -> "Ramus"
+
+   "Bessarion" -> "Lascaris" -> "Bud&eacute;"
+
+   "Kydones" -> "Chrysoloras" -> "da Verona" -> "da Feltre" -> "Gazes" -> "Chalcocondyles" -> "Lascaris"
+
+   "Lascaris" -> "Musuro" -> "della Monte" -> "Landi" -> "Zwinger"
+
+   "da Thiene" -> "Vernia" -> "Pomponazzi" -> "della Monte"
+
+   "da Thiene" -> "Roccabonella" -> "Pomponazzi"
+
+   "Polcastro" -> "Roccabonella"
+
+   "da Feltre" -> "da Lonigo" -> "Leoniceno" -> "della Monte"
+
+   "Pelope" -> "Leoniceno"
+
+   "da Thiene" -> "Roccabonella" -> "Leoniceno"
+
+   "Polcastro" -> "Roccabonella"
+
+   "Pomponazzi" -> "Trincavelli" -> "Landi"
+
+   "Trincavelli" -> "Zwinger"
+
+   "Standonck" -> "Erasmus" -> "Milich" -> "Reinhold" -> "Hommel" -> "Thau" -> "Wittich" -> "Liddel"
+
+   "Gazes" -> "Agricola" -> "Hegius" -> "Erasmus"
+
+   "Groote" -> "&aacute; Kempis" -> "Hegius"
+
+   "Radewyns" -> "&aacute; Kempis"
+
+   "Zasius" -> "Milich"
+
+   "Melanchthon" -> "Hommel"
+
+   "Erasmi" -> "Volmar" -> "Rheticus" -> "Otto" -> "J&ouml;stel" -> "Rhodius" -> "Notnagel" -> "Quenstedt"
+
+   "von Dobsch&uuml;tz" -> "Copernicus" -> "Rheticus"
+
+   "Oresme" -> "von Langenstein" -> "Gmunden" -> "Peuerbach" -> "Regiomontanus" -> "da Ferrara" -> "Copernicus"
+
+   "Bessarion" -> "Regiomontanus"
+
+   "Pacioli" -> "da Ferrara"
+
+   "Reinhold" -> "Dietrich" -> "Schato" -> "J&ouml;stel"
+
+   "Rheticus" -> "Dietrich"
+
+   "Reinhold" -> "Peucer" -> "Alberti" -> "Schato"
+
+   "Rheticus" -> "Peucer"
+
+   "Leoniceno" -> "Brasavola" -> "Falloppio" -> "Fabricius" -> "Alberti"
+
+   "Outers" -> "van Dorp" -> "Curtius" -> "Frisius" -> "Vesalius" -> "Colombo" -> "Falloppio"
+
+   "von Andernach" -> "Vesalius"
+
+   "della Monte" -> "Vesalius"
+
+   "Schato" -> "Hettenbach" -> "Rhodius"
+
+   "Alberti" -> "Hettenbach"
+
+   "Fabricius" -> "van den Spieghel" -> "Rolfinck" -> "G. M&ouml;bius" -> "Metzger" -> "R.J. Camerarius" -> "Planer"
+
+   "C. Martini" -> "J. Martini" -> "Sennert" -> "Rolfinck"
+
+   "Fabricius" -> "Jessenius" -> "Sennert"
+
+   "Zwinger" -> "Stupanus" -> "von Brunn" -> "Metzger"
+
+   "Metzger" -> "E.R. Camerarius Sr." -> "R.J. Camerarius"
+
+   "K&auml;stner" -> "Lichtenberg" -> "Mayer"
+   "K&auml;stner" -> "Thibaut" -> "Dirksen"
+
+   ##"K&auml;stner" -> "J.F. Pfaff"
+
+   "Lichtenberg" -> "Thibaut"
+
+   "Jacobi" -> "Richelot" -> "Carl Gottfried Neumann"
+
+   "Euler" -> "Lagrange" -> "Poisson" -> "Michael Chasles" -> "H.A. Newton" -> "E.H. Moore" -> "George Birkhoff" -> "David Bourgin" -> "Richard Duffin" -> "Raoul Bott" -> "Stephen Smale" -> "Morris Hirsch"
+
+   "Laplace" -> "Poisson"
+
+   splines=false
+	overlap=false
+	fontsize=12;
+}
+

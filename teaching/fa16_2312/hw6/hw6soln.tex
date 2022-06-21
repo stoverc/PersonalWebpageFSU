@@ -1,0 +1,124 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage{fullpage,amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+\everymath{\displaystyle}
+
+\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label={(\alph*)}}
+\setlist[enumerate,3]{label={\roman*.}}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{(\textbf{Hint}: #1)}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\converge}[1]{\red{Converge --- #1}}
+\newcommand{\diverge}[1]{\red{Diverge --- #1}}
+
+\begin{document}
+	%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+	\begin{center}
+		\Large{\textbf{MAC 2312 --- Homework 6}}\\[6mm]
+		\red{\Huge ------SOLUTIONS------}\\[-3mm]
+	\end{center}
+
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	%========Slack==============
+	\item \red{You don't have to go home but you can't (and shouldn't) stay here (...because there's nothing to see...).}
+	\vspace{-3mm}
+	%=========Integral Test=====
+	\item \red{\textbf{Solution:} $\sum_{i=2}^6a_i\leq\int_1^6f(x)\,dx\sum_{i=1}^5 a_i.$}
+	
+	\vspace{3mm}
+	
+	\item %Use the integral test to determine whether each of the following series converges.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{Diverge} %$\sum_{n=1}^\infty (n-4)^{-1/3}$
+			\item \red{Converge}%$\sum_{n=3}^\infty \frac{n^2}{(n^3+9)^{5/2}}$
+			\item \red{Converge}%$\sum_{n=12}^\infty ne^{-n^2}$
+			\item \red{Converge}%$\sum_{n=146}^\infty \frac{1}{n(\ln{n})^2}$
+			\item \red{Converge}%$\sum_{n=1}^\infty\frac{n}{n^4+1}$
+			\item \red{Converge}%$\sum_{n=13}^\infty\frac{1}{n(n+2)}$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{0.125in}
+	
+	\item \red{\textbf{DO NOT WORRY ABOUT THIS PROBLEM FOR THE EXAM!}}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \red{No $p$.} %$\sum_{n=1}^\infty\frac{1}{n(\ln{n})^p}$
+			\item \red{$p>1$.} %$\sum_{n=1}^\infty\frac{\ln{n}}{n^p}$
+			\item \red{$p<-1$.} %$\sum_{n=1}^\infty n(1+n^2)^p$
+			\item \red{No $p$.} %$\sum_{n=1}^\infty\frac{1}{n\ln{n}[\ln(\ln n)]^p}$
+		\end{enumerate}
+	\end{multicols}
+	
+	%======Comparison Test======
+	\item \red{Below, ``regular'' means the (regular) comparison test is ``easier'' (more straightforward?) while ``limit'' means the same thing for the limit comparison test.}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \diverge{Limit} %$\infsum{n}{1}{\frac{n}{2n^2+1}}$
+			\item \diverge{Regular} %$\infsum{n}{5}{\frac{\sin(1/n)}{\sqrt{n}}}$
+			\item \diverge{Either} %$\infsum{k}{3}{\frac{6^k}{5^k-1}}$
+			\item \converge{Limit} %$\infsum{n}{2}{\frac{\sqrt[3]{n}}{\sqrt{n^3+4n+3}}}$
+			\item \converge{Neither; skip this one!} %$\infsum{k}{1}{\frac{(\ln{k})^{12}}{k^{9/8}}}$
+			\item \diverge{Either, but it's hardish} %$\infsum{j}{1}{\frac{j!}{j^3}}$
+			\item \converge{Either} %$\infsum{k}{2}{\frac{4k^2+14k}{3k^4-5k^2-17}}$
+			\item \converge{Either, but it's hardish (again)}%$\infsum{n}{3}{\frac{1}{(n+1)!}}$
+		\end{enumerate}
+	\end{multicols}
+	\newpage
+	
+	%======Root/Ratio Tests=====
+	\item %Use either the root test or the ratio test to examine each of the following series for convergence. For those which are convergent: Are they absolutely convergent? (If the root/ratio tests are inconclusive, examine convergence using any other technique at your disposal.)
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \diverge{both inconclusive; $a_n\not\to0$} %$\infsum{n}{1}{n^2}$
+			\item \diverge{root inconclusive; $a_n\not\to0$} %$\infsum{k}{2}{\left(\frac{k}{k+10}\right)^k}$
+			\item \converge{ratio} %$\infsum{n}{1}{\frac{1}{n^n}}$
+			\item \diverge{root inconclusive; $a_n\not\to0$} %$\infsum{r}{1}{\left(1+\frac{1}{r}\right)^{-r}}$
+			\item \converge{both inconclusive; $p$-test} %$\infsum{k}{2}{k^{-2}}$
+			\item \diverge{ratio} %$\infsum{n}{1}{\frac{n!}{n\ln{n}}}$
+			\item \diverge{root (hard); also, $a_n\not\to 0$} %$\infsum{k}{4}{\left(1-\frac{1}{k}\right)^{-k^2}}$
+			\item \converge{ratio} % $\infsum{n}{1}{\frac{(n!)^3}{(3n)!}}$
+		\end{enumerate}
+	\end{multicols}
+	%=========Misc==============
+	\item %Determine whether each of the following series converges or diverges (using any technique you know).
+	%\begin{multicols}{2}
+		\begin{enumerate}
+			\item \diverge{comparison with $\sum 1/n$ works} %$\frac{1+(-1)^1}{1}+\frac{1+(-1)^2}{2}+\frac{1+(-1)^3}{3}+\cdots$
+			\item \converge{$p$-test with $p=\sqrt{2}>1$} %$\sum_{n=1}^\infty \frac{1}{n^{\sqrt{2}}}$
+			\item \diverge{alternating series test; ratio test should work too} %$\infsum{n}{1}{(-1)^n\frac{n^n}{n!}}$
+			\item \converge{root test} %$\sum_{k=1}^\infty 2^{-k^2}$
+			\item \converge{limit comparison test with $b_n=1/n^{3/2}$} %$\infsum{n}{3}{\frac{1}{n^{3/2}-(\ln{n})^4}}$
+			\item \diverge{$a_n\not\to0$} %$\infsum{k}{2}{(-1)^k\cos\left(\frac{\pi}{k}\right)}$
+			\item \converge{ratio test; (regular/limit) comparison test if you're clever} %$\infsum{j}{1}{\frac{j!}{(2j)!}}$
+			\item \diverge{write as $\sum \frac{1}{5+3(n-1)}$, then limit comparison with $b_n=1/n$} %$\frac{1}{5}+\frac{1}{8}+\frac{1}{11}+\frac{1}{14}+\frac{1}{17}+\cdots$
+			\item \diverge{$a_n\not\to 0$; ratio test will also work; maybe alternating series too?} %$\infsum{n}{1}{\frac{(-2)^n}{\sqrt{n}}}$
+			\item \converge{integral test (it's a tricky integral); note that root+ratio test are both inconclusive} %$\infsum{n}{1}{\frac{1}{e^{\sqrt{n}}}}$
+			\item \converge{geometric series times two} %$\infsum{j}{2}{\frac{2^j+4^j}{7^j}}$
+			\item \diverge{comparison with $b_n=n/4^{-n}$ is easiest; ratio test will also work} %$\infsum{n}{91}{\frac{n}{4^{-n}+5^{-n}}}$
+			\item \converge{alternating series test} %$\infsum{n}{1}{(-1)^{n-1}\left(\sqrt{n+1}-\sqrt{n}\right)}$
+			\item \diverge{l$a_n\not\to 0$} %$\infsum{k}{1}{(0.8)^{-k}k^{-0.8}}$
+			\item \converge{write as $\sum a_n$ for $a_n=\sin{1/n^2}$; $\sum |a_n|$ and use comparison test with $\sum 1/n^2$} % $\sin\left(\frac{1}{1^2}\right)+\sin\left(\frac{1}{2^2}\right)+\sin\left(\frac{1}{3^2}\right)+\cdots$
+			\item \converge{alternating series test} %$\infsum{k}{12}{\frac{(-1)^k}{\sqrt{k^3-k^2}}}$
+		\end{enumerate}
+	%\end{multicols}
+	%\vspace{0.125in}
+	
+	\item \begin{enumerate}
+		\item \red{\textbf{Skip this problem}}
+		\item \red{Repeat the same procedure we did in class today; \textbf{DEFINITELY KNOW HOW TO DO THIS ONE!}} %Use the fact that $\lim_{n\to\infty}\left(1-\frac{1}{n+1}\right)^n=\frac{1}{e}$ to show that $\infsum{k}{1}{\frac{k!}{k^k}}$ converges.
+		\item \red{This is a comparison test problem where I've essentially shown you which comparison(s) to do; try this, but if you get stuck, skip it.}%Given that $2^{n^2}=(2^n)^n$ and that $n!\leq n^n$, prove that $\infsum{n}{1}{\frac{2^{n^2}}{n!}}$ diverges.
+	\end{enumerate}
+\end{enumerate}
+\end{document}

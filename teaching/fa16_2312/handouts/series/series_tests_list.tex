@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in, left=0.5in]{geometry}
+
+%\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Large{Tests to determine whether $\ser$ converges or diverges.}\vspace{-0.75in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{
+	leftmargin=0.5in, 
+	rightmargin=0.5in,
+	topsep=0mm
+}
+
+\setlist[itemize,1]{
+	label=$\circ$,
+	topsep=0mm
+}
+
+%\newcommand{\sectitle}[1]{\noindent\hspace{-0.375in}\vspace{4.5mm}\textbf{\large{#1:}}}
+%\newcommand{\subsectitle}[2]{\noindent\ul{#1}:\\[3mm]\indent{#2}\\[6mm]}
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\ser}{\infsum{n}{1}{a_n}}
+\newcommand{\ans}[1]{\fbox{\textsc{Answer:}} #1}
+\newcommand{\ques}[2]{\sectitle{Question {#1}}{#2}}
+	
+\begin{document}
+	\maketitle
+	\vspace{-0.25in}
+	\begin{center}
+	\textit{Throughout, let $f$ be a function satisfying $f(n)=a_n$.}
+	\end{center}
+	%\vspace{0.0625in}
+	\subsection*{The first test you should ever do, always}
+	\begin{enumerate}
+		\item[] \hspace{-0.25in}The Test for Divergence, aka the``is convergence even possible?!'' test:
+		\begin{itemize}
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $\shortlim{a_n}\neq 0$ or $\shortlim{a_n}$ does not exist, your series \textbf{cannot} converge (i.e., it must diverge).
+				\item If $\shortlim{a_n}=0$, your series \textbf{may} converge.
+			\end{itemize}
+		\end{itemize}
+	\end{enumerate}
+	
+	\subsection*{Specialty ``tests'' that work only for very specific cases}
+	\begin{enumerate}
+		\item Geometric series:
+		\begin{itemize}
+			\item Can only use when your series looks like $\infsum{n}{0}ar^n$ and/or $\infsum{n}{1}ar^{n-1}$ for constants $a\neq0$  and $r$.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item Your series converges \textbf{if and only if} $|r|<1$.
+				\item If your series converges, it converges to $\frac{a}{1-r}$
+			\end{itemize}
+		\end{itemize}
+	
+		\item $p$-series:
+		\begin{itemize}
+			\item Can only use when your series looks like $\sum{\frac{1}{n^p}}$ for $p$ a constant.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item Your series converges \textbf{if and only if} $p>1$.
+			\end{itemize}
+		\end{itemize}
+	\end{enumerate}
+	
+	\subsection*{Tests that work for series with \textit{positive terms only}}
+	\begin{enumerate}
+		\item The integral test:
+		\begin{itemize}
+			\item Can only use when $f$ is positive, decreasing, and continuous, and when $\int_1^\infty f(x)\,dx$ can be (hopefully-easily) computed.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item $\infsum{n}{1}{a_n}$ converges \textbf{if and only if} $\int_1^\infty f(x)\,dx$ converges.
+			\end{itemize}
+		\end{itemize} 
+	
+		\item The comparison test:
+		\begin{itemize}
+			\item Can only use when $\{a_n\}$ ``looks like'' another sequence $\{b_n\}$ where $\{b_n\}$ also has positive terms and where convergence/divergence of $\sum b_n$ is known.
+			\item \textbf{Usually}, you want to pick $\{b_n\}$ so that $\sum b_n$ is either a geometric series or a $p$-series.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $a_n\leq b_n$ for all $n$ and if $\sum b_n$ converges, then $\sum a_n$ \textbf{converges.}
+				\item If $a_n\geq b_n$ for all $n$ and if $\sum b_n$ diverges, then $\sum a_n$ \textbf{diverges.}
+				\item \textbf{Note:} Knowing that $a_n\geq b_n$ for $\sum b_n$ convergent \textit{or} that $a_n\leq b_n$ for $\sum b_n$ divergent tells you \textbf{nothing}!
+			\end{itemize}
+		\end{itemize} 
+	
+		\item The limit comparison test:
+		\begin{itemize}
+			\item As with the comparison test, you \ul{can} use this when $\{a_n\}$ ``looks like'' another sequence $\{b_n\}$ where $\{b_n\}$ also has positive terms and where convergence/divergence of $\sum b_n$ is known.\vspace{3mm}
+			
+			\textbf{However:} This test \ul{should} be used either (a) when the comparison test \textbf{doesn't} work, or (b) if you don't like the comparison test (because inequalities are hard). \textit{If the comparison test works, the limit comparison test will work, but not vice versa!}
+			\item As with the comparison test, you want to pick $\{b_n\}$ so that $\sum b_n$ is either a geometric series or a $p$-series.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $\shortlim a_n/b_n=c$ where $0<c<\infty$, then either $\sum a_n$ and $\sum b_n$ \textit{both} converge or they \textit{both} diverge.
+				\item If $\shortlim a_n/b_n=c$ where $c=0$ or $c=\infty$, then you know \textbf{nothing!} In particular: You may have ``squinted wrong'' when picking $\{b_n\}$ or your series $\sum a_n$ may genuinely diverge. \textit{You just don't know!}
+			\end{itemize}
+		\end{itemize} 
+	\end{enumerate}
+
+	\subsection*{Tests that work \textit{only} for series with negative terms}
+	\begin{enumerate}
+		\item[] \hspace{-0.25in}The alternating series test:
+		\begin{itemize}
+			\item To use, $\sum a_n$ must be an \textit{alternating series}, i.e. $\sum a_n$ must be writable as $\sum (-1)^nb_n$ or $\sum (-1)^{n+1}b_n$ for $\{b_n\}$ a sequence with positive terms.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $b_n$ is decreasing (i.e. if $b_{n+1}\leq b_n$ for all $n$) if $\shortlim b_n=0$, then $\sum a_n$ \textbf{converges}.
+			\end{itemize}
+		\end{itemize}
+	\end{enumerate}
+
+	\subsection*{Other tests}
+	\begin{enumerate}
+		\item The ratio test:
+		\begin{itemize}
+			\item Can use with \textit{any} series.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $\shortlim|a_{n+1}/a_n|<1$, then $\sum a_n$ \textbf{converges absolutely} (and hence \textbf{converges}).
+				\item If $\shortlim|a_{n+1}/a_n|>1$ (or is $\infty$), then $\sum a_n$ \textbf{diverges}.
+				\item If $\shortlim|a_{n+1}/a_n|=1$, then $\sum a_n$ the ratio test tells you \textbf{nothing!}
+			\end{itemize}
+		\end{itemize} 
+	
+		\item The root test:
+		\begin{itemize}
+			\item Can use with \textit{any} series.
+			\item \textit{What you know:} 
+			\begin{itemize}
+				\item If $\shortlim\sqrt[n]{|a_n|}<1$, then $\sum a_n$ \textbf{converges absolutely} (and hence \textbf{converges}).
+				\item If $\shortlim\sqrt[n]{|a_n|}>1$ (or is $\infty$), then $\sum a_n$ \textbf{diverges}.
+				\item If $\shortlim\sqrt[n]{|a_n|}=1$, then $\sum a_n$ the root test tells you \textbf{nothing!}
+			\end{itemize}
+		\end{itemize} 
+	\end{enumerate}
+\end{document}

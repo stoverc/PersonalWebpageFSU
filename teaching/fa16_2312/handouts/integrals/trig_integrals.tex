@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+
+\usepackage{enumitem,fullpage,stoversymb}
+\everymath{\displaystyle}
+\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+
+%\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\underline{Case \arabic*.}, leftmargin=0.75in}
+\setlist[itemize,1]{label=$\circ$, leftmargin=0in, topsep=0mm}
+
+\begin{document}
+	\noindent\begin{center}\Large{Trig Integrals}\end{center}
+	\vspace{0.25in}
+	\noindent\textbf{Integrals of the form $\int\sin^n(x)\cos^m(x)\,dx$ for $n,m>0$}
+	\begin{enumerate}
+		\item Either $n$ or $m$ is odd.
+		\begin{itemize}
+			\item Factor a term from the \textbf{odd} power.
+			\item Use trig identities to rewrite everything in terms of the \textbf{even-power} term.
+			\item Use $u$-substitution with $u$ equal to the even-power term.
+		\end{itemize}
+		\item Both $n$ and $m$ are even.
+		\begin{itemize}
+			\item Use $\geq 1$ of the following trig identities to rewrite the integrand into something simpler:
+			\vspace{-10mm}
+			\begin{multicols}{2}
+			\def\arraystretch{1.5}
+			$$\begin{array}{rcl}
+				\cos(2\theta) & = & \cos^2(\theta)-\sin^2(\theta)\\
+				& = & 2\cos^2(\theta)-1 \\
+				& = & 1 - 2\sin^2(\theta)\\[1.5mm]
+				\sin(2\theta) & = & 2\sin(\theta)\cos(\theta)
+			\end{array}$$
+			\def\arraystretch{1.5}
+			$$\begin{array}{rcl}
+				& & \\
+				\cos^2(\theta) & = & \frac{1+\cos(2\theta)}{2}\\[3mm]
+				\sin^2(\theta) & = & \frac{1-\cos(2\theta)}{2}\\
+				& &
+			\end{array}$$
+			\end{multicols}
+		\end{itemize}
+	\end{enumerate}
+		
+	\noindent\textsc{Example}: Compute $\int\cos^2(x)\sin^2(x)\,dx$
+	
+	\noindent\textit{Solution}: First, we use the identities $\cos^2(\theta) = \frac{1+\cos(2\theta)}{2}$ and $\sin^2(\theta) = \frac{1-\cos(2\theta)}{2}$ to rewrite the integrand
+	$$\int\cos^2(x)\sin^2(x)\,dx=\int\left(\frac{1+\cos(2x)}{2}\right)\left(\frac{1-\cos(2x)}{2}\right)\,dx.$$
+	
+	\noindent Now, do some algebra:
+	
+	$$\int\left(\frac{1+\cos(2x)}{2}\right)\left(\frac{1-\cos(2x)}{2}\right)\,dx=\frac{1}{4}\int 1-\cos^2(2x)\,dx.$$
+	\vspace{1.5mm}
+
+	\noindent Next, rewrite the right-hand side using the trig identity for $\cos^2$:
+	
+	$$\cos^2(2x)=\frac{1-\cos(4x)}{2}\implies\frac{1}{4}\int 1-\cos^2(2x)\,dx=\frac{1}{4}\int1-\frac{1-\cos(4x)}{2}\,dx.$$
+	
+	\noindent From here, you can solve the integral using elementary methods.\qed
+	
+	\newpage
+	
+	\noindent\textbf{Integrals of the form $\int\tan^n(x)\sec^m(x)\,dx$ for $n,m>0$}
+	\begin{enumerate}
+		\item $n$ is odd.
+		\begin{itemize}
+			\item Factor out $\sec(x)\tan(x)$
+			\item Rewrite $\mathbf{tan}$ as $\mathbf{\sec}$ using the identity $\tan^2(x)=\sec^2(x)-1$.
+			\item Use the substitution $u=\sec(x)$ \& $du=\sec(x)\tan(x)\,dx$.
+		\end{itemize}	
+		\item $m$ is even.
+		\begin{itemize}
+			\item Factor out $\sec^2(x)$.
+			\item Rewrite $\mathbf{sec}$ as $\mathbf{tan}$ using the identity $\tan^2(x)=\sec^2(x)-1$.
+			\item Use the substitution $u=\tan(x)$ \& $du=\sec^2(x)\,dx$.
+		\end{itemize}	
+	\end{enumerate}
+	\vspace{3mm}
+	\noindent\textsc{Note 1}: We'll do an example of this in class in the next section.
+	
+	\vspace{3mm}
+	
+	\noindent\textsc{Note 2}: We'll ignore any other types of integrals in this section (though there may be a couple on your homework).
+	
+\end{document}

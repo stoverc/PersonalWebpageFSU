@@ -1,0 +1,177 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage{fullpage,amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+\everymath{\displaystyle}
+
+\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label={(\alph*)}}
+\setlist[enumerate,3]{label={\roman*.}}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\hspace{0.5in}\textbf{Hint}: #1}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{MAC 2312 --- Homework 5}}
+\end{center}
+\textbf{Directions:} Complete the following problems for a homework grade. Solutions \textit{must} be presented in a neat and professional manner in order to receive credit, answers given without showing work will not be eligible to receive partial credit, and \textit{work for the problems \textbf{must} be done on scratch paper and not on this handout!} \textbf{Date Due:} Monday, November 28.
+%\vspace{0.0625in}
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	%========Slack==============
+	\item Go to the \#talk\_about\_your\_break channel in our course's \textsc{Slack} room (see course homepage for the URL) and talk about your break!
+	%=========Sequences=========
+	\item Match each sequence with its general term:
+	\vspace{-4.5mm}
+	\begin{center}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{l | l}
+			$a_1,a_2,a_3,a_r,\ldots$ & General Term \\
+			\hline
+			(a) $1,-1,1,-1,\ldots$ &
+				(i) $\cos(\pi n)$ \\[3mm]
+			(b) $-1,1,-1,1,\ldots$ &
+				(ii) $\frac{n!}{2^n}$\\[4.5mm]
+			(c) $\frac{1}{2},\frac{2}{3},\frac{3}{4},\frac{4}{5},\ldots$ &
+				(iii) $(-1)^{n+1}$\\[6mm]
+			(d) $\frac{1}{2}, \frac{1}{2}, \frac{3}{4}, \frac{3}{2},\ldots$ & 
+				(iv) $\frac{n}{n+1}$
+		\end{tabular}
+	\end{center}
+	
+	\item Write the first eight terms of the following sequence:
+		$$b_1 = 1,\quad\quad b_2 = 2,\quad\quad b_3 = 4,\quad\quad b_n=\sqrt{b_{n-1}^2+b_{n-2}^2+b_{n-3}^2}\quad\text{for }n\geq 4.$$
+		
+	\item Determine the limit of each of the following sequences or state that the sequence diverges.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $a_n=12$
+			\item $\left\{\ln\left(\frac{12n+2}{-9+4n^2}\right)\right\}_{n=1}^\infty$
+			\item $b_n=10^{-1/n}$
+			\item $\left\{\ln{(\sin{n})}-\ln{n}\right\}$
+			\item $s_n=\tan^{-1}\left(e^{e^{-n}}\right)$
+			\item $\left\{\arccos\left(\frac{n^3}{2n^3+1}\right)\right\}$
+			\item $k_n=\frac{n}{n+n^{1/n}}$
+			\item $\left\{\frac{(-1)^nn^3+2^{-n}}{3n^3+4^{-n}}\right\}$
+		\end{enumerate}
+	\end{multicols}
+
+	\item In this problem, you're going to formalize the proof of the result we did in class showing that $$\sqrt{2\sqrt{2\sqrt{2\sqrt{\cdots}}}}\longrightarrow 2.$$
+	Note the inductive formulation $a_1=\sqrt{2}$ and $a_{n+1}=\sqrt{2a_n}$, $n\geq 1$.
+	\begin{enumerate}
+		\item Use the inductive formulation to show that $a_{n+1}=\sqrt{2a_n}<2$ if $a_n<2$. (\textbf{Note:} Because $a_1=\sqrt{2}<2$, this shows that the entire sequence is \textit{bounded above} by 2).
+		\item Using part (a) along with the inductive formulation, show that $\sqrt{2a_n}>\sqrt{a_n\cdot a_n}$ if $a_n<2$. Use this to conclude that $a_{n+1}>a_n$ (i.e., that the entire sequence is \textit{monotone}).
+		\item Use the results from parts (a) and (b) to conclude that the sequence $\{a_n\}$ has a limit.
+		\item Find the value $L$ for which $a_n\to L$ as $n\to\infty$.
+		\item Repeat parts (a)--(d) with the expression $\sqrt{3\sqrt{3\sqrt{3\sqrt{\cdots}}}}$.
+		\item Repeat parts (a)--(d) with the expression $\sqrt{2+\sqrt{2+\sqrt{2+\cdots}}}$
+	\end{enumerate}
+	
+	\item Let $a_n=\frac{n}{n+1}$. Find a number $M$ such that:
+	\begin{enumerate}
+		\item $|a_n-1|\leq0.001$ for $n\geq M$.
+		\item $|a_n-1|\leq 10^{-5}$ for $n\geq M$.
+	\end{enumerate}
+	%=========Series============
+	\item For each of the following series, (a) find a formula for the general term $a_n$ (\textbf{not the partial sum!}) and (b) write in summation notation.
+	\begin{enumerate}
+		\item $1+\frac{5}{2}+\frac{25}{4}+\frac{125}{8}+\cdots$
+		\item $\frac{2}{1^2+1}+\frac{1}{2^2+1}+\frac{2}{3^2+1}+\frac{1}{4^2+1}+\cdots$
+		
+		\hfill\hint{Numerators are either $1=1+\frac{0}{2}$ or $2=1+\frac{2}{2}$....}
+	\end{enumerate}
+
+	\newpage
+	
+	\item Calculate the partial sums $s_2$, $s_4$, and $s_6$ for each of the following.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\sum_{k=1}^\infty (-1)^k k^{-1}$
+			\item $\sum_{j=1}^\infty \frac{1}{j!}$
+			\item $\sum_{n=1}^\infty\left(\frac{1}{n+1}-\frac{1}{n+2}\right)$
+			\item $\sum_{r=1}^\infty\left(\frac{3}{11}\right)^{-r}$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Write each of the following repeating decimals as rational numbers in lowest form.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $0.111111\ldots$
+			\item $0.131313\ldots$
+			\item $0.217217217\ldots$
+			\item $0.1234123412341234\ldots$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Use partial fraction decomposition to find each of the following sums.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\sum_{n=3}^\infty\frac{1}{n(n-1)}$
+			\item $\frac{1}{1\cdot 3}+\frac{1}{3\cdot 5}+\frac{1}{5\cdot 7}+\cdots$.
+			\item $\frac{1}{1\cdot 2\cdot 3}+\frac{1}{2\cdot 3\cdot 4}+\frac{1}{3\cdot 4\cdot 5}+\cdots$.
+			\item $\sum_{j=1}^\infty\frac{1}{n^2+3n+2}$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Determine the sum of each of the following series or state that the series does not exist.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\sum_{n=1}^\infty \frac{n}{\sqrt{n^2+1}}$
+			\item $\sum_{n=1}^\infty (-1)^n n^2$
+			\item $\cos{1}+\cos{1/2}+\cos{1/3}+\cos{1/4}+\cdots$
+			\item $\frac{4^3}{5^3}+\frac{4^4}{5^4}+\frac{4^5}{5^5}+\cdots$
+			\item $\frac{2}{3}+\frac{3^2}{2^2}+\frac{2^3}{3^3}+\frac{3^4}{2^4}+\frac{2^5}{3^5}+\cdots$
+			\item $\sum_{n=0}^\infty e^{3-2n}$
+			\item $\sum_{n=3}^\infty \frac{3(-2)^2-5^n}{8^n}$
+			\item $\frac{25}{9}+\frac{5}{3}+1+\frac{3}{5}+\frac{9}{25}+\frac{27}{125}+\cdots$
+			\item $\frac{7}{8}-\frac{49}{64}+\frac{343}{512}-\frac{2401}{4096}+\cdots$
+			\item $\sum_{j=1}^\infty \frac{1}{\sqrt{j}}$
+		\end{enumerate}
+	\end{multicols}
+	
+	\newpage
+	
+	\item A \textbf{subsequence} of a sequence $\{a_n\}$ is a sequence $\{b_n\}$ such that, for all $n$, $b_n=a_k$ for some increasing collection of $k$'s (i.e., if $b_1=a_{12}$, then $b_2=a_k$ for some $k\geq 12$). Throughout, let $$a_n=\frac{(-1)^nn!}{2^n}.$$
+	\begin{enumerate}
+		\item Write the first three terms of the sequence $a_n$.
+		\item Write the first three terms of the subsequence $b_n$ where, for each $n$, $b_n=a_{2n}$.
+		\item Write the first three terms of the subsequence $c_n$ where, for each $n$, $c_n=(a_n+a_{n+1})/b_n$.
+	\end{enumerate}
+
+	\item Write an example of a sequence which satisfies each of the following conditions or state that no such sequence exists. If both cases, justify your claim using results from class and/or ``formal'' proofs.
+	\begin{enumerate}
+		\item Is increasing; is bounded below; is not bounded above. 
+		\item Is increasing; is bounded above; is not bounded below; converges.
+		\item Is decreasing; is bounded neither above nor below; converges.
+		\item Is neither increasing nor decreasing; is bounded; converges to 4.
+		\item Is neither increasing nor decreasing; is not bounded; converges.
+		\item Is monotone; is bounded; converges to 6 \textbf{and} -12 simultaneously.
+		\item Does not converge but has a subsequence which \textit{does} converge.
+		\item Converges, but has a subsequence which \textit{does not} converge.
+		\item Converges, and has a subsequence which converges to a \textit{different} limit.
+		\item Has two \textit{different} subsequences which converge to -7 and to 7, respectively.
+		\item Has nine \textit{different} subsequences which converge to $1, 2, 3,\ldots, 9$ respectively.
+		\item Diverges; has a subsequence which is increasing; has a different subsequence which diverges.
+	\end{enumerate}
+
+	\item Write an example of two sequences $\{a_n\}$ and $\{b_n\}$ which satisfy each of the following conditions or state that no such sequence exists. If both cases, justify your claim using results from class and/or ``formal'' proofs.
+	\begin{enumerate}
+		\item Both $a_n$ and $b_n$ converge but $\{a_n+b_n\}$ fails to converge.
+		\item Neither $a_n$ nor $b_n$ converge but $a_n-b_n$ converges.
+		\item $a_n$ converges, $b_n$ diverges, and $a_n/b_n$ converges.
+		\item $a_n\to L$, $b_n\to L$, and $a_n/b_n\to L$.
+		\item $a_n$ diverges, $b_n\to\sqrt{2}$, and $a_nb_n\to 19$.
+		\item $\sum_{n=1}^\infty a_n$ diverges and $\sum_{n=1}^\infty b_n$ diverges but $\sum_{n=1}^\infty (a_n+b_n)$ converges.
+		\item $\sum_{n=1}^\infty a_n$ converges and $\sum_{n=1}^\infty b_n$ converges but $\sum_{n=1}^\infty \frac{a_n}{b_n}$ diverges.
+	\end{enumerate}
+\end{enumerate}
+\end{document}

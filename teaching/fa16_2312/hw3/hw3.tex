@@ -1,0 +1,77 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage{fullpage,amsmath,amsfonts,amssymb,url,multicol,graphicx}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+%,amsthm,amscd,amsbsy,graphpap,makeidx,xfrac,graphicx,floatflt,verbatim,tikz}
+
+%\usetikzlibrary{matrix,arrows}
+
+\everymath{\displaystyle}
+
+\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label={(\alph*)}}
+\setlist[enumerate,3]{label={\roman*.}}
+
+\newcommand{\hint}[1]{\hspace{0.5in}\textbf{Hint}: #1}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{MAC 2312 --- Homework 3}}
+\end{center}
+\textbf{Directions:} Complete the following problems (front and back) for a homework grade. Problems \textit{must} be neatly written up and presented in a professional manner in order to receive credit, and answers given without showing work will not be eligible to receive partial credit. \textbf{Date Due:} Monday, October 31.
+\vspace{0.125in}
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	%========Slack==============
+	\item Go to the \#past\_exams channel in our course's \textsc{Slack} room (see course homepage for the URL) and either ask about a question from a past exam (Exam 1 or Exam 2) or give feedback to someone else's question thereon.%\\[3mm]\hint{This is a particularly good exercise to work on improving your test 2 knowledge for possible extra credit things, etc.!}
+	%=========Separable DEs=====
+	\item Solve each of the following separable differential equations (DEs) and/or separable DE initial value problems (IVPs).
+		\begin{enumerate}[itemsep=0.25in]
+			\item $xy^2y'=x+1$
+			\item $\frac{dx}{dt}=\frac{e^x\sin^2(t)}{x\sec{t}}$
+			\item $\frac{dy}{dx}=2xy-2y+2x-2$, $y(1)=0$
+			\item $x^2\frac{dy}{dx}=\sqrt{1-y^2}$
+			\item $e^y\left(\frac{dy}{dx}\right)=1+e^{2y}-xe^{2y}-x$, $y(0)=1$
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \label{num:3a} Write the differential equation modeling the following scenario: \textit{The rate of growth of a population $P$ over time is directly proportional to the population.}
+			\item \label{num:3b} Show that the solution to the equation in \ref{num:3a} is $P(t)=Ce^{kt}$ where $k$ is the constant of proportionality.
+			%\item Solve the IVP given by the DE in \ref{num:3a} with the initial condition $P(0)=P_0$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \label{num:4a} Let $M$ be a constant and let $k$ denote a constant of proportionality. Show that the solution to the logistic differential equation
+			$$\frac{dP}{dt}=kP\left(1-\frac{P}{M}\right)$$
+			has the form
+			$$P(t)=M\,\frac{Ce^{kt}}{1+Ce^{kt}}.$$
+			\item Write the solution of the initial value problem
+			$$\frac{dP}{dt}=0.08P\left(1-\frac{P}{1000}\right)\quad\quad P(0)=100.$$
+			\item Show that if $P$ satisfies the logistic equation in \ref{num:4a}, then the second derivative $\frac{d^2P}{dt^2}$ satisfies the following:
+			$$\frac{d^2P}{dt^2}=k^2P\left(1-\frac{P}{M}\right)\left(1-\frac{2P}{M}\right).$$
+		\end{enumerate}
+	%=========Linear DEs========
+	\item Solve each of the following linear differential equations and/or linear DE IVPs.
+	\begin{enumerate}
+		\item $\frac{dy}{dx}=y\sin{x}-2\sin{x}$
+		\item $xy'=e^x-y$, $y(1)=0$
+		\item $y'=\frac{y}{x}+x$, $y(1)=1$
+		\item $(1+t^2)y'+4ty=(1+t^2)^{-2}$
+	\end{enumerate}
+	\item A rocket with initial mass $M_0$ (kilograms) blasts off at time $t=0$, and after taking off, the mass of the rocket decreases with time because the fuel is being spent at a constant burning rate $r$ (kg per sec). If thrust is a constant force $F$ and velocity is $v$, Newton's second law gives
+	\begin{equation}
+	\label{eq:rocket}
+	\frac{d}{dt}\left((M_0-rt)v\right)=F-(M_0-rt)g\end{equation}
+	where $g=9.8$ is the gravitational constant. \begin{enumerate*}\item Solve the equation \eqref{eq:rocket} for $v=v(t)$, given that $v=0$ when $t=0$. \item If the mass of the rocket at burnout is $M_0-rt=M_1$, compute the velocity of the rocket at burnout. \vspace{3mm}
+	\end{enumerate*}
+	
+	
+	\textbf{Hint}: Once you have the solution in part (a), replace $M_0-rt$ by $M_1$ \textit{and} replace $rt$ by the appropriate expression in terms of $M_0$ and $M_1$ obtained by solving the equation $M_0-rt=M_1$ for $rt$.
+\end{enumerate}
+\end{document}

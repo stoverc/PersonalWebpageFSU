@@ -1,0 +1,70 @@
+\usepackage{fullpage,soul,graphicx,esvect,changepage,stoversymb}
+%                              ^ for underline: \ul{...}
+%\everymath{\displaystyle}
+%\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+\usepackage{pgfplots}
+\usepackage{wasysym} % smileys
+
+\usepackage[margin=0.625in, top=0.75in, bottom=0.75in]{geometry}
+
+%===makes urls render well===
+\usepackage{url,lmodern}
+\usepackage[T1]{fontenc}
+
+%\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{leftmargin=0.2in, itemsep=0.625in, topsep=4.5mm}
+\setlist[enumerate,2]{label=(\alph*),leftmargin=0.375in, itemsep=0.25in, topsep=0in}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\newcounter{bonus}
+\addtocounter{bonus}{1}
+
+\newcommand{\sol}{\par\vspace{4.5mm}\hspace{-0.25in}\textsc{Solution:}}
+\newcommand{\solarg}[1]{\par\vspace{4.5mm}\hspace{-0.25in}\textsc{Solution for #1:}}
+\newcommand{\nextpart}[1]{\vfill{\begin{center}\textbf{Question #1 is on the next page}\end{center}\newpage}}
+\newcommand{\nextcompute}{\vfill{\begin{center}\textbf{Put the other part of the computation on the next page!}\end{center}\newpage}}
+\newcommand{\pts}[1]{(\textit{#1 pts})}
+\newcommand{\ptss}[1]{(\textit{#1 pt})}
+\newcommand{\ptsea}[1]{(\textit{#1 pts ea.})}
+\newcommand{\scratch}{\newpage\thispagestyle{empty}\begin{center}Scratch Paper\end{center}}
+%\newcommand{\formulae}[1]{\newpage\thispagestyle{empty}\begin{center}\textbf{Info You May Use}\end{center}{#1}}
+\newcommand{\formulae}[1]{\newpage\thispagestyle{empty}\begin{center}\textbf{Info You May Use}\end{center}\vspace{0.125in}\begin{adjustwidth}{-0.375in}{-0.375in}{#1}\end{adjustwidth}}
+\newcommand{\bonus}{\newpage\hspace{-0.25in}\textbf{Bonus: }}
+\newcommand{\bonusnum}[1]{\newpage\hspace{-0.25in}\textbf{Bonus #1: }}
+\newcommand{\hint}[1]{\ul{Hint}: #1}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}
+\newcommand{\note}[1]{\ul{Note}: #1}
+\newcommand{\notebf}[1]{\textbf{Note}: #1}
+\newcommand{\TF}{\textbf{True or False:}~}
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\left\langle #1, #2, #3\right\rangle}
+\newenvironment{mypmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{pmatrix}}{\end{pmatrix}}
+\newenvironment{mybmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{bmatrix}}{\end{bmatrix}}
+\newcommand{\justify}{\ul{Justify your claim.}}
+\newcommand{\justifys}{\ul{Justify your claim(s).}}
+
+\newcommand{\pmat}[1]{\begin{mypmatrix}{1.25}#1\end{mypmatrix}}
+\newcommand{\bmat}[1]{\begin{mybmatrix}{1.25}#1\end{mybmatrix}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newcommand{\pmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{pmatrix}[#1] #2\end{pmatrix}}
+\newcommand{\bmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{bmatrix}[#1] #2\end{bmatrix}}
+
+\newcommand{\arrow}[1]{\xrightarrow{\hspace*{#1}}}

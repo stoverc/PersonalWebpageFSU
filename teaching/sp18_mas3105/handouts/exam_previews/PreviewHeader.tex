@@ -1,0 +1,51 @@
+\usepackage{changepage,soul,graphicx,graphbox,stoversymb}%,afterpage}
+\usepackage[left=0.5in,right=0.5in,bottom=1in,top=0.75in]{geometry}%,showframe=true
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amsthm}
+	\theoremstyle{definition}
+	\newtheorem{defn}{Definition}
+	
+	\newtheoremstyle{underl}{4.5mm}{4.5mm}{}{}{}{\textnormal{.}}{ }{\underline{\thmname{#1}}}
+	\theoremstyle{underl}
+	\newtheorem*{ex}{Ex}
+
+\thispagestyle{empty}
+
+\newenvironment{mypmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{pmatrix}}{\end{pmatrix}}
+\newenvironment{mybmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{bmatrix}}{\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{mypmatrix}{1.25}#1\end{mypmatrix}}
+\newcommand{\bmat}[1]{\begin{mybmatrix}{1.25}#1\end{mybmatrix}}
+\newcommand{\TF}{\textbf{True or False:}~}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newcommand{\pmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{pmatrix}[#1] #2\end{pmatrix}}
+\newcommand{\bmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{bmatrix}[#1] #2\end{bmatrix}}
+\newcommand{\justify}{\ul{Justify your claim.}}
+
+\newcommand{\capt}[1]{\begin{adjustwidth}{0.5in}{0.5in}\centering\small\textit{#1}\end{adjustwidth}}
+\newcommand{\notebox}[2]
+{\begin{tcolorbox}[
+		enhanced,
+		colback=white,
+		colframe=black,
+		boxrule=0.5pt,
+		arc=0pt,
+		top=3mm,
+		bottom=3mm, 
+		grow to left by=-0.5in,
+		grow to right by=-0.5in
+	]
+	\noindent\textbf{#1}\\
+	{#2}
+\end{tcolorbox}}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}

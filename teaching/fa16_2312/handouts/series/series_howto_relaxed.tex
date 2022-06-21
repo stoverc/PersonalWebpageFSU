@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in, left=0.75in]{geometry}
+
+%\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Large{How to determine whether $\displaystyle\ser$ converges or diverges.}\vspace{-0.75in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{
+	leftmargin=0.75in, 
+	rightmargin=0.5in, 
+	label=\textbf{Question \arabic*:},
+	itemsep=4.5mm,
+	topsep=4.5mm,
+	parsep=3mm
+}
+\setlist[enumerate,2]{
+	leftmargin=-0.0625in,
+	label=\textsc{Answer:},
+	parsep=-1.5mm
+}
+
+\setlist[itemize,1]{
+	parsep=0in,
+	itemsep=3mm, 
+	topsep=0in,
+	leftmargin=-0.5in,
+	label=$\circ$
+}
+
+\setlist[itemize,2]{
+	itemsep=1.5mm,
+	leftmargin=0.25in,
+	topsep=2.5mm
+}
+\setlist[itemize,3]{
+	leftmargin=0.375in,
+	label=$\Longrightarrow$,
+	topsep=3mm,
+	itemsep=3mm
+}
+
+\newcommand{\sectitle}[1]{\noindent\hspace{-0.375in}\textbf{\Large{#1:}}\\}
+%\newcommand{\subsectitle}[2]{\noindent\ul{#1}:\\[3mm]\indent{#2}\\[6mm]}
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\ser}{\infsum{n}{1}{a_n}}
+\newcommand{\ans}[1]{\fbox{\textsc{Answer:}} #1}
+\newcommand{\ques}[2]{\sectitle{Question {#1}}{#2}}
+	
+\begin{document}
+	\maketitle
+	\vspace{-0.25in}
+	\begin{center}
+	\textit{Throughout, let $f$ be a function satisfying $f(n)=a_n$.}
+	\end{center}
+	\vspace{0.0625in}
+	
+	\begin{enumerate}
+		\item \textit{\ul{Can}} my series converge (i.e. does $\lim_{n\to\infty} a_n$ exist \textit{and} does $\lim_{n\to\infty}a_n=0$?)%\vspace{-3mm}
+			\begin{itemize}
+					\item If \textit{no}: You're done; $\ser$ \ul{diverges}.
+					\item If \textit{yes}: Your series \textit{may} converge. \textbf{Go to Question 2}.
+			\end{itemize}
+	
+		\item Does my series have negative terms?
+			\begin{itemize}
+				\item If \textit{no}: You have a positive series. \textbf{Go to Question 3}.
+				\item If \textit{yes}: Go to \textbf{Question 5}.
+			\end{itemize}
+		
+		\item Is my series a geometric series or a $p$-series?
+			\begin{itemize}
+				\item If \textit{yes}: Use the info you know about \textbf{geometric series} and/or \textbf{$\boldsymbol{p}$-series} and you're done.
+				\item If \textit{no}: Go to \textbf{Question 4}.
+			\end{itemize}
+		
+		\item If I squint at my series, does it kinda-sorta look like a geometric series or a $p$-series?
+			\begin{itemize}
+				\item If \textit{yes}, use either \textbf{the comparison test} or \textbf{the limit comparison test}. 
+				\begin{itemize}
+					\item Use \textbf{the comparison test} if you can get the inequalities to work.
+					\item Use \textbf{the limit comparison test} if you \textit{can't} get the inequalities to work \textbf{but} you're sure you're squinting is accurate.
+				\end{itemize}
+				\item If \textit{no}:
+				\begin{itemize}
+					\item Does my series have factorials and/or $(\text{constant})^n$? 
+						\begin{itemize}
+							\item \textbf{Use the Ratio Test!}
+						\end{itemize}
+					\item Does $a_n$ have the form $a_n=(b_n)^n$ ({\footnotesize{a whole function to the $n$th power}})? 
+						\begin{itemize}
+							\item \textbf{Use the Root Test!}
+						\end{itemize}
+					\item Does it look like I can find $\textstyle\int_1^\infty f(x)\,dx$? 
+						\begin{itemize}
+							\item \textbf{(Try to) Use the Integral Test!} ({\footnotesize{$f$ must be \ul{continuous}, \ul{positive}, and \ul{decreasing}!}})
+						\end{itemize}
+					\item If none of the ratio, root, or integral tests seem appropriate: 
+					\begin{itemize}
+						\item Ask whatever higher power you believe in for an intervention. ({\footnotesize{If you don't have a higher power, ask a friend to borrow theirs.}})
+						%\item Try looking at $\textstyle\infsum{n}{1}{|a_n|}$ directly by going back at \textbf{Question 3}.
+					\end{itemize}
+				\end{itemize}
+			\end{itemize}
+		\newpage
+		\item Is my series alternating? ({\footnotesize{i.e., is $a_n=(-1)^nb_n$ or $a_n=(-1)^{n+1}b_n$ where $\{b_n\}$ has all positive terms?}})
+			\begin{itemize}
+				\item If \textit{yes}: (Try to) Use the \textbf{Alternating Series Test!} ({\footnotesize{$b_n$ must be decreasing and $\shortlim{b_n}=0$ must hold}})
+				\item If \textit{no}:
+				\begin{itemize}
+					\item Does my series have factorials and/or $(\text{constant})^n$? 
+						\begin{itemize}
+							\item \textbf{Use the Ratio Test!}
+						\end{itemize}
+					\item Does $a_n$ have the form $a_n=(b_n)^n$ ({\footnotesize{a whole function to the $n$th power}})? 
+						\begin{itemize}
+							\item \textbf{Use the Root Test!}
+						\end{itemize}
+					\item If neither the ratio nor root test seems applicable: 
+						\begin{itemize}
+							\item See \textbf{Question 4} about borrowing higher powers, etc.
+							\item Try looking at $\textstyle\infsum{n}{1}{|a_n|}$ directly by going back at \textbf{Question 3}.
+						\end{itemize}
+				\end{itemize}
+			\end{itemize}
+	\end{enumerate}
+
+\sectitle{Notes}
+	\begin{itemize}[leftmargin=0in,itemsep=4.5mm,label=$\dagger$]
+		\item In \textbf{Question 4}, it's important to recognize what ``squint'' means.
+		\begin{itemize}[leftmargin=0.125in]
+			\item[] For example: $\textstyle\infsum{n}{1}{\frac{n}{2n^3+1}}$ kinda-sorta looks like a $p$-series with $p=2$ while $\textstyle\infsum{n}{1}{\frac{4^{n+1}}{3^n-2}}$ looks a smidgen like a geometric series with $a=16/3$ and $r=4/3$. How do we get that? \textbf{By picking the highest power of $n$ on the top and bottom and ignoring everything else!}
+		\end{itemize}
+		\item Stuff to note about the \textit{yes} in \textbf{Question 4}:
+		\begin{itemize}
+			\item If the comparison test works, the limit comparison test \ul{definitely} works.
+			\item When both work, here's what to keep in mind:
+			\begin{itemize}[label=$\circ$,topsep=0mm]
+				\item The comparison test = easy algebra but perhaps difficult intuition (\textit{WTF do I compare with?!}...see the comparison test for integrals).
+				\item The limit comparison test = easy intuition (just keep the highest power on top and the highest power on bottom) but messy algebra (because dividing + limits).
+			\end{itemize}
+			\item Sometimes, the limit comparison test works but the comparison test doesn't:
+			\begin{itemize}[leftmargin=1in,topsep=0mm, itemsep=2mm]
+				\item[\ul{Example:}] We \textbf{know} that $\sum 1/2^n$ converges (it's a geometric series with $r=1/2$). 
+				\item[]Moreover, because $2^n < 2^n+1\implies 1/(2^n+1) < 1/2^n$, we can use \textbf{the comparison test} to conclude that $\sum 1/(2^n+1)$ also converges.
+				\item[]However, even though $1/(2^n-1)$ \textit{looks like} $1/2^n$, you \textbf{can't} use the comparison test because (a) $1/(2^n-1)>1/2^n$ and (b) being \textit{large} than a convergent series tells you \textit{nothing!}
+				\item[]The solution is to use \textbf{the limit comparison test} with $a_n=1/(2^n-1)$ and $b_n=1/2^n$. Doing so shows that $\shortlim{a_n/b_n}=1$; thus, $\sum a_n$ converges because $\sum b_n$ does.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+
+\end{document}

@@ -1,0 +1,183 @@
+\documentclass[12 pt]{article}
+
+\input{../hwHeader}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{MAS 3105 --- Homework 4}}
+\end{center}
+\textbf{Directions:} Complete the following problems for a homework grade, being sure to adhere to the \ul{Homework Policy} on the \ul{Homework} tab of the course webpage
+\begin{center}
+	 \url{http://www.math.fsu.edu/~cstover/teaching/sp18_mas3105/}.
+\end{center}
+\textbf{Date Due:} Thursday, April 26.
+\vspace{0.125in}
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in, itemsep=1in]
+%	%========Slack==============
+%	\item Go to the \textbf{\#hw3} channel in our course's \textsc{Slack} room (see course homepage for the URL) and 
+%	\begin{enumerate}[label=(\roman*),itemsep=0mm] 
+%		\item post $\geq 1$ thing about this homework; and 
+%		\item reply to $\geq 1$ of your classmates' posts.
+%	\end{enumerate}
+%	
+%	\note{Yes, you will get graded for this question. \smiley}
+%	
+%	\vspace{-0.375in}
+	
+%	\item For each of the following matrices $\sansA$,
+%	\begin{enumerate}[label=(\roman*),leftmargin=16mm,itemsep=2.5mm]
+%		\item put $\sansA$ into $\RREF$;
+%		\item find a basis for $\col(\sansA)$;
+%		\item compute $\dim(\col(\sansA))$;
+%		\item find a basis for $\row(\sansA)$;
+%		\item compute $\dim(\row(\sansA))$;
+%		\item find a basis for $\nul(\sansA)$;
+%		\item compute $\dim(\nul(\sansA))$; and
+%		\item verify the rank-nullity theorem for $\sansA$.
+%	\end{enumerate}
+%	
+%	\vspace{3mm}
+%
+%	\begin{adjustwidth}{-0.125in}{-0.125in}
+%		\begin{multicols}{3}
+%			\begin{enumerate}[itemsep=6mm]
+%				\item $\sansA=\pmat{1 & -1 & 1 & 3 \\ 0 & 2 & 3 & 1 \\ 3 & -7 & -3 &  7}$
+%				\item $\sansA=\pmat{-2 & 1 & 3 \\ 4 & 1 & 1 \\ 1 & 0 & 1 \\ 0 & 2 & 2 \\ 3 & -2 & 4}$
+%				\item $\sansA=\pmat{1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ -1 & -2 & 3 & -4 \\ 9 & 10 & -11 & 12}$
+%			\end{enumerate}
+%		\end{multicols}
+%	\end{adjustwidth} 
+%
+%	\vspace{-12mm}
+%	
+%	\item For each of the matrices $\sansA$ in Problem 2, repeat parts (i)--(viii) (of problem 2) for the matrix $\sansA^\sansT$.
+%	
+%	\newpage
+%	
+%	\item For each of the following linear transformations $\rmTT$,
+%	\begin{enumerate}[label=(\roman*),leftmargin=16mm,itemsep=2.5mm]
+%		\item find the domain and codomain of $\rmTT$;
+%		\item find the canonical matrix $\sansA$ for $\rmTT$;
+%		\item find $\range(\rmTT)$;
+%		\item find the dimension of $\range(\rmTT)$;
+%		\item find $\ker(\rmTT)$; and
+%		\item find the dimension of $\ker(\rmTT)$;
+%	\end{enumerate}
+%	Assume that $x_1$, $x_2$, $x_3$, and $x_4$ are all real numbers.
+%	
+%	\vspace{3mm}
+%	
+%	\begin{enumerate}[itemsep=12mm]
+%		\item $\rmTT:\pmat{x_1 \\ x_2}\MapsTo\pmat{x_1 \\ x_1 - x_2 \\ x_2 \\ x_2 - x_1 \\ 2x_1+3x_2}$
+%		\item $\rmTT:\pmat{x_1 \\ x_2 \\ x_3 \\ x_4}\MapsTo\pmat{x_1-x_4 \\ x_2-x_3}$
+%		\item $\rmTT:\pmat{x_1 \\ x_2 \\ x_3 \\ x_4}\MapsTo\pmat{x_4 \\ -x_1 \\ x_2-x_3-x_4 \\ x_1-x_2-x_3}$
+%	\end{enumerate}
+%
+%	\item For each of the linear transformations in Problem 4, repeat parts (i)--(vi) (of problem 4) for the linear transformation $S(\vect{x})=\sansA^\sansT\vect{x}$ (where $\sansA$ is the canonical matrix of the transformation in question).
+%	
+%	\newpage
+%	
+%	\item Let $\sansA=\left(
+%	\begin{array}{ccccccc}
+%	7 & -9 & -4 & 5 & 3 & -3 & -7 \\
+%	-4 & 6 & 7 & -2 & -6 & -5 & 5 \\
+%	5 & -7 & -6 & 5 & -6 & 2 & 8 \\
+%	-3 & 5 & 8 & -1 & -7 & -4 & 8 \\
+%	6 & -8 & -5 & 4 & 4 & 9 & 3 \\
+%	\end{array}
+%	\right)$.
+%	\begin{enumerate}[itemsep=20mm,topsep=6mm]
+%		\item Construct a matrix $\sansC$ whose columns are a basis for $\col(\sansA)$.
+%		\item Construct a matrix $\sansN$ whose columns are a basis for $\nul(\sansA)$.
+%		\item Construct a matrix $\sansR$ whose rows are a basis for $\row(\sansA)$.
+%		\item Construct a matrix $\sansM$ whose columns are a basis for $\nul(\sansA^\sansT)$.
+%		\item Form the augmented matrix $\sansS=\pmatgrid{c|c}{\sansR^\sansT & \sansN}$. What are its dimensions?
+%		\item Find the determinant for $\sansS$ and the inverse $\sansS^{-1}$, if they exist. If not, state why.
+%		\item Form the augmented matrix $\sansT=\pmatgrid{c|c}{\sansC & \sansM}$. What are its dimensions?
+%		\item Find the determinant for $\sansT$ and the inverse $\sansT^{-1}$, if they exist. If not, state why.
+%	\end{enumerate}
+	\item Let $\calB=\{\vect{b}_1,\vect{b}_2,\vect{b}_3,\vect{b}_4\}$ be a basis for $\Reals^4$. Find $\rmTT(\vect{b}_1-\vect{b}_2+\vect{b}_3-\vect{b}_4)$ when $\rmTT:\Reals^4\to\Reals^4$ is the linear transformation with $\calB$-matrix
+	\[
+		\left[\rmTT\right]_\calB=\pmat{1 & -1 & 0 & 4 \\ 0 & 1 & 1 & -1 \\ -3 & 1 & 0 & 8 \\ 1 & 1 & -2 & 1}.
+	\]
+	
+	\vspace{0.75in}
+	
+	\item Let $\calB=\left\{\vect{b}_1=\pmat{1, & 1}^\sansT,\vect{b}_2=\pmat{-1, & 1}^\sansT\right\}$ be a basis for $\Reals^2$. If $\rmTT:\Reals^2\to\Reals^2$ is a linear transformation such that
+	\[
+		\left[\rmTT\right]_\calB=\pmat{1 & 2 \\ 3 & 4},
+	\]
+	find the canonical matrix $\sansA$ corresponding to $\rmTT$. \hintbf{Draw the corresponding commutative diagram!}
+	
+	\newpage
+	
+	\item Let $\calB=\{\vect{b}_1,\vect{b}_2,\vect{b}_3,\vect{b}_4\}$ be a basis for a vector space $V$ and $\calC=\{\vect{c}_1,\vect{c}_2,\vect{c}_3\}$ be a basis for a vector space $W$. Let $\rmTT:V\to W$ be a linear transformation such that 
+	\[
+		T(\vect{b}_1)=3\vect{c}_1-\vect{c}_3 \quad\quad\quad
+		T(\vect{b}_2)=\vect{c}_1-2\vect{c}_2+\vect{c}_3 \quad\quad\quad
+		T(\vect{b}_3)=\vect{c}_1-\vect{c}_2-\vect{c}_3 \quad\quad\quad
+		T(\vect{b}_4)=\vect{c}_2-3\vect{c}_3.
+	\]
+	Find $\left[\rmTT\right]_{\calB\to\calC}$.
+	
+	\vspace{2.5in}
+	
+	\item Let $\calB=\{\vect{b}_1,\vect{b}_2,\vect{b}_3,\vect{b}_4\}$ be a basis for $\Reals^4$ and $\calC=\{\vect{c}_1,\vect{c}_2,\vect{c}_3\}$ be a basis for a vector space $W$. Find $\rmTT(\vect{b}_1-\vect{b}_2+\vect{b}_3-\vect{b}_4)$ when $\rmTT:\Reals^4\to W$ is the linear transformation with $\calB$-to-$\calC$-matrix
+	\[
+	\left[\rmTT\right]_{\calB\to\calC}=\pmat{1 & -2 & -4 & 4 \\ -3 & 1 & 0 & 8 \\ 0 & 1 & -2 & 0}.
+	\]
+	
+	\newpage
+	
+	\item For each of the following matrices $\sansA$,
+	\begin{enumerate}[label=(\roman*),leftmargin=16mm,itemsep=2.5mm]
+		\item find the characteristic polynomial of $\sansA$;
+		\item find the eigenvalues of $\sansA$ \textbf{with multiplicites};
+		\item find the eigenvectors corresponding to each eigenvalue from part (ii); and
+		\item compute a basis for the eigenspace of each eigenvalue from part (ii).
+	\end{enumerate}
+	\vspace{3mm}
+	\begin{enumerate}[itemsep=0.625in]
+		\item $\sansA=\pmat{2 & 1 \\ 1 & 1}$
+		\item $\sansA=\pmat{1 & 1 \\ 1 & 1}$
+		\item $\sansA=\pmat{1 & 2 \\ 0 & 1}$
+		\item $\sansA=\pmat{0 & 2 \\ -2 & 0}$
+		\item $\sansA=\pmat{1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9}$
+		\item $\sansA=\pmat{5 & 0 & 1 & -1 \\ 0 & 5 & 4 & -2 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3}$ \hspace{3mm}\hintbf{Notice that $\sansA$ is triangular.}
+	\end{enumerate}
+
+	\newpage
+	
+	\item Consider the matrix
+	\[
+		\sansA=\pmat{5 & 0 & 1 & -1 \\ 0 & 5 & 4 & -2 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3}
+	\]
+	from question 5(f) above. Let $\lambda_1 \geq \lambda_2 \geq \lambda_3 \geq \lambda_4$ be the eigenvalues of $\sansA$ (written multiple times for multiplicity $\geq 1$ and written in descending order) and let $\vect{v}_1,\ldots,\vect{v}_4$ be the eigenvectors corresponding to $\lambda_1,\ldots,\lambda_4$.
+	\begin{enumerate}[topsep=3mm, itemsep=0.375in]
+		\item Write down the $4\times 4$ matrix $\sansP=\pmatgrid{c|c|c|c}{\vect{v}_1 & \vect{v}_2 & \vect{v}_3 & \vect{v}_4}$.
+		
+		\item \TF The columns of $\sansP$ are linearly independent. \justify
+		
+		\item Write down the $4\times 4$ diagonal matrix $\sansD$ whose $(i,i)$-entry equals $\lambda_i$ and whose $(i,j)$-entry equals 0 for all $i\neq j$.
+		
+		\vspace{3mm}\hintbf{This means that the $(1,1)$-entry is $\lambda_1$, the $(2,2)$-entry is $\lambda_2$, the $(3,3)$-entry is $\lambda_3$, the $(4,4)$-entry is $\lambda_4$, and all other entries are 0.}
+		
+		\item Compute $\sansD^2$, $\sansD^3$, and $\sansD^{2\,196\,432}$. \hintbf{This should require almost no work; do $\sansD^2$ and find the pattern!}
+		
+		\item Compute $\sansA\sansP$.
+		
+		\item Compute $\sansP\sansD$. 
+		
+		\item Using parts (b), (e), and (f), conclude that $\sansA=\sansP\sansD\sansP^{-1}$. \textbf{Do not compute $\sansP^{-1}$!}
+		
+		\vspace{3mm}\hspace{6mm} This decomposition is called \red{the diagonalization of $\sansA$}, and the process given in parts (a)--(e) is called \red{diagonalizing $\sansA$}. As it happens, not all matrices are diagonalizable, and in fact, an $n\times n$ matrix $\sansA$ is diagonalizable \ul{if and only if} the sums of the dimensions of its eigenspaces is equal to $n$. For the matrix $\sansA$ in this problem, you can confirm that this holds by referring back to 5(f) above.
+		
+		\vspace{3mm}\hspace{6mm} Now, the question remains: \textit{Why} is diagonalization helpful?
+		
+		\item Using parts (d) and (g), find a diagonalization for $\sansA^{1\,032}$ \textit{without doing any work!}.
+		
+		\vspace{3mm}\hintbf{$\sansA^2=\left(\sansP\sansD\sansP^{-1}\right)^2=\left(\sansP\sansD\sansP^{-1}\right)\left(\sansP\sansD\sansP^{-1}\right)=\sansP\sansD\underbrace{\sansP^{-1}\sansP}_{\text{(!!!)}}\sansD\sansP^{-1}$.}
+	\end{enumerate}
+\end{enumerate}
+\end{document}

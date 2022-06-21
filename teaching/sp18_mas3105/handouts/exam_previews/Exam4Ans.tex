@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amsfonts,soul}
+\usepackage{enumitem}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Reals}{\mathbb{R}}
+
+\begin{document}
+	\begin{enumerate}[itemsep=6mm]
+		\item (i) is the only one which can happen.
+		\item
+		\begin{enumerate}[label=(\alph*),listparindent=6mm,itemsep=3mm]
+			\item $\vect{x}\cdot\vect{y}=0$
+			\item $\|\vect{x}\|=\sqrt{91}$; $\|\vect{y}\|=\sqrt{91}$
+			\item $\dist(\vect{x},\vect{y})=\|\vect{x}-\vect{y}\|=\|\langle-3,5,1,5,11,1\rangle\|=\sqrt{182}$
+			\item $\operatorname{angle}=\cos^{-1}(0)=\pi/2$
+			\item Because $\vect{x}$ and $\vect{y}$ are linearly independent, $W$ has dimension $2$.
+			\item Both $\vect{x}$ and $\vect{y}$ live in $\Reals^6$, so the dimension of $W^\perp$ is $6-2=4$.
+			\item Write out the equations for $\vect{u}\cdot\vect{x}=0$, $\vect{u}\cdot\vect{y}=0$, $\vect{v}\cdot\vect{x}=0$, and $\vect{v}\cdot\vect{y}=0$ and plug in accordingly to get the right answer.
+			
+			For example: $\vect{u}\cdot\vect{x}=0\Leftrightarrow u_1+2u_2+3u_3+4u_4+5u_5+6u_6=0$. That's one of the equations; there should be three others.
+		\end{enumerate}
+		
+		\item \begin{enumerate}[label=(\alph*),listparindent=6mm,itemsep=3mm]
+			\item This depends on how creative you decided to be, but make sure it's non-diagonal, is $5\times 5$, has real entries, and is symmetric.
+			\item Regardless of what you picked for (a), \ul{all} of the eigenvalues should be real. That's a property of symmetric matrices.
+			\item Regardless of what you picked for (a), \ul{all} of the eigenspaces should be orthogonal (i.e. have angle $\pi/2$ between them). That's \textit{also} a property of symmetric matrices.
+		\end{enumerate}
+		
+		\item \begin{enumerate}[label=(\alph*),listparindent=6mm,itemsep=3mm]
+			\item True
+			\item True
+			\item False
+			\item False
+			\item False
+			\item True
+			\item True
+			\item True
+			\item True
+			\item True
+			\item False
+			\item True
+			\item True
+			\item False
+			\item True
+			\item True
+			\item True
+			\item True
+			\item False
+			\item True
+			\item True
+			\item True
+			\item False 
+			\item True
+			\item False
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

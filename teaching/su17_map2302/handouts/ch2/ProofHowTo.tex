@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{soul,graphicx,stoversymb}%,afterpage}
+\usepackage[left=0.5in,right=0.5in,bottom=1in,top=0.75in]{geometry}%,showframe=true
+\everymath{\displaystyle}
+
+\usepackage[many]{tcolorbox}
+
+\thispagestyle{empty}
+
+\begin{document}
+	\section*{\centering How your proof should look}
+	\vspace{3mm}
+	{\small{
+	I realized that some of you have never had to prove anything before, so I wanted to jump in and give you all some guidance! 
+	
+	The short story: \textit{To show that two quantities are equal, you start on \textbf{one side} of the equal sign (\textbf{without} messing with the other side) and you do math until the thing you have looks like the \textbf{other side} of the equation!}
+			
+	Below is an \ul{outline} of how the ``homework'' proof should look: Your job is to \ul{use the justifications provided} (to the right of the blanks) to \ul{fill in the blanks provided}. Once you've filled in all the blanks, what you \textit{should} have is a proof that the integrating factor satisfies the identity claimed in class.
+	
+	\vspace{2.25mm}
+	\noindent\textbf{Note 1:} Throughout, $\exp(x)$ is shorthand for $e^x$ and $I(x)$ is shorthand for $\int p(x)\,dx$. Using this notation,
+	$$e^{\,\int p(x)\,dx}=\exp\left(I(x)\right)$$
+	is the thing we called $m(x)$ in class and is explicitly highlighted below.
+
+	\vspace{2.25mm}
+	\noindent\textbf{Note 2:} ``FTC'' stands for ``Fundamental Theorem of Calculus.''}}
+	
+	\vspace{12mm}
+	\begin{tcolorbox}
+		[
+		enhanced,
+		colback=white,
+		colframe=white,
+		boxrule=0.5pt,
+		arc=0pt,
+		top=4.5mm,
+		bottom=4.5mm, 
+		grow to left by=0.375cm,
+		grow to right by=0.375cm,
+		enlarge bottom by=0mm,
+		center
+		]
+		\begin{center}
+			$\begin{array}{rcll}
+				\frac{d}{dx}\left(\underbrace{\exp\left(I(x)\right)}_{m(x)}\,y\right) & = & \underline{\hspace{2in}}\hspace{6mm}&\left(\text{by the product rule}\right)\\[9mm]
+					 & = & \underline{\hspace{2in}}\hspace{6mm}&\left(\text{because } \frac{d}{dx}\left(y\right)=\frac{dy}{dx}\right)\\[12mm]
+					 & = & \underline{\hspace{2in}}\hspace{6mm}&\left(\text{by the chain rule}\right)\\[12mm]
+					 & = & \underbrace{\exp\left(I(x)\right)}_{m(x)}\,\frac{dy}{dx}+\underbrace{\exp\left(I(x)\right)}_{m(x)}p(x)\,y\hspace{6mm}&\left(\text{by FTC}\right)
+			\end{array}$
+		\end{center}
+	\end{tcolorbox}
+	\vspace{3mm}
+	\vspace*{\fill}%\mbox{}
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+\everymath{\displaystyle}
+\usepackage{amsmath,amsthm}
+\usepackage[margin=0.75in, bottom=1in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\pagenumbering{gobble}
+
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\sol}{\vspace{3mm}\hspace{-0.25in}\textsc{Solution:}\\[4.5mm]}
+
+\begin{document}
+	\noindent\textbf{Example:} Determine the interval and radius of convergence for the power series $\infsum{n}{2}{\frac{x^n}{n\left(\ln(n)\right)^{1/2}}}$.
+	
+	\sol
+	We use the ratio test with $a_n=\frac{x^n}{n\left(\ln(n)\right)^{1/2}}$ and so:
+	\begin{align}
+		\left|\frac{a_{n+1}}{a_n}\right| & = \left|\frac{x^{n+1}}{(n+1)\left(\ln(n+1)\right)^{1/2}} \cdot \frac{n\left(\ln(n)\right)^{1/2}}{x^n}\right| \\[6mm]
+		& = \left|\frac{x^{n+1}}{x^n}\cdot  \frac{n}{n+1}\cdot\frac{\left(\ln(n)\right)^{1/2}}{\left(\ln(n+1)\right)^{1/2}}\right|\\[4.5mm]
+		& = |x| \cdot \underbrace{\frac{n}{n+1}}_{(a)}\cdot\underbrace{\frac{\left(\ln(n)\right)^{1/2}}{\left(\ln(n+1)\right)^{1/2}}}_{(b)}
+	\end{align}
+	
+	Note that: For (1), we multiplied by the reciprocal instead of dividing; for (2) we grouped things that looked the same; and for (3), we noticed that the absolute values only affect that $x$ (because all the $n$ things are guaranteed to be positive).
+	
+	Now, as $n\to\infty$, $(a)\to 1$ and $(b)\to 1$ (which you could get from L'Hopital), so the entire last bit goes to $|x|*1*1=|x|$ as $n\to\infty$. Call this limit $R$.
+	
+	The ratio test says that the series you have converges absolutely if $R<1$, so you're looking at the interval $R<1\iff |x|<1$. As an interval, this is $(-1,1)$.
+	
+	Next, you test the endpoints $x=-1$ and $x=1$ by plugging those values into the original power series and seeing if the resulting series converges or diverges.
+	
+	For $x=-1$:\vspace{-4.5mm}
+	
+	$$\infsum{n}{2}{\frac{x^n}{n\left(\ln(n)\right)^{1/2}}}=\infsum{n}{2}{\frac{(-1)^n}{n\left(\ln(n)\right)^{1/2}}}.$$
+	
+	\noindent Now, we note that this is an \textit{alternating} series, that the positive part\vspace{-3mm}
+	
+	$$b_n=\frac{1}{n\left(\ln(n)\right)^{1/2}}$$
+	
+	\noindent is decreasing (larger denominator = smaller fraction), and that $b_n\to0$ as $n\to\infty$. Therefore, by the \textbf{alternating series test}, the series \textit{converges} for $x=-1$.
+	
+	Finally, for $x=1$:\vspace{-4.5mm}
+	
+	$$\infsum{n}{2}{\frac{x^n}{n\left(\ln(n)\right)^{1/2}}}=\infsum{n}{2}{\frac{1}{n\left(\ln(n)\right)^{1/2}}},$$
+	
+	\noindent and because the associated function\vspace{-4.5mm}
+	
+	$$f(x)=\frac{1}{x\left(\ln(x)\right)^{1/2}}$$
+	
+	\noindent is \textit{positive}, \textit{continuous} (for $2<x<\infty$), and \textit{decreasing} (see above), we can use the \textbf{integral test}:\vspace{-7.5mm}
+	
+	$$\int_2^\infty\frac{1}{x\left(\ln(x)\right)^{1/2}}\,dx=2\sqrt{\ln(x)}\,\bigg|_2^\infty=\infty \implies \infsum{n}{2}{\frac{1}{n\left(\ln(n)\right)^{1/2}}}\text{\quad diverges by the integral test}.$$
+	
+	Therefore, the original power series converges on the interval $(-1,1)$ (by the ratio test) and at $x=-1$ (by the above), making your final answer:
+	\begin{center}\textbf{Interval of convergence:} $I=[-1,1)$; \textbf{Radius of convergence:} $R=1$. \qedsymbol\end{center}
+\end{document}
+

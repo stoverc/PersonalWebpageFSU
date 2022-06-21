@@ -1,0 +1,272 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage{fullpage,amsmath,amsfonts,amssymb,url,multicol,graphicx,mathtools}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+%,amsthm,amscd,amsbsy,graphpap,makeidx,xfrac,graphicx,floatflt,verbatim,tikz}
+
+%\usetikzlibrary{matrix,arrows}
+
+\everymath{\displaystyle}
+
+%\setenumerate{itemsep=0.25in}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label={(\alph*)}}
+\setlist[enumerate,3]{label={\roman*.}}
+
+\begin{document}
+\begin{center}
+	\Large{\textbf{MAC 2312 --- Homework 3}}\\[6mm]
+	\red{\Huge ------SOLUTIONS------}\\[-3mm]
+\end{center}
+
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+	%========Slack==============
+	\item \red{Nossing, Lebowski, nossing.}
+	%=========Separable DEs=====
+	\item Solve each of the following separable differential equations (DEs) and/or separable DE initial value problems (IVPs).
+		\begin{enumerate}[itemsep=0.25in]
+			\item $xy^2y'=x+1$\\[3mm]
+			\red{
+				\textbf{Solution:} Rewrite $y'$ as $dy/dx$ and separate:
+				$$xy^2\frac{dy}{dx}=x+1\quad\implies\quad y^2dy = \frac{x+1}{x}dx.$$
+				Now, rewrite $\frac{x+1}{x}$ as $1+\frac{1}{x}$ and integrate:
+				$$\int y^2\,dy=\int1+\frac{1}{x}\,dx\quad\implies\quad \frac{y^3}{3}=x+\ln|x|+C.$$
+				Now, solve for $y$:
+				$$\frac{y^3}{3}=x+\ln|x|+C\quad\implies\quad \boxed{y=\left(3x+3\ln|x|+3C\right)^{1/3}}\,.$$
+				\textbf{Note:} You can rewrite $3C$ as $C$! In class, that's what we did! Here, I'm leaving it this way to be explicit!
+			}
+		
+			\item $\frac{dx}{dt}=\frac{e^x\sin^2(t)}{x\sec{t}}$\\[3mm]
+			\red{
+				\textbf{Solution:} Separate, do some algebra, and bring in the integrals:
+				$$\frac{dx}{dt}=\frac{e^x\sin^2(t)}{x\sec{t}}\,\implies\,\frac{x}{e^x}dx=\frac{\sin^2(t)}{\sec{t}}dt\,\implies\,\int xe^{-x}\,dx=\int\sin^2(t)\cos{t}\,dt.$$
+				For the integral on the left, you have to use \textbf{Integration by Parts (IBP)} with $u=x$ and $v'=e^{-x}$; on the right, you can use \textbf{$u$-substitution} with $u=\sin(t)\implies du=\cos(t)\,dt$. Doing so shows that
+				$$\int xe^{-x}\,dx=-xe^{-x}-e^{-x}+C\quad\text{and}\quad\int\sin^2(t)\cos{t}\,dt=\frac{1}{3}\sin^3(t).$$
+				To finish, set these two values equal and solve for $t$ by (a) multiplying both sides by $3$, (b) taking a cube root (i.e. a $1/3$ power) of both sides, and (c) taking $\arcsin$ of both sides:
+				$$-xe^{-x}-e^{-x}+C=\frac{1}{3}\sin^3(t)\implies \boxed{t=\arcsin\left(3\left(-xe^{-x}-e^{-x}+C\right)\right)^{1/3}}\,.$$
+			}
+		
+			\item $\frac{dy}{dx}=2xy-2y+2x-2$, $y(1)=0$\\[3mm]
+			\red{
+				\textbf{Solution:} This problem is tremendously hard if you don't realize you need to factor the right-hand side! When you have four terms, think ``factor by grouping'':
+				$$\begin{array}{rcl}
+					2xy-2y+2x-2 & = & \left(2xy-2y\right)+\left(2x-2\right)\\[2.25mm]
+						& = & 2y\,\boxed{(x-1)} + 2\,\boxed{(x-1)} \\[3mm]
+						& = & (x-1)\left(2y+2\right).
+				\end{array}$$
+				Now, we separate and introduce integrals:
+				$$\frac{dy}{dx}=(x-1)\left(2y+2\right)\,\implies\,\frac{dy}{2y+2}=(x-1)dx\,\implies\,\frac{1}{2}\int\frac{dy}{y+1}=\int(x-1)\,dx.$$
+				Using \textbf{$u$-substitution} on the left and \textbf{basic integration} on the right, we have
+				$$\frac{1}{2}\ln(y+1)=\frac{1}{2}x^2-x+C,$$
+				and so solving for $y$ yields the general solution:
+				\begin{equation}
+					\label{eq:1}
+					y=-1+e^{x^2-2x+2C}.
+				\end{equation}
+				Since this is an IVP, we use the initial condition $y(1)=0$ to solve for $C$:
+				$$y=-1+e^{x^2-2x+2C}\,\implies\,0=-1+e^{1^2-2(1)+2C}\,\implies\,0=-1+e^{-1+2C}.$$
+				Now, solving for $C$ yields
+				$$1=e^{-1+2C}\,\implies\,\ln(1)=-1+2C\,\implies\,C=\frac{1}{2},$$
+				and so plugging back into \eqref{eq:1} gives the particular solution
+				$$\boxed{y=-1+e^{x^2-2x+1}}\,.$$
+			}
+			
+			\newpage
+			
+			\item $x^2\frac{dy}{dx}=\sqrt{1-y^2}$\\[3mm]
+			\red {
+				\textbf{Solution:} Because $dx$ is on the bottom on the side with the $x$ term, we flip everything:
+				$$x^2\frac{dy}{dx}=\sqrt{1-y^2}\,\implies\,\frac{1}{x^2}\frac{dx}{dy}=\frac{1}{\sqrt{1-y^2}}.$$
+				Now, separate and introduce integrals:
+				$$\frac{1}{x^2}\frac{dx}{dy}=\frac{1}{\sqrt{1-y^2}}\,\implies\,\frac{dx}{x^2}=\frac{dy}{\sqrt{1-y^2}}\,\implies\,\int\frac{dx}{x^2}=\int\frac{dy}{\sqrt{1-y^2}}.$$
+				For the left side, you're integrating $x^{-2}$, which is simple; on the right, you need \textbf{trig substitution} with $y=\sin\theta$ (or, you may have memorized the integral of the right-hand side). Upon finishing the integral (\textbf{you should do this integration yourself!}), you should have
+				$$\frac{-1}{x}+C=\arcsin{y}\,\implies\,\boxed{y=\sin\left(\frac{-1}{x}+C\right)}\,.$$
+			}
+			\vspace{-10.5mm}
+			\item $e^y\left(\frac{dy}{dx}\right)=1+e^{2y}-xe^{2y}-x$, $y(0)=1$ \\[3mm]
+			\red {
+				\textbf{Solution:} This is another factor by grouping thing:
+				$$1+e^{2y}-xe^{2y}-x=1\,\boxed{\left(1+e^{2y}\right)}-x\,\boxed{\left(e^{2y}+1\right)}=(1-x)\left(1+e^{2y}\right)$$
+				implies that
+				$$e^y\left(\frac{dy}{dx}\right)=(1-x)\left(1+e^{2y}\right).$$
+				Now, separate and write integrals:
+				$$e^y\left(\frac{dy}{dx}\right)=(1-x)\left(1+e^{2y}\right)\,\implies\,\frac{e^y}{1+e^{2y}}\,dy=(1-x)\,dx\,\implies\,\int\frac{e^y}{1+e^{2y}}\,dy=\int(1-x)\,dx.$$
+				The right integral is obvious; for the left integral, let $u=e^y\implies du=e^y\,dy$ and notice that the denominator is $1+e^{2y}=1+\left(e^y\right)^2=1+u^2.$
+				So,
+				$$\int\frac{e^y}{1+e^{2y}}\,dy=\int\frac{du}{1+u^2}=\arctan{u}=\arctan\left(e^y\right),$$
+				and thus,
+				\begin{equation}
+					\label{eq:2}
+					\arctan\left(e^y\right)=x-\frac{1}{2}x^2+C\,\implies\,y=\ln\left(\tan\left(x-\frac{1}{2}x^2+C\right)\right).
+				\end{equation}
+				Now, use the initial condition $y(0)=1$ to deduce that $1=\ln(\tan{C})\implies C=\tan^{-1}{e}$; plugging into \eqref{eq:2} yields the final solution:
+				$$\boxed{y=\ln\left(\tan\left(x-\frac{1}{2}x^2+\tan^{-1}{e}\right)\right)}\,.$$
+			}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \label{num:3a} Write the differential equation modeling the following scenario: \textit{The rate of growth of a population $P$ over time is directly proportional to the population.}\\[3mm]
+			\red{
+				\textbf{Solution:} $\boxed{\frac{dP}{dt}=kP}\,.$
+			}
+			\vspace{3mm}
+			\item \label{num:3b} Show that the solution to the equation in \ref{num:3a} is $P(t)=Ce^{kt}$ where $k$ is the constant of proportionality.\\[3mm]
+			\red{
+				\textbf{Solution:} This is worked out in detail in \S9.4, subsection ``The Law of Natural Growth.''
+			}
+		\end{enumerate}
+		\vspace{3mm}
+		\item \begin{enumerate}
+			\item \label{num:4a} Let $M$ be a constant and let $k$ denote a constant of proportionality. Show that the solution to the logistic differential equation
+			$$\frac{dP}{dt}=kP\left(1-\frac{P}{M}\right)$$
+			has the form
+			$$P(t)=M\,\frac{Ce^{kt}}{1+Ce^{kt}}.$$
+			\red{
+				\textbf{Solution:} This is worked out in detail in \S9.4, subsection ``The Logistic Model.''
+			}
+			\vspace{3mm}
+			\item Write the solution of the initial value problem
+			$$\frac{dP}{dt}=0.08P\left(1-\frac{P}{1000}\right)\quad\quad P(0)=100.$$
+			\red{
+				\textbf{Solution:} Notice that this problem looks identical to the one in (a) with the values $k=0.08$ and $M=1000$; thus, the answer in (a) yields  a general solution of the form 
+				\begin{equation}
+					\label{eq:3}
+					P(t)=1000\left(\frac{Ce^{0.08t}}{1+Ce^{0.08t}}\right).
+				\end{equation}
+				Now, use the condition $P(0)=100$ to solve for $C$:
+				$$100=1000\left(\frac{Ce^{0.08(0)}}{1+Ce^{0.08(0)}}\right)=\frac{1000C}{1+C}\,\implies\,C=\frac{1}{9}.$$
+				Substituting back in to \eqref{eq:3} yields the result:
+				$$\boxed{P(t)=1000\left(\frac{\frac{1}{9}e^{0.08t}}{1+\frac{1}{9}e^{0.08t}}\right)}\,.$$
+			}
+			\vspace{-3mm}
+			\item Show that if $P$ satisfies the logistic equation in \ref{num:4a}, then the second derivative $\frac{d^2P}{dt^2}$ satisfies the following:
+			$$\frac{d^2P}{dt^2}=k^2P\left(1-\frac{P}{M}\right)\left(1-\frac{2P}{M}\right).$$\red{\textbf{Solution:} Find the derivative (with respect to $t$) of $dP/dt$ using the product rule, noting that anything other than $P$ and $t$ are constants. The result is immediate.
+			}
+		\end{enumerate}
+	%=========Linear DEs========
+	\item Solve each of the following linear differential equations and/or linear DE IVPs.\\[3mm]
+	\red{
+		\textbf{Recall:} The goal for each of these problems is to write the DE in the ``standard form''
+		$$\frac{dy}{dx}+P(x)y=Q(x),$$
+		to use $P(x)$ to define the integrating factor
+		$$I(x)=e^{\int P(x)\,dx},$$
+		and to multiply both sides of the original DE by $I(x)$. \textbf{Don't forget \textit{the trick}:}
+		$$I(x)\left(\frac{dy}{dx}+P(x)y\right)=\frac{d}{dx}\left(y\, I(x)\right).$$
+	}
+	\vspace{-6mm}
+	\begin{enumerate}
+		\item $\frac{dy}{dx}=y\sin{x}-2\sin{x}$\\[3mm]
+		\red{
+			\textbf{Solution:} Rewriting the DE as
+			$$\frac{dy}{dx}-y\sin{x}=-2\sin{x},$$
+			it follows that $P(x)=-\sin{x}$ and hence that 
+			$$I(x)=e^{\int(-\sin{x})\,dx}=e^{\cos{x}}.$$
+			Thus:
+			$$\begin{array}{rcl}
+			\frac{dy}{dx}-y\sin{x}=-2\sin{x}\,
+				&\implies&\,I(x)\left(\frac{dy}{dx}-y\sin{x}\right)=-2I(x)\sin{x}\\[6mm]
+				&\implies&\,\underbrace{e^{\cos{x}}\left(\frac{dy}{dx}-y\sin{x}\right)}_{\text{Don't forget the trick!}}=-2e^{\cos{x}}\sin{x}\\[12mm]
+				&\implies&\,\frac{d}{dx}\left(ye^{\cos{x}} \right)=-2e^{\cos{x}}\sin{x}
+			\end{array}$$
+			Now, integrate both sides with respect to $x$:
+			$$\frac{d}{dx}\left(ye^{\cos{x}} \right)=-2e^{\cos{x}}\sin{x}\,\implies\,\int\left(\frac{d}{dx}\left(ye^{\cos{x}}\right)\right)\,dx=\int-2e^{\cos{x}}\sin{x}\,dx.$$
+			On the left, the fundamental theorem of Calculus (FTC) says the integral cancels the derivative; on the right, let $u=\cos{x}\implies du=-\sin{x}\,dx$ to get:
+			$$ye^{\cos{x}}=2e^{\cos{x}}+C.$$
+			Now, solve for $y$:
+			$$\boxed{y=2+\frac{C}{e^{\cos{x}}}}\,.$$
+		}
+	
+		\item $xy'=e^x-y$, $y(1)=0$\\[3mm]
+		\red{
+			\textbf{Solution:} The first steps are mechanical:
+			$$\begin{array}{rcl}
+				xy' = e^x-y\,&\implies&\,\frac{dy}{dx}+\frac{1}{x}y=\frac{e^x}{x} \quad\quad\quad\quad\quad\text{(divide by $x$ and rearrange)}\\[3mm]
+				&\implies&\,P(x)=\frac{1}{x}\quad\text{ and }\quad I(x)=e^{\int\left(1/x\right)\,dx}=e^{\ln{x}}=x \\[4.5mm]
+				&\implies&\,x\left(\frac{dy}{dx}+\frac{1}{x}y\right)=x\left(\frac{e^x}{x}\right)\quad\text{(multiply both sides by $I(x)=x$)}\\[6mm]
+				&\implies&\,\frac{d}{dx}\left(yx\right)=e^x.\quad\quad\quad\quad\quad\quad\text{(use \textit{the trick})}
+			\end{array}$$
+			Now, integrate both sides with respect to $x$ and solve for $y$:
+			$$\frac{d}{dx}\left(yx\right)=e^x\,\implies\,\int\left(\frac{d}{dx}\left(yx\right)\right)\,dx=\int e^x\,dx\,\implies\,y x=e^x+C,$$
+			and so
+			\begin{equation}
+				\label{eq:4}
+				y=\frac{e^x}{x}+\frac{C}{x}.
+			\end{equation}
+			Now, use the initial value $y(1)=0$ to find $C$:
+			$$0=e+C\,\implies\,C=-e.$$
+			Finally, plug back into \eqref{eq:4}:
+			$$\boxed{y=\frac{e^x}{x}-\frac{e}{x}}\,.$$
+		}
+	
+		\item $y'=\frac{y}{x}+x$, $y(1)=1$\\[3mm]
+		\red{
+			\textbf{Solution:} The solution of the DE is similar to that in (b):
+			$$y'=\frac{y}{x}+x\,\implies\,\frac{dy}{dx}-\frac{1}{x}y=x\,\implies\,I(x)=e^{\int(-1/x)\,dx}=e^{-\ln{x}}.$$
+			Now, write $-\ln{x}=-1\cdot\ln{x}$ so that
+			$$I(x)=\underbrace{e^{-1\cdot\ln{x}}=\left(e^{\ln{x}}\right)^{-1}}_{\text{$a^{bc}=(a^b)^c$}}=x^{-1}=\frac{1}{x}.\vspace{-4mm}$$
+			Thus:
+			$$\frac{1}{x}\left(\frac{dy}{dx}-\frac{1}{x}y\right)=\frac{1}{x}(x)\,\implies\,\underbrace{\frac{d}{dx}\left(\frac{1}{x} y\right)=1\,\implies\,\frac{1}{x}y=x+C}_{\text{integrate both sides with respect to $x$}}\,\implies\,y=x^2+Cx.$$
+			Now, $y(1)=1$ implies $C=0$, and so
+			$$\boxed{y=x^2}\,.$$
+		}
+	
+		\item $(1+t^2)y'+4ty=(1+t^2)^{-2}$\\[3mm]
+		\red{
+			\textbf{Solution:} Divide by $(1+t^2)$ to get
+			$$\frac{dy}{dt}+\frac{4t}{1+t^2}y=\frac{1}{(1+t^2)^3}$$
+			so that $P(x)=4t(1+t^2)^{-1}$ and hence
+			$$I(x)=\underbrace{e^{\int4t(1+t^2)^{-1}\,dt}=e^{2\ln(1+t^2)}}_{\text{let $u=1+t^2\implies du=2t\,dt$}}=\left(e^{\ln(1+t^2)}\right)^2=\left(1+t^2\right)^2.$$
+			Now,
+			$$\frac{dy}{dt}+\frac{4t}{1+t^2}y=\frac{1}{(1+t^2)^3}\,\implies\,\left(1+t^2\right)^2\left(\frac{dy}{dt}+\frac{4t}{1+t^2}y\right)=\left(1+t^2\right)^2\left(\frac{1}{(1+t^2)^3}\right),$$
+			and hence,
+			$$\frac{d}{dt}\left(y\left(1+t^2\right)^2\right)=\frac{1}{1+t^2}\,\implies\,\int\left[\frac{d}{dt}\left(y\left(1+t^2\right)^2\right)\right]\,dt=\int\frac{1}{1+t^2}\,dt.$$
+			The integral of the right-hand side is $\arctan{t}$, and so
+			$$y\left(1+t^2\right)^2=\tan^{-1}{t}+C\,\implies\,\boxed{y=\frac{\tan^{-1}{t}+C}{(1+t^2)^2}}\,.$$
+		}
+	\end{enumerate}
+	\item 
+	\red{
+		\textbf{Solution:} For (a), the goal is to solve the DE
+		$$\frac{d}{dt}\left((M_0-rt)v\right)=F-(M_0-rt)g$$
+		for $v=v(t)$. This is already separated, so integrating both sides with respect to $t$ is sufficient:
+		$$
+		\begin{array}{rcl}
+		\frac{d}{dt}\left((M_0-rt)v\right)=F-(M_0-rt)g\,&\implies&\,\int\left[\frac{d}{dt}\left((M_0-rt)v\right)\right]\,dt=\int\left(F-(M_0-rt)g\right)\,dt \\[6mm]
+		&\implies & v(M_0-rt)=Ft-M_0gt-\frac{grt^2}{2} + C\\[6mm]
+		&\implies & v=\frac{1}{M_0-rt}\left(Ft-M_0gt-\frac{grt^2}{2} + C\right).
+		\end{array}
+		$$
+		Now, to finish part (a), note that $t=0$ implies $v=0$, i.e. $C=0$. Hence, 
+		\begin{equation}
+			\label{eq:5}
+			\boxed{v=\frac{1}{M_0-rt}\left(Ft-M_0gt-\frac{grt^2}{2}\right)=\frac{Ft}{M_0-rt}-\frac{g}{M_0-rt}\left(M_0t-\frac{rt^2}{2}\right)}\,.
+		\end{equation}
+		
+		To do (b), note that at burnout, $M_1=M_0-rt$, and per the hint, $$rt=M_0-M_1\implies t=\frac{M_0-M_1}{r}.$$ 
+		The goal will be to plug into \eqref{eq:5} and to solve for $v$ (without $t$'s):
+		$$\begin{array}{rcl}
+			\boxed{v}
+			& = & \frac{Ft}{M_0-rt} - \frac{g}{M_0-rt}\left(M_0t-\frac{rt^2}{2}\right) \\[6mm]
+			& = &\frac{Frt}{r(M_0-rt)}-\frac{g}{M_0-rt}\left(M_0t-\frac{r^2t^2}{2r} \right)\quad\quad\text{(replace $t$ with $rt$ by adding extra $r$'s)}\\[6mm]
+			& \Aboxed{= & \frac{F(M_0-M_1)}{rM_1}-\frac{g}{M_1}\left[M_0\left(\frac{M_0-M_1}{r}\right)-\frac{(M_0-M_1)^2}{2r}\right]}\,.
+		\end{array}
+		$$
+		This can be simplified some, but there really is no need.
+	}
+	%A rocket with initial mass $M_0$ (kilograms) blasts off at time $t=0$, and after taking off, the mass of the rocket decreases with time because the fuel is being spent at a constant burning rate $r$ (kg per sec). If thrust is a constant force $F$ and velocity is $v$, Newton's second law gives
+	%\begin{equation}
+	%\label{eq:rocket}
+	%\end{equation}
+	%where $g=9.8$ is the gravitational constant. \begin{enumerate*}\item Solve the equation \eqref{eq:rocket} for $v=v(t)$, given that $v=0$ when $t=0$. \item If the mass of the rocket at burnout is $M_0-rt=M_1$, compute the velocity of the rocket at burnout. \vspace{3mm}
+	%\end{enumerate*}
+	
+	
+	%\textbf{Hint}: Once you have the solution in part (a), replace $M_0-rt$ by $M_1$ \textit{and} replace $rt$ by the appropriate expression in terms of $M_0$ and $M_1$ obtained by solving the equation $M_0-rt=M_1$ for $rt$.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\input{PreviewHeader.tex}
+
+\newcounter{Exx}
+\newcommand{\exbox}[1]{\stepcounter{Exx}\vspace{3mm}\begin{tcolorbox}[breakable,arc=2pt,boxrule=1pt,right=6mm,top=3mm,bottom=6mm]\noindent\textit{\large\bfseries Example \theExx:\\[3mm]}~#1\end{tcolorbox}\vspace{3mm}}
+\begin{document}
+	\exbox{Mark each of the following questions ``true'' or ``false.'' Throughout, let $\vect{v}_1,\ldots,\vect{v}_p$ be vectors in a nonzero subspace $H$ of $\Reals^n$ and let $S=\{\vect{v}_1,\ldots,\vect{v}_p\}$. \justify
+	\begin{enumerate}[label=(\alph*),listparindent=6mm,parsep=3mm]
+		\item The set of all linear combinations of $\vect{v}_1,\ldots,\vect{v}_p$ is a subspace of $\Reals^n$. 
+		
+		\red{\textbf{True.} For justification, you should let $V=\vsspan\{S\}$, let $\vect{u}$ and $\vect{v}$ be vectors in $V$, and let $c,d\in\Reals$ be scalars, and verify the three subspace axioms directly (we did this on the first day of defining subspaces).}
+		
+		\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ spans $H$, then $S$ spans $H$.
+		
+		\red{\textbf{True.} Adding a vector to a spanning set doesn't change its span-ness. Or, symbolically, if $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ spans $H$, then every vector $\vect{h}\in H$ can be written as
+		\[
+			\vect{h}=c_1\vect{v}_1+\cdots+c_{p-1}\vect{v}_{p-1};
+		\]
+		but then $S$ \textit{also} spans $H$, because 
+		\[
+			\vect{h}=c_1\vect{v}_1+\cdots+c_{p-1}\vect{v}_{p-1}+0\vect{v}_p
+		\]
+		is a linear combo of vectors in $S$ as well.}
+		
+		\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ is linearly independent, then so is $S$.
+		
+		\red{\textbf{False.} This isn't necessarily true, as the vector $\vect{v}_p$ may be a linear combination of the vectors $\vect{v}_1,\ldots,\vect{v}_{p-1}$.}
+		
+		\item If $S$ is linearly independent, then $S$ is a basis for $H$.
+		
+		\red{\textbf{False.} We aren't told that the vectors in $S$ span $H$, only that they're \textit{in} $H$.}
+		
+		\item If $\vsspan\{S\}=H$, then some subset of $S$ is a basis for $H$.
+		
+		\red{\textbf{True.} This follows from the ``spanning set theorem,'' or from the observation that: If $H=\vsspan\{S\}$, then removing any linearly independent vectors from $S$ will leave a collection which \textit{also} spans $H$ (and is linearly independent!).}
+		
+		\item If $\dim H=p$ and $\vsspan\{S\}=H$, then $S$ cannot be linearly dependent.
+		
+		\red{\textbf{True.} If $\dim H=p$ and $H$ is spanned by a collection of $p$ vectors (namely, $S$), then that collection must be a basis for $H$. 
+		
+		This can be argued directly, however: If $\vsspan\{S\}=H$ and one vector in $S$ (say, for example, $\vect{v}_p$) is linearly dependent, then it would follow that $\vsspan\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ (with $\vect{v}_p$ removed) \textit{also} spans $H$. However, $\dim H=p$ means that no collection with \textit{fewer} than $p$ vectors can span $H$, and so the result follows.}
+		
+		\item A plane in $\Reals^3$ is a two-dimensional subspace.
+		
+		\red{\textbf{False.} The plane must contain the origin to be a subspace.
+		
+		Note: This \ul{is} true if the plane goes through the origin.}
+		
+		\item Row operations on a matrix $\sansA$ can change the linear dependence relations among the rows of $\sansA$.
+		
+		\red{\textbf{False.} If $\sansA$ is r.e. to $\sansB$, then $\row(\sansA)=\row(\sansB)$, i.e. the linear dependence relations among rows are preserved.}
+		
+		\item Row operations on a matrix can change the null space.
+		
+		\red{\textbf{False.} If $\sansA$ is r.e. to $\sansB$, then $\sansA\vect{x}=\vect{0}$ if and only if $\sansB\vect{x}=\vect{0}$, i.e. the null space relations among rows are preserved.}
+		
+		\item The rank of a matrix equals the number of nonzero rows.
+		
+		\red{\textbf{False.} As a counterexample, consider $\pmat{1 & 2 \\ 1 & 2}$. Then there are \textbf{two} nonzero rows, but $\rank(\sansA)=1$.
+		
+		Note: This \ul{is} true if your matrix is in $\RREF$.}
+		
+		\item If an $m\times n$ matrix $\sansA$ is row equivalent to an echelon matrix $\sansU$ and if $\sansU$ has $k$ nonzero rows, then the dimension of the solution space of $\sansA\vect{x}=\vect{0}$ is $m-k$.
+		
+		\red{\textbf{False.} If $\sansU$ is $m\times n$, in $\RREF$, and has $k$ nonzero rows, then $\rank(\sansU)=k$ (by part (j)). By the ``rank-nullity theorem,'' it follows that $\nullity(\sansU)=n-\rank(\sansU)=n-k$, i.e. the dimension of the solution space of $\sansU\vect{x}=\vect{0}$ is $n-k$.
+		
+		Now, by (i), $\sansA$ being r.e. to $\sansU$ means all this data \textit{also} holds for $\sansA$. Hence, the dimension of the solution space of $\sansA\vect{x}=\vect{0}$ is $n-k$, not $m-k$.}
+		
+		\item If $\sansB$ is obtained from $\sansA$ by elementary row operations, then $\rank(\sansB)=\rank(\sansA)$.
+		
+		\red{\textbf{True.} See (f).}
+		
+		\item The nonzero rows of a matrix $\sansA$ form a basis for $\row(\sansA)$.
+		
+		\red{\textbf{False.} See (j).}
+		
+		\item If matrices $\sansA$ and $\sansB$ have the same $\RREF$, then $\row(\sansA)=\row(\sansB)$.
+		
+		\red{\textbf{True.} See (f).}
+		
+		\newpage
+		
+		\item If $H$ is a subspace of $\Reals^3$, then there is a $3\times 3$ matrix $\sansA$ such that $H=\col(\sansA)$.
+		
+		\red{\textbf{True.} You can actually construct it.
+		
+		Suppose $H$ is a subspace of $\Reals^3$ with $\dim H=k$ for $0\leq k \leq 3$. That means that there is a basis $\calB=\{\vect{b}_1,\ldots,\vect{b}_k\}$ for $H$ consisting of $k$ 3-component vectors.
+		
+		To build your matrix, write down $\vect{b}_1,\ldots,\vect{b}_k$ as columns, and for the remaining $3-k$ columns, write down any scalar multiple (linear combo, etc.) of the $k$ columns you just wrote. If you call this matrix $\sansA$, then $\sansA$ will be $3\times 3$ and will have $\col(\sansA)=\vsspan\{\vect{b}_1,\ldots,\vect{b}_k\}=H$.
+		
+		See below for an explicit example of this.}
+		
+		\item If $\sansA$ is $m\times n$ and $\rank(\sansA)=m$, then the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is one-to-one.
+		
+		\red{\textbf{False.} This characterizes being \textit{onto}, not one-to-one.
+		
+		If $\sansA$ is $m\times n$, then $\rmTT:\vect{x}\mapsto\sansA\vect{x}$ goes from $\Reals^n$ to $\Reals^m$. If 
+		\[
+			\rank(\sansA)=\dim(\col(\sansA))=\dim(\range(\rmTT))=m,
+		\] 
+		then the range of $\rmTT$ is an $m$-dimensional subspace of $\Reals^m$. The only such subspace is $\Reals^m$ itself, so the range must equal the codomain and hence $\rmTT$ is onto.
+		
+		To be one-to-one, the right characterization is: $\nullity(\sansA)=0$ and/or $\rank(\sansA)=n$. These are equivalent (by the rank-nullity theorem) and say that the equation $\sansA\vect{x}=\vect{0}$ has \textit{only} the trivial solution, i.e. that $\rmTT$ is one-to-one.}
+		
+		\item If $\sansA$ is $m\times n$ and the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is onto, then $\rank(\sansA)=m$.
+		
+		\red{\textbf{True.} See (p) and note that the argument is the same: If $\rmTT:\vect{x}\mapsto\sansA\vect{x}$ is onto for $\sansA$ an $m\times n$ matrix, then $\rmTT:\Reals^n\to\Reals^m$, $\range(\rmTT)=\Reals^m$ (because onto), and 
+		\[
+			\rank(\sansA)=\dim(\col(\sansA))=\dim(\range(\rmTT))=\dim(\Reals^m)=m.
+		\]}
+	\end{enumerate}
+	}
+	
+	As an explicit example of (o):
+	
+	Let $H$ be the plane in $\Reals^3$ spanned by $\vect{u}=\pmat{1 & 2 & 3}^\sansT$ and $\vect{v}=\pmat{0 & 1 & 4}^\sansT$. Then the $3\times 3$ matrix $\sansA=\pmat{1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 4 & 0}$ has $\col(\sansA)=\vsspan\{\vect{u},\vect{v}\}=H$. So too do the matrices
+	\[
+		\pmat{1 & 0 & 1 \\ 2 & 1 & 2 \\ 3 & 4 & 3},\quad \pmat{1 & 0 & 0 \\ 2 & 1 & 1 \\ 3 & 4 & 4},\quad \pmat{1 & 0 & 2 \\ 2 & 1 & 4 \\ 3 & 4 & 6},
+	\]
+	etc. (as column 3 is equal to column 1, column 2, and two times column 1 in these examples).
+	
+	\vspace{0.225in}
+	\begin{center}
+		\line(1,0){300}
+	\end{center}
+	\vspace{1mm}
+	
+	\begin{enumerate}[leftmargin=0mm]
+		\item[4.] \begin{enumerate}[label=(\alph*),itemsep=3mm,parsep=3mm]
+			\item A change-of-coordinates matrix is always invertible.
+			
+			\red{\textbf{True.} Any change of coordinates is linear and one-to-one (see problems 23--26 in \S4.4), which makes the canonical matrix associated to the transformation invertible by the invertible matrix theorem.
+			
+			This can also be argued as follows:
+			\begin{itemize}[itemsep=3mm]
+				\item For any basis $\calB$, $\sansA_\calB$ is invertible. This is because its columns are basis vectors and are hence linearly independent.
+				\item Because $\sansA_\calB^{-1}$ exists for any basis $\calB$, $\sansA_\calB^{-1}$ is also \ul{invertible} for any such $\calB$ (because, as we've learned before,  $\left(\sansM^{-1}\right)^{-1}=\sansM$ for all invertible matrices $\sansM$).
+				\item Given the above, for any two bases $\calB$, $\calC$, each of the matrices $\sansA_\calB$, $\sansA_\calC$, $\sansA_\calB^{-1}$, and $\sansA_\calC^{-1}$ exist \ul{and} are invertible.
+				\item Now, any change of basis (from $\sansB$ to $\sansC$, for example) can be represented via a matrix of the form $\sansA_{\calB\to\calC}$.
+				\item From class, we've seen that
+				$\sansA_{\calB\to\calC}=\sansA_\calC^{-1}\sansA_\calB$ for all bases $\calB$ and $\calC$.
+				\item We've also seen that if $\sansM$ and $\sansN$ are any two invertible matrices, the product $\sansM\sansN$ is invertible with inverse $\left(\sansM\sansN\right)^{-1}=\sansN^{-1}\sansM^{-1}$.
+				\item Thus, $\sansA_{\calB\to\calC}$ is invertible and its inverse has the form $\sansA_{\calB\to\calC}^{-1}=\left(\sansA_\calC^{-1}\sansA_\calB\right)^{-1}=\sansA_\calB^{-1}\sansA_\calC$, aka $\sansA_{\calC\to\calB}$.
+			\end{itemize}
+			}
+			
+			\vspace{-1mm}
+			
+			\item If $\calB=\{\vect{b}_1,\ldots,\vect{b}_n\}$ and $\calC=\{\vect{c}_1,\ldots,\vect{c}_n\}$ are two bases for a vector space $V$, then the $j$th column of the change-of-coordinates matrix $\sansA_{\calB\to\calC}$ is the coordinate vector $\left[\vect{c}_j\right]_\calB$.
+			
+			\red{\textbf{False.} By definition, $\sansA_{\calB\to\calC}=\pmatgrid{c|c|c}{\left[\vect{b}_1\right]_\calC &  \cdots & \left[\vect{b}_n\right]_\calC}$ for any bases $\calB$ and $\calC$ as given. Hence, the $j$th column is the coordinate vector $\left[\vect{b}_j\right]_\calC$.}
+			
+			\item If $\vect{x}\in V$ and $\calB$ is a basis of $V$ with $n$ vectors, then the $\calB$-coordinate vector of $\vect{x}$ (aka $\left[\vect{x}\right]_\calB$) is in $(\Reals^n,\std)$.
+			
+			\red{\textbf{True.} The map $\vect{x}\mapsto\left[\vect{x}\right]_\calB$ is given by multiplying by $\sansA_\calB$, a matrix which sends $(V,\calB)$ (and/or $(\Reals^n,\calB)$ if you don't like vector spaces) to $(\Reals^n,\std)$.}
+			
+			\item The coordinate change matrix $\sansA_\calB$ satisfies $\left[\vect{x}\right]_\calB=\sansA_\calB\vect{x}$ for $\vect{x}\in V$.
+			
+			\red{\textbf{False.} $\vect{x}=\sansA_\calB\left[\vect{x}\right]_\calB$ and $\left[\vect{x}\right]_\calB=\sansA_\calB^{-1}\vect{x}$.}
+			
+			\newpage
+			
+			\item If $\calB=\std$ is the standard basis for $\Reals^n$, then the $\calB$-coordinate vector of $\vect{x}\in\Reals^n$ is $\vect{x}$ itself.
+			
+			\red{\textbf{True}. If $\vect{x}=\pmat{x_1 & \cdots & x_n}^\sansT$, then $\vect{x}=x_1\vect{e}_1+\cdots+x_n\vect{e}_n$, where $\std=\{\vect{e}_1,\ldots,\vect{e}_n\}$. Now if $\calB=\{\vect{b}_1,\ldots,\vect{b}_n\}$ equals $\std$, then $\vect{b}_1=\vect{e}_1,\ldots,\vect{b}_n=\vect{e}_n$, i.e. $\left[\vect{x}\right]_\calB=x_1\vect{b}_1+\cdots+x_n\vect{b}_n=x_1\vect{e}_1+\cdots+x_n\vect{e}_n=\vect{x}$}
+			
+			\item In some situations, a plane in $\Reals^3$ can be ``isomorphic'' to $\Reals^2$.
+			
+			\hintbf{Two vector spaces $V$ and $W$ are \textit{isomorphic} if there is a one-to-one linear transformation $\rmTT:V\to W$.}
+			
+			\red{\textbf{True}. If $P$ is a plane \ul{through the origin} in $\Reals^3$, then $P$ is isomorphic to $\Reals^2$. It suffices to provide a map $\rmTT:P\to\Reals^2$ which is linear and one-to-one.
+			
+			Clearly, $P$ is a 2-dimensional subspace of $\Reals^3$ and hence is equal to the span of two linearly independent vectors $\vect{u}=\pmat{u_1 & u_2 & u_3}^\sansT$ and $\vect{v}=\pmat{v_1 & v_2 & v_3}^\sansT$ in $\Reals^3$. Let $\calB=\{\vect{u},\vect{v}\}$ denote the basis for $P$. and consider the map $\rmTT$ having canonical matrix 
+			\[
+				\sansA=\pmatgrid{c|c}{\vect{u} & \vect{v}}=\pmat{u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3}.
+			\] Clearly, $\rmTT$ is linear (it has a canonical matrix) and one-to-one (its columns are linearly independent); moreover, $\rmTT$ sends $(\Reals^2,\std)$ to $(P,\calB)$, as
+			\[
+				\sansA\pmat{1 \\ 0}=\pmat{u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3}\pmat{1 \\ 0}=\pmat{u_1 \\ u_2 \\ u_3}=\vect{u}\quad\quad\text{and}\quad\quad\sansA\pmat{0 \\ 1}=\pmat{u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3}\pmat{0 \\ 1}=\pmat{v_1 \\ v_2 \\ v_3}=\vect{v}.
+			\]
+			Hence, $\rmTT$ is an isomorphism between $\Reals^2$ and $P$.\qed
+			
+			See below for more commentary on this.}
+			
+			\item The columns of the matrix $\sansA_{\calB\to\calC}$ are $\calB$-coordinate vectors of the vectors in $\calC$.
+			
+			\red{\textbf{False}. See (b) above.}
+			
+			\item If $V=\Reals^n$ and $\calC=\std$, then $\sansA_{\calB\to\calC}=\sansA_\calB$.
+			
+			\red{\textbf{True}. We showed this in class, but it can also be shown via multiplication: If $\calC=\std$, then $\sansA_\calC=\sansI_n$ (see (e) and/or parts of (f)). This means that $\sansA_{\calB\to\calC}=\sansA_\calC^{-1}\sansA_\calB=\sansI_n\sansA_\calB=\sansA_\calB$.}
+			
+			\item The columns of the matrix $\sansA_{\calB\to\calC}$ are linearly independent.
+			
+			\red{\textbf{True}. We know this because of the invertible matrix theorem! 
+			
+			In particular, we know that $\sansA_{\calB\to\calC}^{-1}$ exists. This means that $\sansA_{\calB\to\calC}$ must be square \ul{and} must satisfy all of the ``...is invertible...'' criteria from the invertible matrix theorem. One such example? Having linearly independent columns!}
+			
+			\item If $V=\Reals^2$, $\calB=\{\vect{b}_1,\vect{b}_2\}$, and $\calC=\{\vect{c}_1,\vect{c}_2\}$, then row reduction of the augmented matrix $\pmatgrid{cc|cc}{\vect{b}_1 & \vect{b}_2 & \vect{c}_1 & \vect{c}_2}$ to $\pmatgrid{c | c}{I_2 & \sansP}$ produces a matrix $\sansP$ which satisfies $\left[\vect{x}\right]_\calB=\sansP\left[\vect{x}\right]_\calC$ for all $\vect{x}\in V$.
+			
+			\red{\textbf{True.} The indicated row reduction yields the matrix $\sansA_{\calC\to\calB}$ (\ul{make sure you understand why!}), and from class, we know that $\left[\vect{x}\right]_\calB=\sansA_{\calC\to\calB}\left[\vect{x}\right]_\calC$ for all $\vect{x}\in V$.}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\vspace{-3mm}
+	\begin{center}
+		\line(1,0){300}
+	\end{center}
+	\vspace{0mm}
+	
+	\setlength{\parskip}{3mm}
+		
+	Here is a little more commentary on isomorphisms per (f):
+	
+	In general, you should think of the word ``isomorphic'' as meaning ``the same as'': Two spaces $V$ and $W$ are \textit{isomorphic} (and/or there is an \textit{isomorphism} between $V$ and $W$) if and only if $V$ is ``the same as'' $W$ in some appropriate sense. 
+	
+%	Now, once you're able to notice the big-picture from (f), it will come as no surprise to you that its methodology worked. What's more, it even works in general!
+	
+	For this aside, let $V$ be an $n$-dimensional vector space and let $H$ be a $d$-dimensional subspace of $V$. Clearly, $H$ has a basis of the form $\calB=\{\vect{b}_1,\ldots,\vect{b}_d\}$ consisting of $d$ vectors (from $V$ and thus having $n$ components) and satisfying $H=\vsspan\{\calB\}$. The goal of this aside is to show that there exists an isomorphism (an injective linear map) $\rmTT$ between $H$ and $\Reals^d$ given by the same methods used in (f).
+	
+	Here's how you can build it explicitly:
+	\begin{itemize}[topsep=0mm,label=$\circ$,rightmargin=0.5in]
+		\item First, construct the $n\times d$ matrix $\sansM$ having $\vect{b}_1,\ldots,\vect{b}_d$ as columns;
+		\item Next, let $\rmTT$ be the transformation with canonical matrix $\sansM$: $\rmTT(\vect{x})=\sansM\vect{x}$;
+		\item Finally, observe that \begin{enumerate*}[label=(\roman*)]\item $\rmTT$ is \ul{always} a linear transformation, \item $\rmTT$ is \ul{always} one-to-one (because the columns of $\sansM$ are basis vectors and hence are linearly independent), and \item $\rmTT$ \ul{always} maps the standard basis vectors $\vect{e}_1,\ldots,\vect{e}_d$ of $\Reals^d$ to the basis $\vect{b}_1,\ldots,\vect{b}_d$ of $H$\end{enumerate*}! 
+	\end{itemize}
+	Hence, you automatically have an isomorphism $\rmTT$ between $H$ and $\Reals^d$ \textbf{without doing any work!}
+	
+	Note, however, that nothing fancy is happening here: The matrix $M$ we construct is \textit{really} just a ``change of coordinates'' between $H$ and $\Reals^d$, and as we saw in class, changing coordinates is the prototypical example of a linear map that \ul{really} keeps a space the same!
+	
+	So remember: 
+	\begin{itemize}[topsep=0mm,label=$\circ$,rightmargin=0.5in,listparindent=6mm]
+		\item What was our old mantra? 
+		
+		\red{Always replace ``$d$-dimensional subspace'' with ``$\Reals^d$''!}
+		\item Why did that work? 
+		
+		\red{Because the ``change of coordinates'' transformation is an isomorphism between $\Reals^d$ and \ul{every} $d$-dimensional subspace of \ul{every} vector space!}
+		\item What does that mean? 
+		
+		\red{Every $d$-dimensional vector space / subspace is ``exactly the same''!}\footnote{If $d$ is finite; otherwise,....}
+	\end{itemize}
+\end{document}

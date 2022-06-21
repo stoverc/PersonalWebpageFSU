@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Huge{Formulas}\vspace{-0.5in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.625in, rightmargin=0.5in, label=(\alph*),itemsep=2.25mm,topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\subsecnoindent}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+\newcommand{\LH}{L'H\^{o}pital}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+
+\usepackage{caption}
+\captionsetup{labelfont=bf, labelformat=simple, justification=centering, labelsep=newline, width=6.5in, textfont={small}}%, textfont={it, footnotesize}}
+\captionsetup[figure]{aboveskip=8pt, belowskip=10pt}
+
+\begin{document}
+	\maketitle\vspace{-6mm}
+	
+	Throughout, let $z=f(x,y)$ and let $(a,b)$, $(a_1,b_1)$, and $(a_2,b_2)$ be points in $\Reals^2$. In addition, let $\Delta x$ be the change from $x=a_1$ to $x=a_2$ (i.e. $\Delta x = a_2 - a_1$) and let $\Delta y$ be the change from $y=b_1$ to $y=b_2$ (i.e. $\Delta y = b_2 - b_1$).
+	
+	$$
+		\begin{array}{rcl}
+			f_x(x,y) & = & \lim_{h\to0}\frac{f(x+h,y)-f(x,y)}{h}\\[6mm]
+			f_y(x,y) & = & \lim_{h\to0}\frac{f(x,y+y)-f(x,y)}{h}\\[6mm]
+			\Delta z & = & f(a_1+\Delta x,b_1+\Delta y)-f(a_1,b_1)\\[6mm]
+			dz & = & f_x(a_1,b_1)\,dx + f_y(a_1,b_1)\,dy\\[3mm]
+			& = & \frac{\partial z}{\partial x}(a_1,b_1)\,dx + \frac{\partial z}{\partial y}(a_1,b_1)\,dy
+		\end{array}
+	$$
+
+\end{document}

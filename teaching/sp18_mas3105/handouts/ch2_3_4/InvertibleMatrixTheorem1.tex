@@ -1,0 +1,109 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\input{../HandoutHeader.tex}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{The Inverse Matrix Theorem I}}
+\end{center}
+Recall that the \ul{inverse} of an $n\times n$ matrix $\sansA$ is an $n\times n$ matrix $\sansA^{-1}$ for which 
+\[
+	\sansA\sansA^{-1}=\sansI_n=\sansA^{-1}\sansA,
+\] 
+where $\sansI_n$ is the $n\times n$ identity matrix. Not all matrices have inverses, and those that do are called \ul{invertible} or \ul{nonsingular}.
+
+In general, a matrix being invertible/nonsingular tells you a \textit{tremendous amount} about the matrix + its corresponding linear system(s) / linear transformation(s). To highlight this, your textbook regularly adds to + revisits a monolithic colossus it calls \textbf{The Invertible Matrix Theorem}. 
+
+This so-called ``theorem'' is \ul{really} just a collection of statements/observations which mean the same thing as (and hence are logically equivalent to) \textit{$\sansA$ has an inverse}. However, because many of the statements lumped into this ``theorem'' are important---and indeed, many are related to / duplicates of statements we've already visited before---I want to make sure you have them explicitly given and explained to you. Hence, this handout!
+
+As we learned in class, $\sansA$ has an inverse if and only if $\det(\sansA)\neq 0$; as it turns out, this determinant condition is the very first item in our ``theorem.'' \red{\textbf{Throughout, assume that $\sansA=\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_n}$ is an $n\times n$ matrix, i.e. that $T(\vect{x})=\sansA\vect{x}$ is a linear transformation $\Reals^n\to\Reals^n$!}}
+
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\det(\sansA)\neq 0$.}
+\why{When you think of a matrix being nonsingular, you should think of a linear transformation which neither ``squishes'' nor ``blows up'' information. 
+
+This is possible if and only if such a transformation doesn't transform parallelograms with positive area into those with zero area, and because 
+\[
+	\text{(area after transformation)} = |\det(\sansA)|\cdot\text{(area before transformation)}\neq 0,
+\]
+it follows that a matrix is nonsingular if and only if its determinant is not zero.}
+
+
+%==========================================================================
+\vspace{3mm}\noindent A number of other conditions are related to having nonzero determinant. For example:
+
+\thmbox{$\sansA$ is invertible if and only if the columns of $\sansA$ form a linearly independent set.}
+\why{A matrix which has linearly dependent rows or columns will result in a cofactor expansion which equals zero (\textbf{check this!}).
+	
+Thus, $\det(\sansA)\neq 0$ if and only if the columns of $\sansA$ form a linearly independent set.}
+
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\sansA\vect{x}=\vect{0}$ has only the trivial solution.}
+\why{As we've seen before, $\sansA\vect{x}=\vect{0}$ has nontrivial solutions if and only if the columns of $\sansA$ are linearly \ul{dependent}. Now, refer to (2).}
+
+
+\newpage
+
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if the linear transformation $T(\vect{x})=\sansA\vect{x}$ is one-to-one.}
+\why{$T(\vect{x})=\sansA\vect{x}$ is one-to-one if and only if $\sansA\vect{x}=\vect{0}$ has only the trivial solution. Now, refer to (3).}
+
+
+%==========================================================================
+Now, we know that general linear transformations may be one-to-one and not onto or vice versa. However, because $\sansA$ is $n \times n$ (i.e. $T:\Reals^n\to\Reals^n$), this is \textit{not} the case and $T$ being one-to-one is possible if and only if $T$ is also onto. 
+
+If you want, you can accept this as fact; however, it also follows from $\sansA$ being invertible:
+
+\thmbox{$\sansA$ is invertible if and only if the linear transformation $T(\vect{x})=\sansA\vect{x}$ is onto.}
+\why{$T(\vect{x})=\sansA\vect{x}$ is onto if and only if every vector $\vect{b}$ in (the codomain) $\Reals^n$ is hit by some vector $\vect{x}$ in (the domain) $\Reals^n$. 
+	
+Because $\sansA=\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_n}$, this means that $T$ is onto if and only if the collection $\{\vect{v}_1,\ldots,\vect{v}_n\}$ span $\Reals^n$, but a set of $n$ vectors spans $\Reals^n$ if and only if $\{\vect{v}_1,\ldots,\vect{v}_n\}$ are linearly independent. Now, refer to (2).}
+
+
+%==========================================================================
+As a result of (5), there are a number of equivalent conditions which stem from various rewritings of onto.
+
+\thmbox{$\sansA$ is invertible if and only if the equation $\sansA\vect{x}=\vect{b}$ has $\geq 1$ solution for each $\vect{b}\in\Reals^n$.}
+\why{The equation $\sansA\vect{x}=\vect{b}$ has $\geq 1$ solution for each $\vect{b}\in\Reals^n$ if and only if $T(\vect{x})=\sansA\vect{x}$ is onto. Now, apply (5).}
+
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if the columns of $\sansA$ span $\Reals^n$.}
+\why{The columns of $\sansA=\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_n}$ span $\Reals^n$ if and only if $T(\vect{x})=\sansA\vect{x}$ is onto. Now, apply (5).}
+
+
+%==========================================================================
+\vspace{3mm}The next ingredient of our ``theorem'' comes from the process of finding the inverse of a matrix (when it exists).
+
+\thmbox{$\sansA$ is invertible if and only if $\sansA$ is row equivalent to the $n\times n$ identity matrix $\sansI_n$.}
+\why{Recall that---when it exists---you can find $\sansA^{-1}$ by forming the augmented matrix $\pmatgrid{c|c}{\sansA & \sansI_n}$ and putting the ``$\sansA$ part'' into RREF. The result is guaranteed to be the augmented matrix 
+\[
+	\pmatgrid{c|c}{\sansI_n & \sansA^{-1}},
+\]
+and so $\sansA$ can be transformed into $\sansI_n$ by elementary row operations.}
+
+
+%==========================================================================
+\vspace{3mm}\noindent Another equivalence involves the relationship between $\sansA$ and its transpose $\sansA^\sansT$.
+
+Recall that the \ul{transpose} of an $m\times n$ matrix $\sansB$ is the $n\times m$ matrix $\sansB^\sansT$ whose first row is the first column of $\sansB$, whose second row is the second column of $\sansB$, etc. 
+
+As was shown on a previous handout, $\det(\sansA)=\det(\sansA^\sansT)$ for all square matrices $\sansA$ and \textit{this} is the key to the point at hand?
+
+\thmbox{$\sansA$ is invertible if and only if $\sansA^\sansT$ invertible.}
+\why{$\sansA$ is invertible if and only if $\det(\sansA)\neq 0$ (see (1)) and $\det(\sansA)=\det(\sansA^\sansT)$. Hence, $\sansA$ is invertible if and only if $\det(\sansA^\sansT)\neq 0$ if and only if $\sansA^\sansT$ is invertible.}
+
+
+%==========================================================================
+\vspace{3mm}\noindent The above list of conditions is just a small fraction of the number of equivalent ways one can say ``$\sansA$ is invertible,'' and we'll most definitely be revisiting this handout $\geq 1$ time throughout the semester to make updates!
+
+In the meantime, take some time to read through the above and digest everything thoroughly. To help, use the above to work through the following practice problems!
+\end{document}

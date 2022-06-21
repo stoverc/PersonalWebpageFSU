@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage[left=0.875in,top=0.5in]{geometry}
+\usepackage{stoversymb,tikz}
+\usetikzlibrary{shapes,arrows}
+
+\newenvironment{mypmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{pmatrix}}{\end{pmatrix}}
+\newenvironment{mybmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{bmatrix}}{\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{mypmatrix}{1.25}#1\end{mypmatrix}}
+\newcommand{\bmat}[1]{\begin{mybmatrix}{1.25}#1\end{mybmatrix}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newcommand{\pmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{pmatrix}[#1] #2\end{pmatrix}}
+\newcommand{\bmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{bmatrix}[#1] #2\end{bmatrix}}
+
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{line} = [draw, -latex',>=stealth',semithick]
+\tikzstyle{rect} = [rectangle, draw, fill=white!100, text centered, text width=3in]
+
+\begin{center}
+\begin{tikzpicture}[node distance = 0.75in, auto]
+	% Place nodes
+	\node [rect, text width=5in] (start) {start with a collection of vectors \mbox{$S=\{\vect{v}_1,\ldots,\vect{v}_p\}$} in $\Reals^m$ \\[4.5mm] (that's $p$ vectors with $m$ components each)};
+	\node [rect, below of=start, node distance = 1.25in] (zero) {Does $S$ contain $\vect{0}$ (the zero vector)?};
+	\node [right of=zero, node distance = 2.5in](zeroblank){};
+	\node [rect, below of=zero] (comps) {Are there more vectors than components of each vector (i.e. is \mbox{$p>m$})?};
+	\node [rect, below of=comps] (mult) {Is any one vector of $S$ a scalar multiple of any other?};
+	\node [rect, below of=mult] (combo) {Is any one vector of $S$ a linear combination of any other?};
+	\node [rect, below of=combo] (span) {Can you visualize $\vsspan\{\vect{v}_1,\ldots,\vect{v}_p\}$?};
+	\node [rect, below of=span] (dim) {Is the dimension of $\vsspan\{\vect{v}_1,\ldots,\vect{v}_p\}$ equal to $p$ (the number of vectors)?};
+	\node [rect, below of=dim, text width=4in, node distance = 1in] (sols) {Does \mbox{$\sansA\vect{x}=\vect{0}$} have nontrivial solutions?
+		
+	\vspace{4.5mm}
+	($\sansA$ is the matrix $\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_p}$ having columns \mbox{$\vect{v}_1,\ldots,\vect{v}_p$})};
+	\node [below of = sols, node distance = 1.5in](blank){};
+	\node [node distance=2in, rect, left of =blank, text width = 2.375in] (LI) {$\{\vect{v}_1,\ldots,\vect{v}_p\}$ are linearly independent};
+	\node [node distance=2in, rect, right of =blank, text width = 2.375in] (LD) {$\{\vect{v}_1,\ldots,\vect{v}_p\}$ are linearly dependent};
+    
+	% Draw edges
+	\path [line] (zero) -- node {\footnotesize no}(comps);
+	\draw [line] (zero) to [out=0,in=45] node [pos=0.025] {\footnotesize yes} (LD);
+	\path [line] (comps) -- node {\footnotesize no}(mult);
+	\draw [line] (comps) to [out=0,in=45] node [pos=0.025] {\footnotesize yes} (LD);
+	\path [line] (mult) -- node {\footnotesize no/I don't know}(combo);
+	\draw [line] (mult) to [out=0,in=45] node [pos=0.025] {\footnotesize yes} (LD);
+	\path [line] (combo) -- node {\footnotesize no/I don't know}(span);
+	\draw [line] (combo) to [out=0,in=45] node [pos=0.025] {\footnotesize yes} (LD);
+	\path [line] (span) -- node{\footnotesize yes}(dim);
+	
+	\draw [line] (span) to [out=0,in=75] node [pos=0.025, above right] {\footnotesize no} (sols.north east);
+	\path [line] (dim) -- node{\footnotesize I don't know}(sols);
+	
+	\draw [line] (dim) to [out=0,in=45] node [pos=0.025]{\footnotesize no} (LD);
+	\draw [line] (dim) to [out=180,in=135] node [pos=0.025,swap]{\footnotesize yes} (LI);
+	
+	\path [line] (sols) -- node[above left]{\footnotesize no}(LI);
+	\path [line] (sols) -- node{\footnotesize yes}(LD);
+\end{tikzpicture}
+\end{center}
+
+\end{document}

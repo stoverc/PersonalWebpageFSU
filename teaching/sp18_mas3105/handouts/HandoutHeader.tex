@@ -1,0 +1,74 @@
+\usepackage[margin=0.75in, top=0.875in, bottom=0.875in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul,changepage}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{breakable}
+
+%\everymath{\displaystyle}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+%\setenumerate{itemsep=0.25in}
+%\setlist[enumerate,1]{label=\arabic*., itemsep=0.5in}
+%\setlist[enumerate,2]{label={(\alph*)}, itemsep=0.8in}
+%\setlist[enumerate,2]{leftmargin=0.5in}
+%\setlist[enumerate,3]{label={\roman*.}}
+\setlist[itemize,1]{label=$\circ$,topsep=0mm,itemsep=0mm}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\vspace{3mm}\textbf{Hint}: #1}
+\newcommand{\note}[1]{\textbf{Note}: #1}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\axes}[1]{\begin{center}\includegraphics[scale=#1]{3DAxes}\end{center}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\ijk}[2]{#1\vect{#2}}
+%\newcommand{\pmat}[1]{\begin{pmatrix}[1.25]#1\end{pmatrix}}
+%\newcommand{\bmat}[1]{\begin{bmatrix}[1.25]#1\end{bmatrix}}
+\newcounter{Exx}
+\newcommand{\exbox}[1]{\stepcounter{Exx}\begin{tcolorbox}[breakable,arc=2pt,boxrule=1pt,right=6mm,top=3mm,bottom=6mm]\noindent\textit{\large\bfseries Example \theExx:\\[3mm]}~#1\end{tcolorbox}}
+\newcommand{\exit}[1]{\vspace{4.5mm}\noindent\textit{Example #1:}}
+\newcommand{\exbf}[1]{\vspace{1.5mm}\noindent\textbf{Example #1:}}
+\newcommand{\LHS}{\text{LHS}}
+\newcommand{\RHS}{\text{RHS}}
+\newcommand{\ans}{\noindent\underline{Ans:}~}
+
+\newenvironment{mypmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{pmatrix}}{\end{pmatrix}}
+\newenvironment{mybmatrix}[1]{\renewcommand{\arraystretch}{#1}\begin{bmatrix}}{\end{bmatrix}}
+\newcommand{\justify}{\ul{Justify your claim.}}
+
+\newcommand{\pmat}[1]{\begin{mypmatrix}{1.25}#1\end{mypmatrix}}
+\newcommand{\bmat}[1]{\begin{mybmatrix}{1.25}#1\end{mybmatrix}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newcommand{\pmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{pmatrix}[#1] #2\end{pmatrix}}
+\newcommand{\bmatgrid}[2]{\renewcommand{\arraystretch}{1.25}\begin{bmatrix}[#1] #2\end{bmatrix}}
+\newcommand{\warnbox}[1]{\begin{adjustwidth}{0.375in}{0.375in}\begin{tcolorbox}[arc=0pt, colback=red!5!white, colframe=red, boxrule=0.5pt, parbox=false]{\parskip=3mm \parindent=0mm \red{\textbf{\large\itshape Warning!}\par #1}}\end{tcolorbox}\end{adjustwidth}}
+\newcommand{\greentheorembox}[2]{\begin{adjustwidth}{0.375in}{0.375in}\begin{tcolorbox}[arc=0pt, colback=darkgreen!10!white, colframe=darkgreen, boxrule=0.5pt, parbox=false]{\parskip=3mm \parindent=0mm \green{\textbf{\large\itshape #1:}\par #2}}\end{tcolorbox}\end{adjustwidth}}
+\newcounter{FactBox}
+\newcommand{\factbox}[1]{\stepcounter{FactBox}\begin{adjustwidth}{0.375in}{0.375in}\begin{tcolorbox}[arc=0pt, colback=darkgreen!10!white, colframe=darkgreen, boxrule=0.5pt, parbox=false]{\parskip=3mm \parindent=0mm \green{\textbf{\large\itshape Fact \theFactBox:}\par #1}}\end{tcolorbox}\end{adjustwidth}}
+
+\newcommand{\arrow}[1]{\xrightarrow{\hspace*{#1}}}
+
+\setlength\parskip{0.75mm}	
+
+\newcounter{ThmBox}
+\newcommand{\thmbox}[1]{\stepcounter{ThmBox}\vspace{6mm}\noindent\fbox{\parbox{\linewidth}{~~(\theThmBox)~\hfill #1 \hfill\hfill}}}
+\newcommand{\why}[1]{\begin{adjustwidth}{0.5in}{0.5in}{\par\vspace{3mm}\noindent\green{\textbf{Why should this be true? }#1}}\qed\end{adjustwidth}\vspace{6mm}}

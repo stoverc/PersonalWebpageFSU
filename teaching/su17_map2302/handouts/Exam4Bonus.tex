@@ -1,0 +1,104 @@
+\documentclass[12pt]{exam}
+
+\usepackage{soul,graphicx,graphbox,stoversymb}%,afterpage}
+\usepackage[left=0.5in,right=0.5in,bottom=0.625in,top=0.625in]{geometry}%,showframe=true
+\everymath{\displaystyle}
+%\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+%\usepackage{tikzsymbols}
+%\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+\usepackage{tabularx,changepage}%,lipsum}
+\usepackage[final]{pdfpages}
+
+%\setlist[enumerate,1]{leftmargin=-0.375in, rightmargin=-0.375in}
+%\setlist[enumerate,2]{topsep=1.75mm, leftmargin=0.25in}
+%\setlist[itemize,1]{label=$\circ$}
+
+\newcounter{bonus}
+\addtocounter{bonus}{1}
+
+\newcommand{\sol}{\par\vspace{4.5mm}\hspace{-0.25in}\textsc{Solution:}}
+\newcommand{\solarg}[1]{\par\vspace{4.5mm}\hspace{-0.25in}\textsc{Solution for #1:}}
+\newcommand{\nextpart}[1]{\vfill{\begin{center}\textbf{Part (#1) is on the next page}\end{center}\newpage}}
+\newcommand{\nextcompute}{\vfill{\begin{center}\textbf{Put the other part of the computation on the next page!}\end{center}\newpage}}
+\newcommand{\pts}[1]{(\textit{#1 pts})}
+\newcommand{\ptss}[1]{(\textit{#1 pt})}
+\newcommand{\ptsea}[1]{(\textit{#1 pts ea.})}
+\newcommand{\scratch}{\newpage\thispagestyle{empty}\begin{center}Scratch Paper\end{center}}
+%\newcommand{\formulae}[1]{\newpage\thispagestyle{empty}\begin{center}\textbf{Info You May Use}\end{center}{#1}}
+\newcommand{\formulae}[1]{\newpage\thispagestyle{empty}\begin{center}\textbf{Info You May Use}\end{center}\vspace{0.125in}\begin{adjustwidth}{-0.375in}{-0.375in}{#1}\end{adjustwidth}}
+\newcommand{\bonus}{\newpage\hspace{-0.25in}\textbf{Bonus: }}
+\newcommand{\bonusnum}[1]{\newpage\hspace{-0.25in}\textbf{Bonus #1: }}
+\newcommand{\hint}[1]{\ul{Hint}: #1}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}
+\newcommand{\note}[1]{\ul{Note}: #1}
+\newcommand{\notebf}[1]{\textbf{Note}: #1}
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\left\langle #1, #2, #3\right\rangle}
+
+\newcommand{\arrow}[1]{\xrightarrow{\hspace*{#1}}}
+\setlength{\parskip}{6mm}
+
+\begin{document}
+	\begin{adjustwidth}{-0.125in}{-0.125in}
+	\textbf{Bonus:} \pts{10} Let $f(t)=t\sin(t)$. Using the formula for $\lamL\{f''(t)\}$, show that 
+	\[F(s)=\frac{2s}{(s^2+1)^2}.\]
+	\ul{You cannot use the Laplace table!}\hspace{3mm}\hintbf{$f'(t)=t\cos(t)+\sin(t)$ and $f''(t)=2\cos(t)-\underbrace{t\sin(t)}_{\text{f(t)}}$.}\vspace{-6mm}
+	
+	\sol\vspace{-3mm}
+	\end{adjustwidth}
+			
+	\noindent So, at this point, we know four things:
+	\begin{enumerate}[label=(\roman*),parsep=0mm,topsep=-3mm,leftmargin=0.625in]
+		\item $f(t)=t\sin(t)$;
+		\item $\lamL\{f''(t)\}=s^2\lamL\{f(t)\}-sf(0)-f'(0)$;
+		\item $f'(t)=t\cos(t)+\sin(t)$; and 
+		\item $f''(t)=2\cos(t)-\underbrace{t\sin(t)}_{\text{f(t)}}$
+	\end{enumerate}
+	The goal is to find $\lamL\{f(t)\}$, and to do that, we're going to use (ii) and (iv). From (ii), we have that
+	\begin{equation}
+		\label{eq:1}
+		\lamL\{f''(t)\}=s^2\lamL\{f(t)\}-sf(0)-f'(0).
+	\end{equation}
+	Using a combination of (i) and (iii), we have that $f(0)=0$ and that $f'(0)=0$; plugging these values into equation \eqref{eq:1} yields
+	\begin{equation}
+		\label{eq:2}
+		\lamL\{f''(t)\}=s^2\lamL\{f(t)\}.
+	\end{equation}
+	Now, taking the Laplace of (iv) will give \ul{another} expression for $\lamL\{f''(t)\}$ which we'll be able to set equal to \eqref{eq:2}.
+	
+	Taking the Laplace of (iv) yields the following:
+	\begin{equation}\label{eq:3}
+	\begin{array}{rcl}
+		\lamL\{f''(t)\} & = & \lamL\{2\cos(t)-t\sin(t)\}\\[1.5mm]
+		 & = & 2\lamL\{\cos(t)\}-\lamL\{t\sin(t)\}\\[1.5mm]
+		 & = & 2\lamL\{\cos(t)\}-\lamL\{f(t)\}\text{, because $f(t)=t\sin(t)$ as noted in (iv) above.}
+	\end{array}
+	\end{equation}
+	\noindent The expression $2\lamL\{\cos(t)\}$ from the last line of \eqref{eq:3} can be found using a Laplace table and/or using the old method; in particular,
+	\begin{equation}
+		\label{eq:4}
+		2\lamL\{\cos(t)\}=2\left(\frac{s}{s^2+1}\right)=\frac{2s}{s^2+1}.
+	\end{equation}
+	
+	Combining \eqref{eq:4} with the first+last lines of \eqref{eq:3}, it follows that
+	\begin{equation}
+		\label{eq:5}
+		\lamL\{f''(t)\}=\frac{2s}{s^2+1}-\lamL\{f(t)\},
+	\end{equation} 
+	and setting the RHS of \eqref{eq:5} equal to the RHS of \eqref{eq:2} [which we can do because both are expressions for $\lamL\{f''(t)\}$], we have
+	\begin{equation}
+		\label{eq:6}
+		s^2\lamL\{f(t)\}=\frac{2s}{s^2+1}-\lamL\{f(t)\}.
+	\end{equation}
+	Now, we solve for $\calL\{f(t)\}$ in \eqref{eq:6}:
+	\[s^2\lamL\{f(t)\}=\frac{2s}{s^2+1}-\lamL\{f(t)\}\iff\lamL\{f(t)\}\left(s^2+1\right)=\frac{2s}{s^2+1}.\]
+	Dividing both sides by $s^2+1$ yields the result:
+	\[\fbox{$\lamL\{f(t)\}=\frac{2s}{(s^2+1)^2}.$}\]
+\end{document}

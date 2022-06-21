@@ -1,0 +1,406 @@
+*:not(h1) {
+    font-size: 12pt;
+}
+
+body {
+    font-family: times;
+    padding: 0.25in;
+}
+
+/* Gen Info Tab's Table */
+table.gen {
+    border-collapse: collapse;
+    margin: 0.125in 0in;
+    width: 100%;
+}
+
+#webassign ul + p {
+    margin-top: -10px;
+}
+
+img.block {
+    display: block;
+    margin-bottom: 12px;
+}
+
+#webassign img + p {
+    margin-top: 10px;
+}
+
+/* Announcement Tab's Table */
+table.announce {
+    border: 1px solid #cccccc;
+    margin: 3mm auto;
+    padding: 1.5mm 3mm;
+    width: 100%;
+}
+
+table.announce:hover {
+    background-color: rgba(255,255,115,0.625)   ;
+}
+
+.message p {
+    border-top: 1px dashed gray;
+    margin-top: 3px;
+    padding-top: 10px;
+}
+
+.message p + p, .message ol + p {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.message ol + p {
+    margin-top: 1.5mm;
+}
+
+.message li ul, li {
+    margin-bottom: 1.5mm;
+}
+
+/* Calendar Tab's Table */
+table.cal {
+    margin: auto;
+    margin-bottom: 6mm;
+}
+
+/* HW Tab's Table */
+table.hw tr {
+    display: block;
+    margin-bottom: 12px;
+}
+
+table.hw tr td p + p, table.handout tr td p + p, table.handout tr td ul + p {
+    display: block;
+    margin: 1.5mm auto 0 0.625in;
+}
+
+table.handout tr td p img {
+    margin-left: 50%;
+}
+
+/* Handout Tab's & Lecture Notes Tab's Tables */
+table.handout tr, table.notes tr {
+    display: block;
+    margin-bottom: 3px;
+}
+
+table.notes tr.prob_row {
+    display: block;
+    margin-bottom: 6px;
+    margin-top: -6px;
+}
+
+table.handout tr td, table.notes tr td {
+    padding-left: 0.1875in;
+}
+
+.item_head ~ table.handout {
+    margin-left: 0.125in;
+}
+
+table.notes ~ .sec_head {
+    margin-top: 3mm;
+}
+
+.sec_head ~ table.notes {
+    margin-bottom: 0in;
+    margin-left: 0.175in;
+}
+
+.item_head ~ table.handout tr td, .sec_head ~ table.notes tr td {
+    padding-left: 0.0in;
+}
+
+table.handout tr td p, table.notes tr td p {
+    display: block;
+    margin: 2.5mm auto auto 0.25in;
+}
+
+table.notes tr td p + p {
+    display: block;
+    margin: 1.5mm auto 0.25in 0.625in;
+}
+
+.probs, .probs_head, .probs_head i, .probs i, .probs span, .probs span i {
+    font-size: 10pt;
+}
+
+span.probs_head {
+    margin-left: 0.25in;
+    margin-top: -12px;
+    text-decoration: underline;
+}
+
+span.key {
+    margin-left: 0.125in;
+}
+
+/* Links Tab's Table */
+table.links {
+    margin-bottom: 0.25in;
+    width: auto;
+}
+
+table.links + hr {
+    margin-top: -0.25in;
+}
+
+table.links tr {
+    display: block;
+    margin-bottom: 18px;
+}
+
+table.links tr td p, table.hw tr td p  { 
+    display: block;
+    margin: 2.5mm auto 0 0.3125in;
+}
+
+table.links tr td p + p  {
+    display: block;
+    margin: 3mm auto 0 0.3125in;
+}
+
+table.links tr td p::before, table.hw tr td p::before, table.handout tr td p::before {
+    color: rgb(0,84,255);
+    content: "\021B3     ";
+}
+
+table.hw tr td p + p::before, table.handout tr td p + p::before, table.handout tr td ul + p::before {
+    content:"";
+}
+
+/* Common Tables used in Each Tab */
+table.misc {
+    margin-bottom: 0.125in;
+    width: auto;
+}
+
+td.indent {
+    padding-left: 40px;
+}
+
+/* Miscellaneous */
+.bold {
+    font-weight: bold;
+}
+
+.probs .bold, .probs .red, .probs u {
+    font-size: 10pt;
+}
+
+.red {
+    color: red;
+}
+
+sup {
+    font-size: smaller;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display:block;
+}
+
+span.bullet::before {
+    content: "\025CB  ";
+    font-style: normal;
+}
+
+pre {
+    display: inline;
+    font-family: monospace;
+    font-size: 10pt;
+    font-weight: bold;
+    margin: 1em 0;
+    white-space: pre;
+}
+
+a {
+    color: rgb(0,84,255);
+    font-size: 11pt;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgb(0,84,255);
+    color:#FFFFFF;
+    font-size: 11pt;
+    text-decoration: none;
+}
+
+div p {
+    margin-top: 0;
+}
+
+ul {
+    margin-bottom: -3mm;
+    margin-top: 1.5mm;
+}
+
+p ~ ul, p ~ ol {
+    margin: -3mm 0mm 0mm 0mm;
+}
+
+p + p ~ ul, p + p ~ ol {
+    margin: 2.25mm 0mm auto 7.5%;
+}
+
+.blankrow {
+    height: 3mm;
+}
+
+.blankgrayrow {
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.item_head, .chap_head {
+    /* display: block; */
+    font-variant: small-caps;
+    font-size: 13pt;
+}
+
+.item_head_shrink {
+    display: inline-block;
+    font-variant: small-caps;
+    margin-top: -0.1in;
+}
+
+.item_head ~ div, .item_head ~ table, .chap_head ~ div, .chap_head ~ table {
+    margin-left: 3mm;
+}
+
+.sec_head {
+    display: block;
+}
+
+.missing {
+    color: red;
+}
+
+.deadlink {
+    color: #999999;
+    font-size: 10pt;
+    padding-bottom:3pt;
+}
+
+#slack_link, #blackboard_link, #webassign_link, .chap_link {
+    color: blue;
+    cursor: pointer;
+    font-size: 8pt;
+    text-decoration: none;
+}
+
+.chap_link:hover{
+    
+}
+
+#slack, #blackboard, #webassign {
+    border-left: 2px solid #cccccc;
+    padding-left: 12px;
+    margin-bottom:-12px;
+}
+
+#slack ul, #slack ol, #blackbord ul, #blackboard ol, #webassign ul, #webassign ol {
+   margin-top: -3mm;
+   margin-left: 0mm;
+}
+
+#updated {
+    color: #666666;
+    font-size: 10pt;
+    position: relative;
+    right: -40px;
+    text-align: right;
+    bottom: 30px;
+    /* top: -30px;  */
+}
+
+#breadcrumbs {
+    font-size: 8pt; 
+    font-weight: normal; 
+    left: 0; 
+    position: absolute; 
+    top:0;"
+}
+
+#breadcrumbs a {
+    font-size: 10pt; 
+}
+
+#breadcrumbs a:hover {
+    background-color: #FFFFFF;
+    border-bottom: 1px dotted rgb(0,84,255);
+    color: rgb(0,84,255);
+}
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+    margin-top: 10px;
+}
+ 
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+
+.tab-links li {
+    margin:0px 3px;
+    float:left;
+    list-style:none;
+}
+
+.tab-links a {
+    /* padding:9px 15px;*/
+    padding: 9px 10px;
+    display:inline-block;
+    border: 1px solid gray;
+    border-bottom: 0px solid white;
+    border-radius:3px 3px 0px 0px;
+    background:#dddddd;
+    font-size:16px;
+    font-weight:600;
+    color:#4c4c4c;
+    transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+    background:#a7cce5;
+    text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+    padding:15px 40px;
+    border: 1px solid gray;
+    border-radius:1px;
+    /*box-shadow:1px 1px; /* 0px 0px gray; /*rgba(0,0,0,0.85);*/
+    background:#fff;
+    margin-top: 10px;
+}
+
+.tab {
+    display:none;
+}
+
+.tab.active {
+    display:block;
+}

@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage{changepage,soul,graphicx,graphbox,stoversymb}%,afterpage}
+\usepackage[left=0.5in,right=0.5in,bottom=0.75in,top=0.625in]{geometry}%,showframe=true
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amsthm}
+	\theoremstyle{definition}
+	\newtheorem{defn}{Definition}
+	
+	\newtheoremstyle{underl}{4.5mm}{4.5mm}{}{}{}{\textnormal{.}}{ }{\underline{\thmname{#1}}}
+	\theoremstyle{underl}
+	\newtheorem*{ex}{Ex}
+
+\thispagestyle{empty}
+
+\newcommand{\capt}[1]{\begin{adjustwidth}{0.5in}{0.5in}\centering\small\textit{#1}\end{adjustwidth}}
+\newcommand{\notebox}[2]
+{\begin{tcolorbox}[
+		enhanced,
+		colback=white,
+		colframe=black,
+		boxrule=0.5pt,
+		arc=0pt,
+		top=3mm,
+		bottom=3mm, 
+		grow to left by=-0.5in,
+		grow to right by=-0.5in
+	]
+	\noindent\textbf{#1}\\
+	{#2}
+\end{tcolorbox}}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}
+
+\begin{document}
+	\section*{\centering Exam 4 Preview}
+	
+	\noindent Here's a bit of logistical info about the exam.
+	\begin{itemize}[topsep=0.125in,itemsep=0.625mm]
+		\item There will be 4--5 questions overall, and some will have multiple parts.
+		\item Aside from background sections (\S6.1 and \S5.1 for backgrounds on Laplace transforms and power series, respectively), the exam will cover the following textbook sections: 
+		\begin{itemize}[topsep=0mm]
+			\item \S6.2 (Laplace transform solutions to ODEs) 
+			\item \S5.2 (power series solutions to ODEs/recurrence relations)
+			\item \S5.3 (ordinary/singular points + the \ul{Existence Theorem for Power Series Solutions to ODE})
+		\end{itemize}
+		\item You should expect the following question formats:
+		\begin{itemize}[topsep=0mm]
+			\item computation questions (e.g. solving ODEs from start to finish)
+			\item multiple-choice questions
+			\item True/False questions (which may or may not require justification).
+		\end{itemize}
+		The True/False questions will cover various facts about Laplace transforms (some of which may have come up on Exam 3) and power series solutions to ODE (rich examples of which may come from ``the'' theorem in \S5.3).
+		\item Even though it isn't something we directly covered, you \ul{will} need to know how to use the following techniques from "old calculus":
+		\begin{itemize}[topsep=0mm]
+			\item partial fraction decomposition
+			\item the ratio test
+		\end{itemize}
+		\item There are \ul{two} essential ways to adjust the indices of series:
+		\begin{enumerate}
+			\item Adding to or subtracting from the index. \textbf{Note:} If you \ul{add to} an index, you \ul{subtract from} the things inside the sum (and vice versa).
+			
+			\vspace{3mm}
+			\textbf{Example:} $\sum_{n=1}^\infty na_nx^{n-1}\overset{(\star)}{=}\sum_{n=0}^\infty (n+1)a_{n+1}x^n\overset{(\star\star)}{=}\sum_{n=2}^\infty (n-1)a_{n-1}x^{n-2}$. 
+			\vspace{3mm}
+			
+			To clarify: For $(\star)$, we \ul{subtracted 1} from the index of the first sum (and thus \ul{added 1} to all the $n$'s inside the first sum); for $(\star\star)$, we \ul{added 2} to the index of the second sum (and thus \ul{subtracted 2} from all the $n$'s inside the second sum).
+			
+			\item ``Peeling off terms'' from your sum. Here, we use the property that 
+			\[\underbrace{b_0+b_1+b_2+b_3+\cdots}_{\sum_{n=0}^\infty b_n}=b_0+\underbrace{\left(b_1+b_2+b_3+\cdots\right)}_{\sum_{n=1}^\infty b_n}=b_0+b_1+\underbrace{\left(b_2+b_3+\cdots\right)}_{\sum_{n=2}^\infty b_n}\]
+			to rearrange the series.
+			
+			\vspace{3mm}
+			\textbf{Example:} $\sum_{n=1}^\infty na_nx^{n-1}=\underbrace{1a_1x^0}_{n=1\text{ term}}+\sum_{n=2}^\infty na_nx^{n-1}=\underbrace{1a_1x^0}_{n=1\text{ term}}+\underbrace{2a_2x^1}_{n=2\text{ term}}\sum_{n=3}^\infty na_nx^{n-1}$. 
+			\vspace{3mm}
+		\end{enumerate}
+		\textbf{Note:} Using method 1 changes \ul{both} the index \ul{and} what's inside the summation; method 2 \ul{only} changes the index!
+	\end{itemize}
+	
+	\newpage
+	
+	\noindent Now, here are some sample questions that you should be able to answer before the exam.
+	
+	\begin{enumerate}[topsep=0.125in,itemsep=0.375in]
+		\item For the non-homogeneous ODEs in parts (a), (b), and (c),:
+		\begin{enumerate}[label=(\roman*),leftmargin=0.55in,rightmargin=0.55in,topsep=0mm,itemsep=1.5mm] 
+			\item Find the general solution of the corresponding homogeneous ODE; 
+			\item use Laplace transforms to solve the IVP consisting of the corresponding homogeneous ODE with the initial conditions $y(0)=2$, $y'(0)=2$; and 
+			\item use Laplace transforms to find $\calL\{y\}$, where $y$ is the solution of the IVP consisting of the given ODE with the initial conditions $y(0)=2$, $y'(0)=2$. \textbf{Do not ``invert'' the transform and/or solve for $y$!}
+		\end{enumerate}
+			\begin{enumerate}[itemsep=3mm]
+				\item $y''+9y=te^{2t}+t\sin(2t)+3$ \hspace{6mm}\hintbf{$t\sin(2t)=-(-t)^1f(t)$, where $f(t)=\sin(2t)$.}
+				\item $y''+5y'+6y=e^t\cos(3t)+t^4$
+				\item $y''+4y'+4y=e^{-2t}+e^{2t}$
+			\end{enumerate}
+	
+		\item Indicate whether each of the following questions is True or False.
+			\begin{enumerate}[itemsep=3mm]		
+				\item If $Q$ and $R$ are polynomials, then $x_0=2$ is a singular point for the ODE \[(x^2-4)y''+Q(x)y'+R(x)y=0.\]
+				\item Every function $f(t)$ has a Laplace transform.	
+				\item There is no function $f(t)$ whose Laplace transform is $F(s)=\frac{1}{2s^2+10s+12}$.
+				\item Every second-order linear homogeneous ODE $P(x)y''+Q(x)y'+R(x)y=0$ has a power series solution of the form $y=\sum_{n=0}^\infty a_n(x-x_0)^n$, where $x_0=0$.
+				\item Laplace transforms are unique. In other words: If a function $f(t)$ has Laplace transform $F(s)$, then no other function $g(t)\neq f(t)$ may have $F(s)$ as its Laplace transform.
+				\item $\calL\{f''(t)\}=s\calL\{f'(t)\}-f(0)$.
+				\item If there is a power series converging to $Q(x)/P(x)$ on the interval $(0,5/2)$ and a power series converging to $R(x)/P(x)$ on the interval $[-1,2]$, then $x_0=2$ is an ordinary point for the differential equation $P(x)y''+Q(x)y'+R(x)y=0$.
+				\item $\calL\{f'(t)\}=s\calL\{f(t)\}-f'(0)$.
+				\item If $\sum_{n=1}^\infty na_nx^{n-1}=\sum_{n=0}^\infty n(n+1)a_nx^n$ for all $x$, then $na_n=n(n+1)a_n$ for all $n$.
+				\item If $Q$ and $R$ are polynomials, then there exists a power series solution to the ODE \[(1-x^2)y''+Q(x)y'+R(x)y=0\] 
+				about the point $x_0=0$ whose radius of convergence is $\frac{3}{4}$.
+			\end{enumerate}
+		
+		\item For the ODEs in parts (a), (b), and (c):
+		\begin{enumerate}[label=(\roman*),leftmargin=0.55in,rightmargin=0.55in,topsep=0mm,itemsep=1.5mm] 
+			\item Find the ordinary points corresponding to the ODE and verify that $x_0=0$ is an ordinary point for each;
+			\item find a power series solution centered at $x_0=0$ (but \ul{do not} solve for the $a_n$!);
+			\item write the corresponding equivalence relation(s);
+			\item write the values for the coefficients $a_0$, $a_1$,\textellipsis,$a_6$;
+			\item write your solution from (a) in the form $a_0y_1+a_1y_2$, where $y_1$ and $y_2$ are power series solutions about the point $x_0$;
+			\item find a lower bound for the radii of convergence for the series $y_1$ and $y_2$ found in part (iv); and
+			\item answer the following: \textbf{True or False:} There exists a real number $x$ for which the Wronskian $W(y_1,y_2)$ of the solutions $y_1$ and $y_2$ found in part (iv) is nonzero. \ul{Justify your answer!}
+		\end{enumerate}
+			\begin{enumerate}[itemsep=3mm]
+				\item $(x-1)y''+xy'-y=0$
+				\item $y''+x^3y'+4x^4y=0$
+				\item $y''-y'-y=0$
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

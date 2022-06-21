@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\LARGE{Exam Review}\vspace{-0.625in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.25in, rightmargin=0.25in,itemsep=7.5mm, topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.375in, itemsep=4.5mm}
+\setlist[enumerate,3]{label=\roman*)}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\subsecnoindent}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+\newcommand{\LH}{L'H\^{o}pital}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+
+\usepackage{caption}
+\captionsetup{labelfont=bf, labelformat=simple, justification=centering, labelsep=newline, width=6.5in, textfont={small}}%, textfont={it, footnotesize}}
+\captionsetup[figure]{aboveskip=8pt, belowskip=10pt}
+
+\begin{document}
+	\maketitle
+	
+	\begin{enumerate}
+		\item Sketch each of the following regions and write each as the type designated. \textbf{There should be no integrals in your answers!}
+		\begin{enumerate}
+			\item $D=\{(x,y):-\sqrt{4-x^2}\leq y\leq \sqrt{4-x^2},-2\leq x\leq2\}$; as a polar rectangle
+			\item $T_1=$ the triangle in $\Reals^2$ with vertices $(0,0)$, $(0,3)$, $(3,3)$; as a Type I region
+			\item $T_2=$ the same triangle as in (a); as a Type II region
+			\item $D=$ the annular region in the upper half plane, bounded between the lines $y=x$ and $y=-x$ and the circles $x^2+y^2=1$ and $x^2+y^2=9$; as a polar rectangle
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item Use double integrals to find the volume of each of the solids described below.
+			\begin{enumerate} 
+				\item The solid that lies under the paraboloid $z=x^2+y^2$ and above the region $D$ in the $xy$-plane bounded by the line $y=2x$ and the parabola $y=x^2$.
+				\item The solid under the surface $z=xy$ and above the triangle with vertices $(1,1)$, $(6,1)$, and $(1,3)$.
+				\item The solid inside the sphere $x^2+y^2+z^2=9$ and outside the cylinder $x^2+y^2=3$.
+			\end{enumerate}
+
+			\item For each of the regions described in (a), set up and evaluate the integral you would use to get the volume of the region using \textit{the other} order of integration.
+		\end{enumerate}
+		
+		\item Express each of the following regions in polar coordinates.
+		\begin{enumerate}
+			\item The bottom half of the disk of radius 3, centered at $(0,0)$.
+			\item The left half of the disk of radius 1, centered at $(-1,0)$.
+			\item The area in the upper half plane inside the circle $x^2+y^2=1$, between the lines $y=x$ and $y=-x$, and outside the 4-petaled rose $(x^2+y^2)^3=(x^2-y^2)^2$. \hintbf{$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$.}
+			\item The annular region lying between the circles $x^2+y^2=2$ and $x^2+y^2=5$.
+		\end{enumerate}
+		
+		\item Find the surface area of the part of the paraboloid $z=16-x^2-y^2$ that lies under the plane $z=9$ and above the plane $z=4$. 
+		
+		\item Evaluate each of the following triple integrals, changing coordinate systems as necessary.
+		\begin{enumerate}
+			\item $\textstyle\iiint_E 6xy\,dV$, where $E$ lies under the plane $z=1+x+y$ and above the region in the $xy$-plane bounded by the curves $y=\sqrt{x}$, $y=0$, and $x=1$.
+			\item $\textstyle\iiint_E dV$, where $E$ is the solid enclosed by the cylinder $x^2+z^2=4$ and the planes $y=-1$ and $y+z=4$.
+			\item $\textstyle\iiint_E(x+y+z)\,dV$, where $E$ is the solid in the first octant that lies under the paraboloid $z=4-x^2-y^2$.
+			\item $\textstyle\iiint_H(9-x^2-y^2)\,dV$, where $H$ is the solid hemisphere $x^2+y^2+z^2\leq 9$, $z\geq 0$.
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item Use a triple integral to find the volume of the tetrahedron $T$ bounded by the planes $x=0$, $y=0$, $z=0$, and $x+y+z=2$
+			\item Set up and evaluate the other five triple integrals to representing the volume of $T$ (so altogether, you should have evaluated six integrals---one each for $dxdydz$, $dxdzdy$, $dydxdz$, $dydzdx$, $dzdxdy$, and $dzdydx$---and you should get the same volume for each). 
+			
+			\vspace{3mm}
+			\hintbf{See the ``Dummit'' \texttt{.pdf} file mentioned in the \textit{Links, etc.} tab on the course webpage; in particular, se pp10--12 for a really good explanation of how to do problems like this one.}
+		\end{enumerate}
+		
+		\item Rewrite each of the rectangular iterated integrals in the coordinate system specified. \textbf{Do not integrate!}
+		\begin{enumerate}
+			\item $\int_{-3}^3\int_{-\sqrt{9-y^2}}^{\sqrt{9-y^2}}e^{x^2+y^2}\,dx\,dy$;  in polar coordinates
+			\item $\int_{-1}^1 \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} \int_{x^2+y^2}^{3-x^2-y^2}\sqrt{x^2+y^2}\,dz\,dy\,dx$;  in cylindrical coordinates.
+			\item $\int_{-3}^3 \int_{-\sqrt{9-y^2}}^{\sqrt{9-y^2}} \int_0^{\sqrt{9-x^2-y^2}}z\sqrt{x^2+y^2+z^2}\,dz\,dx\,dy$; in spherical coordinates.
+		\end{enumerate}
+
+		\item \begin{enumerate}
+			\item Compute the Jacobian for each of the transformations listed.
+			\begin{enumerate}
+				\item From rectangular coordinates to polar coordinates in $\Reals^2$.
+				\item From rectangular coordinates to cylindrical coordinates in $\Reals^3$.
+				\item From rectangular coordinates to spherical coordinates in $\Reals^3$.
+			\end{enumerate}
+			\item Use your answer for each of the transformations in part (a) to derive the formula for double and/or triple integrals (double integrals for $\Reals^2$ and triple in $\Reals^3$) of a function $f(x,y)$ and/or $f(x,y,z)$ (the former for $\Reals^2$ and the latter for $\Reals^3$) over a region $D$ in $\Reals^2$ and/or $E$ in $\Reals^3$.
+			
+			 the result from part (a) to derive the formula for triple integration in spherical coordinates.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,228 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="../img/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../img/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../img/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../img/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../img/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../img/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../img/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../img/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../img/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../img/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../img/icons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../img/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<title>Christopher Stover TeX Files</title>
+	<meta name="description" content="Christopher Stover TeX Files">
+	<meta name="author" content="cstover">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../files/pages.css">
+	<link rel="stylesheet" type="text/css" href="../files/highlight2/linesBefore.css">
+	<link rel="stylesheet" type="text/css" href="../files/highlight2/src/styles/default.css">
+
+	<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="../files/pages.js"></script>
+	<script language="javascript" type="text/javascript" src="../files/highlight2/build/highlight.pack.js"></script>
+	<script>	
+		//hljs.tabReplace = '    ';
+    	hljs.initHighlightingOnLoad();
+  	</script>
+</head>
+
+<body>
+	<div style = "width:100%;">
+    <table style = "margin-top:-5px; width:100%;">
+    <tr>
+    <td style = "vertical-align:middle; width:50%;">
+      &nbsp;<a title = "TeX Files" href = "index.html"><img src = "../img/back.png"></a>
+    </td>
+    <td style = "vertical-align:middle; width:50%">
+      <a title = "Home" href = "../index.html"><img src = "../img/home.png"></a>
+    </td>
+    </tr>
+    </table>
+    </div>
+<pre>
+<code class="tex lineNumbers">\newif\ifmetronav
+\metronavtrue
+\DeclareOption{SegoeUI}{
+	\setsansfont[Ligatures=TeX]{Segoe UI Light}
+}
+\DeclareOption{nonav}{\metronavfalse}
+\ProcessOptions
+
+\RequirePackage{tikz}
+\RequirePackage[overlay, absolute]{textpos}
+\usetikzlibrary{arrows.meta, shapes.misc, backgrounds}
+
+\newcommand{\metro@logo}{}
+\renewcommand{\logo}[1]{\renewcommand{\metro@logo}{#1}}
+\AtBeginDocument{\setbeamertemplate{logo}{}}
+
+\definecolor{MetroDarkBlue}{RGB}{11,50,97}
+\definecolor{MetroBlue}{RGB}{31,73,125}
+\definecolor{MetroRed}{RGB}{232,64,46}
+\definecolor{MetroPurple}{RGB}{192,80,77}
+\definecolor{MetroGreen}{RGB}{155,187,89}
+\definecolor{MetroViolet}{RGB}{128,100,162}
+\definecolor{MetroLightBlue}{RGB}{75,172,198}
+\definecolor{MetroOrange}{RGB}{245,141,1}
+\definecolor{MetroVisitedLink}{RGB}{198,217,240}
+\definecolor{mycolor}{RGB}{245,141,1}
+
+
+\setbeamercolor{normal text}{fg=white, bg=}
+\setbeamercolor{background canvas}{bg=MetroDarkBlue}
+\setbeamercolor{title page header}{bg=MetroRed}
+	%\setbeamercolor{section in toc}{parent={normal text}}
+	%\setbeamercolor{subsection in toc}{parent={normal text}}
+\setbeamercolor{section in toc shaded}{fg=black}
+\setbeamercolor{section in toc}{fg=yellow}
+\setbeamercolor{subsection in toc shaded}{fg=black}
+\setbeamercolor{subsection in toc}{fg=yellow}
+\setbeamercolor{subsubsection in toc shaded}{fg=black}
+\setbeamercolor{subsubsection in toc}{fg=yellow}
+\setbeamercolor{item}{parent={normal text}}
+\setbeamercolor{frametitle}{parent={normal text}, bg=MetroRed}
+\setbeamercolor{block title}{parent={normal text}, bg=MetroOrange}
+\setbeamercolor{block body}{parent={normal text}, bg=MetroOrange}
+\setbeamercolor{block title example}{parent={normal text},bg=MetroGreen}
+\setbeamercolor{block body example}{parent={normal text}, bg=MetroGreen}
+\setbeamercolor{logo}{parent={normal text}, bg=MetroDarkBlue}
+\setbeamercolor{subtitle}{parent={normal text}}
+\setbeamercolor{institute in head/foot}{fg=MetroGreen}
+\setbeamercolor{headline}{parent={normal text}, bg=MetroDarkBlue}
+\setbeamercolor{qed symbol}{parent={normal text}}
+
+\setbeamerfont{footline}{size=\normalsize}
+\setbeamerfont{logo}{size=\small}
+\setbeamerfont{institute in head/foot}{size=\small}
+\setbeamerfont{navigation symbols}{size=\small}
+\setbeamerfont{section page}{size=\LARGE}
+\setbeamerfont{title}{size=\huge}
+\setbeamerfont{frametitle}{size=\huge}
+\setbeamerfont{subtitle}{size=\Large}
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{date}{size=\small}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{section in toc}{\leavevmode\parbox[t]{\textwidth-2em}{\inserttocsection}}
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=2em$\bullet$\hskip1em\parbox[t]{\textwidth-\leftskip-2em}{\inserttocsubsection}\par}
+%\setbeamertemplate{subsubsection in toc}{\leavevmode\hspace{4em}\mbox{$\circ$\hskip0.25em\inserttocsubsubsection }\hspace{-5em}}
+\setbeamertemplate{subsubsection in toc}
+{
+  \leavevmode\hspace{4em}
+  \ifnum\inserttocsubsubsectionnumber=1
+   \phantom{$\circ$\,}\inserttocsubsubsection 
+  \else\ifnum\inserttocsubsubsectionnumber=2
+    \hspace{-5em}$\dagger$\,\,\,\inserttocsubsubsection\par
+  \else\ifnum\inserttocsubsubsectionnumber=3
+   \phantom{$\circ$\,}\inserttocsubsubsection 
+  \else\ifnum\inserttocsubsubsectionnumber=4
+    \hspace{-5em}$\dagger$\,\,\,\inserttocsubsubsection\par
+  \else\ifnum\inserttocsubsubsectionnumber=5
+	\phantom{$\circ$\,}\inserttocsubsubsection\par
+  \else \inserttocsubsubsection
+  \fi\fi\fi\fi\fi
+}
+\setbeamertemplate{footline}{
+  \leavevmode\hbox{%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=0.25\paperwidth, rightskip=0.25\paperwidth]{institute in head/foot}%
+    \usebeamerfont{institute in head/foot}\fbox{\insertshorttitle\,---\,\insertshortauthor, \insertshortinstitute, \insertshortdate}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=0.4cm]{navigation symbols}%
+    \usebeamerfont{navigation symbols}%\metro@navigation
+  \end{beamercolorbox}}%
+  \vskip0pt % what's that for?
+}
+
+\newcommand{\metro@navigation}{% this uses the commands defined in beamerbasenavigation.sty
+	\ifmetronav
+	\begin{tikzpicture}[MetroGreen, framed, draw=MetroGreen, very thick, arrows=-{Straight Barb[length=3pt]}]
+	\draw circle[radius=.25];
+		\draw (.18,0) -- (-.18,0);
+    	\node[rectangle]{\hyperlinkframeendprev{\phantom{\rule{.5cm}{.5cm}}}};
+    \draw (.7,0) circle[radius=.25];
+    	\filldraw (.62,.08) circle[radius=.05]
+				  (.78,.08) circle[radius=.05]
+				  (.62,-.08) circle[radius=.05]
+				  (.78,-.08) circle[radius=.05];
+		\node[rectangle] at (.7,0) {\hyperlinkpresentationstart{\phantom{\rule{.5cm}{.5cm}}}};
+    \draw (1.4,0) circle[radius=.25];
+  		\draw (1.22,0) -- (1.58,0);
+  		\node[rectangle] at (1.4,0) {\hyperlinkframestartnext{\phantom{\rule{.5cm}{.5cm}}}};
+    \draw (2.1,0) circle[radius=.25];
+    	\node[cross out, draw] at (2.1,0){};
+    	\node[rectangle] at (2.1,0){\Acrobatmenu{FullScreen}{\phantom{\rule{.5cm}{.5cm}}}};
+	\end{tikzpicture}
+	\fi
+}
+
+\setbeamertemplate{title page}{%
+	\begin{textblock*}{12cm}(1cm,3cm)
+    \begin{beamercolorbox}[wd=11cm, dp=0.4cm, ht=1.8cm, leftskip=0.1cm]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\inserttitle%
+    \end{beamercolorbox}%
+    \end{textblock*}
+    \begin{textblock*}{12cm}(1cm,5.5cm)
+		\begin{beamercolorbox}[leftskip=0.1cm]{subtitle}
+	      %\usebeamerfont{subtitle}\insertsubtitle\newline
+		  \usebeamerfont{author}\insertauthor\newline
+		  \usebeamerfont{date}\insertdate
+	    \end{beamercolorbox}
+    \end{textblock*}
+}
+
+\setbeamertemplate{frametitle}{
+\vspace*{0.3cm}
+\begin{beamercolorbox}[wd=\textwidth, dp=0.3cm, ht=0.9cm, leftskip=0.2cm]{frametitle}
+      \usebeamerfont{frametitle}\insertframetitle%
+\end{beamercolorbox}
+}
+
+\setbeamertemplate{block begin}{
+	\vskip\baselineskip
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.5cm, dp=0.2cm, leftskip=0.2cm, rightskip=0.2cm]{block title}%
+		\usebeamerfont*{block title}{\rule[-0.4ex]{0mm}{2ex}\textbf{\insertblocktitle}}%
+	\end{beamercolorbox}%
+	{\nointerlineskip\vskip-0.5pt}%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[wd=\textwidth, leftskip=0.2cm, rightskip=0.2cm, dp=0.2cm]{block body}%
+    \vskip-.75ex\vbox{}%
+}
+\setbeamertemplate{block end}{
+	\end{beamercolorbox}
+	\vspace*{.25cm}
+}
+
+\setbeamertemplate{block example begin}{
+	\vskip\baselineskip
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.5cm, dp=0.2cm, leftskip=0.2cm]{block title example}%
+		\usebeamerfont*{block title example}{\rule[-0.4ex]{0mm}{2ex}\textbf{\insertblocktitle}}%
+	\end{beamercolorbox}%
+	{\nointerlineskip\vskip-0.5pt}%
+	\usebeamerfont{block body example}%
+	\begin{beamercolorbox}[wd=\textwidth, leftskip=0.2cm, dp=0.2cm, rightskip=0.2cm]{block body example}%
+    \vskip-.75ex\vbox{}%
+}
+\setbeamertemplate{block example end}{
+    \end{beamercolorbox}
+    \vspace*{.25cm}
+}</code>
+</pre>
+
+	<div style = "text-align:center; width:100%;">
+		<a title = "TeX Files" href = "index.html" class = "nav" style = "margin-right:24pt;"><< Back</a>
+		<a title = "Home" href = "../index.html" class = "nav">Home</a>
+	</div>
+</body>
+</html>

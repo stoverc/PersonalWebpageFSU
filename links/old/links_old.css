@@ -1,0 +1,120 @@
+/*==================================================================*/
+/*                           Main Div
+/*==================================================================*/
+.links {
+	height:auto;
+	/* line-height: 20pt;*/
+	margin-left:18pt;
+	position:relative;
+	text-align:left;
+	width:66.6%;
+}
+/*==================================================================*/
+/*                        General Links (w/ "|")
+/*==================================================================*/
+.links a {
+	color:rgb(0,84,255); /* #FF0000; */
+	font-size: 12pt;
+	margin-right: 4pt;
+	text-decoration:none;
+	white-space: nowrap;
+}
+
+.links a:hover {
+	text-decoration:underline;
+}
+
+.links a::after {
+	color: #000000;
+	content: "|";
+	font-size: 12pt;
+	padding-left: 6pt;
+}
+
+.links a:hover::after, a:hover::before {
+	display:inline-block;
+	text-decoration:none;
+}
+/*==================================================================*/
+/*                        End Links (no "|")
+/*==================================================================*/
+.links a.end::after {
+	content:"";
+	display:block;
+	margin-bottom:1.5pt;
+}
+/*==================================================================*/
+/*                        Parens Links (no "|")
+/*==================================================================*/
+.links a.parens::after {
+	content: "";
+	display:inline-block;
+	margin-right:-9pt;
+}
+/*==================================================================*/
+/*                          Misc Elements
+/*==================================================================*/
+.links h1 {
+	line-height:28pt;
+	margin: 9pt 0pt 0pt -18pt;
+}
+.links .inner {
+	display:block;
+	position:static;
+	width:100%;
+}
+div > div.information {
+	cursor:default;
+	display:inline;
+}
+
+div > div.popup_information {
+	position: absolute;
+	visibility: hidden;
+}
+
+div > div.information:hover + div.popup_information,
+	div > div.popup_information:hover {
+	background-color: #888888;
+	border:1px solid black;
+	display: block;
+	height: auto;
+	left: 50%;
+	padding: 2pt 5pt 2pt 5pt;
+	text-align:left;
+	top: 50px;
+	visibility: visible;
+	width: 40%;
+	z-index: 200;
+}
+
+.bold_white {
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+.normal_white {
+	color:#FFFFFF;
+	font-weight:normal;
+	font-size:10pt;
+}
+
+/* Small links */
+span.small {
+	color: rgb(0,84,255);
+	font-size: 9pt;
+	text-decoration:none;
+}
+
+span.small:hover {
+	color: #FFFFFF;
+	background-color: rgb(0,84,255);
+}
+
+span.subdiv {
+	display:block; 
+	font-variant:small-caps; 
+	font-weight:bold; 
+	margin: 0 0 0 -12pt; 
+	text-align:left;
+}

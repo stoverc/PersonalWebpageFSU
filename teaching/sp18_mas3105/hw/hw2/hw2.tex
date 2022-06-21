@@ -1,0 +1,104 @@
+\documentclass[12 pt]{article}
+
+\input{../hwHeader}
+
+\begin{document}
+\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{MAS 3105 --- Homework 2}}
+\end{center}
+\textbf{Directions:} Complete the following problems for a homework grade, being sure to adhere to the \ul{Homework Policy} on the \ul{Homework} tab of the course webpage
+\begin{center}
+	 \url{http://www.math.fsu.edu/~cstover/teaching/sp18_mas3105/}.
+\end{center}
+\textbf{Date Due:} Thursday, March 1.
+\vspace{0.125in}
+\begin{enumerate}[leftmargin=0in, rightmargin=-0.25in]
+%	%========Slack==============
+	\item Go to the \textbf{\#springbreak} channel in our course's \textsc{Slack} room (see course homepage for the URL) and say something about spring break. Do you like it? Do you not like it? Are you going somewhere? What do you plan to do? Tell us things! \hspace{6mm}\note{Yes, you will get graded for this question. \smiley}
+	
+	\vspace{-0.375in}
+	
+	\item For each of the transformations $T$ in (a)---(i),
+	\begin{enumerate}[label=(\roman*),leftmargin=0.5in,itemsep=1.5mm]
+		\item determine whether $T$ is linear;
+		\item find the domain, the codomain, and the range; 
+		\item compute $T(\vect{e}_1),\ldots,T(\vect{e}_n)$ where $\vect{e}_1,\ldots,\vect{e}_n$ are the columns of the $n\times n$ identity matrix $I_n$;
+		\item find the canonical matrix $\sansA$ corresponding to $T$, if it exists;
+		\item determine if $T$ is one-to-one/injective; and
+		\item determine if $T$ is onto/surjective.
+	\end{enumerate}
+	Assume that $w$, $x$, $y$, and $z$ are real numbers. 
+	\begin{adjustwidth}{1in}{1in}
+		\begin{multicols}{2}
+			\begin{enumerate}[itemsep=2mm]
+				\item $T:\pmat{x \\ y}\MapsTo\pmat{y \\ x}$ \vspace{6mm}
+				\item $T:\pmat{x \\ y}\MapsTo\pmat{x \\ x}$ \vspace{6mm}
+				\item $T:\pmat{x \\ y}\MapsTo\pmat{x+y \\ x}$ \vspace{6mm}
+				\item $T:\pmat{x \\ y}\MapsTo\pmat{0 \\ y}$ \vspace{6mm}
+				\item $T:\pmat{x \\ y \\ z}\MapsTo\pmat{x \\ y}$ 
+				\columnbreak
+				\item $T:\pmat{x \\ y \\ z}\MapsTo\pmat{x \\ y \\ 0}$
+				\item $T:\pmat{x \\ y \\ z}\MapsTo\pmat{x \\ y \\ z \\ 0}$
+				\item $T:\pmat{w \\ x \\ y \\ z}\MapsTo\pmat{w \\ x \\ y \\ z}$
+				\item $T:\pmat{w \\ x \\ y \\ z}\MapsTo\pmat{w + x + y + z}$
+			\end{enumerate}
+		\end{multicols}
+	\end{adjustwidth}
+
+	\newpage
+	
+	\item Let $S$ and $T$ be the linear transformations indicated below. Find the canonical matrix corresponding to the composition $T\circ S$.
+	\begin{enumerate}
+		\item $S:\pmat{x_1 \\ x_2}\MapsTo\pmat{x_2 \\ x_1}$; 
+		$T:\pmat{y_1 \\ y_2}\MapsTo\pmat{y_2 \\ y_1}$
+		\item $S:\pmat{x_1 \\ x_2 \\ x_3}\MapsTo\pmat{x_2 \\ x_3}$; 
+		$T:\pmat{y_1 \\ y_2}\MapsTo\pmat{y_1 \\ y_2 \\ y_1 + 2y_2}$
+		\item $S:\pmat{x_1 \\ x_2 \\ x_3}\MapsTo\pmat{x_1-x_2 \\ x_2-x_3 \\ x_1+x_2+x_3 \\ x_1}$; 
+		$T:\pmat{y_1 \\ y_2 \\ y_3 \\ y_4}\MapsTo\pmat{y_1 \\ y_2-y_3-y_4}$
+	\end{enumerate}
+	
+	\item For each of the following matrices, 
+	\begin{enumerate}[label=(\roman*),leftmargin=0.5in,itemsep=1.5mm]
+		\item find $\sansA^3$ or state that it doesn't exist, 
+		\item find $\sansA^\sansT$, 
+		\item find $\det(\sansA)$, and 
+		\item find $\sansA^{-1}$ or state that it doesn't exist.
+	\end{enumerate}
+	 \justifys
+	 %\setlength\multicolsep{0in}
+	 \setlength\columnsep{-10mm}
+	 \begin{adjustwidth}{1in}{1in}
+		 \begin{multicols}{2}
+		 	\begin{enumerate}[topsep=3mm,itemsep=4.5mm]
+		 		\item $\sansA=\pmat{1 & 2 & 3 \\ 4 & 5 & 6}$
+		 		\item $\sansA=\pmat{1 & 2 \\ 3 & 4 \\ 5 & 6}$
+		 		\item $\sansA=\pmat{1 & 0 \\ 0 & 1}$
+		 		\item $\sansA=\pmat{1 & 0 \\ 0 & 0}$
+		 		\item $\sansA=\pmat{1 & 2 \\ 3 & 4}$ 
+		 		\item $\sansA=\pmat{2 & 1 \\ 1 & 1}$
+		 		\item $\sansA=\pmat{1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 6}$
+		 		\item $\sansA=\pmat{1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 11}$
+		 		\item $\sansA=\pmat{1 & -1 & 1 & 2 \\ 1 & 4 & 4 & -2 \\ -2 & 0 & 1 & 3 \\ 3 & 2 & 1 & -5}$
+		 	\end{enumerate}
+		 \end{multicols}
+	\end{adjustwidth}
+
+	\item Let $\sansA=\pmat{1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9}$. Write \textbf{true} or \textbf{false} for each of the following statements about $\sansA$. 
+	
+	\hintbf{You may not need to work super-hard for most of these!}
+	\begin{enumerate}[topsep=3mm,itemsep=14mm]
+		\item $\sansA\vect{x}=\vect{0}$ has non-trivial solutions.
+		\item The RREF of $\sansA$ is equal to the $3\times3$ identity matrix $I_3$.
+		\item The columns of $\sansA$ form a linearly dependent set.
+		\item The transformation $\vect{x}\mapsto\sansA\vect{x}$ is one-to-one.
+		\item The transformation $\vect{x}\mapsto\sansA\vect{x}$ is onto.
+		\item The columns of $\sansA$ span $\Reals^3$.
+		\item The range of the transformation $\vect{x}\mapsto\sansA\vect{x}$ equals its codomain.
+		\item The matrix $\sansA^{-1}$ exists.
+		\item $\det(\sansA)=7$.
+		\item There exists some $\vect{b}\in\Reals^3$ for which $\sansA\vect{x}=\vect{b}$ \ul{doesn't} have a solution.
+		\item $\sansA^\sansT$ is invertible.
+	\end{enumerate}
+\end{enumerate}
+\end{document}

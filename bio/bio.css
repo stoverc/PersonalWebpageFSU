@@ -1,0 +1,162 @@
+/*
+body {
+	background-attachment:fixed;
+	background-image:url('../img/fibdod3_small.png');
+	background-position:60% 100%;
+	background-repeat:no-repeat;
+	background-size:auto auto;
+}
+*/
+/*==================================================================*/
+/*                          Page Divs
+/*==================================================================*/
+* {
+	font-family:times;
+}
+
+#page_background {
+	background-image:url('../img/fibdod3.png');
+	background-position:center;
+	background-repeat:no-repeat;
+	bottom:-100px; 
+	height:488px;
+	position:fixed;
+	width:100%;
+}
+
+#header {
+	background-image:url('../img/math_banner.jpg'); 
+	background-size:100% 100%; 
+	border:1px solid black; 
+	height: 140px; 
+	margin: 0 auto 0 auto; 
+	position:relative; 
+	width:700px;
+}
+
+.header_label_box {
+	background-color:rgba(140,140,0,0.6); 
+	color: white; 
+	display:table; 
+	font-size:48px; 
+	height:60px; 
+	margin: 40px 0px 40px 0px; 
+	padding-left:5px; 
+	position:absolute; 
+	width:360px; 
+}
+
+.box_heading {
+	display:block; 
+	font-family: 'Poiret One', cursive; 
+	font-size: 24pt; 
+	margin-bottom:6px;
+	text-align:right;
+}
+
+.main_boxes {
+	background-color: rgba(120,234,255,0.65);
+	border: 1px solid black; 
+	font-size:10.5pt; 
+	padding:0 12px 0 12px; 
+	position:absolute; 
+	text-align:center; 
+	z-index:100;
+}
+
+.scroll_box {
+	border:1px solid rgba(121,161,200,0.6);
+	height:145px; 
+	margin-left:-7.5px;
+	margin-top:-5px;
+	overflow-y:scroll; 
+	overflow-x:hidden;
+	padding:3px 0 0 3px;
+	text-align:left; 
+	width:104%;
+}
+
+.three_col_box {
+	border-left: 1px solid rgba(121,161,200,1);
+	float:left;
+	height:108px; 
+	width:130px;
+}
+
+/*==================================================================*/
+/*                         Link Elements
+/*==================================================================*/
+/* "Normal" links, i.e. links which look like inline text */
+a {
+	white-space:nowrap;
+}
+
+a.normal {
+	border-bottom: 1px dotted rgba(150,150,150,0.7);
+	line-height:16px;
+	/* ==== */
+	color: #000000;
+	text-decoration: none;
+}
+
+a.normal:hover {
+	border-bottom: 1px dotted rgba(150,150,150,0);
+	/* ==== */
+	background-color: #FFFFFF;
+	color:rgb(0,84,255);
+	text-decoration: none;
+}
+
+/* Additional formatting for the three-column section links */
+.three_col_box a {
+	border-bottom: 1px dotted rgba(150,150,150,0);
+	/* ==== */
+	display:block;
+	padding-bottom:2.25px;
+	padding-top:2.25px;
+}
+
+/*==================================================================*/
+/*                          Span Styles
+/*==================================================================*/
+.main_heading {
+	display: table-cell; 
+	font-family: 'Poiret One', cursive; 
+	padding-left: 6px; 
+	vertical-align: middle;
+}
+
+.scroll_box span {
+	display:block;
+	margin:0 0 4px 10px;
+	padding:0 15px 0 3px; /* be sure to include 5px on right for scroll width */
+	text-align:justify;
+	text-indent:-12px;
+}
+.scroll_box span::before {
+	content:"\2022";
+	margin-right:6px;
+}
+
+/*==================================================================*/
+/*                         Date Updated
+/*==================================================================*/
+#date_updated {
+	bottom:0;
+	font-size:10pt;
+	font-style:italic;
+	font-weight: normal;
+	height: auto;
+	margin-right:6pt;
+	position:absolute;
+	right:0%;
+	text-align:center;
+	width:auto;
+	z-index:40;
+}
+
+#date_updated img {
+	border-style: none;
+	width: 66px;
+	height: 24px;
+}

@@ -1,0 +1,175 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\usepackage[margin=0.75in, top=0.875in, bottom=0.875in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,url,multicol,graphicx,tikz,soul}
+%===makes urls render well===
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%============================
+\usepackage{wasysym} % smileys
+\usepackage[inline]{enumitem}
+
+%\everymath{\displaystyle}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+%\setenumerate{itemsep=0.25in}
+%\setlist[enumerate,1]{label=\arabic*., itemsep=0.5in}
+%\setlist[enumerate,2]{label={(\alph*)}, itemsep=0.8in}
+%\setlist[enumerate,2]{leftmargin=0.5in}
+\setlist[enumerate,3]{label={\roman*.}}
+\setlist[itemize,1]{label=$\circ$, itemsep=0.25in}
+
+\newcommand{\truefalse}[1]{#1\hfill\rule[-1mm]{220pt}{0.75pt}}
+\newcommand{\hint}[1]{\vspace{3mm}\textbf{Hint}: #1}
+\newcommand{\note}[1]{\textbf{Note}: #1}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\axes}[1]{\begin{center}\includegraphics[scale=#1]{3DAxes}\end{center}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\ijk}[2]{#1\vect{#2}}
+\newcommand{\pmat}[1]{\begin{pmatrix}[1.25]#1\end{pmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix}[1.25]#1\end{bmatrix}}
+
+\setlength\parskip{0.75mm}	
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{Elementary Row Operations, REF, and RREF}}
+\end{center}
+%\textbf{Directions:} Split into groups and (attempt to) answer each of the following questions with your group members. \ul{Don't worry about questions you are unable to answer!}
+
+Now that we know a little bit about matrices, we're going to learn how to use matrices to solve problems!
+
+One of the most useful things we can do to a matrix is to ``row reduce'' it. 
+
+Row reduction is a process by which a matrix is simplified into an ``equivalent'' matrix which is easier to use overall. In order to make this procedure more canonical, we'll perform our reduction using a very precise collection of operations known as \ul{elementary row operations}.
+
+Throughout, we'll refer to the matrix
+\[
+\sansM=\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1}
+\]
+for all of our examples.
+
+\subsection*{Elementary Row Operations}
+There are \textbf{three} elementary row operations that we can perform on a matrix to get a new matrix which is considered ``row equivalent'' to it:\footnote{\textbf{Definition:} Two matrices $\sansM$ and $\sansN$ are said to be \ul{row equivalent} if there is a series of elementary row operations which transforms $\sansM$ into $\sansN$ (and vice versa).} 
+
+\begin{enumerate}[itemsep=0.25in]
+	\item \ul{Interchange two rows}.
+	
+	\textbf{Example:} Interchanging rows 2 and 4 (shorthand: $\text{R2}\leftrightarrow\text{R4}$) in $\sansM$ yields the following:
+	\[
+	\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1} \xrightarrow{\text{R2}\leftrightarrow\text{R4}}
+	\pmat{4 & 1 & -2 & 0 \\ 1 & 1 & -1 & -1 \\ 0 & 1 & 3 & -1 \\ 1 & 0 & 0 & -5}
+	\]
+	
+	\item \ul{Multiply all entries in a row by a nonzero constant}. 
+	
+	\textbf{Example:} We can multiply row 1 of $\sansM$ by 3 (shorthand: $\text{R1}=3\text{R1}$) to get the following:
+	\[
+	\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1} \xrightarrow{\text{R1}=3\text{R1}}
+	\pmat{12 & 3 & -6 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1}
+	\]
+	
+	\newpage
+	
+	\item \ul{Add (or subtract) a nonzero multiple of one row to another row}.
+	
+	\textbf{Example:} Let's say we wanted to add 4 times row 2 to row 3, i.e. we leave every row the same \textit{except} row 3, and we change row 3 by adding to it 4\text{R2} (shorthand: $\text{R3}=\text{R3}+4\text{R2}$).
+	
+	We could do this all at once, but to split it into steps, we could: 
+	\begin{enumerate}[leftmargin=0.5in]
+		\item compute $4\text{R2}$, i.e. $4\cdot\langle 1,0,0,-5\rangle=\langle 4,0,0,-20\rangle$;
+		\item compute $\text{R3}$ plus $4\text{R2}$, i.e. $\langle 0,1,3,-1\rangle+\langle 4,0,0,-20\rangle=\langle 4,1,3,-21\rangle$; and
+		\item form the new matrix having the same entries as $\sansM$ in rows 1, 2, and 4, and having $\text{R3}+4\text{R2}=\langle 4,1,3,-21\rangle$ as its third row. 
+	\end{enumerate}
+
+	Hence, the result is:
+	
+	\[
+	\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1} \xrightarrow{\text{R3}=\text{R3}+4\text{R2}}
+	\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 4 & 1 & 3 & -21 \\ 1 & 1 & -1 & -1}
+	\]
+\end{enumerate}
+
+\noindent Unsurprisingly, we can perform these three elementary row operations in succession to provide additional simplification. With a little foresight, this can yield a \textit{much simpler} matrix which is row-equivalent to the matrix we started with: \vspace{3mm}
+
+\noindent\textbf{Example:}
+\[
+	\underbrace{\pmat{4 & 1 & -2 & 0 \\ 1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1}}_{\sansM}
+	\xrightarrow{\text{R1}\leftrightarrow\text{R2}}
+	\pmat{1 & 0 & 0 & -5 \\ 4 & 1 & -2 & 0 \\ 0 & 1 & 3 & -1 \\ 1 & 1 & -1 & -1}
+	\xrightarrow{\text{R2}\leftrightarrow\text{R3}}
+	\pmat{1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 4 & 1 & -2 & 0 \\ 1 & 1 & -1 & -1}
+	\xrightarrow{\text{R3}=\text{R3}-4\text{R1}}
+	\pmat{1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 0 & 1 & -2 & 20 \\ 1 & 1 & -1 & -1}
+\]
+\[
+	\xrightarrow{\text{R3}=\text{R3}-\text{R2}}
+	\pmat{1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 0 & 0 & -5 & 21 \\ 1 & 1 & -1 & -1}
+	\xrightarrow{\text{R3}=(-\frac{1}{5})\text{R3}}
+	\pmat{1 & 0 & 0 & -5 \\ 0 & 1 & 3 & -1 \\ 0 & 0 & 1 & -\frac{21}{5} \\ 1 & 1 & -1 & -1}
+	\longrightarrow\cdots
+\]
+
+\noindent Note that each of the above matrices is row-equivalent to $\sansM$.\vspace{3mm}
+
+Moving forward, one of our main goals will be to perform these three elementary row operations in succession until we get to a matrix which is in \ul{Row Echelon Form (REF)} and/or \ul{Reduced Row Echelon Form (RREF)}.
+
+\newpage
+
+\subsection*{Row Echelon Form (REF)}
+First, the definition:\vspace{3mm}
+
+\noindent\textbf{Definition:} A matrix is in \ul{row echelon form (REF)} if it satisfies the following three properties:
+\begin{enumerate}
+	\item All nonzero rows are above any rows of all zeros.
+	\item Each leading (nonzero) entry of a row is in a column to the right of the leading (nonzero) entry of the row above it.
+	\item All entries in a column below a leading (nonzero) entry are zeros.
+\end{enumerate}
+
+As a remark, note that the entries \ul{above} the leading (nonzero) entries of such a matrix \ul{may or may not equal 0}. For instance, \textbf{both} of the following matrices are in REF:
+\[
+\sansA=\pmat{\fbox{1} & 1 & 1 & 2 \\ 0 & \fbox{2} & 3 & -1 \\ 0 & 0 & 0 & 0}\quad\quad\quad
+\sansB=\pmat{\fbox{1} & 0 & 1 & 2 \\ 0 & \fbox{2} & 3 & -1 \\ 0 & 0 & 0 & 0}
+\]
+
+\noindent Note that an entry \fbox{in a box} denotes \ul{the leading nonzero entry of that particular row}.
+
+\subsection*{Reduced Row Echelon Form (RREF)}
+As it happens, \textit{neither} $\sansA$ nor $\sansB$ are in \ul{reduced row echelon form (RREF)}, because both have some mild simplifications that can be done to them.\vspace{3mm}
+
+\noindent\textbf{Definition:} A matrix is in \ul{reduced row echelon form (RREF)} if it satisfies the following three properties:
+\begin{enumerate}
+	\item It is in REF;
+	\item The leading (nonzero) entry in each row is 1.
+	\item Each leading 1 is the \ul{only} nonzero entry in its column.
+\end{enumerate}
+
+In particular, we note that $\sansA$ fails both (2) and (3): The leading nonzero entry in row2 (i.e. the (2,2)-entry) is 2, and the column containing that 2 has other nonzero entries (namely, the 1 in the (1,2)-entry). However, we can put $\sansA$ in RREF using two elementary row operations:
+\[
+\sansA=\pmat{\fbox{1} & 1 & 1 & 2 \\ 0 & \fbox{2} & 3 & -1 \\ 0 & 0 & 0 & 0}
+\xrightarrow{\text{R2}=(\frac{1}{2})\text{R2}}
+\pmat{\fbox{1} & 1 & 1 & 2 \\ 0 & \fbox{1} & \frac{3}{2} & -\frac{1}{2} \\ 0 & 0 & 0 & 0}
+\xrightarrow{\text{R1}=\text{R1}-\text{R2}}
+\underbrace{\pmat{\fbox{1} & 0 & -\frac{1}{2} & \frac{5}{2} \\ 0 & \fbox{1} & \frac{3}{2} & -\frac{1}{2} \\ 0 & 0 & 0 & 0}}_{\text{RREF}}.
+\]
+
+\noindent For $\sansB$, one elementary row operation will get it into RREF:
+\[
+\sansB=\pmat{\fbox{1} & 0 & 1 & 2 \\ 0 & \fbox{2} & 3 & -1 \\ 0 & 0 & 0 & 0}
+\xrightarrow{\text{R2}=(\frac{1}{2})\text{R2}}
+\underbrace{\pmat{\fbox{1} & 0 & 1 & 2 \\ 0 & \fbox{1} & \frac{3}{2} & -\frac{1}{2} \\ 0 & 0 & 0 & 0}}_{\text{RREF}}
+\]
+\end{document}

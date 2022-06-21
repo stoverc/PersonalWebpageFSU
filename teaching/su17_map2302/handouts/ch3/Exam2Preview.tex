@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\usepackage{changepage,soul,graphicx,graphbox,stoversymb}%,afterpage}
+\usepackage[left=0.5in,right=0.5in,bottom=1in,top=0.75in]{geometry}%,showframe=true
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amsthm}
+	\theoremstyle{definition}
+	\newtheorem{defn}{Definition}
+	
+	\newtheoremstyle{underl}{4.5mm}{4.5mm}{}{}{}{\textnormal{.}}{ }{\underline{\thmname{#1}}}
+	\theoremstyle{underl}
+	\newtheorem*{ex}{Ex}
+
+\thispagestyle{empty}
+
+\newcommand{\capt}[1]{\begin{adjustwidth}{0.5in}{0.5in}\centering\small\textit{#1}\end{adjustwidth}}
+\newcommand{\notebox}[2]
+{\begin{tcolorbox}[
+		enhanced,
+		colback=white,
+		colframe=black,
+		boxrule=0.5pt,
+		arc=0pt,
+		top=3mm,
+		bottom=3mm, 
+		grow to left by=-0.5in,
+		grow to right by=-0.5in
+	]
+	\noindent\textbf{#1}\\
+	{#2}
+\end{tcolorbox}}
+\newcommand{\hintbf}[1]{\textbf{Hint}: #1}
+
+\begin{document}
+	\section*{\centering Exam 2 Preview}
+	
+	\noindent Here's a bit of logistical info about the exam.
+	\begin{itemize}[topsep=0.125in,itemsep=0.625mm]
+		\item There will be 5--7 questions overall, and some will have multiple parts.
+		\item The exam will cover the following textbook sections: 
+		\begin{itemize}[topsep=0mm]
+			\item \S2.6 (exact ODEs) 
+			\item \S2.8 (existence/uniqueness theorem)
+			\item \S3.1, \S3.3, \S3.4 (2nd order linear homogeneous ODEs with constant coefficients)
+			\item \S3.2 (the Wronskian and fundamental systems of solutions)
+		\end{itemize}
+		\item You should expect the following question formats:
+		\begin{itemize}[topsep=0mm]
+			\item computation questions (e.g. solving ODEs from start to finish)
+			\item multiple-choice questions
+			\item True/False questions (which may or may not require justification).
+		\end{itemize}
+		The True/False questions will mostly look like those from Quiz 2 (on the existence/uniqueness theorem) and won't cover the theoretical aspects of \S3.2.
+	\end{itemize}
+	
+	\newpage
+	
+	\noindent Next, here are the explanations for the True/False questions on Quiz 2. \textbf{There will be questions which look very similar to these on Exam 2, despite not having any shown with the ``sample problems'' on the next page!}
+	\begin{enumerate}[topsep=0.125in,itemsep=0.625mm]
+		\item The IVP always has a solution if $f$ is continuous in a small rectangle containing $x_0$. \red{\ul{True}: $f$ being continuous is enough to conlcude that there's \textbf{a} solution; more is needed for the solution to be unique.}
+		\item The IVP always has a \textit{unique} solution if $f$ is continuous in a small rectangle containing $x_0$. \red{\ul{False}: $f$ being continuous is enough to conlcude that there's \textbf{a} solution; more is needed for the solution to be unique.}
+		\item The IVP always has a \textit{unique} solution if ${\partial f}/{\partial y}$ is continuous in a small rectangle containing $x_0$. \red{\ul{False}: If $f$ were also continuous, this would be true; however, we can't conclude anything about the continuity of $f$ based ont he continuity of ${\partial f}/{\partial y}$. For example: Imagine that $f$ is a function with \textbf{no $y$'s} which is \textit{also} discontinuous: Then ${\partial f}/{\partial y}=0$ is continuous everywhere but $f$ is discontinuous.}
+		\item The IVP always has a solution if $f$ and ${\partial f}/{\partial x}$ are both continuous in a small rectangle containing $x_0$. \red{\ul{True}: $f$ being continuous is enough to conlcude that there's \textbf{a} solution; more is needed for the solution to be unique.}
+		\item The IVP always has a \textit{unique} solution if $f$ and ${\partial f}/{\partial x}$ are both continuous in a small rectangle containing $x_0$. \red{\ul{False}: This looks a lot like the existence and uniqueness theorem, except \textbf{that} theorem involves ${\partial f}/{\partial y}$ being continuous, not ${\partial f}/{\partial x}$. A counterexample to this was done in class: We wrote down three solutions to the ODE $y'=y^{1/3}$ in class despite $f=y^{1/3}$ and $\partial f/\partial x=0$ are both continuous everhwhere.}
+		\item The IVP may have multiple solutions. \red{\ul{True}: The autonomous ODEs we studied in \S2.5 had multiple solutions (e.g. multiple equilibrium solutions).}
+		\item The IVP may have no solution. \red{\ul{True}: This could happen in lots of situations, but one easily-imagined one is that the initial value given can't be plugged in to the solution. For example: If I had $y'=1/x, x>0$ as an ODE, then we can separate and integrate to get $y=\ln(x)+C$ as a general solution. If we turn this into an IVP with the initial condition $y(-5)=2$, however, we'd have something that doesn't exist since we can't plug $x=-5$ into $y=\ln(x)+C$.}
+		\item \ul{If} the IVP has a unique solution, the existence and uniqueness theorem tells you that the solution is valid on an $x$-interval containing $x_0$. \red{\ul{True}: This is the only thing that theorem tells you about the solution...}
+		\item \ul{If} the IVP has a unique solution, the existence and uniqueness theorem helps you find the $x$-interval containing $x_0$ on which the solution is valid. \red{\ul{False}: ...and this is one of the many things that theorem \textbf{doesn't} tell you! Remember: The existence and uniqueness theorem tells you that if $f$ and $\partial f/\partial y$ are both contiuous in a rectangle containing $(x_0,y_0)$, then the IVP has a unique solution defined on an $x$-interval containing $x_0$; it \textbf{doesn't} tell you \textit{which} $x$-interval!}
+		\item If $f(x,y)=0$, then the IVP has a unique solution. \red{\ul{True}: Here, $f=0$ and $\partial f/\partial y=0$ are both continuous everywhere, so you can use the existence and uniqueness theorem. Alternatively, you can also solve this IVP: The general solution would be $y=C$, and using the initial value $y(x_0)=y_0$ tells you that $C=y_0$, and hence that the (unique) particular solution is the constant function $y=y_0$.}
+	\end{enumerate}
+	
+	\newpage
+	
+	\noindent Finally, here are some sample questions that you should be able to answer before the exam.
+	
+	\begin{enumerate}[topsep=0.125in,itemsep=3mm]
+		\item Solve the IVP \[\sin{y}+(x\cos{y}+3y^2)y'=-2x,\quad y(0)=\pi.\]
+		\textbf{Note:} This is the same ODE that was on both Exam 1 \textit{and} Quiz 2; the one on Exam 2 will be different, but at this point, there are still \ul{lots} of people who can't solve this one! If you \textit{can} solve this one, focus on problems 1--15 in \S2.6 as alternatives.
+		
+		\item The following ODEs are not exact. For each, find an integrating factor which makes it exact.
+		\begin{enumerate}[itemsep=3mm]
+			\item $\left(x y-\cos{y}\right)y'-4=0$
+			\item $\left(4x^2y+2xy+\frac{4}{3}y^3\right)+(x^2+y^2)y'=0$
+		\end{enumerate}
+		
+		\item For which of the following initial conditions does the IVP\vspace{-3mm} 
+		\[\left(\tan{y}\right)\dydx+\ln{x}=\ln(\ln(3 x)),\quad y(x_0)=y_0\vspace{-3mm}\]
+		have a unique solution? \textbf{There may be more than one!}
+		\vspace{0mm}
+		\begin{multicols}{3}
+			\begin{enumerate}[itemsep=3mm,leftmargin=0.5in,rightmargin=0.5in,label=\roman*.]
+				\item $y\left(\frac{1}{3}\right)=2$
+				\item $y\left(\frac{1}{6}\right)=2$
+				\item $y\left(\frac{1}{6}\right)=\frac{\pi}{2}$
+				\item $y\left(-\frac{\pi}{2}\right)=\frac{\pi}{4}$
+				\item $y\left(\frac{e}{3}\right)=0$
+				\item $y\left(\frac{e}{3}\right)=\frac{3\pi}{2}$
+				\item $y\left(\frac{\pi}{2}\right)=\frac{3e}{2}$
+				\item $y\left(-\frac{e}{3}\right)=\frac{\pi}{4}$
+				\item None of These
+			\end{enumerate}
+		\end{multicols}
+		
+		\item Solve the following IVPs.
+		\begin{enumerate}
+			\item $y''-4y'+53y=0$, $y(\pi)=\pi$, $y'(\pi)=-\pi$
+			\item $4y''-3y'-7y=0$, $y(0)=0$, $y'(0)=3$
+			\item $y''+2y'+y=0$, $y(1)=2$, $y'(1)=-1$
+		\end{enumerate} 
+		
+		\item For each of the following functions $y$, determine a second-order linear homoogeneous ODE having $y$ as a general solution. 
+		\begin{enumerate}
+			\item $y=c_1e^{2x}+c_2xe^{2x}$
+			\item $y=e^{-3x}\left(c_1\cos{2x}+c_2\sin{2x}\right)$
+			\item $y=c_1e^{-5x}+c_2e^{5x}$
+		\end{enumerate}
+		
+		\newpage
+		
+		\item Let $y_1=e^x\sin{3x}$ and $y_2=e^x\cos{3x}$.
+		\begin{enumerate}
+			\item Verify that $y_1$ and $y_2$ are solutions to the ODE $y''-2y'+10y=0$.
+			\item Find the Wronskian $W(y_1,y_2)$.
+			\item Do the functions $y_1$ and $y_2$ constitute a fundamental set of solutions for the ODE $y''-2y'+10y=0$? Why or why not?
+			\item \textbf{True or False:} There exists at least one solution $y_3$ to the ODE $y''-2y'+10y=0$ such that $y_3\neq c_1y_1+c_2y_2$ for any choice of constants $c_1$ and $c_2$. \textbf{Justify your claim!}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,802 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+		});
+	</script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+
+
+	<script>
+	  	$(document).ready(function(){
+			$("#slack").hide();
+			$("#blackboard").hide();
+			$("#webassign").hide();
+			$("#12").hide();
+			$("#13").hide();
+			$("#14").hide();
+			$("#15").hide();
+
+			$("#slack_link").click(function(event){
+				$("#slack").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+
+			$("#blackboard_link").click(function(event){
+				$("#blackboard").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+
+			$("#webassign_link").click(function(event){
+				$("#webassign").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+
+			$("#12_link").click(function(event){
+				$("#12").toggle();
+
+				$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+			});
+
+			$("#13_link").click(function(event){
+				$("#13").toggle();
+
+				$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+			});
+
+			$("#14_link").click(function(event){
+				$("#14").toggle();
+
+				$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+			});
+
+			$("#15_link").click(function(event){
+				$("#15").toggle();
+
+				$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+			});
+
+			$("#16_link").click(function(event){
+				$("#16").toggle();
+
+				$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+			});
+		});
+
+		jQuery(document).ready(function() {
+        jQuery('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+     
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+     
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+     
+            e.preventDefault();
+        });
+    });
+	</script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-89104671-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<base target="_blank">
+</head>
+<body>
+	<div id = "breadcrumbs">&nbsp;&nbsp;<a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching</a>&nbsp;&nbsp;>&nbsp;&nbsp;</div>
+	<h1>
+		Calculus III (MAC 2313) &mdash; Spring 2017
+	</h1>
+	
+	<!-- &#8592; -->
+	<!--<div style = "position:absolute; right: 1%; top: 0;"><a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a> | <a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching Page</a></div>-->
+
+	<div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#tab1">General Info</a></li>
+            <!--<li><a href="#tab2">Announcements</a></li>-->
+            <li><a href="#tab3">Course Calendar</a></li>
+            <li><a href="#tab4">Homework</a></li>
+            <li><a href="#tab5">Handouts</a></li>
+            <li><a href="#tab6">Lecture Notes &amp; Suggested Exercises</a></li>
+            <li><a href="#tab7">Links, etc.</a></li>
+        </ul>
+
+    <div class="tab-content">
+	    <div id = "tab1" class = "tab active">
+	    	<div id = "updated">
+				<script>
+					document.writeln ("Last Updated " + document.lastModified);
+				</script>
+			</div>
+
+			<table class = "gen">
+				<tr>
+					<td><b>Instructor:</b> Christopher Stover (<a href = "../../">webpage</a>)</td>
+					<td rowspan = 10 width = 65%>
+						<img src = "img/calc3smol.png" width = 55%>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Email:</b> cstover (at) math (dot) fsu (dot) edu</td>
+				</tr>
+				<tr>
+					<td><b>Office:</b> MCH 402F</td>
+				</tr>
+				<tr>
+					<td><b>Office Hours:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent"> Wednesdays &nbsp;&dash;&nbsp;12:00pm to 1:30pm;</td>
+				</tr>
+				<tr>
+					<td class = "indent">Fridays&nbsp;&dash;&nbsp;1:30pm to 3:00pm;</td>
+				</tr>
+				<tr>
+					<td class = "indent">or <i>by apponitment</i> (!!!)</td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Meeting Location:</b> 106 LOV</td>
+				</tr>
+				<tr>
+					<td><b>Meeting Times:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent"> Mondays &amp; Wednesdays&nbsp;&dash;&nbsp;5:15pm to 6:05pm</td>
+				</tr>
+				<tr>
+					<td class = "indent">Tuesdays &amp; Thursdays&nbsp;&dash;&nbsp;5:15pm to 6:30pm</td>
+				</tr>
+				<tr>
+					<td><b>Final Exam:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent"> Wednesday, May 3, 5:30pm to 7:30pm</td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Syllabus:</b> <a href = "Basic Documents/Syllabus/syl.pdf">.pdf</a></td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Required Text:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent" colspan = 2><span class = "italic">Calculus: Early Transcendentals</span>, 7th Edition, by James Stewart. (<a href = "https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/0538497904/">Amazon</a>)</td>
+				</tr>
+				</table>
+
+				<table class = "gen">
+				<tr>
+					<td><b>Supplementary Resources:</b>
+					<ul>
+						<li><span class = "item_head">Slack</span> <span id = "slack_link">Show Details</span>
+							<div id = "slack">
+								<p>Slack is an organization-centered chat tool that allows largescale collaboration, discussion, and interaction. Think of it as a chat room on steroids!</p>
+
+								<p>While I'll always be available (unless otherwise noted) during office hours and via email, Slack will allow evveryone the opportunity to chat with me + other classmates, both in real-time and asynchronously. It's an extremely valuable resource!</p>
+
+								<p>Slack can be used directly from any Internet browser. Our class's room info is:
+								<ul>
+									<li> <u>Team Name</u>: Spring 2017 - Calc 3</li>
+									<li> <u>Team URL</u>: <a href = "https://spring2017-calc3.slack.com/">https://spring2017-calc3.slack.com/</a></li>
+								</ul></p>
+
+								<p>To get started, you should:
+								<ol>
+									<li>Navigate to the <a href = "https://spring2017-calc3.slack.com/">signup page</a></li>
+									<li>Enter your <pre>my.fsu.edu</pre> email address; <u>make sure you're able to check the email address you enter or else you'll miss any confirmation emails, etc.</u></li>
+									<li><b>When you choose a username, please choose one that I'll be able to recognize!</b> Sometimes, assignments include (graded) <pre>Slack</pre> components, and you probably don't want to miss out on a grade because I don't recognize you as <i>duckface_brah_doo_1993_lululz</i> or something similar!</li>
+									<li>Feel free to email me at any time if you have trouble signing up.</li>
+								</ol></p>
+
+								<p><b>Note:</b> Slack can be used directly from any Internet browser with no installation needed. However, you can <i>also</i> install it on any computer, phone, tablet, etc., so that you have access to our course chat at all times. For more information about installing Slack, see: <a href = "https://slack.com/downloads">https://slack.com/downloads</a>.</p>
+							</div>
+						</li>
+
+						<li><span class = "item_head">Blackboard</span> <span id = "blackboard_link">Show Details</span>
+							<div id = "blackboard">
+								<p>I'll make use of Blackboard for announcements, sharing of documents, and gradebook maintenance. My goal is to keep this webpage synced up with all of that data <b>except</b> the gradebook, however, so by and large, you likely <i>won't</i> need to check both this site and the Blackboard page.</p>
+
+								<p>As of now, you should all be added to the Blackboard site automatically. If you're not sure how to find it, you should:
+								<ol>
+									<li>Navigate to <a href = "http://my.fsu.edu">MyFSU</a>.</li>
+									<li>Sign in with your FSU username and password.</li>
+									<li>Click on the BlackBoard icon <img src = "img/BB_BRAND_sm.png" width = "15px" style = "border: 1px solid black; vertical-align:text-bottom;"> in the left column.</li>
+									<li>Locate course number <pre>MAC2313-0009</pre> under <u>FSU Class Schedule</u>.</li>
+								</ol></p>
+							</div>
+						</li>
+
+						<li><span class = "item_head">Web Assign</span> <span id = "webassign_link">Show Details</span>
+							<div id = "webassign">
+								<p>WebAssign is an online homework and grading system used in various courses at FSU. It contains problem sets for which students can receive immediate feedback as well as an online copy of the textbook.</p>
+
+								<p>For our class, the WebAssign problem sets will be <b>additional practice</b> which <b>will not</b> be directly factored into the homework/quiz portion of your final grade. However, you should note that:
+								<ul>
+									<li>Doing lots of problems is a proven way to succeed in math courses, and WebAssign will provide that opportunity along with instant feedback.</li>
+									<li>WebAssign will be a convenient tool for <i>me</i> to use to pick problems to put on homework/quizzes/exams. For that reason, the more problems <i>you</i> do on WebAssign, the more familiar you'll be with stuff I'm likely to give you later.</li>
+								</ul></p>
+
+								<p>You can access WebAssign directly from our Blackboard site:
+									<center><img class = "block" src = "img/WebAssign.png"></center>
+								Alternatively, you can log in directly from the <a href = "https://www.webassign.net/login.html">WebAssign login page</a> using your <b>username</b> (presumably, your <pre>my.fsu.edu</pre> user name), our <b>institution code</b> (<pre>fsu</pre>), and your <b>password</b> (<i>whatever you chose for that</i>). <u>If you forget your password, you can reset it here</u>: <a href = "https://www.webassign.net/login.html?password=forgot">WebAssign Password Reset</a>.</p>
+							</div>
+						</li>
+					</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab3" class = "tab" style = "align: center; text-align:center;">
+			<table class = "misc cal">
+				<tr>
+					<td><i>Below is a calendar highlighting the important dates for our class this semester. To access it from a web browser and/or to import it into your personal apps, use the HTML and/or iCal link(s):</i>&nbsp;&nbsp;&nbsp;<a href = "https://calendar.google.com/calendar/embed?src=592mhrq3nik3nggkssulo2mk6k%40group.calendar.google.com&ctz=America/New_York">HTML Link</a>&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;<a href = "https://calendar.google.com/calendar/ical/592mhrq3nik3nggkssulo2mk6k%40group.calendar.google.com/public/basic.ics">iCal Link</a>
+					</td>
+				</tr>
+			</table>
+			<hr width = 75%>
+			<iframe src="https://calendar.google.com/calendar/embed?title=Spring%202017%20-%20Calc%203&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=592mhrq3nik3nggkssulo2mk6k%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=America%2FNew_York" style="border-width:0" width="900" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+
+		<div id = "tab4" class = "tab">
+			<table class = "misc hw">
+				<tr>
+					<td><b>Homework 2:</b> <a href = "hw2/hw2.pdf">Handout</a>&nbsp;&nbsp;&nbsp;<a href = "hw2/hw2soln.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Homework 1:</b> <a href = "hw1/hw1.pdf">Handout</a>&nbsp;&nbsp;&nbsp;<a href = "hw1/hw1soln.pdf">Solutions</a>
+						<p><u>Corrections:</u></p>
+						<p><b>5(g)</b>: Here, $\mathbf{w}$ is <i>another</i> arbitrary vector in $\mathbb{R}^3$ which should have been included in the directions. To proceed, let $\mathbf{w}=\langle w_1,w_2,w_3\rangle$ and complete the proof of the identity.</p>
+						<p><b>6(g)</b>: For some reason, I wrote the equation of a plane rather than the equation of the line I actually asked about! Hah!</p>
+						<p>The line in question is parallel to the cross product of $\vec{PQ}\times\vec{PR}=\langle -1, -1, -1\rangle$ and contains the point $P(0,1,0)$, which means we have $x=0-t$, $y=1-t$, and $z=0-t$, i.e. $x=-t$, $y=1-t$, and $z=-t$.</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab5" class = "tab">
+			<span class = "item_head">Final Exam Info</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Logistical Info about the Final:</b> <a href = "handouts/FinalInfo.pdf">.pdf</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Vector Calculus</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>16.7&ndash;16.9 Review Problems:</b> <a href = "handouts/vect_calc/ReviewProblems.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/vect_calc/ReviewProblemsAns.pdf">Solutions</a>
+
+					<p><u>Corrections:</u></p>
+					<p><b>2(ii)</b>: In the solutions, I incorrectly wrote the parametrization $\mathbf{r}(x,y)$ with bounds $0\leq x\leq 2$ and $0\leq y\leq 2$. Given that $z$ is a graph (namely, $z=2-x-y$), these bounds imply that the projection to the $xy$-plane would be the $2\times 2$ square. This is clearly incorrect.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead, when we project that triangle to the $xy$-plane, we get the line $y=2-x$ (by solving $z=2-x-y$ when $z=0$). This means that the correct parametrization is the same vector $\mathbf{r}$ with one of the following bounds: Either $0\leq y\leq 2-x\text{ and }0\leq x\leq 2$ <i>or</i> $0\leq x\leq 2-y\text{ and }0\leq y\leq 2$. As a result: <b>The correct answer is $-8$</b>.
+					<p><b>3(b)</b>: In the solutions, I said highlighted the vector $\langle -1,-1,-1\rangle$ (inside the integral) and said "...plugging $\mathbf{r}$ into $\mathbf{F}$ doesn't change $\mathbf{F}$." That should say: "...plugging $\mathbf{r}$ into $\operatorname{curl}(\mathbf{F})$ doesn't change $\operatorname{curl}(\mathbf{F})$," and this is true because $\operatorname{curl}(\mathbf{F})=\langle -1,-1,-1\rangle$ is a constant vector. For example, if $f(x)=3$, then plugging $x=7$ into $f$ still yields $f(7)=3$; similarly here, $\operatorname{curl}(\mathbf{F})=\langle -1,-1,-1\rangle$ implies that $(\operatorname{curl}(\mathbf{F}))(\text{anything})=\langle-1,-1,-1\rangle$ because there are no variables to plug $\text{anything}$ into.</td>
+				</tr>
+				<!--
+				<tr>
+					<td><b>Concepts Review:</b> <span class = "deadlink">.pdf coming soon</span></td>
+				</tr>
+				-->
+			</table>
+
+			<span class = "item_head">Multiple Integrals</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Exam Review:</b> <a href = "handouts/multiple_integrals/ExamReview.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/multiple_integrals/ExamReviewAns.pdf">Solutions</a> (note: this is a 3.4 MB scan, i.e. ~25x larger than the other answer keys!)
+
+					<p><u>Corrections:</u></p>
+					<p><b>3(c)</b>: The $\theta$ range should be: $\frac{\pi}{4}\leq\theta\leq\frac{3\pi}{4}$.</p>
+					<p><b>5(b)</b>: If you try to follow the <i>kind of but not really cylindrical</i> note on the answer key, there's a typo: The innermost integral should be $\int_{-1}^{4-r\sin{\theta}}$ rather than $\int_{-1}^{4-r\cos{\theta}}$. Both give $20\pi$ as answers.</p>
+					</td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Multivariable Functions</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>A Q&amp;A Guide to Concepts You Need to Know:</b> <a href = "handouts/multivar_functions/ConceptsReview.pdf">.pdf</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Vector-Valued Functions</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Exam Review:</b> <a href = "handouts/vector_functions/ExamReview.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/vector_functions/ExamReviewAns.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Formulas:</b> <a href = "handouts/vector_functions/Formulae.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>Stuff You Need to Know from Calculus!:</b> <a href = "handouts/vector_functions/CalculusReview.pdf">.pdf</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Vectors</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Cross Products:</b> <a href = "handouts/vectors/CrossProducts.pdf">.pdf</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Exams</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Exam 4:</b> <a href = "exams/Exam4.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "exams/Exam4Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 3:</b> <a href = "exams/Exam3.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "exams/Exam3Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 2:</b> <a href = "exams/Exam2.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "exams/Exam2Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 1:</b> <a href = "exams/Exam1.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "exams/Exam1Ans.pdf">Solutions</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Quizzes</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Quiz 5:</b> <a href = "quizzes/Quiz5.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "quizzes/Quiz5Soln.pdf">Solutions</a>
+
+					<p><u>Corrections:</u></p>
+					<p><b>2</b>: The answer I wrote should be <u>multiplied by 2</u> to get the right answer. Here's why:</p>
+
+					<p>Recall that $\iint_Df(x,y)dA$ gives the volume of the solid bounded between the region $D$ (in the $xy$-plane) and the function $f(x,y)$.</p>
+
+					<p>However, you're asked to find the volume of a region that is half above the $xy$-plane and half below it (the $xy$-plane is in green):<br>
+						<img src = "img/EllipsoidVolume.png" height = 50%><br>
+					As such, the volume I've written here is for the top-half, and to get the <i>total</i> volume, we have to multiply by 2.</p>
+
+					<p><b>5</b>: This isn't entirely correct; there are two different ways to fix it.</p>
+					<ul>
+						<li>In the problem, use the plane $z=0$ instead of $z=1$; or</li>
+						<li>change the region $D$ so that $1/\sqrt{3}\leq r\leq 1$.</li>
+					</ul>
+					<p>I'll try to get a properly drawn/answered version posted here soon; sorry for not catching this sooner!</p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Quiz 4:</b> <a href = "quizzes/Quiz4.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "quizzes/Quiz4Soln.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Quiz 3:</b> <a href = "quizzes/Quiz3.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "quizzes/Quiz3Soln.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Quiz 2:</b> <a href = "quizzes/Quiz2.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "quizzes/Quiz2Soln.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Quiz 1:</b> <a href = "quizzes/Quiz1.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "quizzes/Quiz1Soln.pdf">Solutions</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Miscellaneous Handouts:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>First-Day Handout:</b> <a href = "Basic Documents/First Day Handout/First Day Project.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>My Schedule:</b> <a href = "Spring2017.pdf">.pdf</a></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab6" class = "tab">
+			<div class = "sec_head">
+				<span class = "chap_head">Chapter 16</span> <span id = "16_link" class = "chap_link">Hide</span>
+			</div>
+			<table id = "16" class = "misc notes">
+				<tr>
+					<td><b>Section 16.9:</b> <a href = "notes/16.9.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-15)(!!!); 17-18; (23-32)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.8:</b> <a href = "notes/16.8.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-10, 13-15)(!!!); (16-20)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.7:</b> <a href = "notes/16.7.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(5-32)(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.6:</b> <a href = "notes/16.6.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">3-6, 13-26; (33-36, 39-50)(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.5:</b> <a href = "notes/16.5.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-8, 12, 13-18, 23-29)(!!!); 19-22, 30-32; (33-39)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.4:</b> <a href = "notes/16.4.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-14)(!!!); 17-18; (21-31)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.3:</b> <a href = "notes/16.3.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(3-10, 12-20, 31-34)(!!!); 23-24, 28-30</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.2:</b> <a href = "notes/16.2.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-16, 19-22)(!!!); 17-18, 29(a), 30(a), 32(a); (33-50)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 16.1:</b> <a href = "notes/16.1.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-18, 29-32; (21-26)(!!!)</span>
+					</td>
+				</tr>
+			</table>
+
+			<div class = "sec_head">
+				<span class = "chap_head">Chapter 15</span> <span id = "15_link" class = "chap_link">Show</span>
+			</div>
+			<table id = "15" class = "misc notes">
+				<tr>
+					<td><b>Section 15.10:</b> <a href = "notes/15.10.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "deadlink">coming soon</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.9:</b> <a href = "notes/15.9.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "deadlink">coming soon</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.8:</b> <a href = "notes/15.8.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-12, 15-16; (17-26, 29-30)(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.7:</b> <a href = "notes/15.7.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-2, 19-22, 27-28, 55; (3-22, 29-36)(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.6:</b> <a href = "notes/15.6.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-12)(!!!); (17-24)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.5:</b> <span class = "deadlink">We skipped this section</span></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "deadlink">No problems</span></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.4:</b> <a href = "notes/15.4.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-14, 19-27, 29-32)(!!!); 15-18, 33-34; (37-41)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.3:</b> <a href = "notes/15.3.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-16, 43-54; (17-32odd)(!!!); (55-58, 63-67)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.2:</b> <a href = "notes/15.2.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-14, 25-31; (15-22)(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 15.1:</b> <a href = "notes/15.1.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-4; (11-13)(!!!);</span>
+					</td>
+				</tr>
+			</table>
+
+			<div class = "sec_head">
+				<span class = "chap_head">Chapter 14</span> <span id = "14_link" class = "chap_link">Show</span>
+			</div>
+			<table id = "14" class = "misc notes">
+				<tr>
+					<td><b>Section 14.8:</b> <a href = "notes/14.8.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">3-12, 15-21; (29-41)<sup>opt</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.7:</b> <a href = "notes/14.7.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-4, 5-18 odd, 29-36, 39-49 odd; (19-20, 50-56)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.6:</b> <a href = "notes/14.6.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">4-17, 19-26; (41-46)<sup>opt</sup>; (27-29, 37-40, 49-68)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.5:</b> <a href = "notes/14.5.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-14, 17-34)(!!!); (45-59)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.4:</b> <a href = "notes/14.4.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">(1-6, 11-16, 25-32)(!!!); (17-18)<sup>opt</sup>; (42-46)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.3:</b> <a href = "notes/14.3.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">15-70 odd; (1-14)<sup>opt</sup>; (71-72, 75-81, 87-89, 93-101)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.2:</b> <a href = "notes/14.2.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">5-22, 25-26, 29-38; (39-46)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 14.1:</b> <a href = "notes/14.1.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">9-33, 38-50, 65-68; 32, 59-64(!!); (69-70)<sup>*</sup></span>
+					</td>
+				</tr>
+			</table>
+
+			<div class = "sec_head">
+				<span class = "chap_head">Chapter 13</span> <span id = "13_link" class = "chap_link">Show</span>
+			</div>
+			<table id = "13" class = "misc notes">
+				<tr>
+					<td><b>Section 13.4:</b> <a href = "notes/13.4.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">3-16, 37-42(!!!)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 13.3:</b> <a href = "notes/13.3.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-6, 10-12, 17-29, 47-50; (30-31, 38-39, 43-45, 53, 55-63)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 13.2:</b> <a href = "notes/13.2.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">3-26, 29-31, 35-40; (41-56)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 13.1:</b> <a href = "notes/13.1.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-14, 27-30, 40-44; (15, 16, 21-26, 47-49)<sup>*</sup></span>
+					</td>
+				</tr>
+			</table>
+
+			<div class = "sec_head">
+				<span class = "chap_head">Chapter 12</span> <span id = "12_link" class = "chap_link">Show</span>
+			</div>
+			<table id = "12" class = "misc notes">
+				<tr>
+					<td><b>Section 12.6:</b> <a href = "notes/12.6.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">21-28(!!!); (3-8, 11-20, 29-36)<sup>opt</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 12.5:</b> <a href = "notes/12.5.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-40 odd, 48, 50, 51-74 odd; (75-82)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 12.4:</b> <a href = "notes/12.4.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-36 odd; (37, 38, 42-53)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 12.3:</b> <a href = "notes/12.3.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-44; (45-48, 61-64)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 12.2:</b> <a href = "notes/12.2.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-26; (27, 41-52)<sup>*</sup></span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 12.1:</b> <a href = "notes/12.1.pdf">Notes</a></td>
+				</tr>
+				<tr class = "prob_row">
+					<td>
+						<span class = "probs_head">Problems</span>: <span class = "probs">1-34; (35-38)<sup>*</sup></span>
+					</td>
+				</tr>
+			</table>
+			<table class = "misc notes">
+				<tr class = "blankrow">
+					<td><td>
+				</tr>
+				<tr>
+					<td><span class = "probs key">* = hard problems</span></td>
+				</tr>
+				<tr>
+					<td><span class = "probs key">(!!!) = extremely important</span></td>
+				</tr>
+				<tr>
+					<td><span class = "probs key">opt = optional</span></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab7" class = "tab">
+			<table class = "links">
+				<tr>
+					<td><b>Good supplementary resources for multiple integration:</b> <a href = "https://web.math.rochester.edu/people/faculty/edummit/docs/calc3_3_multiple_integration.pdf">Dummit</a>
+
+					<p>Dummit's notes are <i>really</i> good, especially the part on changing the order of integration in triple integrals (see the example on pp 10--12 for a really good explanation)!</p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Why $dy/dx$ is kinda sorta a fraction but not really:</b> <a href = "http://math.stackexchange.com/questions/21199/is-frac-textrmdy-textrmdx-not-a-ratio">1 (!!!)</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1906241/when-not-to-treat-dy-dx-as-a-fraction-in-single-variable-calculus">2</a>&nbsp;&nbsp;<a href = "http://mathoverflow.net/questions/73492/how-misleading-is-it-to-regard-fracdydx-as-a-fraction">3</a>&nbsp;&nbsp;<a href = "https://www.khanacademy.org/questions/i-thought-i-understood-dydx/kafb_3991962">4</a>&nbsp;&nbsp;<a href = "http://mathforum.org/library/drmath/view/65462.html">5</a>&nbsp;&nbsp;<a href = "https://www.quora.com/Why-does-using-dy-dx-as-a-fraction-in-u-substitution-work">6</a>
+
+					<p><b>And similar stuff about differentials $dx$, $dy$, etc.:</b> <a href = "http://math.stackexchange.com/questions/23902/what-is-the-practical-difference-between-a-differential-and-a-derivative/23914#23914">1</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1109193/what-does-a-standalone-dx-mean?noredirect=1&lq=1">2</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/143222/what-does-dx-mean?noredirect=1&lq=1">3</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1293448/is-dx-greater-than-fracdx2">4</a></p>
+
+					<p><b>...and other related things about $d/dx(y)$ and $dy/dx$ about how $dy/dx(dx)=dy$ and...:</b> <a href = "http://math.stackexchange.com/questions/1034039/basic-calculus-analysis-question-why-is-frac-dydx-dx-dy?noredirect=1&lq=1">1</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/700605/what-exactly-does-fracdxdy-mean?noredirect=1&lq=1">2</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/20685/in-differential-calculus-why-is-dy-dx-written-as-d-dx-y?noredirect=1&lq=1">3</a></p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>What is a determinant?!</b> <a href = "https://en.wikipedia.org/wiki/Determinant#Definition">1 (not good)</a>&nbsp;&nbsp;<a href = "http://mathworld.wolfram.com/Determinant.html">2 (not good)</a>&nbsp;&nbsp;<a href ="http://math.stackexchange.com/questions/668/whats-an-intuitive-way-to-think-about-the-determinant">3 (some good, some not)</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/a/562017/179335">4 (the best)</a>
+					<p><u>Note:</u> "The best" answer also <i>another</i> suggests why wedge products (which I mentioned in class on Jan 17 as a "more logical version" of cross products) should be taught in/around Calc 3 instead of wayyyyyy later, as is currently the pedagogical norm.</p>
+					<p>A short, geometrical interpretation: <i>The determinant of a square matrix is the (oriented) volume of the (hyper-)parallelepiped spanned by its column vectors.</i> This comes from the (wonderful!) introduction to differential forms found <a href = "http://www.math.cornell.edu/~sjamaar/manifolds/manifold.pdf">here</a>.
+					<p>An axiomatic treatment can be found on page 33 (Definition 3.1) of the above-linked .pdf.</p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Why does the determinant have the form it has?!</b> <a href = "http://math.stackexchange.com/questions/854459/why-do-determinants-have-their-particular-form">1 (some good, some not)</a>
+					<p><u>But why does it alternate plus and minus?!</u> That's because of <a href = "https://en.wikipedia.org/wiki/Minor_(linear_algebra)">cofactors</a>! As it happens, wedge products are <i>also</i> <a href = "https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Multilinear_algebra_approach">a good way</a> to understand <i>these</i>!
+					</td>
+				</tr>
+				<tr>
+					<td><b>Pick my office hours!</b> <a href = "http://www.needtomeet.com/meeting?id=thhgtghvV">Survey Link</a></td>
+				</tr>
+			</table>
+			<hr width = 75% align = center color = #AAAAAA size = 1px>
+			<table class = "links">
+				<tr>
+					<td><b>Think I'm doing a good job?</b> <a href = "https://fsu.qualtrics.com/jfe/form/SV_50h3wlA4pstbBvT">Nominate me for a thing!</a>
+					<p><u>Note:</u> They ask for some data, but it's not too long overall. Note: I'm in the College of Arts &amp; Sciences, Math Department, and you can use my FSU email (cas12c@my.fsu.edu).</p>
+					<p><u>Note 2:</u> This thing is probably expired; I'll post the new one as soon as it's up!</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div style = "margin-top:1.5mm; text-align:center; width:100%;">
+		<a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a> | <a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching</a>
+	</div>
+</body>
+</html>

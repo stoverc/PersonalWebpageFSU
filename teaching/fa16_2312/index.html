@@ -1,0 +1,702 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+		});
+	</script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+
+	<script>
+	  	$(document).ready(function(){
+			$("#slack").hide();
+			$("#blackboard").hide();
+			$("#webassign").hide();
+
+			$("#slack_link").click(function(event){
+				$("#slack").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+
+			$("#blackboard_link").click(function(event){
+				$("#blackboard").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+
+			$("#webassign_link").click(function(event){
+				$("#webassign").toggle();
+
+				$(this).text($(this).text() == 'Show Details' ? 'Hide Details' : 'Show Details');
+			});
+		});
+
+		jQuery(document).ready(function() {
+        jQuery('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+     
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+     
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+     
+            e.preventDefault();
+        });
+    });
+	</script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-83910312-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
+	<base target="_blank">
+</head>
+<body>
+	<div id = "breadcrumbs">&nbsp;&nbsp;<a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching</a>&nbsp;&nbsp;>&nbsp;&nbsp;</div>
+	<h1>
+		Calculus II (MAC 2312) &mdash; Fall 2016 
+	</h1>
+	
+	<!-- &#8592; -->
+	<!--<div style = "position:absolute; right: 1%; top: 0;"><a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a> | <a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching Page</a></div>-->
+
+	<div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#tab1">General Info</a></li>
+            <!--<li><a href="#tab2">Announcements</a></li>-->
+            <li><a href="#tab3">Course Calendar</a></li>
+            <li><a href="#tab4">Homework</a></li>
+            <li><a href="#tab5">Handouts</a></li>
+            <li><a href="#tab6">Lecture Notes</a></li>
+            <li><a href="#tab7">Links, etc.</a></li>
+        </ul>
+
+    <div class="tab-content">
+	    <div id = "tab1" class = "tab active">
+	    	<div id = "updated">
+				<script>
+					document.writeln ("Last Updated " + document.lastModified);
+				</script>
+			</div>
+
+			<table class = "gen">
+				<tr>
+					<td><b>Instructor:</b> Christopher Stover (<a href = "../../">webpage</a>)</td>
+					<td rowspan = 10 width = 60%>
+						<img src = "img/calc2_smol.png" width = 40%>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Email:</b> cstover (at) math (dot) fsu (dot) edu</td>
+				</tr>
+				<tr>
+					<td><b>Office:</b> MCH 402F</td>
+				</tr>
+				<tr>
+					<td><b>Office Hours:</b> WF 12:00pm to 1:30pm or <b>by appointment</b></td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Meeting Location:</b> 102 LOV</td>
+				</tr>
+				<tr>
+					<td><b>Meeting Times:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent">Mondays&nbsp;&dash;&nbsp;5:30pm to 6:05pm</td>
+				</tr>
+				<tr>
+					<td class = "indent">Tuesdays &amp; Thursdays&nbsp;&dash;&nbsp;5:30pm to 6:15pm</td>
+				</tr>
+				<tr>
+					<td><b>Final Exam:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent">Thursday, December 15, 5:30pm to 7:30pm</td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Syllabus:</b> <a href = "Basic Documents/Syllabus/syl.pdf">.pdf</a></td>
+				</tr>
+				<tr class = "blankrow">
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Required Text:</b></td>
+				</tr>
+				<tr>
+					<td class = "indent" colspan = 2><span class = "italic">Calculus: Early Transcendentals</span>, 7th Edition, by James Stewart. (<a href = "https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/0538497904/">Amazon</a>)</td>
+				</tr>
+				</table>
+
+				<table class = "gen">
+				<tr>
+					<td><b>Supplementary Resources:</b>
+					<ul>
+						<li><span class = "item_head">Slack</span> <span id = "slack_link">Show Details</span>
+							<div id = "slack">
+							<p>Slack is an organization-centered chat tool that allows largescale collaboration, discussion, and interaction. Think of it as a chat room on steroids!</p>
+
+							<p>While I'll always be available (unless otherwise noted) during office hours and via email, Slack will allow evveryone the opportunity to chat with me + other classmates, both in real-time and asynchronously. It's an extremely valuable resource!</p>
+
+							<p>Slack can be used directly from any Internet browser. Our class's room info is:
+							<ul>
+								<li> <u>Team Name</u>: Fall 2016 - Calc 2</li>
+								<li> <u>Team URL</u>: <a href = "https://fall2016-calc2.slack.com/">https://fall2016-calc2.slack.com/</a></li>
+							</ul></p>
+
+							<p>To get started, you should:
+							<ol>
+								<li>Navigate to the <a href = "https://fall2016-calc2.slack.com/signup">signup page</a></li>
+								<li>Enter your <pre>my.fsu.edu</pre> email address; <u>make sure you're able to check the email address you enter or else you'll miss any confirmation emails, etc.</u></li>
+								<li>Feel free to email me at any time if you have trouble signing up.</li>
+							</ol></p>
+
+							<p><b>Note:</b> Slack can be used directly from any Internet browser with no installation needed. However, you can <i>also</i> install it on any computer, phone, tablet, etc., so that you have access to our course chat at all times. For more information about installing Slack, see: <a href = "https://slack.com/downloads">https://slack.com/downloads</a>.</p>
+							</div>
+						</li>
+
+						<li><span class = "item_head">Blackboard</span> <span id = "blackboard_link">Show Details</span>
+							<div id = "blackboard">
+								<p>I'll make use of Blackboard for announcements, sharing of documents, and gradebook maintenance. My goal is to keep this webpage synced up with all of that data <b>except</b> the gradebook, however, so by and large, you likely <i>won't</i> need to check both this site and the Blackboard page.</p>
+
+								<p>As of now, you should all be added to the Blackboard site automatically. If you're not sure how to find it, you should:
+								<ol>
+									<li>Navigate to <a href = "http://my.fsu.edu">MyFSU</a>.</li>
+									<li>Sign in with your FSU username and password.</li>
+									<li>Click on the BlackBoard icon <img src = "img/BB_BRAND_sm.png" width = "15px" style = "border: 1px solid black; vertical-align:text-bottom;"> in the left column.</li>
+									<li>Locate course number <pre>MAC2312-0011</pre> under <u>FSU Class Schedule</u>.</li>
+								</ol></p>
+							</div>
+						</li>
+
+						<li><span class = "item_head">Web Assign</span> <span id = "webassign_link">Show Details</span>
+							<div id = "webassign">
+								<p>WebAssign is an online homework and grading system used in various courses at FSU. It contains problem sets for which students can receive immediate feedback as well as an online copy of the textbook.</p>
+
+								<p>For our class, the WebAssign problem sets will be <b>additional practice</b> which <b>will not</b> be directly factored into the homework/quiz portion of your final grade. However, you should note that:
+								<ul>
+									<li>Doing lots of problems is a proven way to succeed in math courses, and WebAssign will provide that opportunity along with instant feedback.</li>
+									<li>WebAssign will be a convenient tool for <i>me</i> to use to pick problems to put on homework/quizzes/exams. For that reason, the more problems <i>you</i> do on WebAssign, the more familiar you'll be with stuff I'm likely to give you later.</li>
+								</ul></p>
+
+								<p>You can access WebAssign directly from our Blackboard site:
+									<center><img class = "block" src = "img/WebAssign.png"></center>
+								Alternatively, you can log in directly from the <a href = "https://www.webassign.net/login.html">WebAssign login page</a> using your <b>username</b> (presumably, your <pre>my.fsu.edu</pre> user name), our <b>institution code</b> (<pre>fsu</pre>), and your <b>password</b> (<i>whatever you chose for that</i>). <u>If you forget your password, you can reset it here</u>: <a href = "https://www.webassign.net/login.html?password=forgot">WebAssign Password Reset</a>.</p>
+							</div>
+						</li>
+					</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!--
+		<div id = "tab2" class = "tab">
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Updated exam date, web page updates, and reminders</td>
+				</tr>
+				<tr class = "italic">
+					<td>Thursday, October 27</td>
+				</tr>
+				<tr class = "message">
+					<td>
+						<p>Hello, all! I hope this finds you well!</p>
+
+						<p> A couple reminders:</p>
+
+						<ol>
+							<li><b>Exam 3 is on Tuesday, November 8 instead of Thursday, November 3!</b></li>
+
+							<li>The course webpage has been thoroughly updated: HW4 is loaded in the Homework tab (<b>remember the drawings/colors in the online version!!!</b>), the course calendar has been updated, and I've added a new "Links, etc." tab, which currently has interesting stuff about $dy/dx$ as a fraction, parametric curves on Wolfram|Alpha, etc. Check it out!</li>
+
+							<li>HW3 is due on Monday, October 31; HW4 is due on Tuesday, November 8.</li>
+						</ol>
+
+						<p>As always, feel free to email me with any questions!</p>
+					</td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Midterms, dropping the class, etc.</td>
+				</tr>
+				<tr class = "italic">
+					<td>Thursday, October 13</td>
+				</tr>
+				<tr class = "message">
+					<td>
+						<p>Hello, all! I hope this finds you well!</p>
+
+						<p>I had a small handful of you ask me at some point today whether you should drop the class, how the final is going to affect things, etc. The purpose of this announcement is to (hopefully) bring you some clarity.</p>
+
+						<p>First, so you know: <b>Tomorrow is midterm, so it's the last day to drop the course without incurring some sort of penalty.</b></p>
+
+						<p>So, what you should know when deciding whether to drop the course:</p>
+
+						<ol>
+							<li>Right now, you've only had 2 of the 4 exams + final and each exam is worth 1/7 of your grade. That means that if we had zero more home works (which isn't the case), <b>you still have 4/7 of your grade to be determined!</b><br><br>
+
+							To put that in numbers terms: If you had a 0% average at this point in the semester (which no one has), if we had no more homeworks (which won't happen), and if you got 100% on everything else, you'd still have 57.1% for the course! In particular: If you average 50% on the first two exams and get 100% on everything else, you'll have a C-.<br><br>
+
+							Right now, anything is possible, so don't rush to drop.<br><br>
+
+							Having said that:</li>
+
+							<li>Making 100% (or 90%, or 80%...) is going to be difficult moving forward if you're in the 30%-55% range thus far. As you've seen, things tend to build, so struggling now means probably struggling later; keep that in mind.<br><br>
+
+							Also keep in mind that the 4th exam + a solid half-ish of the final will be on sequences and series (aka, the topics most Calc 2 students struggle with most). If you're having a hard time now, you're not going to randomly have an easy time. You're going to have to work on it a lot. Like a lot a lot.<br><br>
+
+							If you're someone who's got a super-full load, a bunch of difficult classes, >= 1 job that eats a lot of your time, a whole bunch of family/home responsibilities, etc., you <b>will</b> struggle to make the time needed to double your scores moving forward. Also: If you're struggling <b>now</b> to find time for this class <b>and</b> you need a considerable turn-around to get the grade you want at the end of the final, it's almost assured that you're not in a good situation and you may want to consider dropping.</li>
+
+							<li>There may also be penalties for falling below full-time, etc. etc., so make sure you understand the repercussions of dropping (or not).</li>
+						</ol>
+
+						<p>As always, feel free to email me with questions you may have!</p>
+
+						<p>Have a great weekend, everyone, and thanks so much for a good half-semester thus far!</p>
+					</td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Announcements, file uploads, etc.</td>
+				</tr>
+				<tr class = "italic">
+					<td>Tuesday, October 4</td>
+				</tr>
+				<tr class = "message">
+					<td>
+						<p>Hello all!</p>
+
+						<p>If you weren't in class yesterday, you missed a couple things:</p>
+
+						<ol>
+							<li>We finished section 7.8 with the study of the comparison test. As those of you in attendance may have noticed, <b>the comparison test is deceptively hard</b>: It looks simple, but really, it's tricky and requires a lot of practice. <b>If you weren't there, you should definitely focus on practice practice practice!</b></li>
+
+							<li>I gave two handouts in class: One is an example of approximate integration problems you should know how to do for your test (the date of which is still not 100% clear) and the other is HW2. You can get these from the course webpage, under the Handouts/Homework tabs, respectively.</li>
+						</ol>
+
+						<p>Just a reminder: <b>HW2 is due on Monday, October 10.</b> I've added that to the calendar.</p>
+
+						<p>Also, I owed a couple of you grades for some things; as of yesterday, the Blackboard grade book should be 100% up-to-date! If I've missed anything or if anything looks amiss, please do let me know!</p>
+
+						<p>I hope this finds you all well.</p>
+					</td>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>9/16 Office Hours Cancelled + Reminders + Announcements</td>
+				</tr>
+				<tr class = "italic">
+					<td>Friday, September 16</td>
+				</tr>
+				<tr class = "message">
+					<td>
+						<p>Hello, all,</p>
+
+						<p><b>Re: Office Hours: </b>I'm sorry for the inconvenience, but because of some errands I have to run, I won't be able to hold my usual Friday office hours today. As always, please feel free to email with questions and/or to ask for help over on the Slack channel!</p>
+
+						<p><b>Reminder: </b>On Sunday we'll have our homework/exam review study session in our usual classroom. <i>You'll want to enter Love building through the doors at the west side of the building, facing the Colllins research lab / the giant tanks of Liquid Nitrogen, etc.</i> I'll try to prop open other doors as well, but I can't guarantee my ability to do so.</p>
+
+						<p><b>Announcements about Homework: </b></p>
+						<ol>
+							<li>After talking to some of you last night, I realized that the homework has been causing you a lot of grief. Don't fret about the homework too much, guys: The homework is designed so that you show me what you <i>do</i> know, not what you don't. What does that mean? It means that you should do as much of each problem as you can without worrying about penalties for not completing problems: You get a lot out of doing the steps of the problems, and genuinely, getting the full answers isn't as important as going through the process.<br><br>
+
+							The goal moving forward should be to prepare for your exam! Remember: Exams count way more than homework anyway, and I plan to be extremely accommodating on the homework front! So: <b>Use the homework as an exam study tool. </b> The answers to homework problems are far less meaningful than understanding the techniques you are/should use!</li>
+							<li>There's a typo in #4, part (a), question (i): The integrand should have $\sec^2(\theta)$ and <i>not</i> $\sec^3(\theta)$.</b> With this revision and the hint, you should be able to solve it super-easily!<br><br>
+
+							I especially want to commend those of you who stayed late last night to try to work out the typo'd version! We found out that it was likely an exercise in futility in and of itself, but what we also learned was there were lots of good techniques within that futility which helps prepare for your exam! I'm sorry I didn't catch the typo sooner!</li>
+						</ol>
+
+						<p>Talk to you guys soon!</p>
+					</td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Homework session dates, HW correction, etc.</td>
+				</tr>
+				<tr class = "italic">
+					<td>Tuesday, September 13</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Hello, all.</p>
+						
+						<p>I have a few announcements:</p>
+						
+						<ol>
+							<li>There will be <b>two</b> homework/exam prep sessions, and based on the data collected from <i>NeedToMeet</i>, the most-appropriate days/times are:
+							<ul>
+								<li>Thursday, September 15, 6:30p until 8:00p; and</li>
+								<li>Sunday, September 18, 2:00p to 5:00p.</li>
+							</ul>
+							I'll add these to the course calendar as well.</li>
+
+
+							<li><b>There is no confirmed classroom location for these presently: I'll work on securing one and make announcements in-class as well.</b></li>
+
+							<li>There's a small collection of you for whom neither of the selected days/times will work; you should be on the look-out for emails, because I'll be making contact asap.</li>
+
+							<li>There's a typo in the first problem of HW 1. It says to use <b>the chain rule</b> to get to the integration by parts formula; it should say to use <b>the product rule</b> to do so, and basically what it's looking for is a write-up of the proof we did in class. It's also done in your textbook as well. <b>You should definitely make yourself familiar with this, because it's fundamentally important.</b></li>
+						</ol>
+
+						<p>Tentatively, I'm also going to try to work on a short handout that rectifies the typo in today's last example + (hopefully) makes trig substitution a little more palatable. I'll email again if/when that materializes.</p>
+
+						<p>I hope this finds you all well!</p>
+
+						<p>Best,</p>
+
+						<p>Chris</p>	
+					</td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Let's get together to study for your exam and/or do homework problems!</td>
+				</tr>
+				<tr class = "italic">
+					<td>Sunday, September 11</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Good evening, everybody! I hope you're all having a wonderful weekend!</p>
+
+					<p>As mentioned last week, I'd like us to meet up in a classroom somewhere on campus to study for your exam and/or do homework problems! To pull this off, I need you guys to chime in!</p>
+
+					<p>To do so, go to the <a href = "http://www.needtomeet.com/meeting?id=r039tjnjV">NeedTOMeet</a> site and fill in which of the proposed times work best for you! You should fill in <b>as many times as you can attend</b>, because the more votes we get, the more fair this thing will be!</p>
+
+					<p>I'm going to collect the results at class-time on Tuesday, so you should make sure you vote as soon as you possibly can!</p>
+
+					<p>I apologize for the rush on voting, etc., but things have been unexpectedly hectic because of the storm. I definitely plan to do this more moving forward, however, so in the future, I'll do my best to get these things prepared faster, to keep them up longer, and to try to have as many help sessions as my schedule can manage!</p>
+
+					<p>Take care, everyone, and see you tomorrow evening!</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Updates: HW1 posted; Exam 1 date put on calendar</td>
+				</tr>
+				<tr class = "italic">
+					<td>Thursday, September 8</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Hello, everyone! I hope this finds you well!</p>
+
+					<p>In tonight's class, I'll be passing out copies of HW1. A .pdf of this is already posted on the <a href = "http://www.math.fsu.edu/~cstover/teaching/fa16_2312/">course homepage</a> under the <i>Homework</i> tab.</p>
+
+					<p>I've also updated the course calendar (see the <i>Course Calendar</i> tab) to include the due dates for HW1 (to be discussed in class) as well as the date for Exam 1. <b>Exam 1 will be given on Tuesday, September 20!</b></p>
+
+					<p>Tonight, my plan is to discuss details of these things with you guys and then start getting back on track post-hurricane. I'm also wanting to talk to you guys about the potential of review sessions / homework sessions, etc., to help prepare for the next couple weeks; part of this should happen tonight, but stay tuned regardless.</p>
+
+					<p>As always, please do email if you have any questions!</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Latest update on FSU closing, class meeting times</td>
+				</tr>
+				<tr class = "italic">
+					<td>Monday, September 5</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Hello, all! It's been a crazy few days because of the storm, and I genuinely hope you're all okay, safe, and returning to normal as quickly as possible!</p>
+
+					<p>Today, it was brought to my attention that I'd neglected to update the status since 9/1, so I wanted to clarify everything.</p>
+
+					<p><u>Our next class meeting will be on Thursday, 9/8, unless further delays develop!</u></p>
+
+					<p>Moving forward, our course meetings will be on the normal class days (MTR) that align with holidays and/or closings mentioned on the <a href = "http://alerts.fsu.edu/">FSU alerts page</a>. I'll also do my best to keep you all posted.</p>
+
+					<p>See you guys soon!</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Update on FSU closing, class meeting times</td>
+				</tr>
+				<tr class = "italic">
+					<td>Thursday, September  1</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Welcome to September, everyone! I hope your semester has been good so far!</p>
+
+					<p>In case you haven't heard: FSU will close today (Sept 1) at Noon and will remain closed tomorrow (Friday, Sept 2) as well. Keep in mind, too, that Monday (Sept 5) is a holiday, so <u>our next class meeting will be <b>Tuesday, Sept 6</b> at 5:15pm</u>!</p>
+
+					<p>I'm going to be updating the calendar (see the calendar tab) to reflect this information. I'll also be updating the handouts tab to reflect the handouts I've given you guys up to this point.</p>
+
+					<p><b>If you're not familiar with tropical storms, etc. etc.:</b> The Red Cross has some good information about what to keep in mind, what to look out for, etc., on their site <a href = "http://www.redcross.org/get-help/prepare-for-emergencies/types-of-emergencies/hurricane#About">here</a>.</p>
+
+					<p>Stay safe, everyone!</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Just a reminder</td>
+				</tr>
+				<tr class = "italic">
+					<td>Monday, August 29</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Hello, everyone! I hope you all had a wonderful first day of Fall semester!</p>
+
+					<p>Just as a reminder: Our class meets Monday, Tuesday, and Thursday, <b>not</b> Monday, Wednesday, and Friday. In particular: Our next class meeting is <b>tomorrow</b> instead of Wednesday.</p>
+
+					<p>I hope this finds everyone well, and as always, feel free to email me with questions!</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>First Day Attendance Policy</td>
+				</tr>
+				<tr class = "italic">
+					<td>Sunday, August 28</td>
+				</tr>
+				<tr class = "message">
+					<td><p>Just as a reminder:</p>
+
+					<p> Our course <b>does</b> abide by the first day attendance policy! In particular, this means that anyone enrolled in the course <b>must</b> attend class on the first day (I'll be checking attendance) <b>unless</b> they email me in advance to tell me they're unable to do so. If you're absent without emailing first, you <b>will</b> be dropped from the course; drops will likely occur sometime Tuesday.</p></td>
+				</tr>
+			</table>
+
+			<table class = "announce">
+				<tr class = "bold">
+					<td>Welcome to the course homepage!</td>
+				</tr>
+				<tr class = "italic">
+					<td>Saturday, July 30</td>
+				</tr>
+				<tr class = "message">
+					<td><p>I'm going to post course announcements here. It's also probable that I'll post them on Blackboard.</p>
+
+					<p>In a perfect world, the information here would be a pefect match to the info there; in reality, there may be some discrepancies. For everyone's sanity, I'll attempt to keep these discrepancies to a minimum and to clear up confusion as it arises.</p>
+
+					<p>As always, please do email me if you have questions!</p></td>
+				</tr>
+			</table>
+		</div>
+		-->
+
+		<div id = "tab3" class = "tab" style = "align: center; text-align:center;">
+			<table class = "misc cal">
+				<tr>
+					<td><i>Below is a calendar highlighting the important dates for our class this semester. To access it from a web browser and/or to import it into your personal apps, use the HTML and/or iCal link(s):</i>&nbsp;&nbsp;&nbsp;<a href = https://calendar.google.com/calendar/embed?src=6ilrso9v6jhmkbenkajl3sv88g%40group.calendar.google.com&ctz=America/New_York>HTML Link</a>&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;<a href = "https://calendar.google.com/calendar/ical/6ilrso9v6jhmkbenkajl3sv88g%40group.calendar.google.com/public/basic.ics">iCal Link</a>
+					</td>
+				</tr>
+			</table>
+			<hr width = 75%>
+			<iframe src="https://calendar.google.com/calendar/embed?title=Fall%202016%20-%20Calc%202&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6ilrso9v6jhmkbenkajl3sv88g%40group.calendar.google.com&amp;color=%23A32929&amp;ctz=America%2FNew_York" style="border: 0; margin-top: 6mm;" width="900" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+
+		<div id = "tab4" class = "tab">
+			<table class = "misc hw">
+				<tr>
+					<td><b>Homework 1:</b> <a href = "hw1/hw1.pdf">Handout</a><!--&nbsp;&nbsp;&nbsp;Solutions--></td>
+				</tr>
+				<tr>
+					<td><b>Homework 2:</b> <a href = "hw2/hw2.pdf">Handout</a><!--&nbsp;&nbsp;&nbsp;Solutions--></td>
+				</tr>
+				<tr>
+					<td><b>Homework 3:</b> <a href = "hw3/hw3.pdf">Handout</a>&nbsp;&nbsp;&nbsp;<a href = "hw3/hw3soln.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Homework 4:</b> <a href = "hw4/hw4.pdf">Handout</a>&nbsp;&nbsp;&nbsp;Solutions: <a href = "hw4/sol/1.pdf">1</a> <a href = "hw4/sol/2.pdf">2</a> <a href = "hw4/sol/3.pdf">3</a> <a href = "hw4/sol/4.pdf">4</a> <a href = "hw4/sol/5.pdf">5</a> <a href = "hw4/sol/6.pdf">6</a> 
+
+					<p><u>Corrections:</u></p>
+						<p><b>3(d)</b>: Increasing: $(\pi/2,\pi)\cup(3\pi/2,2\pi)$; Decreasing: $(0,\pi/2)\cup(\pi,3\pi/2)$;</p>
+						<p><b>3(e)</b>: $\frac{d^2y}{dx^2}=\csc^3(t)$.</p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Homework 5:</b> <a href = "hw5/hw5.pdf">Handout</a>&nbsp;&nbsp;&nbsp;<a href = "hw5/hw5soln.pdf">Solutions</a>
+
+					<p><u>Corrections:</u></p>
+						<p><b>4(h)</b>: This limit does not exist. I'd <b>wanted</b> to ask about the limit <b>without</b> the $(-1)^n$ term there, in which case the sequence <b>converges</b> to $1/3$ (prove it!).</p>
+						<p><b>8(c)</b>: $s_2=\frac{1}{4}; s_4=\frac{1}{3}; s_6=\frac{3}{8}$</p>
+						<p><b>8(d)</b>: $s_2=\frac{154}{9}; s_4=\frac{20020}{81}; s_6=\frac{2434894}{729}$</p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Homework 6:</b> <a href = "hw6/hw6.pdf">Handout</a>&nbsp;&nbsp;&nbsp;<a href = "hw6/hw6soln.pdf">Solutions</a></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab5" class = "tab">
+			<span class = "item_head">Final-Related:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Formula Sheet:</b> <a href = "handouts/final/Formulas.pdf">.pdf</a></td>
+				</tr>
+
+				<tr>
+					<td><b>Power series example:</b> <a href = "handouts/series/PowerSeriesEx1.pdf">.pdf</a>
+					<p><u>Note:</u> This note works (in detail) the interval and radius of convergence for the power series $\sum_{n=0}^\infty\frac{x^n}{n\left(\ln(n)\right)^{1/2}}$.</p>
+					</td>
+				</tr>
+			</table>
+
+			<span class = "item_head_shrink">Sequences &amp; Series:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Various Laws/Theorems/Rules About Sequences:</b> <a href = "handouts/sequences/sequencelaws.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>Series Tests:</b> <a href = "handouts/series/series_tests_list.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>How to Determine Series Convergence (Step-By-Step):</b> <a href = "handouts/series/series_howto_relaxed.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/series/series_howto_1pg.pdf">short A4-version</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Parametric &amp; Polar Stuff:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Parametric Curves You Should Know:</b> <a href = "handouts/parametric/to_know1.pdf">.pdf</a></td>
+				</tr>
+
+				<tr>
+					<td><b>Curves You Should Know:</b> <a href = "handouts/polar/summary/param_polar_summary.pdf">.pdf</a></td>
+				</tr>
+
+				<tr>
+					<td><b>Polar Regions Related to HW4 &#35;13(a):</b> <a href = "handouts/polar/polar_regions.pdf">.pdf</a>&nbsp; (<a href = "http://tutorial.math.lamar.edu/Classes/CalcII/PolarArea.aspx">see also</a>)</td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Integral Stuff:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Integrals &amp; Integration Techniques You Should Know:</b> <a href = "handouts/integrals/integral_rules1.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>Trig Integrals:</b> <a href = "handouts/integrals/trig_integrals.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>Trig Substitution:</b> <a href = "handouts/integrals/trig_sub.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>Sample Questions for Approximate Integration:</b> <a href = "handouts/integrals/approx_integrals1.pdf">.pdf</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Exams:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>Exam 1:</b> <a href = "handouts/Exam1.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/Exam1Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 2:</b> <a href = "handouts/Exam2.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/Exam2Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 3:</b> <a href = "handouts/Exam3.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/Exam3Ans.pdf">Solutions</a></td>
+				</tr>
+				<tr>
+					<td><b>Exam 4:</b> <a href = "handouts/Exam4.pdf">.pdf</a>&nbsp;&nbsp;&nbsp;<a href = "handouts/Exam4Ans.pdf">Solutions</a></td>
+				</tr>
+			</table>
+
+			<span class = "item_head">Miscellaneous Handouts:</span>
+			<table class = "misc handout">
+				<tr>
+					<td><b>First-Day Handout:</b> <a href = "Basic Documents/First Day Handout/First Day Project.pdf">.pdf</a></td>
+				</tr>
+				<tr>
+					<td><b>My Schedule:</b> <a href = "Fall2016.pdf">.pdf</a></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab6" class = "tab">
+			<table class = "misc hw">
+				<tr>
+					<td><b>Section 11.2:</b> <a href = "notes/11_2.pdf">Notes</a>
+					<p><u>Addendum:</u></p>
+						<p>$\circ$ <b>Geometric series</b>: The indices for geometric series can be written as either $\sum_{n=0}^\infty ar^n$ or as $\sum_{n=1}^\infty ar^{n-1}$.</p>
+						<p>$\circ$ <b>Convergence</b>: Note that convergence is a statement about the <i>eventual</i> behavior of the series. In particular, $\sum_{n=1}^\infty a_n$ converges if and only if $\sum_{n=N}^\infty a_n$ converges for all finite integers $N\geq 1$. This will be important in subsequent sections.</p>
+
+					</td>
+				</tr>
+				<tr>
+					<td><b>Section 11.3:</b> <a href = "notes/11_3.pdf">Notes</a></td>
+				</tr>
+				<tr>
+					<td><b>Section 11.4:</b> <a href = "notes/11_4.pdf">Notes</a></td>
+				</tr>
+				<tr>
+					<td><b>Section 11.5:</b> <a href = "notes/11_5.pdf">Notes</a></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id = "tab7" class = "tab">
+			<table class = "links">
+				<tr>
+					<td><b>Why $dy/dx$ is kinda sorta a fraction but not really:</b> <a href = "http://math.stackexchange.com/questions/21199/is-frac-textrmdy-textrmdx-not-a-ratio">1 (!!!)</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1906241/when-not-to-treat-dy-dx-as-a-fraction-in-single-variable-calculus">2</a>&nbsp;&nbsp;<a href = "http://mathoverflow.net/questions/73492/how-misleading-is-it-to-regard-fracdydx-as-a-fraction">3</a>&nbsp;&nbsp;<a href = "https://www.khanacademy.org/questions/i-thought-i-understood-dydx/kafb_3991962">4</a>&nbsp;&nbsp;<a href = "http://mathforum.org/library/drmath/view/65462.html">5</a>&nbsp;&nbsp;<a href = "https://www.quora.com/Why-does-using-dy-dx-as-a-fraction-in-u-substitution-work">6</a>
+
+					<p><b>And similar stuff about differentials $dx$, $dy$, etc.:</b> <a href = "http://math.stackexchange.com/questions/23902/what-is-the-practical-difference-between-a-differential-and-a-derivative/23914#23914">1</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1109193/what-does-a-standalone-dx-mean?noredirect=1&lq=1">2</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/143222/what-does-dx-mean?noredirect=1&lq=1">3</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/1293448/is-dx-greater-than-fracdx2">4</a></p>
+
+					<p><b>...and other related things about $d/dx(y)$ and $dy/dx$ about how $dy/dx(dx)=dy$ and...:</b> <a href = "http://math.stackexchange.com/questions/1034039/basic-calculus-analysis-question-why-is-frac-dydx-dx-dy?noredirect=1&lq=1">1</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/700605/what-exactly-does-fracdxdy-mean?noredirect=1&lq=1">2</a>&nbsp;&nbsp;<a href = "http://math.stackexchange.com/questions/20685/in-differential-calculus-why-is-dy-dx-written-as-d-dx-y?noredirect=1&lq=1">3</a></p>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Families of parametric curves <a href = "http://www.wolframalpha.com">Wolfram|Alpha</a> knows:</b>
+					<ul>
+						<li>
+							<a href = "https://www.wolframalpha.com/input/?i=person+curves&lk=1&rawformassumption=%22ClashPrefs%22+-%3E+%7B%22PopularCurveClass%22,+%22Person%22%7D">People</a>
+						</li>
+						<li>
+							<a href = "http://www.wolframalpha.com/input/?i=logo+laminae&lk=1&rawformassumption=%22ClashPrefs%22+-%3E+%7B%22LaminaClass%22,+%22Logo%22%7D">Logos</a>
+						</li>
+						<li>
+							<a href = "http://www.wolframalpha.com/input/?i=animal+curves&lk=1&rawformassumption=%22ClashPrefs%22+-%3E+%7B%22PopularCurveClass%22,+%22Animal%22%7D">Animals</a>
+						</li>
+						<li>
+							<a href = "http://www.wolframalpha.com/input/?i=fictional+character+curves&lk=1&rawformassumption=%22ClashPrefs%22+-%3E+%7B%22PopularCurveClass%22,+%22FictionalCharacter%22%7D">Fictional Characters</a>
+						</li>
+						<li>
+							<a href = "https://www.wolframalpha.com/examples/PopularCurves.html">Various others....</a>
+						</li>
+						<li>
+							<a href = "https://www.wolframalpha.com/input/?i=2+Chainz+curve">My personal favorite!</a> (<a href = "2Chainz.png">pic</a>)
+						</li>
+					</ul></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div style = "margin-top:1.5mm; text-align:center; width:100%;">
+		<a title = "Home" href = "../../index.html" class = "nav" target = "_self">Home</a> | <a title = "Teaching" href = "../index.html" class = "nav" target = "_self">Teaching</a>
+	</div>
+</body>
+</html>

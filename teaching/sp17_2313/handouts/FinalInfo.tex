@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul, changepage}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+%\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\LARGE{Logistical Info about the Final}\vspace{-1in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.625in, rightmargin=0.5in, label=(\alph*),itemsep=2.25mm,topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in}
+\setlist[itemize]{topsep=-1.5mm}
+
+\renewcommand{\Q}{\vspace{4.5mm}\noindent\textbf{Question}: }
+\newcommand{\Ans}{\ul{Answer}: }
+\newcommand{\Short}{\ul{Short Answer}: }
+\newcommand{\Long}{\vspace{3mm}\ul{Longer Answer}: }
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\subsecnoindent}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+\newcommand{\LH}{L'H\^{o}pital}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+
+\usepackage{caption}
+\captionsetup{labelfont=bf, labelformat=simple, justification=centering, labelsep=newline, width=6.5in, textfont={small}}%, textfont={it, footnotesize}}
+\captionsetup[figure]{aboveskip=8pt, belowskip=10pt}
+
+\begin{document}
+	\setlength\parskip{4.5mm}
+	
+	\maketitle
+	
+	\noindent First, a rundown of what kinds of questions will be on your final.
+	
+	\begin{adjustwidth}{0.25in}{0.25in}
+		\noindent \textbf{The new stuff}\\[1.5mm]
+		\noindent This will account for approximately 20\%--30\% of the points.
+		\begin{itemize}[topsep=1.5mm,parsep=-4.5mm,itemsep=6mm]
+			\item one (perhaps multi-part) question on the divergence theorem (\S 16.9);
+			\item one (perhaps multi-part) question on Stokes' theorem (\S 16.8);
+		\end{itemize}
+	
+		\noindent\textbf{Test 4 stuff}\\[1.5mm]
+		This will account for 20\%--45\% of the points.
+		\begin{itemize}[topsep=1.5mm,parsep=-4.5mm,itemsep=6mm]
+			\item one question like number 3;
+			\item $\geq 1$ line integral (with one requiring Green's theorem);
+			\item $\geq 1$ surface integral/flux problem.
+		\end{itemize}\vspace{-4.5mm}
+		\noindent Note that these can be combined with the new stuff in obvious ways. For example, you may have to find a line integral using the old methods for part (a) of a question, and then find the same line integral in part (b) using Stokes' theorem.\\[-4.5mm]
+	
+		\noindent\textbf{The old stuff}\\[1.5mm]
+		This will account for the remaining points, and not all of the listed concepts will be tested and/or tested equally.
+		\begin{itemize}[topsep=1.5mm,parsep=-4.5mm,itemsep=6mm]
+			\item using double and triple integrals (which may or may not include polar, cylindrical, or spherical coordinates) to find areas/volumes and volumes/hypervolumes, respectively (e.g. questions 2 and 4 on exam 3);
+			\item directional derivatives/gradients (e.g. questions 3b, 3c, and 3d on exam 2);
+			\item optimization of 2-variable functions (e.g. question 4 on exam 2);
+			\item tangents/normals/curvature/etc. of vector-valued functions (e.g. question 3 on exam 1).
+		\end{itemize}
+	\end{adjustwidth}
+	
+	\noindent And now, some random info not covered above.
+	
+	\begin{adjustwidth}{0.25in}{0.25in}
+		\noindent\textbf{Miscellany}
+		\begin{itemize}[topsep=1.5mm,parsep=-4.5mm,itemsep=6mm]
+			\item there \textbf{won't be} any matching questions (e.g. question 4 on exam 1);
+			\item there \textbf{will most likely be} true/false questions; if there are, it will \textbf{only} be about the Chapter 16 stuff;
+			\item you \textbf{won't} have to know trig identities;
+			\item other than for trig identities, there \textbf{will not} be a formula sheet.
+		\end{itemize}
+	\end{adjustwidth}
+\end{document}

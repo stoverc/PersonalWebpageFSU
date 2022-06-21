@@ -1,0 +1,117 @@
+digraph Tvs {
+   node [shape=box] 
+
+   {rank=same; "Bill Thurston"; "D.P. Sullivan"; "K. Chan"} #1975ish
+   {rank=same; "Me"; "L. Pinheiro\n ..."; "Jamil Mortada\n Russ Waller"} #2015ish
+   {rank=same; "Chasles"; "M&ouml;bius"} ##1786
+   {rank=same; "Petersen"; "Tao Li\n Maria Trnkov&aacute;\n David Futer\n ..."}
+
+   "Me" [style=filled, fillcolor=yellow]
+
+   "Bill Thurston" -> "David Gabai\n S.P. Kerckhoff\n Yair Minksy\n Lee Mosher\n Genevieve Walsh\n Jeff Weeks\n..." -> "Tao Li\n Maria Trnkov&aacute;\n David Futer\n ..."
+
+   "Bill Thurston" -> "Sergio Fenley" -> "Me"
+   "Sergio Fenley" -> "Jamil Mortada\n Russ Waller"
+
+   "Bill Thurston" -> "Danny Calegari"
+
+   "Bill Thurston" -> "Benson Farb" -> "Thomas Church\n Matthew Day\n Spencer Dowdall\n Katie Mann\n Dan Margalit\n Andy Putman\n ..."
+
+   "Shaun Wiley" -> "E.C. Zeeman" -> "C.T.C. Wall" -> "Andrew Casson" -> "Danny Calegari"
+
+   "E.C. Zeeman" -> "David Epstein\n W.B. Raymond Lickorish\n..."
+
+   "Danny Calegari" -> "Steven Frankel\n Thomas Mack\n Alden Walker\n ..."
+
+   "Stephen Smale" -> "Morris Hirsch"
+
+   "Carl Gottfried Neumann" -> "William Edward Story" -> "Solomon Lefschetz" -> "Shaun Wiley" -> "J.F. Adams" -> "C.T.C. Wall"
+
+   "Carl Gottfried Neumann" -> "Emil Weyr" -> "Wilhelm Wirtinger" -> "Berger\n Blaschke\n Vietoris\n Weitzenb&ouml;ck\n ..."
+
+   "J.F. Pfaff" -> "M&ouml;bius" -> "Otto Fiedler" -> "Emil Weyr"
+   "J.F. Pfaff" -> "Gauss" -> "Riemann" -> "Roch"
+
+   "Gauss" -> "Gerling" -> "Pl&uuml;cker" -> "Klein"
+   "Gauss" -> "Bessel" -> "Scherk" -> "E. Kummer" -> "Bugaev"
+   "Gauss" -> "Dedekind\n ..."
+
+   "Klein" -> "Lindemann" -> "Minkowski\n ..." -> "Carath&eacute;odory\n ..."
+
+   "E. Kummer" -> "H&ouml;lder" -> "Artin" -> "MacBeath" -> "Maclachlan" -> "Reid" -> "Petersen"
+   "Reid" -> "Ballas\n Leininger\n McReynolds\n ..."
+   "Petersen" -> "Me" [style="dashed"]
+
+   "E. Kummer" -> "Cantor"
+   "E. Kummer" -> "Cristoffel\n Pochhammer\n Prym\n ..."
+
+   "Artin" -> "Lang\n J. Tate Jr\n Zorn\n ..."
+
+   "Lindemann" -> "Hilbert" -> "Ackermann\n Courant\n Dehn\n Haar\n Hamel\n Hecke\n Kneser\n E. Schmidt\n Steinhaus\n Weyl\n ..." -> "Magnus\n Moufang\n Nielsen\n Reidemeister\n " -> "Birman\n Bochner\n Brauer\n Banach\n Kac\n Orlicz\n Schauder\n MacLane\n ..." -> "Eisenbud\n Hungerford\n Kaplansky\n John G. Thompson\n ..."
+
+   "Hilbert" -> "Steinhaus" -> "Banach"
+
+   "Ackermann\n Courant\n Dehn\n Haar\n Hamel\n Hecke\n Kneser\n E. Schmidt\n Steinhaus\n Weyl\n ..." -> "Hopf\n ..."
+
+   "Solomon Lefschetz" -> "Norman Steenrod" -> "Edwin Spanier" -> "Morris Hirsch" -> "Bill Thurston"
+   "Solomon Lefschetz" -> "F.E. Browder"
+
+   "..." -> "H. Hahn" -> "W. Hurewicz" -> "F.E. Browder" -> "A.L. Shields" -> "K. Chan" -> "L. Pinheiro\n ..."
+
+   "H. Hahn" -> "K. G&ouml;del\n ..."
+
+   "Norman Steenrod" -> "Paul Schweitzer" -> "Palmeira"
+   "Norman Steenrod" -> "Whitehead Jr." -> "J. Moore" -> "W. Browder" -> "M. Freedman" -> "I. Agol"
+
+   "W. Browder" -> "D.P. Sullivan" -> "C. McMullen" -> "J. Brock\n D. Dumas\n J. Kahn\n M. Mizrakhani\n ..."
+
+   "J. Moore" -> "J. Peter May\n Stasheff\n ..."
+   "J. Moore" -> "Hartshorne"
+
+   "Zariski" -> "Hartshorne"
+   "Zariski" -> "H. Hironaka"
+
+   "Chasles" -> "H.A. Newton" -> "E.H. Moore" -> "George Birkhoff" -> "David Bourgin" -> "Richard Duffin" -> "Raoul Bott" -> "Stephen Smale"
+
+   "E.H. Moore" -> "Veblen" -> "Church" -> "Turing\n ..."
+   "E.H. Moore" -> "R.L. Moore" -> "Bing" -> "Mazur\n ..."
+   "Bing" -> "Hempel" -> "Heil"
+   "Heil" -> "Me" [style="dashed"]
+
+   "Euler" -> "Lagrange" -> "Poisson"
+   "Poisson" -> "Dirichlet" -> "Kronecker"
+   "Dirichlet" -> "Lipschitz" -> "Klein" -> "Bieberbach" -> "Hopf\n ..." -> "Aeppli\n Hirzeburch\n Rinow\n Stammbach\n Stiefel\n ..."
+   "Poisson" -> "Liouville" -> "Bugaev" -> "Egorov" -> "Aleksandrov\n Luzin\n ..." -> "Pontryagin\n Smirnov\n ..." -> "Postnikov\n ..." -> "Sergey Novikov\n ..."
+
+   "Weierstrass" -> "Bugaev" 
+   "Weierstrass" -> "Cantor"
+   "Weierstrass" -> "Frobenius\n Fuchs\n Schoenflies\n Schottky\n ..."
+   "Weierstrass" -> "Schwarz" -> "Fej&eacute;r" -> "Erd&ouml;s\n P&oacute;lya\n M. Riesz\n ..."
+
+   "Laplace" -> "Poisson" -> "Chasles" -> "Darboux" -> "E. Cartan" -> "Ehresmann" -> "Haefliger" -> "Vaughn Jones" -> "Dylan Thurston"
+   "Ehresmann" -> "Reeb" -> "Godbillon"
+   "Reeb" -> "Hector" -> "Ghys"
+
+   "Darboux" -> "Borel" -> "Lebesgue" -> "de Rham"
+   "Lebesgue" -> "Montel" -> "H. Cartan" -> "Koszul\n Serre\n Thom\n ..."
+   "Borel" -> "Montel" -> "Dieudonn&eacute;" -> "Grothendieck" -> "Deligne" 
+
+   "Darboux" -> "Picard" -> "Hadamard" -> "Fr&eacute;chet\n Weil\n ..."
+   "Hadamard" -> "L&eacute;vy" -> "Mandelbrot"
+
+   "Picard" -> "Julia" -> "Chevalley"
+   "Julia" -> "Dixmier" -> "Connes"
+
+   "Picard" -> "Zaremba" -> "Sierpinski" -> "Mazurkiewicz" -> "Zygmund" -> "Stein" -> "C. Fefferman\n Terence Tao\n ..."
+
+   "Picard" -> "A. Weil"
+
+   "Darboux" -> "Goursat\n Stieltjes" 
+
+   "M. Sophus Lie" -> "E. Cartan"
+
+   splines=ortho
+	overlap=false
+	fontsize=12;
+}
+

@@ -1,0 +1,143 @@
+\documentclass[10pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[a4paper, margin=0.5in, top=0.75in, bottom=0.875in, left=0.75in]{geometry}
+
+%\everymath{\displaystyle}
+\pagenumbering{gobble}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Large{How to determine whether $\displaystyle\ser$ converges or diverges.}\vspace{-0.75in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{
+	leftmargin=0.75in, 
+	rightmargin=0.5in, 
+	label=\textbf{Question \arabic*:},
+	itemsep=2.5mm,
+	topsep=4.5mm,
+	parsep=3mm
+}
+\setlist[enumerate,2]{
+	leftmargin=-0.0625in,
+	label=\textsc{Answer:},
+	parsep=-1.5mm
+}
+
+\setlist[itemize,1]{
+	parsep=0in,
+	itemsep=2.25mm, 
+	topsep=0in,
+	leftmargin=-0.375in,
+	label=$\circ$
+}
+
+\setlist[itemize,2]{
+	itemsep=1.5mm,
+	leftmargin=0.25in,
+	topsep=2.5mm
+}
+\setlist[itemize,3]{
+	leftmargin=0.375in,
+	label=$\Longrightarrow$,
+	topsep=2.5mm,
+	itemsep=2.5mm
+}
+
+%\newcommand{\sectitle}[2]{\noindent\textbf{#1:} {#2}\\[3mm]}
+%\newcommand{\subsectitle}[2]{\noindent\ul{#1}:\\[3mm]\indent{#2}\\[6mm]}
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\infsum}[3]{\sum_{{#1}={#2}}^\infty {#3}}
+\newcommand{\ser}{\infsum{n}{1}{a_n}}
+\newcommand{\ans}[1]{\fbox{\textsc{Answer:}} #1}
+\newcommand{\ques}[2]{\sectitle{Question {#1}}{#2}}
+	
+\begin{document}
+	\maketitle
+	\vspace{-0.125in}
+	\begin{center}
+	\textit{Throughout, let $f$ be a function satisfying $f(n)=a_n$.}
+	\end{center}
+
+	\begin{enumerate}
+		\item \textit{\ul{Can}} my series converge (i.e. does $\lim_{n\to\infty} a_n$ exist \textit{and} does $\lim_{n\to\infty}a_n=0$?)%\vspace{-3mm}
+			\begin{itemize}
+					\item If \textit{no}: You're done; $\textstyle\ser$ \ul{diverges}.
+					\item If \textit{yes}: Your series \textit{may} converge. \textbf{Go to Question 2}.
+			\end{itemize}
+	
+		\item Does my series have negative terms?
+			\begin{itemize}
+				\item If \textit{no}: You have a positive series. \textbf{Go to Question 3}.
+				\item If \textit{yes}: Go to \textbf{Question 5}.
+			\end{itemize}
+		
+		\item Is my series a geometric series or a $p$-series?
+			\begin{itemize}
+				\item If \textit{yes}: Use the info you know about \textbf{geometric series} and/or \textbf{$\boldsymbol{p}$-series} and you're done.
+				\item If \textit{no}: Go to \textbf{Question 4}.
+			\end{itemize}
+		
+		\item If I squint at my series, does it kinda-sorta look like a geometric series or a $p$-series?
+			\begin{itemize}
+				\item If \textit{yes}, use either \textbf{the comparison test} or \textbf{the limit comparison test}. 
+				\begin{itemize}
+					\item Use \textbf{the comparison test} if you can get the inequalities to work.
+					\item Use \textbf{the limit comparison test} if you \textit{can't} get the inequalities to work \textbf{but} you're sure you're squinting is accurate.
+				\end{itemize}
+				\item If \textit{no}:
+				\begin{itemize}
+					\item Does my series have factorials and/or $(\text{constant})^n$? 
+						\begin{itemize}
+							\item \textbf{Use the Ratio Test!}
+						\end{itemize}
+					\item Does $a_n$ have the form $a_n=(b_n)^n$ ({\footnotesize{a whole function to the $n$th power}})? 
+						\begin{itemize}
+							\item \textbf{Use the Root Test!}
+						\end{itemize}
+					\item Does it look like I can find $\textstyle\int_1^\infty f(x)\,dx$? 
+						\begin{itemize}
+							\item \textbf{(Try to) Use the Integral Test!} ({\footnotesize{$f$ must be \ul{continuous}, \ul{positive}, and \ul{decreasing}!}})
+						\end{itemize}
+					\item If none of the ratio, root, or integral tests seem appropriate: 
+					\begin{itemize}
+						\item Ask whatever higher power you believe in for an intervention. ({\footnotesize{If you don't have a higher power, ask a friend to borrow theirs.}})
+						%\item Try looking at $\textstyle\infsum{n}{1}{|a_n|}$ directly by going back at \textbf{Question 3}.
+					\end{itemize}
+				\end{itemize}
+			\end{itemize}
+		\item Is my series alternating? (i.e., is $a_n=(-1)^nb_n$ or $a_n=(-1)^{n+1}b_n$ where $\{b_n\}$ has all positive terms?)
+			\begin{itemize}
+				\item If \textit{yes}: (Try to) Use the \textbf{Alternating Series Test!} ({\footnotesize{$b_n$ must be decreasing and $\shortlim{b_n}=0$ must hold}})
+				\item If \textit{no}:
+				\begin{itemize}
+					\item Does my series have factorials and/or $(\text{constant})^n$? 
+						\begin{itemize}
+							\item \textbf{Use the Ratio Test!}
+						\end{itemize}
+					\item Does $a_n$ have the form $a_n=(b_n)^n$ ({\footnotesize{a whole function to the $n$th power}})? 
+						\begin{itemize}
+							\item \textbf{Use the Root Test!}
+						\end{itemize}
+					\item If neither the ratio nor root test seems applicable: 
+						\begin{itemize}
+							\item See \textbf{Question 4} about borrowing higher powers, etc.
+							\item Try looking at $\textstyle\infsum{n}{1}{|a_n|}$ directly by going back at \textbf{Question 3}.
+						\end{itemize}
+				\end{itemize}
+			\end{itemize}
+	\end{enumerate}
+	
+%	\sectitle{Question 1}{\textit{\ul{Can}} my series converge?}
+%	\ans{Does $\lim_{n\to\infty} a_n=0$?}
+%	\begin{itemize}[itemsep=0in, topsep=0in]
+%		\item If \textit{no}, you're done: $\ser$ diverges.
+%		\item If \textit{yes}: Your series \textit{may} converge. Go to Question 2.
+%	\end{itemize}
+%
+%	\sectitle{Blah}{Blah}
+\end{document}

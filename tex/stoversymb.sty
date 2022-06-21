@@ -1,0 +1,152 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{stoversymb}[2015/09/24 Custom Package]
+
+	\RequirePackage{amsthm}
+	\RequirePackage{amsmath}
+	\RequirePackage{amsfonts}
+	\RequirePackage{amssymb}
+	\RequirePackage{color}
+	\RequirePackage{accents}
+	\RequirePackage{mathtools,calc}
+	\RequirePackage{braket}
+
+	\ProcessOptions\relax
+
+	%---DOUBLE-STRUCK--------------------------------------------------------------------
+	\renewcommand{\P}{\mathbb{P}}
+	\newcommand{\RP}{\mathbb{RP}}
+	\newcommand{\CP}{\mathbb{CP}}
+	\newcommand{\HP}{\mathbb{HP}}
+	\newcommand{\OP}{\mathbb{OP}}
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\Q}{\mathbb{Q}}
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\C}{\mathbb{C}}
+	\newcommand{\F}{\mathbb{F}}
+	\newcommand{\HQ}{\mathbb{H}}
+	\newcommand{\K}{\mathbb{K}}
+	\newcommand{\OO}{\mathbb{O}}
+	
+	%---CURSIVE--------------------------------------------------------------------------
+	\newcommand{\calA}{\mathcal{A}}
+	\newcommand{\calB}{\mathcal{B}}
+	\newcommand{\calC}{\mathcal{C}}
+	\newcommand{\calD}{\mathcal{D}}
+	\newcommand{\calF}{\mathcal{F}}
+	\newcommand{\calH}{\mathcal{H}}
+	\newcommand{\calI}{\mathcal{I}}
+	\newcommand{\calK}{\mathcal{K}}
+	\newcommand{\calL}{\mathcal{L}}
+	\newcommand{\calM}{\mathcal{M}}
+	\newcommand{\calN}{\mathcal{N}}
+	\newcommand{\Oh}{\mathcal{O}}
+	\newcommand{\calS}{\mathcal{S}}
+	\newcommand{\calT}{\mathcal{T}}
+	\newcommand{\calU}{\mathcal{U}}
+	\newcommand{\calV}{\mathcal{V}}
+
+	%---FRAKTUR--------------------------------------------------------------------------
+	\newcommand{\frakA}{\mathfrak{A}}
+	\newcommand{\frakF}{\mathfrak{F}}
+	
+	%---TEXT-OPERATORS-------------------------------------------------------------------
+	\DeclareMathOperator{\Hom}{Hom}
+	\DeclareMathOperator{\Hol}{Hol}
+	\DeclareMathOperator{\std}{std}
+	\DeclareMathOperator{\FC}{FC}
+	\DeclareMathOperator{\disc}{disc}
+	\DeclareMathOperator{\dict}{dict}
+	\DeclareMathOperator{\prd}{prod}
+	\DeclareMathOperator{\lcm}{lcm}
+	\DeclareMathOperator{\vsspan}{span}
+	\DeclareMathOperator{\image}{image}
+	\DeclareMathOperator{\Mat}{Mat}
+	\DeclareMathOperator{\Tor}{Tor}
+	\DeclareMathOperator{\rank}{rank}
+	\DeclareMathOperator{\id}{id}
+	\DeclareMathOperator{\pt}{pt}
+	\DeclareMathOperator{\diag}{diag}
+	\DeclareMathOperator{\norm}{Norm}
+	\DeclareMathOperator{\Arg}{Arg}
+	\DeclareMathOperator{\Tr}{Tr}
+	\DeclareMathOperator{\Ho}{Ho}
+	\DeclareMathOperator{\Aut}{Aut}
+	\DeclareMathOperator{\End}{End}
+	\DeclareMathOperator{\op}{op}
+	\DeclareMathOperator{\U}{U}
+	\DeclareMathOperator{\SU}{SU}
+	\DeclareMathOperator{\PSU}{PSU}
+	\renewcommand{\O}{\DeclareMathOperator{\O}{O}}
+	\DeclareMathOperator{\SO}{SO}
+	\DeclareMathOperator{\PSO}{PSO}
+	\DeclareMathOperator{\Sp}{Sp}
+	\DeclareMathOperator{\GL}{GL}
+	\DeclareMathOperator{\PGL}{PGL}
+	\DeclareMathOperator{\SL}{SL}
+	\DeclareMathOperator{\PSL}{PSL}
+	\DeclareMathOperator{\Spin}{Spin}
+	\DeclareMathOperator{\Pin}{Pin}
+	\DeclareMathOperator{\SpinC}{Spin^c}
+	\DeclareMathOperator{\SpinCC}{Spin^\mathbb{C}}
+	\DeclareMathOperator{\E}{E}
+	\DeclareMathOperator{\FF}{F}
+	\DeclareMathOperator{\G}{G}
+	\DeclareMathOperator{\Op}{Op}
+	\DeclareMathOperator{\ad}{ad}
+	\DeclareMathOperator{\Ad}{Ad}
+	\DeclareMathOperator{\Aff}{Aff}
+	\DeclareMathOperator{\Diff}{Diff}
+	\DeclareMathOperator{\Homeo}{Homeo}
+	\DeclareMathOperator{\rel}{rel\,}
+	\DeclareMathOperator{\depth}{depth}
+	%\DeclareMathOperator{\mag}{Mag}
+	\renewcommand{\Re}{\DeclareMathOperator{\Re}{Re}}
+	\renewcommand{\Im}{\DeclareMathOperator{\Im}{Im}}
+	\DeclareMathOperator{\Iso}{Iso}
+	\DeclareMathOperator{\im}{Im}
+	\DeclareMathOperator{\Cliff}{Cliff}
+	
+	%---SYMBOLS-------------------------------------------------------------------
+	\newcommand{\Deff}[1]{{\color{red}\textit{#1}}}
+	\newcommand{\Defn}[1]{{\textbf{\textit{#1}}}}
+	\newcommand{\deff}{\overset{\text{def}}{=}}
+	\newcommand{\ltri}{\triangleleft}
+	\newcommand{\rtri}{\triangleright}
+	\newcommand{\eps}{\varepsilon}
+	\newcommand{\leftimp}{\Longleftarrow}
+	\newcommand{\rightimp}{\Longrightarrow}
+	\newcommand{\into}{\hookrightarrow}
+	\newcommand{\bigwedgestar}{\sideset{}{^*}\bigwedge}
+	\newcommand{\bigwedgesup}[1]{\sideset{}{^{#1}}\bigwedge}
+	\newcommand{\red}[1]{{\color{red}#1}}
+	\newcommand{\redcite}[1]{({\color{red} Cite {#1} Here})}
+	\newcommand{\surj}{\twoheadrightarrow}
+	\renewcommand{\emptyset}{\varnothing}
+	\renewcommand{\vec}{\boldsymbol}
+	\renewcommand{\hat}{\widehat}
+	\newcommand{\mf}{\mathfrak}
+	\newcommand{\trans}[1]{{#1}^\pitchfork}
+	\newcommand{\transto}{\pitchfork}
+	\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+	\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+	\newcommand{\interior}[1]{%
+		\accentset{\circ}{#1}
+	}
+	
+	%---MISC----------------------------------------------------------------
+	\newcommand{\cl}{\overline}
+	\newcommand{\und}{\underline}
+	\newcommand{\Cl}{\mathcal{C}\ell}
+	\newcommand{\Cln}[1]{\mathcal{C}\ell_{0,{#1}}}
+	\newcommand{\Clpq}[2]{\mathcal{C}\ell_{{#1},{#2}}}
+	\newcommand{\emptydist}[1]{#1(\,\cdot\,,\,\cdot\,)}
+	\newcommand{\emptynorm}[1]{\|\,\cdot\,\|_{#1}}
+	\newcommand{\emptyinner}[1]{\langle\,\cdot\,,\,\cdot\,\rangle_{#1}}
+	%\newcommand{\metricd}[2]{d(#1,#2)}
+	\newcommand{\metric}[3]{#1(#2,#3)}
+	\newcommand{\vsnormv}[1]{\|#1\|_V}
+	\newcommand{\vect}[1]{\boldsymbol{#1}}
+	\newcommand{\xx}{\boldsymbol{x}}
+	
+\endinput

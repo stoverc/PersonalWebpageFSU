@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Huge{Formulas}\vspace{-0.5in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.625in, rightmargin=0.5in, label=(\alph*),itemsep=2.25mm,topsep=1.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\vspace{7.5mm}\noindent\textbf{\Large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]\indent{#2}}
+\newcommand{\subsecnoindent}[2]{\vspace{3mm}\noindent\ul{#1}:\\[3mm]{#2}}
+\newcommand{\comps}[1]{\langle #1_1,#1_2,#1_3\rangle}
+\newcommand{\compslong}[3]{\langle #1, #2, #3\rangle}
+\newcommand{\pic}[2]{\begin{center}\includegraphics[scale=#1]{#2}\end{center}}
+\newcommand{\resultbox}[1]{\begin{center}
+		\begin{tcolorbox}[
+			enhanced,
+			colback=white,
+			colframe=black,
+			boxrule=0.5pt,
+			arc=0pt,
+			top=3mm,
+			bottom=3mm, 
+			width=7in%,
+%			grow to left by=0.5in,
+			]
+			\centering
+			#1
+		\end{tcolorbox}
+\end{center}}
+\newcommand{\LH}{L'H\^{o}pital}
+
+\graphicspath{ {./img/} }
+\DeclareGraphicsExtensions{.pdf, .png}
+
+\usepackage{caption}
+\captionsetup{labelfont=bf, labelformat=simple, justification=centering, labelsep=newline, width=6.5in, textfont={small}}%, textfont={it, footnotesize}}
+\captionsetup[figure]{aboveskip=8pt, belowskip=10pt}
+
+\begin{document}
+	\maketitle\vspace{-0.5in}
+	
+	\sectitle{Vectors and Related}
+	Throughout, let $\vect{u}=\comps{u}$, $\vect{v}=\comps{v}$, and $\vect{w}=\comps{w}$ be arbitrary vectors in $\Reals^3$ and let $c$ be a (real) scalar.
+	
+	$$
+		\begin{array}{rcl}
+			\vect{u}\pm\vect{v} & = & \compslong{u_1\pm v_1}{u_2\pm v_2}{u_3\pm v_3}\\[6mm]
+			c\,\vect{u} & = & \comps{cu}\\[6mm]
+			|\vect{u}| & = & \sqrt{u_1^2+u_2^2+u_3^2}\\[6mm]
+			
+			\vect{u}\cdot\vect{v} & = & u_1v_1+u_2v_2+u_3v_3\\[6mm]
+			\theta & = & \cos^{-1}\left(\frac{\vect{u}\cdot\vect{v}}{|\vect{u}|\,|\vect{v}|}\right)\text{, where $\theta$ is the angle between $\vect{u}$ and $\vect{v}$}\\[9mm]
+			\proj_{\vect{u}}\vect{v} & = & \left(|\vect{v}|\cos{\theta}\right)\,(\text{unit vector in the direction of $\vect{u}$})\\[6mm]
+			& = & \left(\frac{\vect{u}\cdot\vect{v}}{|\vect{u}|}\right)\frac{\vect{u}}{|\vect{u}|}\\[9mm]
+			& = & \left(\frac{\vect{u}\cdot\vect{v}}{|\vect{u}|^2}\right)\vect{u} \\[6mm]
+			\comp_{\vect{u}}\vect{v} & = & |\proj_{\vect{u}}\vect{v}| \\[6mm]
+			& = & \frac{\vect{u}\cdot\vect{v}}{|\vect{u}|}\\[6mm]
+			\vect{u}\times\vect{v} & = & \det\left(\begin{array}{ccc}\vect{i} & \vect{j} & \vect{k}\\ u_1 & u_2 & u_3\\ v_1 & v_2 & v_3\end{array}\right)\\[9mm]
+			& = & \vect{i}\det\left(\begin{array}{cc}u_2 & u_3 \\ v_2 & v_3\end{array}\right) - \vect{j}\det\left(\begin{array}{cc}u_1 & u_3 \\ v_1 & v_3\end{array}\right) +\vect{k}\det\left(\begin{array}{cc}u_1 & u_2 \\ v_1 & v_2\end{array}\right) \\[6mm]
+			& = & \vect{i}\left(u_2v_3-u_3v_2\right)-\vect{j}\left(u_1v_3-u_3v_1\right)+\vect{k}\left(u_1v_2-u_2v_1\right)\\[6mm]
+			\vect{u}\cdot\left(\vect{v}\times\vect{w}\right) & = & \det\left(\begin{array}{ccc}u_1 & u_2 & u_3\\ v_1 & v_2 & v_3\\w_1 & w_2 & w_3\end{array}\right)\\
+		\end{array}
+	$$
+	\newpage
+	\sectitle{Lines and Planes}
+	Here, let $P_0(x_0,y_0,z_0)$ be a point in $\Reals^3$, let $\vect{r}_0=\compslong{x_0}{y_0}{z_0}$ be a position vector for $P_0$ (in $\Reals^3$), and let $\vect{v}=\compslong{a}{b}{c}$ be a vector in $\Reals^3$. We write the components of the ubiquitous vector $\vect{r}$ as $\vect{r}=\compslong{x}{y}{z}$.
+	
+	\subsectitle{Line $L$ through $P_0$ and in the same direction as $\vect{v}$}{\vspace{-9mm}}
+	$$
+		\begin{array}{rcrcll}
+			& & \vect{r} & = & \vect{r}_0 + t\vect{v} & \text{(\,\ul{vector equation of $L$}\,)}\\[1.5mm]
+			\text{(components of $\vect{r_0}$ and $\vect{v}$)} & \Longrightarrow & \vect{r} & = & \compslong{x_0}{y_0}{z_0} + t\compslong{a}{b}{c}\\[1.5mm]
+			\text{(vector addition)} & \Longrightarrow & \vect{r} & = & \compslong{x_0+ta}{y_0+tb}{z_0+tc}\\[1.5mm]
+			\text{(components of $\vect{r}$)} & \Longrightarrow & \compslong{x}{y}{z} & = & \compslong{x_0+ta}{y_0+tb}{z_0+tc}\\[1.5mm]
+		\end{array}
+	$$
+	By vector equality, we get the \ul{parametric equations for $L$}:
+	\begin{equation*}
+		\compslong{x}{y}{z}=\compslong{x_0+ta}{y_0+tb}{z_0+tc}\Longleftrightarrow \boxed{x=x_0+ta,\quad y=y_0+tb,\quad z=z_0+tc};
+	\end{equation*}
+	to help remember this, the in-words summary is \textbf{point plus vector $t$}. By solving the parametric equations for $t$, we get the \ul{symmetric equations for $L$}:
+	$$
+		t=\boxed{\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}}
+	$$
+	
+	\subsectitle{Plane $\calP$ through $P_0$ and orthogonal to $\vect{v}$}{\vspace{-9mm}}
+	$$
+		\begin{array}{rcrcll}
+		& & \vect{v}\cdot\left(\vect{r}-\vect{r_0}\right) & = & 0 & \text{(\,\ul{vector equation of $\calP$}\,)}\\[1.5mm]
+		\text{(components of the vectors)} & \Longrightarrow & \compslong{a}{b}{c}\cdot\left(\compslong{x}{y}{z}-\compslong{x_0}{y_0}{z_0}\right) & = & 0 & \\[1.5mm]
+		\text{(vector subtraction)}& \Longrightarrow & \compslong{a}{b}{c}\cdot\compslong{x-x_0}{y-y_0}{z-z_0} & = & 0 & \\[1.5mm]
+		\text{(dot product )}& \Longrightarrow & a(x-x_0)+b(y-y_0)+c(z-z_0) & = & 0 & \text{(\,\ul{scalar equation of $\calP$}\,)} \\[1.5mm]
+		\end{array}
+	$$
+	You can also expand the last equation out to get a \ul{linear equation for $\calP$}:
+	$$\boxed{ax+by+cz+d=0\text{ where }d=-ax_0-by_0-cz_0}$$
+	
+	\sectitle{Vector Functions}
+	Now, we consider a vector function $\vect{r}(t)=\compslong{f(t)}{g(t)}{h(t)}$. Recall that the \ul{arc length} of $\vect{r}$ on the interval $t=a$ to $t=b$ is
+	$$\boxed{L=\int_a^b|\vect{r}'(t)|\,dt = \int_a^b\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2+\left(\frac{dz}{dt}\right)^2}\,dt}\vspace{3mm}$$
+	Replacing the upper limit with $t$ and letting it vary on the interval $[a,b]$ yields the \ul{arc length function}
+	$$\boxed{s(t)=\int_a^t|\vect{r}'(u)|\,du= \int_a^t\sqrt{\left(\frac{dx}{du}\right)^2+\left(\frac{dy}{du}\right)^2+\left(\frac{dz}{du}\right)^2}\,du}\vspace{3mm}$$
+	In addition, if we let $\vect{T}$, $\vect{N}$, $\vect{B}$, and $\kappa$ denote the unit tangent vector, the unit normal vector, the binormal vector, and the curvature of (the space curve determined by) $\vect{r}(t)$, then
+	$$
+		\vect{T}(t) =\frac{\vect{r}'(t)}{|\vect{r}'(t)|} \hspace{0.5in} \vect{N}(t) = \frac{\vect{T}'(t)}{|\vect{T}'(t)|} \hspace{0.5in} \vect{B}(t) = \vect{T}(t)\times\vect{N}(t)$$\vspace{3mm}
+	$$
+		\kappa=\left|\frac{d\vect{T}}{ds}\right| = \frac{|\vect{T}'(t)|}{|\vect{r}'(t)|} = \frac{|\vect{r}'(t)\times\vect{r}''(t)|}{|\vect{r}'(t)|^3}.
+	$$
+	
+	\sectitle{Motion in Space}
+	If we assume that a particle's position in space is specified by $\vect{r}(t)=\compslong{f(t)}{g(t)}{h(t)}$, then we have that the particle's velocity $\vect{v}(t)$ and acceleration $\vect{a}(t)$ are the first and second derivatives of $\vect{r}$, respectively:
+	$$\vect{v}(t)=\vect{r}'(t)\hspace{0.25in}\text{and}\hspace{0.25in}\vect{a}(t)=\vect{r}''(t).$$
+	Also, the \ul{speed} $v(t)$ (note that this \textit{isn't} a vector) of the particle is the magnitude of its velocity:
+	$$v=|\vect{v}(t)|=|\vect{r}'(t)|.$$
+	As we saw in class, we want to write $\vect{a}=a_T\vect{T}+a_N\vect{N}$ where $a_T$ and $a_N$ are the \ul{tangential component of $\vect{a}$} and the \ul{normal component of $\vect{a}$}, respectively. This gives us the following formulas:
+	$$a_T=\frac{\vect{r}'(t)\cdot\vect{r''}(t)}{|\vect{r}'(t)|}\hspace{0.25in}\text{and}\hspace{0.25in}a_N=\frac{|\vect{r}'(t)\times\vect{r}''(t)|}{|\vect{r}'(t)|}.$$
+\end{document}

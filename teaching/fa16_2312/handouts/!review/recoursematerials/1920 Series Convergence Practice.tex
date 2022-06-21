@@ -1,0 +1,246 @@
+\documentclass[12 pt]{article}
+
+\usepackage{amsmath}    
+\usepackage{amssymb}   
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\usepackage{geometry}
+ \geometry{
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Name: \hspace{100 pt}}
+\lhead{\bf Convergence of Series}
+%%\rfoot{\thepage}
+
+
+\begin{document}
+
+{\bf Series that we know are convergent} We are going to use these series for comparison and reference.
+
+
+The \textit{geometric series}: ${\displaystyle \sum_{n=1}^{\infty} c \cdot r^{n}  = \frac{a_{1}}{1-r}}$ for $|r| < 1$. 
+
+Determine if the following geometric series are convergent. For each convergent series, determine its sum.
+
+\begin{enumerate}
+
+\item ${\displaystyle \frac{1}{3}+\frac{1}{6}+\frac{1}{12} + \frac{1}{24} + \frac{1}{48} + \dots}$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{1+3^{n}}{2^{n}}}$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{7^{n+1}}{10^{n}}}$
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+The \textit{$p$-series}: ${\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^p}}$ is convergent if $p>1$ and divergent if $p \leq 1$.
+
+Use the criterion for $p$-series to determine if the following series are convergent.
+
+\begin{enumerate}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{n+1}{n\sqrt{n}}}$. 
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle 1 + \frac{1}{2\sqrt{2}} + \frac{1}{3\sqrt{3}} + \frac{1}{4\sqrt{4}} + \dots }$
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\newpage
+
+{\bf Tests for Convergence or Divergence}
+
+ \textit{The Integral Test}: Suppose $f$ is a continuous, positive, decreasing function on $[ 1,\infty )$ and let $a_{n}=f(n)$. Then the series ${\displaystyle \sum_{n=1}^{\infty} a_{n}}$ is convergent if and only if the improper integral ${\displaystyle \int_{1}^{\infty} f(x) dx}$ is convergent:
+
+
+If ${\displaystyle \int_{1}^{\infty} f(x) dx}$ is convergent, then ${\displaystyle \sum_{n=1}^{\infty} a_{n}}$ is convergent. 
+
+If ${\displaystyle \int_{1}^{\infty} f(x) dx}$ is divergent, then ${\displaystyle \sum_{n=1}^{\infty} a_{n}}$ is divergent. 
+
+Confirm that the series satisfies the conditions of the integral test and then apply the integral test to determine if the series is convergent. 
+
+\begin{enumerate}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{n}{n^2+1}}$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2+n^3}}$
+
+\vspace{\stretch{1}}
+
+%\item${\displaystyle \sum_{n=1}^{\infty} \frac{ \cos (\pi n) }{\sqrt{n}}}$
+
+%\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\newpage
+
+\textit{The Comparison Test}: Suppose that ${\displaystyle \sum_{n=1}^{\infty} a_{n}}$ and ${\displaystyle \sum_{n=1}^{\infty} b_{n}}$ are series with positive terms. 
+
+\begin{itemize}
+
+\item If $\sum b_{n}$ is convergent and $a_{n} \leq b_{n}$ for all $n$, then $\sum a_{n}$ is also convergent. 
+
+\item If $\sum b_{n}$ is divergent and $a_{n} \geq b_{n}$ for all $n$, then $\sum a_{n}$ is also divergent. 
+
+\end{itemize}
+ 
+Use the comparison test to determine if the series converges. 
+
+\begin{enumerate}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{n}{2n^3+1}}$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{9^n}{3+10^n}}$
+
+\vspace{\stretch{1}}
+
+%%\vspace{50mm}
+
+%%\item ${\displaystyle \sum_{n=2}^{\infty} \frac{\sqrt{n}}{n-1}}$
+
+\end{enumerate}
+
+\newpage
+
+\textit{The Limit Comparison Test}: Suppose that $\sum a_{n}$ and $\sum b_{n}$ are series with positive terms. If $$ \lim_{n \to \infty} \frac{a_{n}}{b_{n}} = c$$ where $c$ is a finite number and $c>0$, then either both series converge or both series diverge. 
+
+Use the limit comparison test to determine convergence of the series using the given comparison. 
+
+\begin{enumerate}
+
+\item Determine if the series ${\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{n^2+1}}}$ converges by using the comparison test with $b_{n}=\frac{1}{n}$. 
+
+\vspace{\stretch{1}}
+
+\item Determine if the series ${\displaystyle \sum_{n=1}^{\infty} \frac{n+2}{(n+1)^3}}$ converges by using the comparison test. 
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\newpage
+
+\textit {The Alternating Series Test}: If the alternating series ${\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} b^{n} = b_{1} - b_{2} + b_{3} - b_{4} + \dots}$ for $b_{n} > 0$ satisfies both:
+
+\begin{enumerate}
+\item$ b_{n+1} \leq b_{n}$ for all $n$.
+\item $\lim_{n \to \infty} b_{n} = 0$
+\end{enumerate}
+
+then the series is convergent. Confirm that the series below meet the requirements of the alternating series test and determine if they are convergent.
+
+\begin{enumerate}
+
+\item ${\displaystyle \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{4}} - \frac{1}{\sqrt{5}} + \dots }$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} (-1)^{n} \frac{3n-1}{2n+1} }$
+
+\vspace{\stretch{1}}
+
+%\item ${\displaystyle \sum_{n=0}^{\infty} \frac{ \sin \left( \pi \left( n+\frac{1}{2} \right) \right) }{1+\sqrt{n}}}$
+
+%\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\newpage
+
+\textit{The Ratio Test}: Consider the $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| }$. 
+\begin{itemize}
+\item If $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L < 1}$, then the series $\displaystyle{\sum_{n=1}^{\infty} a_n}$ is absolutely convergent, and therefore convergent. 
+\item If $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L > 1}$ or $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = \infty}$, then the series $\displaystyle{\sum_{n=1}^{\infty} a_n}$ is divergent.
+\item If $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = 1}$, then the ratio test is inconclusive. 
+\end{itemize}
+
+Determine and simplify the ratio $\frac{|a_{n+1}|}{|a_{n}|}$ for each of the following series. Then evaluate $\displaystyle{ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| }$.
+
+\begin{enumerate}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} n \cdot \left( \frac{2}{5} \right)^{n}}$
+
+\vspace{\stretch{1}}
+
+\item ${\displaystyle \sum_{n=1}^{\infty} \frac{10^n}{(n+1) 4^{2n+1} }}$
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\newpage
+
+\textit{The Root Test}: Consider $\displaystyle{ \lim_{n \to \infty} \sqrt[n]{ \left| a_{n} \right| } }$ 
+\begin{itemize}
+\item If $\displaystyle{ \lim_{n \to \infty} \sqrt[n]{ \left| a_{n} \right| } = L < 1}$ then the series $\displaystyle{\sum_{n=1}^{\infty} a_n}$ is absolutely convergent, and therefore convergent. 
+\item If $\displaystyle{ \lim_{n \to \infty} \sqrt[n]{ \left| a_{n} \right| } = L > 1}$ or $\displaystyle{ \lim_{n \to \infty} \sqrt[n]{ \left| a_{n} \right| } =\infty}$ then the series $\displaystyle{\sum_{n=1}^{\infty} a_n}$ is divergent. 
+\item If $\displaystyle{ \lim_{n \to \infty} \sqrt[n]{ \left| a_{n} \right| } = 1}$ then the root test is inconclusive.
+\end{itemize}
+
+Use to root test to determine if each of the following series converges or diverges--or if the root test is inconclusive. 
+
+\begin{enumerate}
+
+\item $\displaystyle{ \sum_{n=1}^{\infty} \left( \frac{n^2+1}{2n^2+1} \right)^n } $
+
+\vspace{\stretch{1}}
+
+\item $\displaystyle{ \sum_{n=1}^{\infty} \left( 1 + \frac{1}{n} \right)^{n^{2}} } $
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+%\newpage
+
+%{\bf Practice:} Determine if the series below converge or diverge. Justify your response using one of the tests for convergence or divergence outlined in 11.2-11.6. For 4 board work points per problem, turn in your full work and justification on a separate piece of paper with your name. 
+
+%\begin{enumerate}
+
+%\item ${\displaystyle \sum_{n=1}^{\infty} \frac{4+\sin n}{8^n}}$
+
+% \vspace{\stretch{1}}
+
+%\newpage
+
+%\item ${\displaystyle \sum_{n=1}^{\infty} \sqrt[n]{2} }$
+
+%\vspace{\stretch{1}}
+
+%\newpage
+
+%\item ${\displaystyle \sum_{n=1}^{\infty} \frac{ (2n)! }{ (n!)^2 } }$
+
+%\vspace{\stretch{1}}
+
+%\newpage
+
+%\end{enumerate}
+
+
+\end{document}

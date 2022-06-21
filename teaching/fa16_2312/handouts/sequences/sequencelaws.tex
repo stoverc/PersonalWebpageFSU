@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+
+\usepackage{stoversymb,graphicx,soul}
+\usepackage[letterpaper, margin=0.5in, top=0.75in, bottom=1in]{geometry}
+
+\everymath{\displaystyle}
+
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz}
+
+\title{\vspace{-0.75in}\Huge{Various Laws/Theorems/Rules About Sequences}\vspace{-0.5in}}
+\date{}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{leftmargin=0.625in, rightmargin=0.5in, label=(\roman*),itemsep=4.5mm,topsep=4.5mm}
+\setlist[enumerate,2]{leftmargin=0.25in}
+
+\newcommand{\shortlim}{\lim_{n\to\infty}}
+\newcommand{\sectitle}[1]{\noindent\textbf{\large{#1}}\\[3mm]}
+\newcommand{\subsectitle}[2]{\noindent\ul{#1}:\\[3mm]\indent{#2}\\[6mm]}
+	
+\begin{document}
+	\maketitle
+
+	\sectitle{Limit Laws for Sequences}
+	\noindent If $\{a_n\}$ and $\{b_n\}$ are \textit{convergent} sequences and if $c$ is a constant, then:
+	\begin{enumerate}
+		\item $\shortlim\left(a_n\pm b_n\right)=\shortlim a_n\pm\shortlim b_n.$
+		\item $\shortlim ca_n=c\shortlim a_n$
+		\item $\shortlim\left(a_n b_n\right)=\shortlim a_n \cdot \shortlim b_n$
+		\item $\shortlim\left(\frac{a_n}{b_n}\right)=\frac{\shortlim a_n}{\shortlim b_n}$
+		\item $\shortlim a_n^p=\left(\shortlim a_n\right)^p$ if $p>0$ and $a_n>0$.
+	\end{enumerate}
+
+	\vspace{6mm}
+	
+	\sectitle{Miscellaneous Rules and Theorems}
+	\subsectitle{Squeeze Theorem}{If $a_n\leq b_n\leq c_n$ and if $\shortlim a_n = L = \shortlim c_n$, then $\shortlim b_n = L$.}
+%	\subsectitle{Zero Absolute Value Thing Rule}{If $\shortlim|a_n|=0$, then $\shortlim a_n=0$.}
+	\subsectitle{Continuous Image of Convergent Sequence is Convergent}{If $\shortlim a_n = L$ and the function $f$ is continuous at $L$, then $\shortlim f(a_n)=f(L)$.}
+	\subsectitle{Convergence of $\{r^n\}$}{The sequence $\{r^n\}$ is convergent if $-1<r\leq 1$ and divergent for all other values of $r$. Moreover, $$\shortlim r^n = \left\{\begin{array}{rcl}0 & \text{if} & -1 < r < 1 \\ 1 & \text{if} & r=1 \end{array}\right.$$}
+		
+\end{document}

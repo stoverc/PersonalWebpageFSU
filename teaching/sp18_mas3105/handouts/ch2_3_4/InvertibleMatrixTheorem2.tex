@@ -1,0 +1,151 @@
+\documentclass[12 pt]{article}
+
+\usepackage{stoversymb}
+\input{../HandoutHeader.tex}
+
+\graphicspath{ {./../img/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\addtocounter{ThmBox}{9}
+
+\begin{document}
+%\begin{flushright}Name: \line(1,0){200}\end{flushright}
+\begin{center}
+\Large{\textbf{The Inverse Matrix Theorem II}}
+\end{center}
+%Recall that the \ul{inverse} of an $n\times n$ matrix $\sansA$ is an $n\times n$ matrix $\sansA^{-1}$ for which 
+%\[
+%	\sansA\sansA^{-1}=\sansI_n=\sansA^{-1}\sansA,
+%\] 
+%where $\sansI_n$ is the $n\times n$ identity matrix. Not all matrices have inverses, and those that do are called \ul{invertible} or \ul{nonsingular}.
+
+As we saw before, a matrix being invertible/nonsingular tells you a \textit{tremendous amount} about the matrix + its corresponding linear system(s) / linear transformation(s). To highlight this, your textbook regularly adds to + revisits a monolithic colossus it calls \textbf{The Invertible Matrix Theorem}. 
+
+This so-called ``theorem'' is \ul{really} just a collection of statements/observations which mean the same thing as (and hence are logically equivalent to) \textit{$\sansA$ has an inverse}. However, because many of the statements lumped into this ``theorem'' are important---and indeed, many are related to / duplicates of statements we've already visited before---I want to make sure you have them explicitly given and explained to you. Hence, this (and the previous) handout!
+
+Here, we recall the nine (9) previously-stated conditions which are equivalent to the statement ``the $n\times n$ matrix $\sansA$ is invertible:''
+\begin{enumerate}[label=(\arabic*),itemsep=0.75mm,topsep=1.5mm,leftmargin=16mm]
+	\item $\sansA$ is invertible if and only if $\det(\sansA)\neq 0$.
+	\item $\sansA$ is invertible if and only if the columns of $\sansA$ form a linearly independent set.
+	\item $\sansA$ is invertible if and only if $\sansA\vect{x}=\vect{0}$ has only the trivial solution.
+	\item $\sansA$ is invertible if and only if the linear transformation $T(\vect{x})=\sansA\vect{x}$ is one-to-one.
+	\item $\sansA$ is invertible if and only if the linear transformation $T(\vect{x})=\sansA\vect{x}$ is onto.
+	\item $\sansA$ is invertible if and only if the equation $\sansA\vect{x}=\vect{b}$ has $\geq 1$ solution for each $\vect{b}\in\Reals^n$.
+	\item $\sansA$ is invertible if and only if the columns of $\sansA$ span $\Reals^n$.
+	\item $\sansA$ is invertible if and only if $\sansA$ is row equivalent to the $n\times n$ identity matrix $\sansI_n$.
+	\item $\sansA$ is invertible if and only if $\sansA^\sansT$ invertible.
+\end{enumerate}
+For more details, you should see the previous handout.
+
+With this handout, we pick up from there. \red{\textbf{Throughout, assume that $\sansA=\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_n}$ is an $n\times n$ matrix, i.e. that $T(\vect{x})=\sansA\vect{x}$ is a linear transformation $\Reals^n\to\Reals^n$!}}
+
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if the columns of $\sansA$ form a basis for $\Reals^n$.}
+\why{From the previous handout, the $n\times n$ matrix $\sansA$ is invertible if and only if the columns of $\sansA$ are linearly independent (see (2) on the last handout) \textit{and} if and only if the columns of $\sansA$ span $\Reals^n$ (see (7) on the last handout).
+
+To rephrase: $\sansA=\pmatgrid{c|c|c}{\vect{v}_1 & \cdots & \vect{v}_n}$ is invertible if and only if $\{\vect{v}_1,\ldots,\vect{v}_n\}$ is a linearly independent set which spans $\Reals^n$. By definition, this means that $\{\vect{v}_1,\ldots,\vect{v}_n\}$ is a basis for $\Reals^n$.
+}
+
+%==========================================================================
+Condition (10) involves the columns of $\sansA$; unsurprisingly, we can relate this to the column \textit{space} $\col(\sansA)$ of $\sansA$.
+
+\thmbox{$\sansA$ is invertible if and only if $\underbrace{\col(\sansA)}_{\row(\sansA^\sansT)}=\Reals^n$.}
+\why{The columns $\{\vect{v}_1,\ldots,\vect{v}_n\}$ of $\sansA$ are a basis for $\Reals^n$ if and only if $\col(\sansA)\deff\vsspan\{\vect{v}_1,\ldots,\vect{v}_n\}$ is an $n$-dimensional subspace of $\Reals^n$. 
+	
+By properties of (vector) subspaces, the only such subspace \textit{in} $\Reals^n$ is $\Reals^n$ itself.}
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\dim(\underbrace{\col(\sansA)}_{\row(\sansA^\sansT)})=n$.}
+\why{By (11), $\sansA$ is invertible if and only if $\col(\sansA)=\Reals^n$, which is true if and only if $\dim(\col(\sansA))=\dim(\Reals^n)=n$.}
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\underbrace{\rank(\sansA)}_{\rank(\sansA^\sansT)}=n$.}
+\why{By (12), $\sansA$ is invertible if and only if $\dim(\col(\sansA))=n$. By definition, $\rank(\sansA)=\dim(\col(\sansA))$, so the result follows.}
+	
+%==========================================================================
+Conditions (11)--(13) involve $\col(\sansA)$, and by the rank-nullity theorem, this is immediately tethered to the null space $\nul(\sansA)$.
+
+\thmbox{$\sansA$ is invertible if and only if $\nullity(\sansA)=0$}
+\why{By (13), $\sansA$ is invertible if and only if $\rank(\sansA)=n$. By the rank-nullity theorem,
+\[
+	\rank(\sansA)+\nullity(\sansA)=n,
+\]
+so then $\sansA$ is invertible if and only if $\nullity(\sansA)=n-\rank(\sansA)=n-n=0$.}
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\dim(\nul(\sansA))=0$}
+\why{By (14), $\sansA$ is invertible if and only if $\dim(\nul(\sansA))=0$. By definition, $\nullity(\sansA)=\dim(\nul(\sansA))$, so the result follows.}
+
+%==========================================================================
+\thmbox{$\sansA$ is invertible if and only if $\nul(\sansA)=\{\vect{0}\}$.}
+\why{By (15), $\sansA$ is invertible if and only if $\dim(\nul(\sansA))=0$. The only $0$-dimensional subspace of $\Reals^n$ (or of any vector space) is the trivial subspace $\{\vect{0}\}$, and hence the result follows.}
+
+%==========================================================================
+\vspace{3mm}\noindent Even when the two above lists are \textbf{combined}, the result is still just a small fraction of the number of equivalent ways one can say ``$\sansA$ is invertible.'' In a perfect world, we'll revisit this handout with additional updates at least one more time throughout the remainder of the semester, but this is less than certain.
+
+In the meantime, take some time to read through the above and digest everything thoroughly. To help, use the above to work through the following true/false practice problems!
+
+\vspace{3mm}
+
+\exbox{Mark each of the following questions ``true'' or ``false.'' Throughout, let $\vect{v}_1,\ldots,\vect{v}_p$ be vectors in a nonzero subspace $H$ of $\Reals^n$ and let $S=\{\vect{v}_1,\ldots,\vect{v}_p\}$. \justify
+\begin{enumerate}[label=(\alph*)]
+	\item The set of all linear combinations of $\vect{v}_1,\ldots,\vect{v}_p$ is a subspace of $\Reals^n$.
+	\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ spans $H$, then $S$ spans $H$.
+	\item If $\{\vect{v}_1,\ldots,\vect{v}_{p-1}\}$ is linearly independent, then so is $S$.
+	\item If $S$ is linearly independent, then $S$ is a basis for $H$.
+	\item If $\vsspan\{S\}=H$, then some subset of $S$ is a basis for $H$.
+	\item If $\dim H=p$ and $\vsspan\{S\}=H$, then $S$ cannot be linearly dependent.
+	\item A plane in $\Reals^3$ is a two-dimensional subspace.
+	\item Row operations on a matrix $\sansA$ can change the linear dependence relations among the rows of $\sansA$.
+	\item Row operations on a matrix can change the null space.
+	\item The rank of a matrix equals the number of nonzero rows.
+	\item If an $m\times n$ matrix $\sansA$ is row equivalent to an echelon matrix $\sansU$ and if $\sansU$ has $k$ nonzero rows, then the dimension of the solution space of $\sansA\vect{x}=\vect{0}$ is $m-k$.
+	\item If $\sansB$ is obtained from $\sansA$ by elementary row operations, then $\rank(\sansB)=\rank(\sansA)$.
+	\item The nonzero rows of a matrix $\sansA$ form a basis for $\row(\sansA)$.
+	\item If matrices $\sansA$ and $\sansB$ have the same $\RREF$, then $\row(\sansA)=\row(\sansB)$.
+	\item If $H$ is a subspace of $\Reals^3$, then there is a $3\times 3$ matrix $\sansA$ such that $H=\col(\sansA)$.
+	\item If $\sansA$ is $m\times n$ and $\rank(\sansA)=m$, then the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is one-to-one.
+	\item If $\sansA$ is $m\times n$ and the linear transformation $\vect{x}\mapsto\sansA\vect{x}$ is onto, then $\rank(\sansA)=m$.
+\end{enumerate}
+}
+
+\vspace{3mm}
+
+\exbox{What would you have to know about the solution set of a homogoenous system of 31 linear equations in 33 variables in order to know that the associated nonhomogeneous equation has a solution?}
+
+\vspace{3mm}
+
+\exbox{Let $\rmTT:\Reals^n\to\Reals^m$ be a linear transformation.
+	\begin{enumerate}[label=(\alph*)]
+		\item What is the dimension of $\range(\rmTT)$ if $\rmTT$ is one-to-one? \justify
+		\item What is the dimension of $\ker(\rmTT)$ if $\rmTT$ is onto? \justify
+	\end{enumerate}
+}
+
+\vspace{3mm}
+
+\exbox{
+	\red{This is a challenge problem!} Let $\sansA$ be an $m\times n$ matrix.
+	
+	\begin{enumerate}[label=(\alph*),listparindent=0.25in]
+		\item Show that if $\sansB$ is $n\times p$, then $\rank(\sansA\sansB)\leq\rank(\sansA)$ by showing that every vector in the column space of $\sansA\sansB$ is in the column space of $\sansA$.
+		\item Show that if $\sansB$ is $n\times p$, then $\rank(\sansA\sansB)\leq\rank(\sansB)$ by using problem 4(a) and studying $(\sansA\sansB)^\sansT)$.
+		\item Show that if $\sansP$ is an invertible $m\times m$ matrix, then $\rank(\sansP\sansA)=\rank(\sansA)$ by applying problems 4(a) and 4(b) to each of $\sansP\sansA$ and $\sansP^{-1}(\sansP\sansA)$.
+		\item Show that if $\sansQ$ is invertible, then $\rank(\sansA\sansQ)=\rank(\sansA)$ by applying problem 4(c) to $\rank(\sansA\sansQ)^\sansT$.
+		\item Suppose that $\sansB$ is $n\times p$ such that $\sansA\sansB=0$. Show that $\rank(\sansA)+\rank(\sansB)\leq n$ by showing that one of $\nul(\sansA)$, $\col(\sansA)$, $\nul(\sansB)$, or $\col(\sansB)$ is contained in one of the other three.
+		\item Suppose that $\rank(\sansA)=r$. The \textbf{rank factorization} of $\sansA$ is an equation of the form $\sansA=\sansC\sansR$ where $\sansC$ is an $m\times r$ matrix of rank $r$ and $\sansR$ is an $r\times n$ matrix of rank $r$. Such a factorization always exists.
+		
+		Given an $m\times n$ matrix $\sansB$, use rank factorizations of $\sansA$ and $\sansB$ to show that%\vspace{-1.5mm}
+		\[
+			\rank(\sansA+\sansB)\leq\rank(\sansA)+\rank(\sansB) 
+		\]
+		\vspace{-2mm}by writing the sum $\sansA+\sansB$ as the product of two augmented matrices.
+		\item If $\sansA$ has rank $r$, explain why 
+		\begin{enumerate}[label=(\roman*),topsep=0mm]
+			\item $\sansA$ must contain an $m\times r$ submatrix $\sansA_1$ of rank $r$; and
+			\item $\sansA_1$ must have an invertible $r\times r$ submatrix $\sansA_2$.
+		\end{enumerate}
+	\end{enumerate}
+}
+\end{document}

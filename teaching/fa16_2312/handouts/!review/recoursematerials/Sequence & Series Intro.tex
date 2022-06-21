@@ -1,0 +1,140 @@
+\documentclass[12 pt]{article}
+
+\usepackage{amsmath}    
+\usepackage{amssymb}   
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\usepackage{geometry}
+ \geometry{
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Name: \hspace{100 pt}}
+\lhead{\bf Chapter 11 Intro}
+%\rfoot{\thepage}
+
+
+\begin{document}
+
+A {\bf sequence} is a function $ \left\{ a_{n} \right\}_{n=0}^{\infty}$ whose domain is the set of natural numbers (or some subset) $n=0,1,2,3,\ldots$. We list the elements of a sequence in order as
+
+\[
+a_{n}=a_{0},a_{1}, a_{2},a_{3},\ldots
+\]
+ 
+Write the first six terms of the following sequences.
+
+\begin{enumerate}
+
+\item ${\displaystyle \left\{ \frac{n}{n+1} \right\}_{n=1}^{\infty}}$
+
+\vspace{40mm}
+
+\item ${\displaystyle \left\{ \frac{ (-1)^n (n+1)}{3^{n}} \right\}_{n=1}^{\infty}}$
+
+\vspace{40mm}
+
+\item $ \left\{ \sqrt{n-3} \right\}_{n=3}^{\infty}$
+
+\vspace{40mm}
+
+\item $ \left\{ \cos \left( \frac{n\pi}{6} \right) \right\}_{n=0}^{\infty}$
+
+\vspace{40mm}
+
+\end{enumerate}
+
+\newpage
+
+Sequences can also be written {\bf recursively}. That means that each term depends on the previous term. Determine the first six terms of each of the recursively defined sequences. 
+
+\begin{enumerate}
+
+\item $a_{1}=4, a_{n}=3+a_{n-1}$. 
+
+\vspace{30mm}
+
+\item $a_{1}=1, a_{2}=-1, a_{n}=a_{n-2}+3\cdot a_{n-1}$.
+
+\vspace{30mm}
+
+\item $a_{1}=3, a_{n}=-2 \cdot a_{n-1}$. 
+
+\vspace{30mm}
+
+\end{enumerate}
+
+Find a formula for the general term $a_{n}$ of the sequence.
+
+\begin{enumerate}
+
+\item $\left\{ 2, 7, 12, 17, \ldots \right\}$
+
+\vspace{35mm}
+
+\item $\left\{ \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, \ldots \right\}$
+
+\vspace{35mm}
+
+\item $\left\{ \frac{3}{5},-\frac{4}{25}, \frac{5}{125},-\frac{6}{625}, \frac{7}{3125},\ldots \right\}$
+
+\end{enumerate}
+
+\newpage
+
+Determine the limit $\lim_{n \to \infty} a_{n}$ of the sequence, if it exists. 
+
+\begin{enumerate}
+
+\item  ${\displaystyle \left\{ \frac{n}{n+1} \right\}}$
+
+\vspace{40mm}
+
+\item $ \left\{ \sqrt{n-3} \right\}$
+
+\vspace{40mm}
+
+\item $ \left\{ \cos \left( \frac{n\pi}{6} \right) \right\}$
+
+\vspace{40mm}
+
+\item ${\displaystyle \left\{ \frac{1}{2^n} \right\}}$
+
+\end{enumerate}
+
+\newpage
+
+A {\bf series} is the sum of a sequence. A series can be the sum of a certain number of terms or it can be the infinite sum of the entire series. Notationally, we represent a series as
+
+$$ {\displaystyle \sum\limits_{n=1}^{N} a_{n}}$$
+
+The number below $\Sigma$ tells us where to start our addition, the number above tells us where to stop. \\
+
+Determine the following sums:
+
+\begin{enumerate}
+
+\item $ {\displaystyle \sum\limits_{n=1}^{5} \frac{n}{n+1}  } $
+
+\vspace{40mm}
+
+\item $ {\displaystyle \sum\limits_{n=4}^{10} n  } $
+
+\vspace{40mm}
+
+\item $ {\displaystyle \sum\limits_{n=0}^{10} \frac{ (-1)^n (n+1)}{3^{n}} } $
+
+\end{enumerate}
+
+\end{document}
